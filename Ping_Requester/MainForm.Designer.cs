@@ -156,7 +156,7 @@
             chbInfiniteLoop.AutoSize = true;
             chbInfiniteLoop.Font = new Font("Consolas", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 238);
             chbInfiniteLoop.ForeColor = SystemColors.ActiveCaptionText;
-            chbInfiniteLoop.Location = new Point(93, 13);
+            chbInfiniteLoop.Location = new Point(3, 11);
             chbInfiniteLoop.Name = "chbInfiniteLoop";
             chbInfiniteLoop.Size = new Size(148, 24);
             chbInfiniteLoop.TabIndex = 2;
@@ -204,7 +204,7 @@
             lblWhenSuccess.AutoSize = true;
             lblWhenSuccess.Font = new Font("Consolas", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 238);
             lblWhenSuccess.ForeColor = SystemColors.ActiveCaptionText;
-            lblWhenSuccess.Location = new Point(12, 284);
+            lblWhenSuccess.Location = new Point(12, 277);
             lblWhenSuccess.Name = "lblWhenSuccess";
             lblWhenSuccess.Size = new Size(126, 20);
             lblWhenSuccess.TabIndex = 7;
@@ -215,7 +215,7 @@
             chbShowNotification.AutoSize = true;
             chbShowNotification.Font = new Font("Consolas", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 238);
             chbShowNotification.ForeColor = SystemColors.ActiveCaptionText;
-            chbShowNotification.Location = new Point(12, 316);
+            chbShowNotification.Location = new Point(12, 309);
             chbShowNotification.Name = "chbShowNotification";
             chbShowNotification.Size = new Size(184, 24);
             chbShowNotification.TabIndex = 6;
@@ -227,7 +227,7 @@
             chbMakeSound.AutoSize = true;
             chbMakeSound.Font = new Font("Consolas", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 238);
             chbMakeSound.ForeColor = SystemColors.ActiveCaptionText;
-            chbMakeSound.Location = new Point(223, 316);
+            chbMakeSound.Location = new Point(223, 309);
             chbMakeSound.Name = "chbMakeSound";
             chbMakeSound.Size = new Size(121, 24);
             chbMakeSound.TabIndex = 5;
@@ -285,6 +285,7 @@
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "MainForm";
             Text = "Form1";
+            Load += MainForm_Load;
             pnlTop.ResumeLayout(false);
             pnlTop.PerformLayout();
             pnlMiddle.ResumeLayout(false);
