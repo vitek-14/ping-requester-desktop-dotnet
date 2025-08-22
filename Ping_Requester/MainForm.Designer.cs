@@ -33,6 +33,7 @@
             pnlInfo = new Panel();
             lblInfo = new Label();
             pnlControls = new Panel();
+            btnSendRequest = new Button();
             lblNumberOfTries = new Label();
             lblNumberOfPR = new Label();
             chbInfiniteLoop = new CheckBox();
@@ -47,7 +48,6 @@
             txbPingTarget = new TextBox();
             pnlData = new Panel();
             pnlMiddle = new Panel();
-            button1 = new Button();
             pnlTop.SuspendLayout();
             pnlInfo.SuspendLayout();
             pnlControls.SuspendLayout();
@@ -105,7 +105,7 @@
             // pnlControls
             // 
             pnlControls.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            pnlControls.Controls.Add(button1);
+            pnlControls.Controls.Add(btnSendRequest);
             pnlControls.Controls.Add(lblNumberOfTries);
             pnlControls.Controls.Add(lblNumberOfPR);
             pnlControls.Controls.Add(chbInfiniteLoop);
@@ -123,6 +123,17 @@
             pnlControls.Name = "pnlControls";
             pnlControls.Size = new Size(386, 406);
             pnlControls.TabIndex = 2;
+            // 
+            // btnSendRequest
+            // 
+            btnSendRequest.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            btnSendRequest.ForeColor = SystemColors.Highlight;
+            btnSendRequest.Location = new Point(99, 248);
+            btnSendRequest.Name = "btnSendRequest";
+            btnSendRequest.Size = new Size(149, 36);
+            btnSendRequest.TabIndex = 12;
+            btnSendRequest.Text = "Send Request";
+            btnSendRequest.UseVisualStyleBackColor = true;
             // 
             // lblNumberOfTries
             // 
@@ -267,17 +278,6 @@
             pnlMiddle.Size = new Size(811, 408);
             pnlMiddle.TabIndex = 1;
             // 
-            // button1
-            // 
-            button1.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 238);
-            button1.ForeColor = SystemColors.Highlight;
-            button1.Location = new Point(99, 248);
-            button1.Name = "button1";
-            button1.Size = new Size(149, 36);
-            button1.TabIndex = 12;
-            button1.Text = "Send Request";
-            button1.UseVisualStyleBackColor = true;
-            // 
             // MainForm
             // 
             AutoScaleMode = AutoScaleMode.None;
@@ -324,6 +324,6 @@
         private TextBox txbPingTarget;
         private Panel pnlData;
         private Panel pnlMiddle;
-        private Button button1;
+        private Button btnSendRequest;
     }
 }
