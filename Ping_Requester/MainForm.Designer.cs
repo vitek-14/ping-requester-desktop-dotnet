@@ -150,31 +150,32 @@
             chbInfiniteLoop.AutoSize = true;
             chbInfiniteLoop.Font = new Font("Consolas", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 238);
             chbInfiniteLoop.ForeColor = SystemColors.ActiveCaptionText;
-            chbInfiniteLoop.Location = new Point(12, 184);
+            chbInfiniteLoop.Location = new Point(12, 194);
             chbInfiniteLoop.Name = "chbInfiniteLoop";
             chbInfiniteLoop.Size = new Size(148, 24);
             chbInfiniteLoop.TabIndex = 2;
             chbInfiniteLoop.Text = "Infinite loop";
             chbInfiniteLoop.UseVisualStyleBackColor = true;
+            chbInfiniteLoop.Click += chbInfiniteLoop_Click;
             // 
             // nudNumberOfTries
             // 
             nudNumberOfTries.Anchor = AnchorStyles.Left;
-            nudNumberOfTries.Location = new Point(279, 241);
+            nudNumberOfTries.Location = new Point(285, 241);
             nudNumberOfTries.Name = "nudNumberOfTries";
             nudNumberOfTries.Size = new Size(65, 27);
             nudNumberOfTries.TabIndex = 10;
             // 
             // nudNumberOfPR
             // 
-            nudNumberOfPR.Location = new Point(279, 142);
+            nudNumberOfPR.Location = new Point(285, 142);
             nudNumberOfPR.Name = "nudNumberOfPR";
             nudNumberOfPR.Size = new Size(65, 27);
             nudNumberOfPR.TabIndex = 3;
             // 
             // nudSpaceBetweenPR
             // 
-            nudSpaceBetweenPR.Location = new Point(279, 93);
+            nudSpaceBetweenPR.Location = new Point(285, 93);
             nudSpaceBetweenPR.Name = "nudSpaceBetweenPR";
             nudSpaceBetweenPR.Size = new Size(65, 27);
             nudSpaceBetweenPR.TabIndex = 9;
