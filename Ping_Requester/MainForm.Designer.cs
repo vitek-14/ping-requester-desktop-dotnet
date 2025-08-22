@@ -30,14 +30,13 @@
         {
             pnlTop = new Panel();
             lblPingRequester = new Label();
-            pnlMiddle = new Panel();
-            pnlData = new Panel();
+            pnlInfo = new Panel();
+            lblInfo = new Label();
             pnlControls = new Panel();
             lblNumberOfTries = new Label();
-            nudNumberOfTries = new NumericUpDown();
-            pnlInfiniteLoop = new Panel();
-            chbInfiniteLoop = new CheckBox();
             lblNumberOfPR = new Label();
+            chbInfiniteLoop = new CheckBox();
+            nudNumberOfTries = new NumericUpDown();
             nudNumberOfPR = new NumericUpDown();
             nudSpaceBetweenPR = new NumericUpDown();
             label2 = new Label();
@@ -46,16 +45,15 @@
             chbMakeSound = new CheckBox();
             lblPingTarget = new Label();
             txbPingTarget = new TextBox();
-            pnlInfo = new Panel();
-            lblInfo = new Label();
+            pnlData = new Panel();
+            pnlMiddle = new Panel();
             pnlTop.SuspendLayout();
-            pnlMiddle.SuspendLayout();
+            pnlInfo.SuspendLayout();
             pnlControls.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)nudNumberOfTries).BeginInit();
-            pnlInfiniteLoop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)nudNumberOfPR).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nudSpaceBetweenPR).BeginInit();
-            pnlInfo.SuspendLayout();
+            pnlMiddle.SuspendLayout();
             SuspendLayout();
             // 
             // pnlTop
@@ -65,7 +63,7 @@
             pnlTop.Dock = DockStyle.Top;
             pnlTop.Location = new Point(0, 0);
             pnlTop.Name = "pnlTop";
-            pnlTop.Size = new Size(811, 82);
+            pnlTop.Size = new Size(811, 77);
             pnlTop.TabIndex = 0;
             // 
             // lblPingRequester
@@ -81,33 +79,36 @@
             lblPingRequester.Text = "Ping Requester";
             lblPingRequester.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // pnlMiddle
+            // pnlInfo
             // 
-            pnlMiddle.BorderStyle = BorderStyle.FixedSingle;
-            pnlMiddle.Controls.Add(pnlData);
-            pnlMiddle.Controls.Add(pnlControls);
-            pnlMiddle.Dock = DockStyle.Top;
-            pnlMiddle.Location = new Point(0, 82);
-            pnlMiddle.Name = "pnlMiddle";
-            pnlMiddle.Size = new Size(811, 349);
-            pnlMiddle.TabIndex = 1;
+            pnlInfo.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            pnlInfo.BorderStyle = BorderStyle.FixedSingle;
+            pnlInfo.Controls.Add(lblInfo);
+            pnlInfo.Dock = DockStyle.Bottom;
+            pnlInfo.Location = new Point(0, 453);
+            pnlInfo.Name = "pnlInfo";
+            pnlInfo.Size = new Size(811, 32);
+            pnlInfo.TabIndex = 2;
             // 
-            // pnlData
+            // lblInfo
             // 
-            pnlData.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            pnlData.Dock = DockStyle.Fill;
-            pnlData.Location = new Point(382, 0);
-            pnlData.Name = "pnlData";
-            pnlData.Size = new Size(427, 347);
-            pnlData.TabIndex = 3;
+            lblInfo.AutoSize = true;
+            lblInfo.Font = new Font("Consolas", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            lblInfo.ForeColor = SystemColors.InfoText;
+            lblInfo.Location = new Point(10, 3);
+            lblInfo.Name = "lblInfo";
+            lblInfo.Size = new Size(70, 22);
+            lblInfo.TabIndex = 0;
+            lblInfo.Text = "Info: ";
             // 
             // pnlControls
             // 
             pnlControls.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            pnlControls.BorderStyle = BorderStyle.FixedSingle;
             pnlControls.Controls.Add(lblNumberOfTries);
+            pnlControls.Controls.Add(lblNumberOfPR);
+            pnlControls.Controls.Add(chbInfiniteLoop);
             pnlControls.Controls.Add(nudNumberOfTries);
-            pnlControls.Controls.Add(pnlInfiniteLoop);
+            pnlControls.Controls.Add(nudNumberOfPR);
             pnlControls.Controls.Add(nudSpaceBetweenPR);
             pnlControls.Controls.Add(label2);
             pnlControls.Controls.Add(lblWhenSuccess);
@@ -118,7 +119,7 @@
             pnlControls.Dock = DockStyle.Left;
             pnlControls.Location = new Point(0, 0);
             pnlControls.Name = "pnlControls";
-            pnlControls.Size = new Size(382, 347);
+            pnlControls.Size = new Size(386, 406);
             pnlControls.TabIndex = 2;
             // 
             // lblNumberOfTries
@@ -127,56 +128,46 @@
             lblNumberOfTries.AutoSize = true;
             lblNumberOfTries.Font = new Font("Consolas", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 238);
             lblNumberOfTries.ForeColor = SystemColors.ActiveCaptionText;
-            lblNumberOfTries.Location = new Point(12, 138);
+            lblNumberOfTries.Location = new Point(12, 243);
             lblNumberOfTries.Name = "lblNumberOfTries";
             lblNumberOfTries.Size = new Size(144, 20);
             lblNumberOfTries.TabIndex = 11;
             lblNumberOfTries.Text = "Number of tries";
-            // 
-            // nudNumberOfTries
-            // 
-            nudNumberOfTries.Anchor = AnchorStyles.Left;
-            nudNumberOfTries.Location = new Point(279, 136);
-            nudNumberOfTries.Name = "nudNumberOfTries";
-            nudNumberOfTries.Size = new Size(65, 27);
-            nudNumberOfTries.TabIndex = 10;
-            // 
-            // pnlInfiniteLoop
-            // 
-            pnlInfiniteLoop.Controls.Add(chbInfiniteLoop);
-            pnlInfiniteLoop.Controls.Add(lblNumberOfPR);
-            pnlInfiniteLoop.Controls.Add(nudNumberOfPR);
-            pnlInfiniteLoop.Location = new Point(12, 186);
-            pnlInfiniteLoop.Name = "pnlInfiniteLoop";
-            pnlInfiniteLoop.Size = new Size(344, 77);
-            pnlInfiniteLoop.TabIndex = 10;
-            // 
-            // chbInfiniteLoop
-            // 
-            chbInfiniteLoop.AutoSize = true;
-            chbInfiniteLoop.Font = new Font("Consolas", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 238);
-            chbInfiniteLoop.ForeColor = SystemColors.ActiveCaptionText;
-            chbInfiniteLoop.Location = new Point(3, 11);
-            chbInfiniteLoop.Name = "chbInfiniteLoop";
-            chbInfiniteLoop.Size = new Size(148, 24);
-            chbInfiniteLoop.TabIndex = 2;
-            chbInfiniteLoop.Text = "Infinite loop";
-            chbInfiniteLoop.UseVisualStyleBackColor = true;
             // 
             // lblNumberOfPR
             // 
             lblNumberOfPR.AutoSize = true;
             lblNumberOfPR.Font = new Font("Consolas", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 238);
             lblNumberOfPR.ForeColor = SystemColors.ActiveCaptionText;
-            lblNumberOfPR.Location = new Point(3, 47);
+            lblNumberOfPR.Location = new Point(12, 144);
             lblNumberOfPR.Name = "lblNumberOfPR";
             lblNumberOfPR.Size = new Size(216, 20);
             lblNumberOfPR.TabIndex = 4;
             lblNumberOfPR.Text = "Number of ping requests";
             // 
+            // chbInfiniteLoop
+            // 
+            chbInfiniteLoop.AutoSize = true;
+            chbInfiniteLoop.Font = new Font("Consolas", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            chbInfiniteLoop.ForeColor = SystemColors.ActiveCaptionText;
+            chbInfiniteLoop.Location = new Point(12, 184);
+            chbInfiniteLoop.Name = "chbInfiniteLoop";
+            chbInfiniteLoop.Size = new Size(148, 24);
+            chbInfiniteLoop.TabIndex = 2;
+            chbInfiniteLoop.Text = "Infinite loop";
+            chbInfiniteLoop.UseVisualStyleBackColor = true;
+            // 
+            // nudNumberOfTries
+            // 
+            nudNumberOfTries.Anchor = AnchorStyles.Left;
+            nudNumberOfTries.Location = new Point(279, 241);
+            nudNumberOfTries.Name = "nudNumberOfTries";
+            nudNumberOfTries.Size = new Size(65, 27);
+            nudNumberOfTries.TabIndex = 10;
+            // 
             // nudNumberOfPR
             // 
-            nudNumberOfPR.Location = new Point(267, 45);
+            nudNumberOfPR.Location = new Point(279, 142);
             nudNumberOfPR.Name = "nudNumberOfPR";
             nudNumberOfPR.Size = new Size(65, 27);
             nudNumberOfPR.TabIndex = 3;
@@ -204,7 +195,7 @@
             lblWhenSuccess.AutoSize = true;
             lblWhenSuccess.Font = new Font("Consolas", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 238);
             lblWhenSuccess.ForeColor = SystemColors.ActiveCaptionText;
-            lblWhenSuccess.Location = new Point(12, 277);
+            lblWhenSuccess.Location = new Point(12, 294);
             lblWhenSuccess.Name = "lblWhenSuccess";
             lblWhenSuccess.Size = new Size(126, 20);
             lblWhenSuccess.TabIndex = 7;
@@ -215,7 +206,7 @@
             chbShowNotification.AutoSize = true;
             chbShowNotification.Font = new Font("Consolas", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 238);
             chbShowNotification.ForeColor = SystemColors.ActiveCaptionText;
-            chbShowNotification.Location = new Point(12, 309);
+            chbShowNotification.Location = new Point(12, 326);
             chbShowNotification.Name = "chbShowNotification";
             chbShowNotification.Size = new Size(184, 24);
             chbShowNotification.TabIndex = 6;
@@ -227,7 +218,7 @@
             chbMakeSound.AutoSize = true;
             chbMakeSound.Font = new Font("Consolas", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 238);
             chbMakeSound.ForeColor = SystemColors.ActiveCaptionText;
-            chbMakeSound.Location = new Point(223, 309);
+            chbMakeSound.Location = new Point(223, 326);
             chbMakeSound.Name = "chbMakeSound";
             chbMakeSound.Size = new Size(121, 24);
             chbMakeSound.TabIndex = 5;
@@ -250,29 +241,28 @@
             txbPingTarget.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             txbPingTarget.Location = new Point(12, 48);
             txbPingTarget.Name = "txbPingTarget";
-            txbPingTarget.Size = new Size(332, 27);
+            txbPingTarget.Size = new Size(338, 27);
             txbPingTarget.TabIndex = 1;
             // 
-            // pnlInfo
+            // pnlData
             // 
-            pnlInfo.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            pnlInfo.Controls.Add(lblInfo);
-            pnlInfo.Dock = DockStyle.Fill;
-            pnlInfo.Location = new Point(0, 431);
-            pnlInfo.Name = "pnlInfo";
-            pnlInfo.Size = new Size(811, 54);
-            pnlInfo.TabIndex = 2;
+            pnlData.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            pnlData.Dock = DockStyle.Right;
+            pnlData.Location = new Point(392, 0);
+            pnlData.Name = "pnlData";
+            pnlData.Size = new Size(417, 406);
+            pnlData.TabIndex = 3;
             // 
-            // lblInfo
+            // pnlMiddle
             // 
-            lblInfo.AutoSize = true;
-            lblInfo.Font = new Font("Consolas", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 238);
-            lblInfo.ForeColor = SystemColors.InfoText;
-            lblInfo.Location = new Point(10, 16);
-            lblInfo.Name = "lblInfo";
-            lblInfo.Size = new Size(70, 22);
-            lblInfo.TabIndex = 0;
-            lblInfo.Text = "Info: ";
+            pnlMiddle.BorderStyle = BorderStyle.FixedSingle;
+            pnlMiddle.Controls.Add(pnlData);
+            pnlMiddle.Controls.Add(pnlControls);
+            pnlMiddle.Dock = DockStyle.Fill;
+            pnlMiddle.Location = new Point(0, 77);
+            pnlMiddle.Name = "pnlMiddle";
+            pnlMiddle.Size = new Size(811, 408);
+            pnlMiddle.TabIndex = 1;
             // 
             // MainForm
             // 
@@ -288,16 +278,14 @@
             Load += MainForm_Load;
             pnlTop.ResumeLayout(false);
             pnlTop.PerformLayout();
-            pnlMiddle.ResumeLayout(false);
+            pnlInfo.ResumeLayout(false);
+            pnlInfo.PerformLayout();
             pnlControls.ResumeLayout(false);
             pnlControls.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)nudNumberOfTries).EndInit();
-            pnlInfiniteLoop.ResumeLayout(false);
-            pnlInfiniteLoop.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)nudNumberOfPR).EndInit();
             ((System.ComponentModel.ISupportInitialize)nudSpaceBetweenPR).EndInit();
-            pnlInfo.ResumeLayout(false);
-            pnlInfo.PerformLayout();
+            pnlMiddle.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -305,23 +293,22 @@
 
         private Panel pnlTop;
         private Label lblPingRequester;
-        private Panel pnlMiddle;
         private Panel pnlInfo;
         private Label lblInfo;
-        private Label lblPingTarget;
-        private TextBox txbPingTarget;
         private Panel pnlControls;
-        private Panel pnlData;
+        private Label lblNumberOfTries;
+        private Label lblNumberOfPR;
+        private CheckBox chbInfiniteLoop;
+        private NumericUpDown nudNumberOfTries;
+        private NumericUpDown nudNumberOfPR;
+        private NumericUpDown nudSpaceBetweenPR;
+        private Label label2;
         private Label lblWhenSuccess;
         private CheckBox chbShowNotification;
         private CheckBox chbMakeSound;
-        private Label label2;
-        private NumericUpDown nudSpaceBetweenPR;
-        private Panel pnlInfiniteLoop;
-        private Label lblNumberOfTries;
-        private CheckBox chbInfiniteLoop;
-        private Label lblNumberOfPR;
-        private NumericUpDown nudNumberOfPR;
-        private NumericUpDown nudNumberOfTries;
+        private Label lblPingTarget;
+        private TextBox txbPingTarget;
+        private Panel pnlData;
+        private Panel pnlMiddle;
     }
 }
