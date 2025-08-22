@@ -47,6 +47,7 @@
             txbPingTarget = new TextBox();
             pnlData = new Panel();
             pnlMiddle = new Panel();
+            button1 = new Button();
             pnlTop.SuspendLayout();
             pnlInfo.SuspendLayout();
             pnlControls.SuspendLayout();
@@ -70,11 +71,11 @@
             // 
             lblPingRequester.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             lblPingRequester.AutoSize = true;
-            lblPingRequester.Font = new Font("Consolas", 24F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            lblPingRequester.Font = new Font("Calibri", 24F);
             lblPingRequester.ForeColor = SystemColors.HotTrack;
-            lblPingRequester.Location = new Point(233, 17);
+            lblPingRequester.Location = new Point(272, 15);
             lblPingRequester.Name = "lblPingRequester";
-            lblPingRequester.Size = new Size(328, 47);
+            lblPingRequester.Size = new Size(267, 49);
             lblPingRequester.TabIndex = 0;
             lblPingRequester.Text = "Ping Requester";
             lblPingRequester.TextAlign = ContentAlignment.MiddleLeft;
@@ -104,6 +105,7 @@
             // pnlControls
             // 
             pnlControls.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            pnlControls.Controls.Add(button1);
             pnlControls.Controls.Add(lblNumberOfTries);
             pnlControls.Controls.Add(lblNumberOfPR);
             pnlControls.Controls.Add(chbInfiniteLoop);
@@ -126,33 +128,33 @@
             // 
             lblNumberOfTries.Anchor = AnchorStyles.Left;
             lblNumberOfTries.AutoSize = true;
-            lblNumberOfTries.Font = new Font("Consolas", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            lblNumberOfTries.Font = new Font("Calibri", 10.2F);
             lblNumberOfTries.ForeColor = SystemColors.ActiveCaptionText;
-            lblNumberOfTries.Location = new Point(12, 243);
+            lblNumberOfTries.Location = new Point(12, 210);
             lblNumberOfTries.Name = "lblNumberOfTries";
-            lblNumberOfTries.Size = new Size(144, 20);
+            lblNumberOfTries.Size = new Size(120, 21);
             lblNumberOfTries.TabIndex = 11;
             lblNumberOfTries.Text = "Number of tries";
             // 
             // lblNumberOfPR
             // 
             lblNumberOfPR.AutoSize = true;
-            lblNumberOfPR.Font = new Font("Consolas", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            lblNumberOfPR.Font = new Font("Calibri", 10.2F);
             lblNumberOfPR.ForeColor = SystemColors.ActiveCaptionText;
-            lblNumberOfPR.Location = new Point(12, 144);
+            lblNumberOfPR.Location = new Point(12, 132);
             lblNumberOfPR.Name = "lblNumberOfPR";
-            lblNumberOfPR.Size = new Size(216, 20);
+            lblNumberOfPR.Size = new Size(183, 21);
             lblNumberOfPR.TabIndex = 4;
             lblNumberOfPR.Text = "Number of ping requests";
             // 
             // chbInfiniteLoop
             // 
             chbInfiniteLoop.AutoSize = true;
-            chbInfiniteLoop.Font = new Font("Consolas", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            chbInfiniteLoop.Font = new Font("Calibri", 10.2F);
             chbInfiniteLoop.ForeColor = SystemColors.ActiveCaptionText;
-            chbInfiniteLoop.Location = new Point(12, 194);
+            chbInfiniteLoop.Location = new Point(12, 174);
             chbInfiniteLoop.Name = "chbInfiniteLoop";
-            chbInfiniteLoop.Size = new Size(148, 24);
+            chbInfiniteLoop.Size = new Size(116, 25);
             chbInfiniteLoop.TabIndex = 2;
             chbInfiniteLoop.Text = "Infinite loop";
             chbInfiniteLoop.UseVisualStyleBackColor = true;
@@ -161,14 +163,14 @@
             // nudNumberOfTries
             // 
             nudNumberOfTries.Anchor = AnchorStyles.Left;
-            nudNumberOfTries.Location = new Point(285, 241);
+            nudNumberOfTries.Location = new Point(285, 208);
             nudNumberOfTries.Name = "nudNumberOfTries";
             nudNumberOfTries.Size = new Size(65, 27);
             nudNumberOfTries.TabIndex = 10;
             // 
             // nudNumberOfPR
             // 
-            nudNumberOfPR.Location = new Point(285, 142);
+            nudNumberOfPR.Location = new Point(285, 130);
             nudNumberOfPR.Name = "nudNumberOfPR";
             nudNumberOfPR.Size = new Size(65, 27);
             nudNumberOfPR.TabIndex = 3;
@@ -183,33 +185,33 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Consolas", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            label2.Font = new Font("Calibri", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 238);
             label2.ForeColor = SystemColors.ActiveCaptionText;
             label2.Location = new Point(12, 95);
             label2.Name = "label2";
-            label2.Size = new Size(243, 20);
+            label2.Size = new Size(199, 21);
             label2.TabIndex = 8;
             label2.Text = "Space between requests (s)";
             // 
             // lblWhenSuccess
             // 
             lblWhenSuccess.AutoSize = true;
-            lblWhenSuccess.Font = new Font("Consolas", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            lblWhenSuccess.Font = new Font("Calibri", 10.2F);
             lblWhenSuccess.ForeColor = SystemColors.ActiveCaptionText;
             lblWhenSuccess.Location = new Point(12, 294);
             lblWhenSuccess.Name = "lblWhenSuccess";
-            lblWhenSuccess.Size = new Size(126, 20);
+            lblWhenSuccess.Size = new Size(112, 21);
             lblWhenSuccess.TabIndex = 7;
             lblWhenSuccess.Text = "When success:";
             // 
             // chbShowNotification
             // 
             chbShowNotification.AutoSize = true;
-            chbShowNotification.Font = new Font("Consolas", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            chbShowNotification.Font = new Font("Calibri", 10.2F);
             chbShowNotification.ForeColor = SystemColors.ActiveCaptionText;
             chbShowNotification.Location = new Point(12, 326);
             chbShowNotification.Name = "chbShowNotification";
-            chbShowNotification.Size = new Size(184, 24);
+            chbShowNotification.Size = new Size(152, 25);
             chbShowNotification.TabIndex = 6;
             chbShowNotification.Text = "Show notification";
             chbShowNotification.UseVisualStyleBackColor = true;
@@ -217,11 +219,11 @@
             // chbMakeSound
             // 
             chbMakeSound.AutoSize = true;
-            chbMakeSound.Font = new Font("Consolas", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            chbMakeSound.Font = new Font("Calibri", 10.2F);
             chbMakeSound.ForeColor = SystemColors.ActiveCaptionText;
             chbMakeSound.Location = new Point(223, 326);
             chbMakeSound.Name = "chbMakeSound";
-            chbMakeSound.Size = new Size(121, 24);
+            chbMakeSound.Size = new Size(117, 25);
             chbMakeSound.TabIndex = 5;
             chbMakeSound.Text = "Make sound";
             chbMakeSound.UseVisualStyleBackColor = true;
@@ -229,11 +231,11 @@
             // lblPingTarget
             // 
             lblPingTarget.AutoSize = true;
-            lblPingTarget.Font = new Font("Consolas", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            lblPingTarget.Font = new Font("Calibri", 10.2F);
             lblPingTarget.ForeColor = SystemColors.ActiveCaptionText;
             lblPingTarget.Location = new Point(12, 21);
             lblPingTarget.Name = "lblPingTarget";
-            lblPingTarget.Size = new Size(108, 20);
+            lblPingTarget.Size = new Size(86, 21);
             lblPingTarget.TabIndex = 0;
             lblPingTarget.Text = "Ping target";
             // 
@@ -264,6 +266,17 @@
             pnlMiddle.Name = "pnlMiddle";
             pnlMiddle.Size = new Size(811, 408);
             pnlMiddle.TabIndex = 1;
+            // 
+            // button1
+            // 
+            button1.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            button1.ForeColor = SystemColors.Highlight;
+            button1.Location = new Point(99, 248);
+            button1.Name = "button1";
+            button1.Size = new Size(149, 36);
+            button1.TabIndex = 12;
+            button1.Text = "Send Request";
+            button1.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
@@ -311,5 +324,6 @@
         private TextBox txbPingTarget;
         private Panel pnlData;
         private Panel pnlMiddle;
+        private Button button1;
     }
 }
