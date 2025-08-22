@@ -30,6 +30,9 @@
         {
             pnlTop = new Panel();
             lblPingRequester = new Label();
+            menuStrip1 = new MenuStrip();
+            fileToolStripMenuItem = new ToolStripMenuItem();
+            settingsToolStripMenuItem = new ToolStripMenuItem();
             pnlInfo = new Panel();
             lblInfo = new Label();
             pnlControls = new Panel();
@@ -48,7 +51,11 @@
             txbPingTarget = new TextBox();
             pnlData = new Panel();
             pnlMiddle = new Panel();
+            preferencesToolStripMenuItem = new ToolStripMenuItem();
+            toolStripSeparator1 = new ToolStripSeparator();
+            exitToolStripMenuItem = new ToolStripMenuItem();
             pnlTop.SuspendLayout();
+            menuStrip1.SuspendLayout();
             pnlInfo.SuspendLayout();
             pnlControls.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)nudNumberOfTries).BeginInit();
@@ -61,6 +68,7 @@
             // 
             pnlTop.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             pnlTop.Controls.Add(lblPingRequester);
+            pnlTop.Controls.Add(menuStrip1);
             pnlTop.Dock = DockStyle.Top;
             pnlTop.Location = new Point(0, 0);
             pnlTop.Name = "pnlTop";
@@ -73,12 +81,36 @@
             lblPingRequester.AutoSize = true;
             lblPingRequester.Font = new Font("Calibri", 24F);
             lblPingRequester.ForeColor = SystemColors.HotTrack;
-            lblPingRequester.Location = new Point(272, 15);
+            lblPingRequester.Location = new Point(272, 21);
             lblPingRequester.Name = "lblPingRequester";
             lblPingRequester.Size = new Size(267, 49);
             lblPingRequester.TabIndex = 0;
             lblPingRequester.Text = "Ping Requester";
             lblPingRequester.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // menuStrip1
+            // 
+            menuStrip1.ImageScalingSize = new Size(20, 20);
+            menuStrip1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, settingsToolStripMenuItem });
+            menuStrip1.Location = new Point(0, 0);
+            menuStrip1.Name = "menuStrip1";
+            menuStrip1.Size = new Size(811, 28);
+            menuStrip1.TabIndex = 1;
+            menuStrip1.Text = "menuStrip1";
+            // 
+            // fileToolStripMenuItem
+            // 
+            fileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { toolStripSeparator1, exitToolStripMenuItem });
+            fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            fileToolStripMenuItem.Size = new Size(46, 24);
+            fileToolStripMenuItem.Text = "File";
+            // 
+            // settingsToolStripMenuItem
+            // 
+            settingsToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { preferencesToolStripMenuItem });
+            settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
+            settingsToolStripMenuItem.Size = new Size(76, 24);
+            settingsToolStripMenuItem.Text = "Settings";
             // 
             // pnlInfo
             // 
@@ -278,6 +310,23 @@
             pnlMiddle.Size = new Size(811, 408);
             pnlMiddle.TabIndex = 1;
             // 
+            // preferencesToolStripMenuItem
+            // 
+            preferencesToolStripMenuItem.Name = "preferencesToolStripMenuItem";
+            preferencesToolStripMenuItem.Size = new Size(168, 26);
+            preferencesToolStripMenuItem.Text = "Preferences";
+            // 
+            // toolStripSeparator1
+            // 
+            toolStripSeparator1.Name = "toolStripSeparator1";
+            toolStripSeparator1.Size = new Size(221, 6);
+            // 
+            // exitToolStripMenuItem
+            // 
+            exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            exitToolStripMenuItem.Size = new Size(224, 26);
+            exitToolStripMenuItem.Text = "Exit";
+            // 
             // MainForm
             // 
             AutoScaleMode = AutoScaleMode.None;
@@ -292,6 +341,8 @@
             Load += MainForm_Load;
             pnlTop.ResumeLayout(false);
             pnlTop.PerformLayout();
+            menuStrip1.ResumeLayout(false);
+            menuStrip1.PerformLayout();
             pnlInfo.ResumeLayout(false);
             pnlInfo.PerformLayout();
             pnlControls.ResumeLayout(false);
@@ -325,5 +376,11 @@
         private Panel pnlData;
         private Panel pnlMiddle;
         private Button btnSendRequest;
+        private MenuStrip menuStrip1;
+        private ToolStripMenuItem fileToolStripMenuItem;
+        private ToolStripMenuItem settingsToolStripMenuItem;
+        private ToolStripSeparator toolStripSeparator1;
+        private ToolStripMenuItem exitToolStripMenuItem;
+        private ToolStripMenuItem preferencesToolStripMenuItem;
     }
 }
