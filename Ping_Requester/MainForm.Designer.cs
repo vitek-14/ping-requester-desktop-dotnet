@@ -41,10 +41,10 @@
             pnlControls = new Panel();
             btnStop = new Button();
             btnSendRequest = new Button();
-            lblNumberOfTries = new Label();
+            lblAttempts = new Label();
             lblNumberOfPR = new Label();
             chbInfiniteLoop = new CheckBox();
-            nudNumberOfTries = new NumericUpDown();
+            nudAttempts = new NumericUpDown();
             nudNumberOfPR = new NumericUpDown();
             nudRefreshRate = new NumericUpDown();
             lblRefreshRate = new Label();
@@ -59,7 +59,7 @@
             menuStrip1.SuspendLayout();
             pnlInfo.SuspendLayout();
             pnlControls.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)nudNumberOfTries).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)nudAttempts).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nudNumberOfPR).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nudRefreshRate).BeginInit();
             pnlMiddle.SuspendLayout();
@@ -158,10 +158,10 @@
             pnlControls.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             pnlControls.Controls.Add(btnStop);
             pnlControls.Controls.Add(btnSendRequest);
-            pnlControls.Controls.Add(lblNumberOfTries);
+            pnlControls.Controls.Add(lblAttempts);
             pnlControls.Controls.Add(lblNumberOfPR);
             pnlControls.Controls.Add(chbInfiniteLoop);
-            pnlControls.Controls.Add(nudNumberOfTries);
+            pnlControls.Controls.Add(nudAttempts);
             pnlControls.Controls.Add(nudNumberOfPR);
             pnlControls.Controls.Add(nudRefreshRate);
             pnlControls.Controls.Add(lblRefreshRate);
@@ -199,17 +199,17 @@
             btnSendRequest.UseVisualStyleBackColor = true;
             btnSendRequest.Click += btnSendRequest_Click;
             // 
-            // lblNumberOfTries
+            // lblAttempts
             // 
-            lblNumberOfTries.Anchor = AnchorStyles.Left;
-            lblNumberOfTries.AutoSize = true;
-            lblNumberOfTries.Font = new Font("Calibri", 10.2F);
-            lblNumberOfTries.ForeColor = SystemColors.ActiveCaptionText;
-            lblNumberOfTries.Location = new Point(12, 210);
-            lblNumberOfTries.Name = "lblNumberOfTries";
-            lblNumberOfTries.Size = new Size(120, 21);
-            lblNumberOfTries.TabIndex = 11;
-            lblNumberOfTries.Text = "Number of tries";
+            lblAttempts.Anchor = AnchorStyles.Left;
+            lblAttempts.AutoSize = true;
+            lblAttempts.Font = new Font("Calibri", 10.2F);
+            lblAttempts.ForeColor = SystemColors.ActiveCaptionText;
+            lblAttempts.Location = new Point(12, 210);
+            lblAttempts.Name = "lblAttempts";
+            lblAttempts.Size = new Size(75, 21);
+            lblAttempts.TabIndex = 11;
+            lblAttempts.Text = "Attempts";
             // 
             // lblNumberOfPR
             // 
@@ -235,13 +235,13 @@
             chbInfiniteLoop.UseVisualStyleBackColor = true;
             chbInfiniteLoop.Click += chbInfiniteLoop_Click;
             // 
-            // nudNumberOfTries
+            // nudAttempts
             // 
-            nudNumberOfTries.Anchor = AnchorStyles.Left;
-            nudNumberOfTries.Location = new Point(285, 208);
-            nudNumberOfTries.Name = "nudNumberOfTries";
-            nudNumberOfTries.Size = new Size(65, 27);
-            nudNumberOfTries.TabIndex = 10;
+            nudAttempts.Anchor = AnchorStyles.Left;
+            nudAttempts.Location = new Point(285, 208);
+            nudAttempts.Name = "nudAttempts";
+            nudAttempts.Size = new Size(65, 27);
+            nudAttempts.TabIndex = 10;
             // 
             // nudNumberOfPR
             // 
@@ -362,7 +362,7 @@
             pnlInfo.PerformLayout();
             pnlControls.ResumeLayout(false);
             pnlControls.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)nudNumberOfTries).EndInit();
+            ((System.ComponentModel.ISupportInitialize)nudAttempts).EndInit();
             ((System.ComponentModel.ISupportInitialize)nudNumberOfPR).EndInit();
             ((System.ComponentModel.ISupportInitialize)nudRefreshRate).EndInit();
             pnlMiddle.ResumeLayout(false);
@@ -376,10 +376,10 @@
         private Panel pnlInfo;
         private Label lblInfo;
         private Panel pnlControls;
-        private Label lblNumberOfTries;
+        private Label lblAttempts;
         private Label lblNumberOfPR;
         private CheckBox chbInfiniteLoop;
-        private NumericUpDown nudNumberOfTries;
+        private NumericUpDown nudAttempts;
         private NumericUpDown nudNumberOfPR;
         private NumericUpDown nudRefreshRate;
         private Label lblRefreshRate;

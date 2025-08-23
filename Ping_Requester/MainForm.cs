@@ -24,24 +24,32 @@ namespace PingRequester.Client
 
             // NumericUpDowns
             nudRefreshRate.Value = 2;
-            nudNumberOfTries.Value = 30;
+            nudAttempts.Value = 30;
             nudNumberOfPR.Value = 2;
+
+            // check for infinite loop chb state
+            SetAttemptsState();
         }
 
-        private void chbInfiniteLoop_Click(object sender, EventArgs e)
+        private void SetAttemptsState()
         {
             bool numberOfTriesState = WidgetController.GetNumberOfTriesState(chbInfiniteLoop.Checked);
 
             if (numberOfTriesState)
             {
-                lblNumberOfTries.ForeColor = System.Drawing.Color.LightGray;
-                nudNumberOfTries.Enabled = false;
+                lblAttempts.ForeColor = System.Drawing.Color.Black;
+                nudAttempts.Enabled = true;
             }
             else
             {
-                lblNumberOfTries.ForeColor = System.Drawing.Color.Black;
-                nudNumberOfTries.Enabled = true;
+                lblAttempts.ForeColor = System.Drawing.Color.LightGray;
+                nudAttempts.Enabled = false;
             }
+        }
+
+        private void chbInfiniteLoop_Click(object sender, EventArgs e)
+        {
+            SetAttemptsState();
         }
 
         private async void btnSendRequest_Click(object sender, EventArgs e)
@@ -52,7 +60,7 @@ namespace PingRequester.Client
                 RequestedAdress = txbPingTarget.Text,
                 RefreshRate = (int)nudRefreshRate.Value,
                 NumberOfPR = (int)nudNumberOfPR.Value,
-                NumberOfTries = (int)nudNumberOfTries.Value,
+                Attempts = (int)nudAttempts.Value,
                 InfiniteLoop = chbInfiniteLoop.Checked,
                 MakeSound = chbMakeSound.Checked,
                 ShowNotification = chbShowNotification.Checked

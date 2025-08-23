@@ -9,7 +9,7 @@ namespace PingRequester.Data.DataObjects
         private bool pingSent;
         private int refreshRate;
         private int numberOfPR;
-        private int numberOfTries;
+        private int attempts;
         private bool infiniteLoop;
         private bool showNotification;
         private bool makeSound;
@@ -44,10 +44,10 @@ namespace PingRequester.Data.DataObjects
             set => SetProperty(ref numberOfPR, value);
         }
 
-        public int NumberOfTries
+        public int Attempts
         {
-            get => numberOfTries;
-            set => SetProperty(ref numberOfTries, value);
+            get => attempts;
+            set => SetProperty(ref attempts, value);
         }
 
         public bool InfiniteLoop
