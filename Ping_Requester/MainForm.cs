@@ -15,6 +15,8 @@ namespace PingRequester.Client
         private void MainForm_Load(object sender, EventArgs e)
         {
             // Initial values
+            // adress input - temporary
+            txbPingTarget.Text = "www.seznam.cz";
             // Checkboxes
             chbInfiniteLoop.Checked = true;
             chbMakeSound.Checked = true;
@@ -23,7 +25,7 @@ namespace PingRequester.Client
             // NumericUpDowns
             nudRefreshRate.Value = 2;
             nudNumberOfTries.Value = 30;
-            nudNumberOfPR.Value = 3;
+            nudNumberOfPR.Value = 2;
         }
 
         private void chbInfiniteLoop_Click(object sender, EventArgs e)
@@ -42,7 +44,7 @@ namespace PingRequester.Client
             }
         }
 
-        private void btnSendRequest_Click(object sender, EventArgs e)
+        private async void btnSendRequest_Click(object sender, EventArgs e)
         {
             // create requester
             var requester = new Requester()
@@ -58,8 +60,7 @@ namespace PingRequester.Client
 
             var service = new RequestService(requester);
 
-            service.BeginRequestingAsync();
-
+            await service.BeginRequestingAsync();
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)

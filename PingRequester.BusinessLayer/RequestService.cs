@@ -18,30 +18,32 @@ namespace PingRequester.BusinessLayer
             this.psi = new ProcessStartInfo
             {
                 FileName = "cmd.exe",
-                Arguments = $"ping -n 1 {requester.RequestedAdress}",
+                Arguments = $"/c ping -n 1 {requester.RequestedAdress}",
                 RedirectStandardOutput = true,
                 UseShellExecute = false,
-                CreateNoWindow = true
+                CreateNoWindow = false
             };
         }
 
         public string Stdout { get; set; }
 
-        public async void BeginRequestingAsync()
+        public async Task BeginRequestingAsync()
         {
             while (this.remainingRequests > 0)
             {
                 Console.WriteLine($"PR sent; {this.remainingRequests} remaining");
                 SendRequest();
+                Console.WriteLine($"Ping Sent: {requester.PingSent}");
                 await Task.Delay(requester.RefreshRate * 1000);
             }
         }
 
-        private bool SendRequest()
+        private void SendRequest()
         {
             using (var process = Process.Start(this.psi))
             {
                 stdout = process.StandardOutput.ReadToEnd();
+                process.WaitForExit();
 
                 if (stdout.StartsWith("Ping request could not find host"))
                 {
@@ -53,8 +55,6 @@ namespace PingRequester.BusinessLayer
                     requester.PingSent = true;
                 }
             }
-
-            return requester.PingSent;
         }
     }
 }
