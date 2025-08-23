@@ -58,8 +58,10 @@ namespace PingRequester.Client
                 ShowNotification = chbShowNotification.Checked
             };
 
+            // create request service instance
             var service = new RequestService(requester);
 
+            // begin sending requests
             await service.BeginRequestingAsync();
         }
 
