@@ -17,6 +17,7 @@ namespace PingRequester.Data.DataObjects
 
         public Requester()
         {
+            PingPackages = new PackageCollection();
         }
 
         public string RequestedAdress
