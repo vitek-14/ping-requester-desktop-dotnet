@@ -17,11 +17,11 @@ namespace PingRequester.BusinessLayer
             
             this.psi = new ProcessStartInfo
             {
-                FileName = "cmd.exe",
-                Arguments = $"/c ping -n 1 {requester.RequestedAdress}",
+                FileName = "ping",
+                Arguments = $"-n 1 {requester.RequestedAdress}",
                 RedirectStandardOutput = true,
                 UseShellExecute = false,
-                CreateNoWindow = false
+                CreateNoWindow = true
             };
         }
 
