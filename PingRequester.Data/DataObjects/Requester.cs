@@ -1,4 +1,5 @@
 ﻿using PingRequester.Data.Base;
+using PingRequester.Data.Containers;
 
 namespace PingRequester.Data.DataObjects
 {
@@ -12,6 +13,7 @@ namespace PingRequester.Data.DataObjects
         private bool infiniteLoop;
         private bool showNotification;
         private bool makeSound;
+        private PackageCollection pingPackages;
 
         public Requester()
         {
@@ -63,6 +65,12 @@ namespace PingRequester.Data.DataObjects
         {
             get => makeSound;
             set => SetProperty(ref makeSound, value);
+        }
+
+        public PackageCollection PingPackages
+        {
+            get => pingPackages ?? new PackageCollection();
+            set => SetProperty(ref pingPackages, value);
         }
     }
 }
