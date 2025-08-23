@@ -54,6 +54,7 @@
             txbPingTarget = new TextBox();
             pnlData = new Panel();
             pnlMiddle = new Panel();
+            btnStop = new Button();
             pnlTop.SuspendLayout();
             menuStrip1.SuspendLayout();
             pnlInfo.SuspendLayout();
@@ -155,6 +156,7 @@
             // pnlControls
             // 
             pnlControls.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            pnlControls.Controls.Add(btnStop);
             pnlControls.Controls.Add(btnSendRequest);
             pnlControls.Controls.Add(lblNumberOfTries);
             pnlControls.Controls.Add(lblNumberOfPR);
@@ -178,7 +180,7 @@
             // 
             btnSendRequest.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 238);
             btnSendRequest.ForeColor = SystemColors.Highlight;
-            btnSendRequest.Location = new Point(99, 248);
+            btnSendRequest.Location = new Point(32, 248);
             btnSendRequest.Name = "btnSendRequest";
             btnSendRequest.Size = new Size(149, 36);
             btnSendRequest.TabIndex = 12;
@@ -329,6 +331,17 @@
             pnlMiddle.Size = new Size(811, 408);
             pnlMiddle.TabIndex = 1;
             // 
+            // btnStop
+            // 
+            btnStop.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            btnStop.ForeColor = Color.IndianRed;
+            btnStop.Location = new Point(223, 248);
+            btnStop.Name = "btnStop";
+            btnStop.Size = new Size(86, 36);
+            btnStop.TabIndex = 13;
+            btnStop.Text = "Stop";
+            btnStop.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             AutoScaleMode = AutoScaleMode.None;
@@ -384,5 +397,6 @@
         private ToolStripSeparator toolStripSeparator1;
         private ToolStripMenuItem exitToolStripMenuItem;
         private ToolStripMenuItem preferencesToolStripMenuItem;
+        private Button btnStop;
     }
 }
