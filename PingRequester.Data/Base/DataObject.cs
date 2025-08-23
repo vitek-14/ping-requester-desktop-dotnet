@@ -14,7 +14,7 @@ namespace PingRequester.Data.Base
 
         protected bool SetProperty<T>(ref T property, T value)
         {
-            if (EqualityComparer<T>.Default.Equals(property, value))
+            if (value == null)
                 throw new ArgumentNullException($"Error: {typeof(T).Name} cannot be null.");
             if (EqualityComparer<T>.Default.Equals(property, value))
                 return false;
