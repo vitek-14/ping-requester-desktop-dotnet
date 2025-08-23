@@ -9,14 +9,14 @@ using System.Threading.Tasks;
 
 namespace PingRequester.Data.Containers
 {
-    public class PackageCollection
+    public class PacketCollection
     {
-        private Queue<Package> packages;
+        private Queue<Packet> packets;
 
-        public PackageCollection()
+        public PacketCollection()
         {
         }
 
-        public Queue<Package> Packages { get; set; }
+        public Queue<Packet> Packets { get; set; }
     }
 }

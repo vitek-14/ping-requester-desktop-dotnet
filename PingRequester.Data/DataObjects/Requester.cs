@@ -13,11 +13,11 @@ namespace PingRequester.Data.DataObjects
         private bool infiniteLoop;
         private bool showNotification;
         private bool makeSound;
-        private PackageCollection pingPackages;
+        private PacketCollection pingPackages;
 
         public Requester()
         {
-            PingPackages = new PackageCollection();
+            PingPackages = new PacketCollection();
         }
 
         public string RequestedAdress
@@ -68,9 +68,9 @@ namespace PingRequester.Data.DataObjects
             set => SetProperty(ref makeSound, value);
         }
 
-        public PackageCollection PingPackages
+        public PacketCollection PingPackages
         {
-            get => pingPackages ?? new PackageCollection();
+            get => pingPackages ?? new PacketCollection();
             set => SetProperty(ref pingPackages, value);
         }
     }

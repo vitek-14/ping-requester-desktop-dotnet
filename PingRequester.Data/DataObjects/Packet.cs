@@ -2,13 +2,13 @@
 
 namespace PingRequester.Data.DataObjects
 {
-    public class Package : DataObject
+    public class Packet : DataObject
     {
         private int bytes;
         private int time;
         private int ttl;
 
-        public Package()
+        public Packet()
         {
         }
 
