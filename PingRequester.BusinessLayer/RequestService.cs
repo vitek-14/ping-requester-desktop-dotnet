@@ -8,11 +8,21 @@ namespace PingRequester.BusinessLayer
         private string stdout;
         private int remainingRequests;
         private Requester requester;
+        private ProcessStartInfo psi;
 
         public RequestService(Requester requester)
         {
             this.requester = requester;
             this.remainingRequests = requester.NumberOfPR;
+            
+            this.psi = new ProcessStartInfo
+            {
+                FileName = "cmd.exe",
+                Arguments = $"ping -n 1 {requester.RequestedAdress}",
+                RedirectStandardOutput = true,
+                UseShellExecute = false,
+                CreateNoWindow = true
+            };
         }
 
         public string Stdout { get; set; }
@@ -29,17 +39,7 @@ namespace PingRequester.BusinessLayer
 
         private bool SendRequest()
         {
-
-            var psi = new ProcessStartInfo
-            {
-                FileName = "cmd.exe",
-                Arguments = $"ping -n 1 {requester.RequestedAdress}",
-                RedirectStandardOutput = true,
-                UseShellExecute = false,
-                CreateNoWindow = true
-            };
-
-            using (var process = Process.Start(psi))
+            using (var process = Process.Start(this.psi))
             {
                 stdout = process.StandardOutput.ReadToEnd();
 
