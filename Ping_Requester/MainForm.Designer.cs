@@ -1,4 +1,4 @@
-﻿namespace Ping_Requester
+﻿namespace PingRequester.Client
 {
     partial class MainForm
     {
@@ -32,7 +32,10 @@
             lblPingRequester = new Label();
             menuStrip1 = new MenuStrip();
             fileToolStripMenuItem = new ToolStripMenuItem();
+            toolStripSeparator1 = new ToolStripSeparator();
+            exitToolStripMenuItem = new ToolStripMenuItem();
             settingsToolStripMenuItem = new ToolStripMenuItem();
+            preferencesToolStripMenuItem = new ToolStripMenuItem();
             pnlInfo = new Panel();
             lblInfo = new Label();
             pnlControls = new Panel();
@@ -51,9 +54,6 @@
             txbPingTarget = new TextBox();
             pnlData = new Panel();
             pnlMiddle = new Panel();
-            preferencesToolStripMenuItem = new ToolStripMenuItem();
-            toolStripSeparator1 = new ToolStripSeparator();
-            exitToolStripMenuItem = new ToolStripMenuItem();
             pnlTop.SuspendLayout();
             menuStrip1.SuspendLayout();
             pnlInfo.SuspendLayout();
@@ -105,12 +105,29 @@
             fileToolStripMenuItem.Size = new Size(46, 24);
             fileToolStripMenuItem.Text = "File";
             // 
+            // toolStripSeparator1
+            // 
+            toolStripSeparator1.Name = "toolStripSeparator1";
+            toolStripSeparator1.Size = new Size(113, 6);
+            // 
+            // exitToolStripMenuItem
+            // 
+            exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            exitToolStripMenuItem.Size = new Size(116, 26);
+            exitToolStripMenuItem.Text = "Exit";
+            // 
             // settingsToolStripMenuItem
             // 
             settingsToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { preferencesToolStripMenuItem });
             settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
             settingsToolStripMenuItem.Size = new Size(76, 24);
             settingsToolStripMenuItem.Text = "Settings";
+            // 
+            // preferencesToolStripMenuItem
+            // 
+            preferencesToolStripMenuItem.Name = "preferencesToolStripMenuItem";
+            preferencesToolStripMenuItem.Size = new Size(168, 26);
+            preferencesToolStripMenuItem.Text = "Preferences";
             // 
             // pnlInfo
             // 
@@ -166,6 +183,7 @@
             btnSendRequest.TabIndex = 12;
             btnSendRequest.Text = "Send Request";
             btnSendRequest.UseVisualStyleBackColor = true;
+            btnSendRequest.Click += btnSendRequest_Click;
             // 
             // lblNumberOfTries
             // 
@@ -309,23 +327,6 @@
             pnlMiddle.Name = "pnlMiddle";
             pnlMiddle.Size = new Size(811, 408);
             pnlMiddle.TabIndex = 1;
-            // 
-            // preferencesToolStripMenuItem
-            // 
-            preferencesToolStripMenuItem.Name = "preferencesToolStripMenuItem";
-            preferencesToolStripMenuItem.Size = new Size(168, 26);
-            preferencesToolStripMenuItem.Text = "Preferences";
-            // 
-            // toolStripSeparator1
-            // 
-            toolStripSeparator1.Name = "toolStripSeparator1";
-            toolStripSeparator1.Size = new Size(221, 6);
-            // 
-            // exitToolStripMenuItem
-            // 
-            exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            exitToolStripMenuItem.Size = new Size(224, 26);
-            exitToolStripMenuItem.Text = "Exit";
             // 
             // MainForm
             // 

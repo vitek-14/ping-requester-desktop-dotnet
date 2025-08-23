@@ -1,6 +1,7 @@
 using PingRequester.App;
+using PingRequester.Data;
 
-namespace Ping_Requester
+namespace PingRequester.Client
 {
     public partial class MainForm : Form
     {
@@ -37,6 +38,18 @@ namespace Ping_Requester
                 lblNumberOfTries.ForeColor = System.Drawing.Color.Black;
                 nudNumberOfTries.Enabled = true;
             }
+        }
+
+        private void btnSendRequest_Click(object sender, EventArgs e)
+        {
+            var requester = new Requester();
+            requester.RequestedAdress = txbPingTarget.Text;
+            requester.PauseTime = nudSpaceBetweenPR.Value;
+            requester.NumberOfPR = nudNumberOfPR.Value;
+            requester.NumberOfTries = nudNumberOfTries.Value;
+            requester.InfiniteLoop = chbInfiniteLoop.Checked;
+            requester.MakeSound = chbMakeSound.Checked;
+            requester.ShowNotification = chbShowNotification.Checked;
         }
     }
 }

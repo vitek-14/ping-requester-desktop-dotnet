@@ -1,4 +1,4 @@
-namespace Ping_Requester
+namespace PingRequester.Client
 {
     internal static class Program
     {

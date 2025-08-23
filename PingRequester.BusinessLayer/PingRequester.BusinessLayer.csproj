@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\PingRequester.Data\PingRequester.Data.csproj" />
+  </ItemGroup>
+
 </Project>

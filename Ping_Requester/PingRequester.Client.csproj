@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\PingRequester.App\PingRequester.App.csproj" />
+    <ProjectReference Include="..\PingRequester.BusinessLayer\PingRequester.BusinessLayer.csproj" />
     <ProjectReference Include="..\PingRequester.Data\PingRequester.Data.csproj" />
   </ItemGroup>
 
