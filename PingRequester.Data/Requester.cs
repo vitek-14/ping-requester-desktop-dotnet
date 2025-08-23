@@ -3,10 +3,10 @@
     public class Requester
     {
         private string requestedAdress;
-        private bool connected;
-        private decimal pauseTime;
-        private decimal numberOfPR;
-        private decimal numberOfTries;
+        private bool pingSent;
+        private int pauseTime;
+        private int numberOfPR;
+        private int numberOfTries;
         private bool infiniteLoop;
         private bool showNotification;
         private bool makeSound;
@@ -21,25 +21,25 @@
             set => SetProperty(ref requestedAdress, value);
         }
 
-        public bool Connected
+        public bool PingSent
         {
-            get => connected;
-            set => SetProperty(ref connected, value);
+            get => pingSent;
+            set => SetProperty(ref pingSent, value);
         }
 
-        public decimal PauseTime
+        public int PauseTime
         {
             get => pauseTime;
             set => SetProperty(ref pauseTime, value);
         }
 
-        public decimal NumberOfPR
+        public int NumberOfPR
         {
             get => numberOfPR;
             set => SetProperty(ref numberOfPR, value);
         }
 
-        public decimal NumberOfTries
+        public int NumberOfTries
         {
             get => numberOfTries;
             set => SetProperty(ref numberOfTries, value);
