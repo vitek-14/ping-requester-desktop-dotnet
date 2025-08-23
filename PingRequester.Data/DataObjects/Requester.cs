@@ -1,6 +1,8 @@
-﻿namespace PingRequester.Data
+﻿using PingRequester.Data.Base;
+
+namespace PingRequester.Data.DataObjects
 {
-    public class Requester
+    public class Requester : DataObject
     {
         private string requestedAdress;
         private bool pingSent;
@@ -62,17 +64,5 @@
             get => makeSound;
             set => SetProperty(ref makeSound, value);
         }
-
-        private static bool SetProperty<T>(ref T property, T value)
-        {
-            if (property == null)
-                throw new ArgumentNullException($"Error: {nameof(property)} cannot be null.");
-            if (property.Equals(value))
-                return false;
-
-            property = value;
-            return true;
-        }
-
     }
 }

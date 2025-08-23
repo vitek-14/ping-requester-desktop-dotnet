@@ -1,5 +1,6 @@
 using PingRequester.App;
 using PingRequester.Data;
+using PingRequester.Data.DataObjects;
 
 namespace PingRequester.Client
 {

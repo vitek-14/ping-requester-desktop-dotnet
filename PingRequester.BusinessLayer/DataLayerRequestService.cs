@@ -1,4 +1,4 @@
-﻿using PingRequester.Data;
+﻿using PingRequester.Data.DataObjects;
 using System.Diagnostics;
 
 namespace PingRequester.BusinessLayer
