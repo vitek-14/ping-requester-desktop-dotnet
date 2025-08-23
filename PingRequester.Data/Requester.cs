@@ -1,7 +1,4 @@
-﻿using PingRequester.BusinessLayer;
-
-
-namespace PingRequester.Data
+﻿namespace PingRequester.Data
 {
     public class Requester
     {
