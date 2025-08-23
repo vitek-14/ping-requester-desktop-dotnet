@@ -12,11 +12,11 @@ namespace PingRequester.Data.Base
         {
         }
 
-        protected static bool SetProperty<T>(ref T property, T value)
+        protected bool SetProperty<T>(ref T property, T value)
         {
-            if (property == null)
-                throw new ArgumentNullException($"Error: {nameof(property)} cannot be null.");
-            if (property.Equals(value))
+            if (EqualityComparer<T>.Default.Equals(property, value))
+                throw new ArgumentNullException($"Error: {typeof(T).Name} cannot be null.");
+            if (EqualityComparer<T>.Default.Equals(property, value))
                 return false;
 
             property = value;
