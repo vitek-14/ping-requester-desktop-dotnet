@@ -7,7 +7,7 @@ namespace PingRequester.Data.DataObjects
     {
         private string requestedAdress;
         private bool pingSent;
-        private int pauseTime;
+        private int refreshRate;
         private int numberOfPR;
         private int numberOfTries;
         private bool infiniteLoop;
@@ -31,10 +31,10 @@ namespace PingRequester.Data.DataObjects
             set => SetProperty(ref pingSent, value);
         }
 
-        public int PauseTime
+        public int RefreshRate
         {
-            get => pauseTime;
-            set => SetProperty(ref pauseTime, value);
+            get => refreshRate;
+            set => SetProperty(ref refreshRate, value);
         }
 
         public int NumberOfPR

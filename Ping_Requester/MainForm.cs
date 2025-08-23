@@ -1,4 +1,5 @@
 using PingRequester.App;
+using PingRequester.BusinessLayer;
 using PingRequester.Data;
 using PingRequester.Data.DataObjects;
 
@@ -20,7 +21,7 @@ namespace PingRequester.Client
             chbShowNotification.Checked = true;
 
             // NumericUpDowns
-            nudSpaceBetweenPR.Value = 2;
+            nudRefreshRate.Value = 2;
             nudNumberOfTries.Value = 30;
             nudNumberOfPR.Value = 3;
         }
@@ -43,10 +44,11 @@ namespace PingRequester.Client
 
         private void btnSendRequest_Click(object sender, EventArgs e)
         {
+            // create requester
             var requester = new Requester()
             {
                 RequestedAdress = txbPingTarget.Text,
-                PauseTime = (int)nudSpaceBetweenPR.Value,
+                RefreshRate = (int)nudRefreshRate.Value,
                 NumberOfPR = (int)nudNumberOfPR.Value,
                 NumberOfTries = (int)nudNumberOfTries.Value,
                 InfiniteLoop = chbInfiniteLoop.Checked,
@@ -54,6 +56,9 @@ namespace PingRequester.Client
                 ShowNotification = chbShowNotification.Checked
             };
 
+            var service = new RequestService(requester);
+
+            service.BeginRequestingAsync();
 
         }
 

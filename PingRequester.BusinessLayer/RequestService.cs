@@ -3,13 +3,13 @@ using System.Diagnostics;
 
 namespace PingRequester.BusinessLayer
 {
-    public class DataLayerRequestService
+    public class RequestService
     {
         private string stdout;
         private int remainingRequests;
         private Requester requester;
 
-        public DataLayerRequestService(Requester requester)
+        public RequestService(Requester requester)
         {
             this.requester = requester;
             this.remainingRequests = requester.NumberOfPR;
@@ -17,11 +17,13 @@ namespace PingRequester.BusinessLayer
 
         public string Stdout { get; set; }
 
-        public void BeginRequesting()
+        public async void BeginRequestingAsync()
         {
             while (this.remainingRequests > 0)
             {
+                Console.WriteLine($"PR sent; {this.remainingRequests} remaining");
                 SendRequest();
+                await Task.Delay(requester.RefreshRate * 1000);
             }
         }
 

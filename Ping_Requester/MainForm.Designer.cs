@@ -39,14 +39,15 @@
             pnlInfo = new Panel();
             lblInfo = new Label();
             pnlControls = new Panel();
+            btnStop = new Button();
             btnSendRequest = new Button();
             lblNumberOfTries = new Label();
             lblNumberOfPR = new Label();
             chbInfiniteLoop = new CheckBox();
             nudNumberOfTries = new NumericUpDown();
             nudNumberOfPR = new NumericUpDown();
-            nudSpaceBetweenPR = new NumericUpDown();
-            label2 = new Label();
+            nudRefreshRate = new NumericUpDown();
+            lblRefreshRate = new Label();
             lblWhenSuccess = new Label();
             chbShowNotification = new CheckBox();
             chbMakeSound = new CheckBox();
@@ -54,14 +55,13 @@
             txbPingTarget = new TextBox();
             pnlData = new Panel();
             pnlMiddle = new Panel();
-            btnStop = new Button();
             pnlTop.SuspendLayout();
             menuStrip1.SuspendLayout();
             pnlInfo.SuspendLayout();
             pnlControls.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)nudNumberOfTries).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nudNumberOfPR).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)nudSpaceBetweenPR).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)nudRefreshRate).BeginInit();
             pnlMiddle.SuspendLayout();
             SuspendLayout();
             // 
@@ -163,8 +163,8 @@
             pnlControls.Controls.Add(chbInfiniteLoop);
             pnlControls.Controls.Add(nudNumberOfTries);
             pnlControls.Controls.Add(nudNumberOfPR);
-            pnlControls.Controls.Add(nudSpaceBetweenPR);
-            pnlControls.Controls.Add(label2);
+            pnlControls.Controls.Add(nudRefreshRate);
+            pnlControls.Controls.Add(lblRefreshRate);
             pnlControls.Controls.Add(lblWhenSuccess);
             pnlControls.Controls.Add(chbShowNotification);
             pnlControls.Controls.Add(chbMakeSound);
@@ -175,6 +175,17 @@
             pnlControls.Name = "pnlControls";
             pnlControls.Size = new Size(386, 406);
             pnlControls.TabIndex = 2;
+            // 
+            // btnStop
+            // 
+            btnStop.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            btnStop.ForeColor = Color.IndianRed;
+            btnStop.Location = new Point(223, 248);
+            btnStop.Name = "btnStop";
+            btnStop.Size = new Size(86, 36);
+            btnStop.TabIndex = 13;
+            btnStop.Text = "Stop";
+            btnStop.UseVisualStyleBackColor = true;
             // 
             // btnSendRequest
             // 
@@ -239,23 +250,23 @@
             nudNumberOfPR.Size = new Size(65, 27);
             nudNumberOfPR.TabIndex = 3;
             // 
-            // nudSpaceBetweenPR
+            // nudRefreshRate
             // 
-            nudSpaceBetweenPR.Location = new Point(285, 93);
-            nudSpaceBetweenPR.Name = "nudSpaceBetweenPR";
-            nudSpaceBetweenPR.Size = new Size(65, 27);
-            nudSpaceBetweenPR.TabIndex = 9;
+            nudRefreshRate.Location = new Point(285, 93);
+            nudRefreshRate.Name = "nudRefreshRate";
+            nudRefreshRate.Size = new Size(65, 27);
+            nudRefreshRate.TabIndex = 9;
             // 
-            // label2
+            // lblRefreshRate
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Calibri", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 238);
-            label2.ForeColor = SystemColors.ActiveCaptionText;
-            label2.Location = new Point(12, 95);
-            label2.Name = "label2";
-            label2.Size = new Size(199, 21);
-            label2.TabIndex = 8;
-            label2.Text = "Space between requests (s)";
+            lblRefreshRate.AutoSize = true;
+            lblRefreshRate.Font = new Font("Calibri", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            lblRefreshRate.ForeColor = SystemColors.ActiveCaptionText;
+            lblRefreshRate.Location = new Point(12, 95);
+            lblRefreshRate.Name = "lblRefreshRate";
+            lblRefreshRate.Size = new Size(115, 21);
+            lblRefreshRate.TabIndex = 8;
+            lblRefreshRate.Text = "Refresh rate (s)";
             // 
             // lblWhenSuccess
             // 
@@ -331,17 +342,6 @@
             pnlMiddle.Size = new Size(811, 408);
             pnlMiddle.TabIndex = 1;
             // 
-            // btnStop
-            // 
-            btnStop.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 238);
-            btnStop.ForeColor = Color.IndianRed;
-            btnStop.Location = new Point(223, 248);
-            btnStop.Name = "btnStop";
-            btnStop.Size = new Size(86, 36);
-            btnStop.TabIndex = 13;
-            btnStop.Text = "Stop";
-            btnStop.UseVisualStyleBackColor = true;
-            // 
             // MainForm
             // 
             AutoScaleMode = AutoScaleMode.None;
@@ -364,7 +364,7 @@
             pnlControls.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)nudNumberOfTries).EndInit();
             ((System.ComponentModel.ISupportInitialize)nudNumberOfPR).EndInit();
-            ((System.ComponentModel.ISupportInitialize)nudSpaceBetweenPR).EndInit();
+            ((System.ComponentModel.ISupportInitialize)nudRefreshRate).EndInit();
             pnlMiddle.ResumeLayout(false);
             ResumeLayout(false);
         }
@@ -381,8 +381,8 @@
         private CheckBox chbInfiniteLoop;
         private NumericUpDown nudNumberOfTries;
         private NumericUpDown nudNumberOfPR;
-        private NumericUpDown nudSpaceBetweenPR;
-        private Label label2;
+        private NumericUpDown nudRefreshRate;
+        private Label lblRefreshRate;
         private Label lblWhenSuccess;
         private CheckBox chbShowNotification;
         private CheckBox chbMakeSound;
