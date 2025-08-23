@@ -3,13 +3,13 @@ using System.Diagnostics;
 
 namespace PingRequester.BusinessLayer
 {
-    public class DataLayerService
+    public class DataLayerRequestService
     {
         private string stdout;
         private int remainingRequests;
         private Requester requester;
 
-        public DataLayerService(Requester requester)
+        public DataLayerRequestService(Requester requester)
         {
             this.requester = requester;
             this.remainingRequests = requester.NumberOfPR;
