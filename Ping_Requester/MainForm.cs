@@ -62,6 +62,7 @@ namespace PingRequester.Client
             var requester = new Requester()
             {
                 RequestedAdress = txbPingTarget.Text,
+                Mode = cmbMode.Text,
                 RefreshRate = (int)nudRefreshRate.Value,
                 NumberOfPR = (int)nudNumberOfPR.Value,
                 Attempts = (int)nudAttempts.Value,

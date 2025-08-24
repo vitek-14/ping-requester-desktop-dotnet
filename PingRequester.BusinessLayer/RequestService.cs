@@ -7,6 +7,7 @@ namespace PingRequester.BusinessLayer
     {
         private string stdout;
         private int remainingRequests;
+        private int remainingAttempts;
         private Requester requester;
         private ProcessStartInfo psi;
 
@@ -14,6 +15,7 @@ namespace PingRequester.BusinessLayer
         {
             this.requester = requester;
             this.remainingRequests = requester.NumberOfPR;
+            this.remainingAttempts = requester.Attempts;
             
             this.psi = new ProcessStartInfo
             {
@@ -29,9 +31,10 @@ namespace PingRequester.BusinessLayer
 
         public async Task BeginRequestingAsync()
         {
-            while (this.remainingRequests > 0)
+            while (this.remainingRequests > 0 || requester.InfiniteLoop)
             {
                 Console.WriteLine($"PR sent; {this.remainingRequests} remaining");
+                // TODO: check if interruption request was created
                 SendRequest();
                 Console.WriteLine($"Ping Sent: {requester.PingSent}");
                 await Task.Delay(requester.RefreshRate * 1000);
@@ -47,6 +50,13 @@ namespace PingRequester.BusinessLayer
 
                 if (stdout.StartsWith("Ping request could not find host"))
                 {
+                    if (!requester.InfiniteLoop)
+                    {
+                        this.remainingAttempts--;
+
+                        if (requester.Mode == "Precise")
+                            this.remainingRequests = requester.NumberOfPR;
+                    }
 
                     requester.PingSent = false;
                 }

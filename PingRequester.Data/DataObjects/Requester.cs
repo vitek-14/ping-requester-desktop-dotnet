@@ -6,6 +6,7 @@ namespace PingRequester.Data.DataObjects
     public class Requester : DataObject
     {
         private string requestedAdress;
+        private string mode;
         private bool pingSent;
         private int refreshRate;
         private int numberOfPR;
@@ -24,6 +25,12 @@ namespace PingRequester.Data.DataObjects
         {
             get => requestedAdress;
             set => SetProperty(ref requestedAdress, value);
+        }
+
+        public string Mode
+        {
+            get => mode;
+            set => SetProperty(ref mode, value);
         }
 
         public bool PingSent
