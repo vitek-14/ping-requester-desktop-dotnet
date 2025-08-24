@@ -130,8 +130,9 @@
             // preferencesToolStripMenuItem
             // 
             preferencesToolStripMenuItem.Name = "preferencesToolStripMenuItem";
-            preferencesToolStripMenuItem.Size = new Size(168, 26);
+            preferencesToolStripMenuItem.Size = new Size(224, 26);
             preferencesToolStripMenuItem.Text = "Preferences";
+            preferencesToolStripMenuItem.Click += preferencesToolStripMenuItem_Click;
             // 
             // pnlInfo
             // 
