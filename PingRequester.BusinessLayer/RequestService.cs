@@ -31,7 +31,7 @@ namespace PingRequester.BusinessLayer
 
         public async Task BeginRequestingAsync()
         {
-            while (this.remainingRequests > 0 || requester.InfiniteLoop)
+            while ((this.remainingRequests > 0 && this.remainingAttempts > 0) || requester.InfiniteLoop)
             {
                 Console.WriteLine($"PR sent; {this.remainingRequests} remaining");
                 // TODO: check if interruption request was created
