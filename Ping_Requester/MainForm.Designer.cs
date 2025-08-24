@@ -39,15 +39,15 @@
             pnlInfo = new Panel();
             lblInfo = new Label();
             pnlControls = new Panel();
+            lblNumberOfPR = new Label();
+            nudNumberOfPR = new NumericUpDown();
             cmbMode = new ComboBox();
             lblMode = new Label();
             btnStop = new Button();
             btnSendRequest = new Button();
             lblAttempts = new Label();
-            lblNumberOfPR = new Label();
             chbInfiniteLoop = new CheckBox();
             nudAttempts = new NumericUpDown();
-            nudNumberOfPR = new NumericUpDown();
             nudRefreshRate = new NumericUpDown();
             lblRefreshRate = new Label();
             lblWhenSuccess = new Label();
@@ -61,8 +61,8 @@
             menuStrip1.SuspendLayout();
             pnlInfo.SuspendLayout();
             pnlControls.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)nudAttempts).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nudNumberOfPR).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)nudAttempts).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nudRefreshRate).BeginInit();
             pnlMiddle.SuspendLayout();
             SuspendLayout();
@@ -180,6 +180,24 @@
             pnlControls.Size = new Size(386, 423);
             pnlControls.TabIndex = 2;
             // 
+            // lblNumberOfPR
+            // 
+            lblNumberOfPR.AutoSize = true;
+            lblNumberOfPR.Font = new Font("Calibri", 10.2F);
+            lblNumberOfPR.ForeColor = SystemColors.ActiveCaptionText;
+            lblNumberOfPR.Location = new Point(12, 207);
+            lblNumberOfPR.Name = "lblNumberOfPR";
+            lblNumberOfPR.Size = new Size(183, 21);
+            lblNumberOfPR.TabIndex = 4;
+            lblNumberOfPR.Text = "Number of ping requests";
+            // 
+            // nudNumberOfPR
+            // 
+            nudNumberOfPR.Location = new Point(285, 205);
+            nudNumberOfPR.Name = "nudNumberOfPR";
+            nudNumberOfPR.Size = new Size(65, 27);
+            nudNumberOfPR.TabIndex = 3;
+            // 
             // cmbMode
             // 
             cmbMode.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -234,17 +252,6 @@
             lblAttempts.TabIndex = 11;
             lblAttempts.Text = "Attempts";
             // 
-            // lblNumberOfPR
-            // 
-            lblNumberOfPR.AutoSize = true;
-            lblNumberOfPR.Font = new Font("Calibri", 10.2F);
-            lblNumberOfPR.ForeColor = SystemColors.ActiveCaptionText;
-            lblNumberOfPR.Location = new Point(12, 207);
-            lblNumberOfPR.Name = "lblNumberOfPR";
-            lblNumberOfPR.Size = new Size(183, 21);
-            lblNumberOfPR.TabIndex = 4;
-            lblNumberOfPR.Text = "Number of ping requests";
-            // 
             // chbInfiniteLoop
             // 
             chbInfiniteLoop.AutoSize = true;
@@ -264,13 +271,6 @@
             nudAttempts.Name = "nudAttempts";
             nudAttempts.Size = new Size(65, 27);
             nudAttempts.TabIndex = 10;
-            // 
-            // nudNumberOfPR
-            // 
-            nudNumberOfPR.Location = new Point(285, 205);
-            nudNumberOfPR.Name = "nudNumberOfPR";
-            nudNumberOfPR.Size = new Size(65, 27);
-            nudNumberOfPR.TabIndex = 3;
             // 
             // nudRefreshRate
             // 
@@ -374,7 +374,7 @@
             ForeColor = SystemColors.ActiveCaption;
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "MainForm";
-            Text = "Form1";
+            Text = "Ping Requester";
             Load += MainForm_Load;
             pnlTop.ResumeLayout(false);
             pnlTop.PerformLayout();
@@ -384,8 +384,8 @@
             pnlInfo.PerformLayout();
             pnlControls.ResumeLayout(false);
             pnlControls.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)nudAttempts).EndInit();
             ((System.ComponentModel.ISupportInitialize)nudNumberOfPR).EndInit();
+            ((System.ComponentModel.ISupportInitialize)nudAttempts).EndInit();
             ((System.ComponentModel.ISupportInitialize)nudRefreshRate).EndInit();
             pnlMiddle.ResumeLayout(false);
             ResumeLayout(false);
