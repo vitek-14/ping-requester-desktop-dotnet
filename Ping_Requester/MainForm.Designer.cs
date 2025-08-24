@@ -158,15 +158,15 @@
             // pnlControls
             // 
             pnlControls.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            pnlControls.Controls.Add(lblNumberOfPR);
+            pnlControls.Controls.Add(nudNumberOfPR);
             pnlControls.Controls.Add(cmbMode);
             pnlControls.Controls.Add(lblMode);
             pnlControls.Controls.Add(btnStop);
             pnlControls.Controls.Add(btnSendRequest);
             pnlControls.Controls.Add(lblAttempts);
-            pnlControls.Controls.Add(lblNumberOfPR);
             pnlControls.Controls.Add(chbInfiniteLoop);
             pnlControls.Controls.Add(nudAttempts);
-            pnlControls.Controls.Add(nudNumberOfPR);
             pnlControls.Controls.Add(nudRefreshRate);
             pnlControls.Controls.Add(lblRefreshRate);
             pnlControls.Controls.Add(lblWhenSuccess);
@@ -239,7 +239,7 @@
             lblNumberOfPR.AutoSize = true;
             lblNumberOfPR.Font = new Font("Calibri", 10.2F);
             lblNumberOfPR.ForeColor = SystemColors.ActiveCaptionText;
-            lblNumberOfPR.Location = new Point(12, 166);
+            lblNumberOfPR.Location = new Point(12, 207);
             lblNumberOfPR.Name = "lblNumberOfPR";
             lblNumberOfPR.Size = new Size(183, 21);
             lblNumberOfPR.TabIndex = 4;
@@ -250,7 +250,7 @@
             chbInfiniteLoop.AutoSize = true;
             chbInfiniteLoop.Font = new Font("Calibri", 10.2F);
             chbInfiniteLoop.ForeColor = SystemColors.ActiveCaptionText;
-            chbInfiniteLoop.Location = new Point(12, 208);
+            chbInfiniteLoop.Location = new Point(12, 170);
             chbInfiniteLoop.Name = "chbInfiniteLoop";
             chbInfiniteLoop.Size = new Size(116, 25);
             chbInfiniteLoop.TabIndex = 2;
@@ -267,7 +267,7 @@
             // 
             // nudNumberOfPR
             // 
-            nudNumberOfPR.Location = new Point(285, 164);
+            nudNumberOfPR.Location = new Point(285, 205);
             nudNumberOfPR.Name = "nudNumberOfPR";
             nudNumberOfPR.Size = new Size(65, 27);
             nudNumberOfPR.TabIndex = 3;

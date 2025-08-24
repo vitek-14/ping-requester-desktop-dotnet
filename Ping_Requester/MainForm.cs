@@ -42,12 +42,16 @@ namespace PingRequester.Client
             if (numberOfTriesState)
             {
                 lblAttempts.ForeColor = System.Drawing.Color.Black;
+                lblNumberOfPR.ForeColor = System.Drawing.Color.Black;
                 nudAttempts.Enabled = true;
+                nudNumberOfPR.Enabled = true;
             }
             else
             {
                 lblAttempts.ForeColor = System.Drawing.Color.LightGray;
+                lblNumberOfPR.ForeColor = System.Drawing.Color.LightGray;
                 nudAttempts.Enabled = false;
+                nudNumberOfPR.Enabled = false;
             }
         }
 
