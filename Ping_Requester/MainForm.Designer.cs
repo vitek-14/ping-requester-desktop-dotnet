@@ -50,9 +50,6 @@
             nudAttempts = new NumericUpDown();
             nudRefreshRate = new NumericUpDown();
             lblRefreshRate = new Label();
-            lblWhenSuccess = new Label();
-            chbShowNotification = new CheckBox();
-            chbMakeSound = new CheckBox();
             lblPingTarget = new Label();
             txbPingTarget = new TextBox();
             pnlData = new Panel();
@@ -170,9 +167,6 @@
             pnlControls.Controls.Add(nudAttempts);
             pnlControls.Controls.Add(nudRefreshRate);
             pnlControls.Controls.Add(lblRefreshRate);
-            pnlControls.Controls.Add(lblWhenSuccess);
-            pnlControls.Controls.Add(chbShowNotification);
-            pnlControls.Controls.Add(chbMakeSound);
             pnlControls.Controls.Add(lblPingTarget);
             pnlControls.Controls.Add(txbPingTarget);
             pnlControls.Dock = DockStyle.Left;
@@ -223,7 +217,7 @@
             // 
             btnStop.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 238);
             btnStop.ForeColor = Color.IndianRed;
-            btnStop.Location = new Point(223, 282);
+            btnStop.Location = new Point(223, 332);
             btnStop.Name = "btnStop";
             btnStop.Size = new Size(86, 36);
             btnStop.TabIndex = 13;
@@ -234,7 +228,7 @@
             // 
             btnSendRequest.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 238);
             btnSendRequest.ForeColor = SystemColors.Highlight;
-            btnSendRequest.Location = new Point(32, 282);
+            btnSendRequest.Location = new Point(32, 332);
             btnSendRequest.Name = "btnSendRequest";
             btnSendRequest.Size = new Size(149, 36);
             btnSendRequest.TabIndex = 12;
@@ -290,41 +284,6 @@
             lblRefreshRate.Size = new Size(115, 21);
             lblRefreshRate.TabIndex = 8;
             lblRefreshRate.Text = "Refresh rate (s)";
-            // 
-            // lblWhenSuccess
-            // 
-            lblWhenSuccess.AutoSize = true;
-            lblWhenSuccess.Font = new Font("Calibri", 10.2F);
-            lblWhenSuccess.ForeColor = SystemColors.ActiveCaptionText;
-            lblWhenSuccess.Location = new Point(12, 328);
-            lblWhenSuccess.Name = "lblWhenSuccess";
-            lblWhenSuccess.Size = new Size(112, 21);
-            lblWhenSuccess.TabIndex = 7;
-            lblWhenSuccess.Text = "When success:";
-            // 
-            // chbShowNotification
-            // 
-            chbShowNotification.AutoSize = true;
-            chbShowNotification.Font = new Font("Calibri", 10.2F);
-            chbShowNotification.ForeColor = SystemColors.ActiveCaptionText;
-            chbShowNotification.Location = new Point(12, 360);
-            chbShowNotification.Name = "chbShowNotification";
-            chbShowNotification.Size = new Size(152, 25);
-            chbShowNotification.TabIndex = 6;
-            chbShowNotification.Text = "Show notification";
-            chbShowNotification.UseVisualStyleBackColor = true;
-            // 
-            // chbMakeSound
-            // 
-            chbMakeSound.AutoSize = true;
-            chbMakeSound.Font = new Font("Calibri", 10.2F);
-            chbMakeSound.ForeColor = SystemColors.ActiveCaptionText;
-            chbMakeSound.Location = new Point(223, 360);
-            chbMakeSound.Name = "chbMakeSound";
-            chbMakeSound.Size = new Size(117, 25);
-            chbMakeSound.TabIndex = 5;
-            chbMakeSound.Text = "Make sound";
-            chbMakeSound.UseVisualStyleBackColor = true;
             // 
             // lblPingTarget
             // 
@@ -407,9 +366,6 @@
         private NumericUpDown nudNumberOfPR;
         private NumericUpDown nudRefreshRate;
         private Label lblRefreshRate;
-        private Label lblWhenSuccess;
-        private CheckBox chbShowNotification;
-        private CheckBox chbMakeSound;
         private Label lblPingTarget;
         private TextBox txbPingTarget;
         private Panel pnlData;
