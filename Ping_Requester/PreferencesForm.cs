@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace PingRequester.Client
 {
-    public partial class Preferences : Form
+    public partial class PreferencesForm : Form
     {
-        public Preferences()
+        public PreferencesForm()
         {
             InitializeComponent();
         }

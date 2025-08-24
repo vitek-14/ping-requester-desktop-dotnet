@@ -1,6 +1,6 @@
 ﻿namespace PingRequester.Client
 {
-    partial class Preferences
+    partial class PreferencesForm
     {
         /// <summary>
         /// Required designer variable.
