@@ -75,7 +75,7 @@
             pnlTop.Dock = DockStyle.Top;
             pnlTop.Location = new Point(0, 0);
             pnlTop.Name = "pnlTop";
-            pnlTop.Size = new Size(811, 77);
+            pnlTop.Size = new Size(811, 87);
             pnlTop.TabIndex = 0;
             // 
             // lblPingRequester
@@ -84,7 +84,7 @@
             lblPingRequester.AutoSize = true;
             lblPingRequester.Font = new Font("Calibri", 24F);
             lblPingRequester.ForeColor = SystemColors.HotTrack;
-            lblPingRequester.Location = new Point(272, 21);
+            lblPingRequester.Location = new Point(272, 35);
             lblPingRequester.Name = "lblPingRequester";
             lblPingRequester.Size = new Size(267, 49);
             lblPingRequester.TabIndex = 0;
@@ -177,14 +177,14 @@
             pnlControls.Dock = DockStyle.Left;
             pnlControls.Location = new Point(0, 0);
             pnlControls.Name = "pnlControls";
-            pnlControls.Size = new Size(386, 433);
+            pnlControls.Size = new Size(386, 423);
             pnlControls.TabIndex = 2;
             // 
             // cmbMode
             // 
             cmbMode.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbMode.FormattingEnabled = true;
-            cmbMode.Location = new Point(228, 95);
+            cmbMode.Location = new Point(228, 85);
             cmbMode.Name = "cmbMode";
             cmbMode.Size = new Size(122, 28);
             cmbMode.TabIndex = 15;
@@ -194,7 +194,7 @@
             lblMode.AutoSize = true;
             lblMode.Font = new Font("Calibri", 10.2F);
             lblMode.ForeColor = SystemColors.ActiveCaptionText;
-            lblMode.Location = new Point(12, 98);
+            lblMode.Location = new Point(12, 88);
             lblMode.Name = "lblMode";
             lblMode.Size = new Size(51, 21);
             lblMode.TabIndex = 14;
@@ -204,7 +204,7 @@
             // 
             btnStop.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 238);
             btnStop.ForeColor = Color.IndianRed;
-            btnStop.Location = new Point(223, 292);
+            btnStop.Location = new Point(223, 282);
             btnStop.Name = "btnStop";
             btnStop.Size = new Size(86, 36);
             btnStop.TabIndex = 13;
@@ -215,7 +215,7 @@
             // 
             btnSendRequest.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 238);
             btnSendRequest.ForeColor = SystemColors.Highlight;
-            btnSendRequest.Location = new Point(32, 292);
+            btnSendRequest.Location = new Point(32, 282);
             btnSendRequest.Name = "btnSendRequest";
             btnSendRequest.Size = new Size(149, 36);
             btnSendRequest.TabIndex = 12;
@@ -228,7 +228,7 @@
             lblAttempts.AutoSize = true;
             lblAttempts.Font = new Font("Calibri", 10.2F);
             lblAttempts.ForeColor = SystemColors.ActiveCaptionText;
-            lblAttempts.Location = new Point(12, 254);
+            lblAttempts.Location = new Point(12, 244);
             lblAttempts.Name = "lblAttempts";
             lblAttempts.Size = new Size(75, 21);
             lblAttempts.TabIndex = 11;
@@ -239,7 +239,7 @@
             lblNumberOfPR.AutoSize = true;
             lblNumberOfPR.Font = new Font("Calibri", 10.2F);
             lblNumberOfPR.ForeColor = SystemColors.ActiveCaptionText;
-            lblNumberOfPR.Location = new Point(12, 176);
+            lblNumberOfPR.Location = new Point(12, 166);
             lblNumberOfPR.Name = "lblNumberOfPR";
             lblNumberOfPR.Size = new Size(183, 21);
             lblNumberOfPR.TabIndex = 4;
@@ -250,7 +250,7 @@
             chbInfiniteLoop.AutoSize = true;
             chbInfiniteLoop.Font = new Font("Calibri", 10.2F);
             chbInfiniteLoop.ForeColor = SystemColors.ActiveCaptionText;
-            chbInfiniteLoop.Location = new Point(12, 218);
+            chbInfiniteLoop.Location = new Point(12, 208);
             chbInfiniteLoop.Name = "chbInfiniteLoop";
             chbInfiniteLoop.Size = new Size(116, 25);
             chbInfiniteLoop.TabIndex = 2;
@@ -260,21 +260,21 @@
             // 
             // nudAttempts
             // 
-            nudAttempts.Location = new Point(285, 252);
+            nudAttempts.Location = new Point(285, 242);
             nudAttempts.Name = "nudAttempts";
             nudAttempts.Size = new Size(65, 27);
             nudAttempts.TabIndex = 10;
             // 
             // nudNumberOfPR
             // 
-            nudNumberOfPR.Location = new Point(285, 174);
+            nudNumberOfPR.Location = new Point(285, 164);
             nudNumberOfPR.Name = "nudNumberOfPR";
             nudNumberOfPR.Size = new Size(65, 27);
             nudNumberOfPR.TabIndex = 3;
             // 
             // nudRefreshRate
             // 
-            nudRefreshRate.Location = new Point(285, 137);
+            nudRefreshRate.Location = new Point(285, 127);
             nudRefreshRate.Name = "nudRefreshRate";
             nudRefreshRate.Size = new Size(65, 27);
             nudRefreshRate.TabIndex = 9;
@@ -284,7 +284,7 @@
             lblRefreshRate.AutoSize = true;
             lblRefreshRate.Font = new Font("Calibri", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 238);
             lblRefreshRate.ForeColor = SystemColors.ActiveCaptionText;
-            lblRefreshRate.Location = new Point(12, 139);
+            lblRefreshRate.Location = new Point(12, 129);
             lblRefreshRate.Name = "lblRefreshRate";
             lblRefreshRate.Size = new Size(115, 21);
             lblRefreshRate.TabIndex = 8;
@@ -295,7 +295,7 @@
             lblWhenSuccess.AutoSize = true;
             lblWhenSuccess.Font = new Font("Calibri", 10.2F);
             lblWhenSuccess.ForeColor = SystemColors.ActiveCaptionText;
-            lblWhenSuccess.Location = new Point(12, 338);
+            lblWhenSuccess.Location = new Point(12, 328);
             lblWhenSuccess.Name = "lblWhenSuccess";
             lblWhenSuccess.Size = new Size(112, 21);
             lblWhenSuccess.TabIndex = 7;
@@ -306,7 +306,7 @@
             chbShowNotification.AutoSize = true;
             chbShowNotification.Font = new Font("Calibri", 10.2F);
             chbShowNotification.ForeColor = SystemColors.ActiveCaptionText;
-            chbShowNotification.Location = new Point(12, 370);
+            chbShowNotification.Location = new Point(12, 360);
             chbShowNotification.Name = "chbShowNotification";
             chbShowNotification.Size = new Size(152, 25);
             chbShowNotification.TabIndex = 6;
@@ -318,7 +318,7 @@
             chbMakeSound.AutoSize = true;
             chbMakeSound.Font = new Font("Calibri", 10.2F);
             chbMakeSound.ForeColor = SystemColors.ActiveCaptionText;
-            chbMakeSound.Location = new Point(223, 370);
+            chbMakeSound.Location = new Point(223, 360);
             chbMakeSound.Name = "chbMakeSound";
             chbMakeSound.Size = new Size(117, 25);
             chbMakeSound.TabIndex = 5;
@@ -330,7 +330,7 @@
             lblPingTarget.AutoSize = true;
             lblPingTarget.Font = new Font("Calibri", 10.2F);
             lblPingTarget.ForeColor = SystemColors.ActiveCaptionText;
-            lblPingTarget.Location = new Point(12, 21);
+            lblPingTarget.Location = new Point(12, 11);
             lblPingTarget.Name = "lblPingTarget";
             lblPingTarget.Size = new Size(86, 21);
             lblPingTarget.TabIndex = 0;
@@ -339,7 +339,7 @@
             // txbPingTarget
             // 
             txbPingTarget.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            txbPingTarget.Location = new Point(12, 48);
+            txbPingTarget.Location = new Point(12, 38);
             txbPingTarget.Name = "txbPingTarget";
             txbPingTarget.Size = new Size(338, 27);
             txbPingTarget.TabIndex = 1;
@@ -350,7 +350,7 @@
             pnlData.Dock = DockStyle.Right;
             pnlData.Location = new Point(392, 0);
             pnlData.Name = "pnlData";
-            pnlData.Size = new Size(417, 433);
+            pnlData.Size = new Size(417, 423);
             pnlData.TabIndex = 3;
             // 
             // pnlMiddle
@@ -359,9 +359,9 @@
             pnlMiddle.Controls.Add(pnlData);
             pnlMiddle.Controls.Add(pnlControls);
             pnlMiddle.Dock = DockStyle.Fill;
-            pnlMiddle.Location = new Point(0, 77);
+            pnlMiddle.Location = new Point(0, 87);
             pnlMiddle.Name = "pnlMiddle";
-            pnlMiddle.Size = new Size(811, 435);
+            pnlMiddle.Size = new Size(811, 425);
             pnlMiddle.TabIndex = 1;
             // 
             // MainForm
