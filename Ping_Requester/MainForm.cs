@@ -90,7 +90,7 @@ namespace PingRequester.Client
         private void preferencesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             PreferencesForm preferencesWindow = new PreferencesForm();
-            preferencesWindow.Show();
+            preferencesWindow.ShowDialog();
         }
     }
 }
