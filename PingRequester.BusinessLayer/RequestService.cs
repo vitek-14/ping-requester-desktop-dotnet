@@ -47,6 +47,7 @@ namespace PingRequester.BusinessLayer
 
                 if (stdout.StartsWith("Ping request could not find host"))
                 {
+
                     requester.PingSent = false;
                 }
                 else

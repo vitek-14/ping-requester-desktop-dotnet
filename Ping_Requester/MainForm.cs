@@ -15,6 +15,10 @@ namespace PingRequester.Client
         private void MainForm_Load(object sender, EventArgs e)
         {
             // Initial values
+            // Combo Box
+            cmbMode.Items.Add("Aggressive");
+            cmbMode.Items.Add("Precise");
+            cmbMode.Text = "Aggressive";
             // adress input - temporary
             txbPingTarget.Text = "www.seznam.cz";
             // Checkboxes
