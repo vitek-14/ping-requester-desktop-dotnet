@@ -23,8 +23,6 @@ namespace PingRequester.Client
             txbPingTarget.Text = "www.seznam.cz";
             // Checkboxes
             chbInfiniteLoop.Checked = true;
-            chbMakeSound.Checked = true;
-            chbShowNotification.Checked = true;
 
             // NumericUpDowns
             nudRefreshRate.Value = 2;
@@ -70,9 +68,7 @@ namespace PingRequester.Client
                 RefreshRate = (int)nudRefreshRate.Value,
                 NumberOfPR = (int)nudNumberOfPR.Value,
                 Attempts = (int)nudAttempts.Value,
-                InfiniteLoop = chbInfiniteLoop.Checked,
-                MakeSound = chbMakeSound.Checked,
-                ShowNotification = chbShowNotification.Checked
+                InfiniteLoop = chbInfiniteLoop.Checked
             };
 
             // create request service instance
