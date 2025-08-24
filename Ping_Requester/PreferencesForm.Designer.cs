@@ -233,14 +233,17 @@
             panel2.Size = new Size(400, 60);
             panel2.TabIndex = 30;
             // 
-            // Preferences
+            // PreferencesForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(400, 350);
             Controls.Add(panel2);
             Controls.Add(panel1);
-            Name = "Preferences";
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
+            Name = "PreferencesForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Preferences";
             ((System.ComponentModel.ISupportInitialize)nudNumberOfPR).EndInit();
             ((System.ComponentModel.ISupportInitialize)nudAttempts).EndInit();
