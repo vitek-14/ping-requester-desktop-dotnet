@@ -3,6 +3,9 @@ using System.Diagnostics;
 
 namespace PingRequester.BusinessLayer
 {
+    /// <summary>
+    /// Request service logic instance.
+    /// </summary>
     public class RequestService
     {
         private string stdout;
@@ -11,6 +14,10 @@ namespace PingRequester.BusinessLayer
         private Requester requester;
         private ProcessStartInfo psi;
 
+        /// <summary>
+        /// Default constructor of the class.
+        /// </summary>
+        /// <param name="requester"></param>
         public RequestService(Requester requester)
         {
             this.requester = requester;
@@ -29,6 +36,10 @@ namespace PingRequester.BusinessLayer
 
         public string Stdout { get; set; }
 
+        /// <summary>
+        /// Begins sending requests.
+        /// </summary>
+        /// <returns>Task</returns>
         public async Task BeginRequestingAsync()
         {
             while ((this.remainingRequests > 0 && this.remainingAttempts > 0) || requester.InfiniteLoop)
@@ -41,6 +52,9 @@ namespace PingRequester.BusinessLayer
             }
         }
 
+        /// <summary>
+        /// Sends single ping request.
+        /// </summary>
         private void SendRequest()
         {
             using (var process = Process.Start(this.psi))
