@@ -27,9 +27,11 @@ namespace PingRequester.Client
 
         private void PreferencesForm_Load(object sender, EventArgs e)
         {
+            // Combo box - set items
             cmbMode.Items.Add("Aggressive");
             cmbMode.Items.Add("Precise");
 
+            // Set components
             txbPingTarget.Text = _mainForm.PingTarget;
             cmbMode.Text = _mainForm.Mode;
             nudRefreshRate.Value = _mainForm.RefreshRate;
@@ -37,6 +39,7 @@ namespace PingRequester.Client
             nudNumberOfPR.Value = _mainForm.NumberOfPR;
             nudAttempts.Value = _mainForm.Attempts;
 
+            // Set components not present in the MainForm - load them from config file
             var preferences = this.jsonService.LoadFileContent();
             chbMakeSound.Checked = preferences.MakeSound;
             chbShowNotification.Checked = preferences.ShowNotification;
