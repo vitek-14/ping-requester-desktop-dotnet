@@ -15,19 +15,21 @@ namespace PingRequester.Client
         private void MainForm_Load(object sender, EventArgs e)
         {
             // Initial values
-            // Combo Box
+            string fileName = "config/PreferencesConfig.json";
+            var jsonService = new JsonService<Preferences>(fileName);
+            var preferences = jsonService.LoadFileContent();
+
+            // Combo Box - items
             cmbMode.Items.Add("Aggressive");
             cmbMode.Items.Add("Precise");
-            cmbMode.Text = "Aggressive";
-            // adress input - temporary
-            txbPingTarget.Text = "www.seznam.cz";
-            // Checkboxes
-            chbInfiniteLoop.Checked = true;
 
-            // NumericUpDowns
-            nudRefreshRate.Value = 2;
-            nudAttempts.Value = 30;
-            nudNumberOfPR.Value = 2;
+            // set components
+            txbPingTarget.Text = preferences.PingTarget;
+            cmbMode.Text = preferences.Mode;
+            nudRefreshRate.Value = (decimal)preferences.RefreshRate;
+            chbInfiniteLoop.Checked = preferences.InfiniteLoop;
+            nudNumberOfPR.Value = (decimal)preferences.NumberOfPR;
+            nudAttempts.Value = (decimal)preferences.Attempts;
 
             // check for infinite loop chb state
             SetAttemptsState();
@@ -85,7 +87,7 @@ namespace PingRequester.Client
 
         private void preferencesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            PreferencesForm preferencesWindow = new PreferencesForm();
+            PreferencesForm preferencesWindow = new PreferencesForm(this);
             preferencesWindow.ShowDialog();
         }
     }

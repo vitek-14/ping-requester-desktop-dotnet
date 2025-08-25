@@ -380,5 +380,12 @@
         private Button btnStop;
         private ComboBox cmbMode;
         private Label lblMode;
+
+        public string PingTarget { get => txbPingTarget.Text; }
+        public string Mode { get => cmbMode.Text; }
+        public int RefreshRate { get => (int)nudRefreshRate.Value; }
+        public bool InfiniteLoop { get => chbInfiniteLoop.Checked; }
+        public int NumberOfPR { get => (int)nudNumberOfPR.Value; }
+        public int Attempts { get => (int)nudAttempts.Value; }
     }
 }
