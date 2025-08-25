@@ -14,4 +14,10 @@
     <ProjectReference Include="..\PingRequester.Data\PingRequester.Data.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="config\PreferencesConfig.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

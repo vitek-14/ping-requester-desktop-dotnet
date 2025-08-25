@@ -1,0 +1,10 @@
+{
+  "ping target": "www.seznam.cz",
+  "mode": "Aggressive",
+  "refresh rate": 1,
+  "number of ping requests": 3,
+  "attempts": 1,
+  "infinite loop": false,
+  "make sound": true,
+  "show notification" : true
+}
