@@ -189,6 +189,7 @@
             btnSave.TabIndex = 27;
             btnSave.Text = "Save";
             btnSave.UseVisualStyleBackColor = true;
+            btnSave.Click += btnSave_Click;
             // 
             // btnCancel
             // 
@@ -245,6 +246,7 @@
             Name = "PreferencesForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Preferences";
+            Load += PreferencesForm_Load;
             ((System.ComponentModel.ISupportInitialize)nudNumberOfPR).EndInit();
             ((System.ComponentModel.ISupportInitialize)nudAttempts).EndInit();
             ((System.ComponentModel.ISupportInitialize)nudRefreshRate).EndInit();
