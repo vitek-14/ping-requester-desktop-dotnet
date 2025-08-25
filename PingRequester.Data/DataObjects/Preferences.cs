@@ -3,6 +3,9 @@ using System.Text.Json.Serialization;
 
 namespace PingRequester.Data.DataObjects
 {
+    /// <summary>
+    /// Preferences class extending DataObject class.
+    /// </summary>
     public class Preferences : DataObject
     {
         private string pingTarget;
@@ -14,6 +17,9 @@ namespace PingRequester.Data.DataObjects
         private bool makeSound;
         private bool showNotification;
 
+        /// <summary>
+        /// Default contructor of Preferences class.
+        /// </summary>
         public Preferences()
         {
         }

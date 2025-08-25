@@ -3,6 +3,9 @@ using PingRequester.Data.Containers;
 
 namespace PingRequester.Data.DataObjects
 {
+    /// <summary>
+    /// Requester class extending DataObject class.
+    /// </summary>
     public class Requester : DataObject
     {
         private string requestedAdress;
@@ -16,6 +19,9 @@ namespace PingRequester.Data.DataObjects
         private bool makeSound;
         private PacketCollection pingPackages;
 
+        /// <summary>
+        /// Default constructor of Requester class.
+        /// </summary>
         public Requester()
         {
             PingPackages = new PacketCollection();

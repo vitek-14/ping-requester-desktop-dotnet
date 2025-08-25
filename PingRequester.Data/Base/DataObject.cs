@@ -6,12 +6,26 @@ using System.Threading.Tasks;
 
 namespace PingRequester.Data.Base
 {
+    /// <summary>
+    /// DataObject class is a parent of all DataObjects classes.
+    /// </summary>
     public class DataObject
     {
+        /// <summary>
+        /// Default constructor of DataObject class.
+        /// </summary>
         public DataObject()
         {
         }
 
+        /// <summary>
+        /// Sets property.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="property"></param>
+        /// <param name="value"></param>
+        /// <returns>Bool describing success of the operation.</returns>
+        /// <exception cref="ArgumentNullException"></exception>
         protected bool SetProperty<T>(ref T property, T value)
         {
             if (value == null)
