@@ -9,10 +9,16 @@ using System.Threading.Tasks;
 
 namespace PingRequester.Data.Containers
 {
+    /// <summary>
+    /// Collection class of Packet data object.
+    /// </summary>
     public class PacketCollection
     {
         private Queue<Packet> packets;
 
+        /// <summary>
+        /// Default constructor of the PacketCollection class.
+        /// </summary>
         public PacketCollection()
         {
         }
