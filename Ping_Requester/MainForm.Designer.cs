@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             pnlTop = new Panel();
+            lblLineSeparator = new Label();
             lblPingRequester = new Label();
             menuStrip1 = new MenuStrip();
             fileToolStripMenuItem = new ToolStripMenuItem();
@@ -54,7 +55,6 @@
             txbPingTarget = new TextBox();
             pnlData = new Panel();
             pnlMiddle = new Panel();
-            lblLineSeparator = new Label();
             pnlTop.SuspendLayout();
             menuStrip1.SuspendLayout();
             pnlInfo.SuspendLayout();
@@ -76,6 +76,15 @@
             pnlTop.Name = "pnlTop";
             pnlTop.Size = new Size(811, 87);
             pnlTop.TabIndex = 0;
+            // 
+            // lblLineSeparator
+            // 
+            lblLineSeparator.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            lblLineSeparator.BorderStyle = BorderStyle.Fixed3D;
+            lblLineSeparator.Location = new Point(5, 78);
+            lblLineSeparator.Name = "lblLineSeparator";
+            lblLineSeparator.Size = new Size(800, 2);
+            lblLineSeparator.TabIndex = 2;
             // 
             // lblPingRequester
             // 
@@ -174,7 +183,7 @@
             pnlControls.Dock = DockStyle.Left;
             pnlControls.Location = new Point(0, 0);
             pnlControls.Name = "pnlControls";
-            pnlControls.Size = new Size(386, 425);
+            pnlControls.Size = new Size(317, 425);
             pnlControls.TabIndex = 2;
             // 
             // lblNumberOfPR
@@ -190,18 +199,20 @@
             // 
             // nudNumberOfPR
             // 
-            nudNumberOfPR.Location = new Point(285, 205);
+            nudNumberOfPR.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            nudNumberOfPR.Location = new Point(214, 205);
             nudNumberOfPR.Name = "nudNumberOfPR";
-            nudNumberOfPR.Size = new Size(65, 23);
+            nudNumberOfPR.Size = new Size(67, 23);
             nudNumberOfPR.TabIndex = 3;
             // 
             // cmbMode
             // 
+            cmbMode.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             cmbMode.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbMode.FormattingEnabled = true;
-            cmbMode.Location = new Point(228, 85);
+            cmbMode.Location = new Point(157, 85);
             cmbMode.Name = "cmbMode";
-            cmbMode.Size = new Size(122, 23);
+            cmbMode.Size = new Size(124, 23);
             cmbMode.TabIndex = 15;
             // 
             // lblMode
@@ -219,9 +230,9 @@
             // 
             btnStop.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 238);
             btnStop.ForeColor = Color.IndianRed;
-            btnStop.Location = new Point(223, 332);
+            btnStop.Location = new Point(204, 332);
             btnStop.Name = "btnStop";
-            btnStop.Size = new Size(86, 36);
+            btnStop.Size = new Size(77, 36);
             btnStop.TabIndex = 13;
             btnStop.Text = "Stop";
             btnStop.UseVisualStyleBackColor = true;
@@ -230,9 +241,9 @@
             // 
             btnSendRequest.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 238);
             btnSendRequest.ForeColor = SystemColors.Highlight;
-            btnSendRequest.Location = new Point(32, 332);
+            btnSendRequest.Location = new Point(28, 332);
             btnSendRequest.Name = "btnSendRequest";
-            btnSendRequest.Size = new Size(149, 36);
+            btnSendRequest.Size = new Size(130, 36);
             btnSendRequest.TabIndex = 12;
             btnSendRequest.Text = "Send Request";
             btnSendRequest.UseVisualStyleBackColor = true;
@@ -264,16 +275,18 @@
             // 
             // nudAttempts
             // 
-            nudAttempts.Location = new Point(285, 242);
+            nudAttempts.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            nudAttempts.Location = new Point(214, 242);
             nudAttempts.Name = "nudAttempts";
-            nudAttempts.Size = new Size(65, 23);
+            nudAttempts.Size = new Size(67, 23);
             nudAttempts.TabIndex = 10;
             // 
             // nudRefreshRate
             // 
-            nudRefreshRate.Location = new Point(285, 127);
+            nudRefreshRate.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            nudRefreshRate.Location = new Point(214, 127);
             nudRefreshRate.Name = "nudRefreshRate";
-            nudRefreshRate.Size = new Size(65, 23);
+            nudRefreshRate.Size = new Size(67, 23);
             nudRefreshRate.TabIndex = 9;
             // 
             // lblRefreshRate
@@ -303,16 +316,16 @@
             txbPingTarget.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             txbPingTarget.Location = new Point(12, 38);
             txbPingTarget.Name = "txbPingTarget";
-            txbPingTarget.Size = new Size(338, 23);
+            txbPingTarget.Size = new Size(269, 23);
             txbPingTarget.TabIndex = 1;
             // 
             // pnlData
             // 
             pnlData.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             pnlData.Dock = DockStyle.Right;
-            pnlData.Location = new Point(394, 0);
+            pnlData.Location = new Point(323, 0);
             pnlData.Name = "pnlData";
-            pnlData.Size = new Size(417, 425);
+            pnlData.Size = new Size(488, 425);
             pnlData.TabIndex = 3;
             // 
             // pnlMiddle
@@ -324,15 +337,6 @@
             pnlMiddle.Name = "pnlMiddle";
             pnlMiddle.Size = new Size(811, 425);
             pnlMiddle.TabIndex = 1;
-            // 
-            // lblLineSeparator
-            // 
-            lblLineSeparator.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            lblLineSeparator.BorderStyle = BorderStyle.Fixed3D;
-            lblLineSeparator.Location = new Point(5, 78);
-            lblLineSeparator.Name = "lblLineSeparator";
-            lblLineSeparator.Size = new Size(800, 2);
-            lblLineSeparator.TabIndex = 2;
             // 
             // MainForm
             // 
