@@ -55,6 +55,8 @@
             txbPingTarget = new TextBox();
             pnlData = new Panel();
             pnlMiddle = new Panel();
+            lblPacketSize = new Label();
+            nudPacketSize = new NumericUpDown();
             pnlTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             menuStrip1.SuspendLayout();
@@ -64,6 +66,7 @@
             ((System.ComponentModel.ISupportInitialize)nudAttempts).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nudRefreshRate).BeginInit();
             pnlMiddle.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)nudPacketSize).BeginInit();
             SuspendLayout();
             // 
             // pnlTop
@@ -167,6 +170,8 @@
             // pnlControls
             // 
             pnlControls.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            pnlControls.Controls.Add(nudPacketSize);
+            pnlControls.Controls.Add(lblPacketSize);
             pnlControls.Controls.Add(lblNumberOfPR);
             pnlControls.Controls.Add(nudNumberOfPR);
             pnlControls.Controls.Add(cmbMode);
@@ -338,6 +343,25 @@
             pnlMiddle.Size = new Size(811, 441);
             pnlMiddle.TabIndex = 1;
             // 
+            // lblPacketSize
+            // 
+            lblPacketSize.AutoSize = true;
+            lblPacketSize.Font = new Font("Calibri", 10.2F);
+            lblPacketSize.ForeColor = SystemColors.ActiveCaptionText;
+            lblPacketSize.Location = new Point(12, 258);
+            lblPacketSize.Name = "lblPacketSize";
+            lblPacketSize.Size = new Size(138, 21);
+            lblPacketSize.TabIndex = 16;
+            lblPacketSize.Text = "Packet Size (bytes)";
+            // 
+            // nudPacketSize
+            // 
+            nudPacketSize.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            nudPacketSize.Location = new Point(229, 256);
+            nudPacketSize.Name = "nudPacketSize";
+            nudPacketSize.Size = new Size(67, 27);
+            nudPacketSize.TabIndex = 17;
+            // 
             // MainForm
             // 
             AutoScaleMode = AutoScaleMode.None;
@@ -364,6 +388,7 @@
             ((System.ComponentModel.ISupportInitialize)nudAttempts).EndInit();
             ((System.ComponentModel.ISupportInitialize)nudRefreshRate).EndInit();
             pnlMiddle.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)nudPacketSize).EndInit();
             ResumeLayout(false);
         }
 
@@ -396,6 +421,8 @@
         private Label lblMode;
         private Label lblLineSeparator;
         private PictureBox pictureBox1;
+        private NumericUpDown nudPacketSize;
+        private Label lblPacketSize;
 
         public string PingTarget { get => txbPingTarget.Text; }
         public string Mode { get => cmbMode.Text; }
