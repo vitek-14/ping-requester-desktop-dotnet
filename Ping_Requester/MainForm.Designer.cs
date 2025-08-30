@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             pnlTop = new Panel();
+            pictureBox1 = new PictureBox();
             lblLineSeparator = new Label();
-            lblPingRequester = new Label();
             menuStrip1 = new MenuStrip();
             fileToolStripMenuItem = new ToolStripMenuItem();
             toolStripSeparator1 = new ToolStripSeparator();
@@ -56,6 +56,7 @@
             pnlData = new Panel();
             pnlMiddle = new Panel();
             pnlTop.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             menuStrip1.SuspendLayout();
             pnlInfo.SuspendLayout();
             pnlControls.SuspendLayout();
@@ -68,36 +69,35 @@
             // pnlTop
             // 
             pnlTop.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            pnlTop.BackColor = SystemColors.ButtonHighlight;
+            pnlTop.Controls.Add(pictureBox1);
             pnlTop.Controls.Add(lblLineSeparator);
-            pnlTop.Controls.Add(lblPingRequester);
             pnlTop.Controls.Add(menuStrip1);
             pnlTop.Dock = DockStyle.Top;
             pnlTop.Location = new Point(0, 0);
             pnlTop.Name = "pnlTop";
-            pnlTop.Size = new Size(811, 87);
+            pnlTop.Size = new Size(811, 143);
             pnlTop.TabIndex = 0;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.BackColor = Color.Transparent;
+            pictureBox1.Image = Properties.Resources.Ping_Requester_Poster_6;
+            pictureBox1.Location = new Point(0, 31);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(811, 104);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 3;
+            pictureBox1.TabStop = false;
             // 
             // lblLineSeparator
             // 
             lblLineSeparator.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             lblLineSeparator.BorderStyle = BorderStyle.Fixed3D;
-            lblLineSeparator.Location = new Point(5, 78);
+            lblLineSeparator.Location = new Point(5, 138);
             lblLineSeparator.Name = "lblLineSeparator";
             lblLineSeparator.Size = new Size(800, 2);
             lblLineSeparator.TabIndex = 2;
-            // 
-            // lblPingRequester
-            // 
-            lblPingRequester.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            lblPingRequester.AutoSize = true;
-            lblPingRequester.Font = new Font("Calibri", 24F);
-            lblPingRequester.ForeColor = SystemColors.HotTrack;
-            lblPingRequester.Location = new Point(299, 35);
-            lblPingRequester.Name = "lblPingRequester";
-            lblPingRequester.Size = new Size(213, 39);
-            lblPingRequester.TabIndex = 0;
-            lblPingRequester.Text = "Ping Requester";
-            lblPingRequester.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // menuStrip1
             // 
@@ -105,7 +105,7 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, settingsToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(811, 24);
+            menuStrip1.Size = new Size(811, 28);
             menuStrip1.TabIndex = 1;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -113,18 +113,18 @@
             // 
             fileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { toolStripSeparator1, exitToolStripMenuItem });
             fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            fileToolStripMenuItem.Size = new Size(37, 20);
+            fileToolStripMenuItem.Size = new Size(46, 24);
             fileToolStripMenuItem.Text = "File";
             // 
             // toolStripSeparator1
             // 
             toolStripSeparator1.Name = "toolStripSeparator1";
-            toolStripSeparator1.Size = new Size(90, 6);
+            toolStripSeparator1.Size = new Size(113, 6);
             // 
             // exitToolStripMenuItem
             // 
             exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            exitToolStripMenuItem.Size = new Size(93, 22);
+            exitToolStripMenuItem.Size = new Size(116, 26);
             exitToolStripMenuItem.Text = "Exit";
             exitToolStripMenuItem.Click += exitToolStripMenuItem_Click;
             // 
@@ -132,13 +132,13 @@
             // 
             settingsToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { preferencesToolStripMenuItem });
             settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            settingsToolStripMenuItem.Size = new Size(61, 20);
+            settingsToolStripMenuItem.Size = new Size(76, 24);
             settingsToolStripMenuItem.Text = "Settings";
             // 
             // preferencesToolStripMenuItem
             // 
             preferencesToolStripMenuItem.Name = "preferencesToolStripMenuItem";
-            preferencesToolStripMenuItem.Size = new Size(135, 22);
+            preferencesToolStripMenuItem.Size = new Size(168, 26);
             preferencesToolStripMenuItem.Text = "Preferences";
             preferencesToolStripMenuItem.Click += preferencesToolStripMenuItem_Click;
             // 
@@ -148,7 +148,7 @@
             pnlInfo.BorderStyle = BorderStyle.FixedSingle;
             pnlInfo.Controls.Add(lblInfo);
             pnlInfo.Dock = DockStyle.Bottom;
-            pnlInfo.Location = new Point(0, 480);
+            pnlInfo.Location = new Point(0, 552);
             pnlInfo.Name = "pnlInfo";
             pnlInfo.Size = new Size(811, 32);
             pnlInfo.TabIndex = 2;
@@ -160,7 +160,7 @@
             lblInfo.ForeColor = SystemColors.InfoText;
             lblInfo.Location = new Point(10, 3);
             lblInfo.Name = "lblInfo";
-            lblInfo.Size = new Size(56, 18);
+            lblInfo.Size = new Size(70, 22);
             lblInfo.TabIndex = 0;
             lblInfo.Text = "Info: ";
             // 
@@ -183,7 +183,7 @@
             pnlControls.Dock = DockStyle.Left;
             pnlControls.Location = new Point(0, 0);
             pnlControls.Name = "pnlControls";
-            pnlControls.Size = new Size(317, 425);
+            pnlControls.Size = new Size(332, 441);
             pnlControls.TabIndex = 2;
             // 
             // lblNumberOfPR
@@ -191,18 +191,18 @@
             lblNumberOfPR.AutoSize = true;
             lblNumberOfPR.Font = new Font("Calibri", 10.2F);
             lblNumberOfPR.ForeColor = SystemColors.ActiveCaptionText;
-            lblNumberOfPR.Location = new Point(12, 207);
+            lblNumberOfPR.Location = new Point(12, 183);
             lblNumberOfPR.Name = "lblNumberOfPR";
-            lblNumberOfPR.Size = new Size(146, 17);
+            lblNumberOfPR.Size = new Size(183, 21);
             lblNumberOfPR.TabIndex = 4;
             lblNumberOfPR.Text = "Number of ping requests";
             // 
             // nudNumberOfPR
             // 
             nudNumberOfPR.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            nudNumberOfPR.Location = new Point(214, 205);
+            nudNumberOfPR.Location = new Point(229, 181);
             nudNumberOfPR.Name = "nudNumberOfPR";
-            nudNumberOfPR.Size = new Size(67, 23);
+            nudNumberOfPR.Size = new Size(67, 27);
             nudNumberOfPR.TabIndex = 3;
             // 
             // cmbMode
@@ -210,9 +210,9 @@
             cmbMode.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             cmbMode.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbMode.FormattingEnabled = true;
-            cmbMode.Location = new Point(157, 85);
+            cmbMode.Location = new Point(172, 74);
             cmbMode.Name = "cmbMode";
-            cmbMode.Size = new Size(124, 23);
+            cmbMode.Size = new Size(124, 28);
             cmbMode.TabIndex = 15;
             // 
             // lblMode
@@ -220,9 +220,9 @@
             lblMode.AutoSize = true;
             lblMode.Font = new Font("Calibri", 10.2F);
             lblMode.ForeColor = SystemColors.ActiveCaptionText;
-            lblMode.Location = new Point(12, 88);
+            lblMode.Location = new Point(12, 77);
             lblMode.Name = "lblMode";
-            lblMode.Size = new Size(41, 17);
+            lblMode.Size = new Size(51, 21);
             lblMode.TabIndex = 14;
             lblMode.Text = "Mode";
             // 
@@ -230,7 +230,7 @@
             // 
             btnStop.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 238);
             btnStop.ForeColor = Color.IndianRed;
-            btnStop.Location = new Point(204, 332);
+            btnStop.Location = new Point(204, 352);
             btnStop.Name = "btnStop";
             btnStop.Size = new Size(77, 36);
             btnStop.TabIndex = 13;
@@ -241,7 +241,7 @@
             // 
             btnSendRequest.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 238);
             btnSendRequest.ForeColor = SystemColors.Highlight;
-            btnSendRequest.Location = new Point(28, 332);
+            btnSendRequest.Location = new Point(28, 352);
             btnSendRequest.Name = "btnSendRequest";
             btnSendRequest.Size = new Size(130, 36);
             btnSendRequest.TabIndex = 12;
@@ -254,9 +254,9 @@
             lblAttempts.AutoSize = true;
             lblAttempts.Font = new Font("Calibri", 10.2F);
             lblAttempts.ForeColor = SystemColors.ActiveCaptionText;
-            lblAttempts.Location = new Point(12, 244);
+            lblAttempts.Location = new Point(12, 220);
             lblAttempts.Name = "lblAttempts";
-            lblAttempts.Size = new Size(60, 17);
+            lblAttempts.Size = new Size(75, 21);
             lblAttempts.TabIndex = 11;
             lblAttempts.Text = "Attempts";
             // 
@@ -265,9 +265,9 @@
             chbInfiniteLoop.AutoSize = true;
             chbInfiniteLoop.Font = new Font("Calibri", 10.2F);
             chbInfiniteLoop.ForeColor = SystemColors.ActiveCaptionText;
-            chbInfiniteLoop.Location = new Point(12, 170);
+            chbInfiniteLoop.Location = new Point(12, 146);
             chbInfiniteLoop.Name = "chbInfiniteLoop";
-            chbInfiniteLoop.Size = new Size(94, 21);
+            chbInfiniteLoop.Size = new Size(116, 25);
             chbInfiniteLoop.TabIndex = 2;
             chbInfiniteLoop.Text = "Infinite loop";
             chbInfiniteLoop.UseVisualStyleBackColor = true;
@@ -276,17 +276,17 @@
             // nudAttempts
             // 
             nudAttempts.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            nudAttempts.Location = new Point(214, 242);
+            nudAttempts.Location = new Point(229, 218);
             nudAttempts.Name = "nudAttempts";
-            nudAttempts.Size = new Size(67, 23);
+            nudAttempts.Size = new Size(67, 27);
             nudAttempts.TabIndex = 10;
             // 
             // nudRefreshRate
             // 
             nudRefreshRate.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            nudRefreshRate.Location = new Point(214, 127);
+            nudRefreshRate.Location = new Point(229, 111);
             nudRefreshRate.Name = "nudRefreshRate";
-            nudRefreshRate.Size = new Size(67, 23);
+            nudRefreshRate.Size = new Size(67, 27);
             nudRefreshRate.TabIndex = 9;
             // 
             // lblRefreshRate
@@ -294,9 +294,9 @@
             lblRefreshRate.AutoSize = true;
             lblRefreshRate.Font = new Font("Calibri", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 238);
             lblRefreshRate.ForeColor = SystemColors.ActiveCaptionText;
-            lblRefreshRate.Location = new Point(12, 129);
+            lblRefreshRate.Location = new Point(12, 113);
             lblRefreshRate.Name = "lblRefreshRate";
-            lblRefreshRate.Size = new Size(94, 17);
+            lblRefreshRate.Size = new Size(115, 21);
             lblRefreshRate.TabIndex = 8;
             lblRefreshRate.Text = "Refresh rate (s)";
             // 
@@ -307,7 +307,7 @@
             lblPingTarget.ForeColor = SystemColors.ActiveCaptionText;
             lblPingTarget.Location = new Point(12, 11);
             lblPingTarget.Name = "lblPingTarget";
-            lblPingTarget.Size = new Size(71, 17);
+            lblPingTarget.Size = new Size(86, 21);
             lblPingTarget.TabIndex = 0;
             lblPingTarget.Text = "Ping target";
             // 
@@ -316,16 +316,16 @@
             txbPingTarget.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             txbPingTarget.Location = new Point(12, 38);
             txbPingTarget.Name = "txbPingTarget";
-            txbPingTarget.Size = new Size(269, 23);
+            txbPingTarget.Size = new Size(284, 27);
             txbPingTarget.TabIndex = 1;
             // 
             // pnlData
             // 
             pnlData.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             pnlData.Dock = DockStyle.Right;
-            pnlData.Location = new Point(323, 0);
+            pnlData.Location = new Point(338, 0);
             pnlData.Name = "pnlData";
-            pnlData.Size = new Size(488, 425);
+            pnlData.Size = new Size(473, 441);
             pnlData.TabIndex = 3;
             // 
             // pnlMiddle
@@ -333,15 +333,15 @@
             pnlMiddle.Controls.Add(pnlData);
             pnlMiddle.Controls.Add(pnlControls);
             pnlMiddle.Dock = DockStyle.Fill;
-            pnlMiddle.Location = new Point(0, 87);
+            pnlMiddle.Location = new Point(0, 143);
             pnlMiddle.Name = "pnlMiddle";
-            pnlMiddle.Size = new Size(811, 425);
+            pnlMiddle.Size = new Size(811, 441);
             pnlMiddle.TabIndex = 1;
             // 
             // MainForm
             // 
             AutoScaleMode = AutoScaleMode.None;
-            ClientSize = new Size(811, 512);
+            ClientSize = new Size(811, 584);
             Controls.Add(pnlInfo);
             Controls.Add(pnlMiddle);
             Controls.Add(pnlTop);
@@ -353,6 +353,7 @@
             Load += MainForm_Load;
             pnlTop.ResumeLayout(false);
             pnlTop.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             pnlInfo.ResumeLayout(false);
@@ -369,7 +370,6 @@
         #endregion
 
         private Panel pnlTop;
-        private Label lblPingRequester;
         private Panel pnlInfo;
         private Label lblInfo;
         private Panel pnlControls;
@@ -395,6 +395,7 @@
         private ComboBox cmbMode;
         private Label lblMode;
         private Label lblLineSeparator;
+        private PictureBox pictureBox1;
 
         public string PingTarget { get => txbPingTarget.Text; }
         public string Mode { get => cmbMode.Text; }
