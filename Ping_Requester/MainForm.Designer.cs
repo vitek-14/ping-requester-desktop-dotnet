@@ -614,7 +614,7 @@
             lblIpAdressActive.AutoSize = true;
             lblIpAdressActive.Font = new Font("Calibri", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 238);
             lblIpAdressActive.ForeColor = SystemColors.ActiveCaptionText;
-            lblIpAdressActive.Location = new Point(220, 45);
+            lblIpAdressActive.Location = new Point(220, 47);
             lblIpAdressActive.Name = "lblIpAdressActive";
             lblIpAdressActive.Size = new Size(81, 21);
             lblIpAdressActive.TabIndex = 3;
@@ -625,7 +625,7 @@
             lblIpAdress.AutoSize = true;
             lblIpAdress.Font = new Font("Calibri", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 238);
             lblIpAdress.ForeColor = SystemColors.ActiveCaptionText;
-            lblIpAdress.Location = new Point(18, 43);
+            lblIpAdress.Location = new Point(18, 45);
             lblIpAdress.Name = "lblIpAdress";
             lblIpAdress.Size = new Size(77, 21);
             lblIpAdress.TabIndex = 2;
@@ -660,7 +660,7 @@
             tbpDatabase.Location = new Point(4, 29);
             tbpDatabase.Name = "tbpDatabase";
             tbpDatabase.Padding = new Padding(3);
-            tbpDatabase.Size = new Size(459, 367);
+            tbpDatabase.Size = new Size(477, 367);
             tbpDatabase.TabIndex = 1;
             tbpDatabase.Text = "Database";
             tbpDatabase.UseVisualStyleBackColor = true;
