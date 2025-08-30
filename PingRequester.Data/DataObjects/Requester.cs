@@ -7,7 +7,7 @@ namespace PingRequester.Data.DataObjects
     /// </summary>
     public class Requester : DataObject
     {
-        private string requestedAdress;
+        private string requestedAddress;
         private string mode;
         private bool pingSent;
         private int refreshRate;
@@ -24,13 +24,16 @@ namespace PingRequester.Data.DataObjects
         /// </summary>
         public Requester()
         {
-            RequestRun = new RequestRun();
+            RequestRun = new RequestRun()
+            {
+                Hostname = requestedAddress
+            };
         }
 
-        public string RequestedAdress
+        public string RequestedAddress
         {
-            get => requestedAdress;
-            set => SetProperty(ref requestedAdress, value);
+            get => requestedAddress;
+            set => SetProperty(ref requestedAddress, value);
         }
 
         public string Mode

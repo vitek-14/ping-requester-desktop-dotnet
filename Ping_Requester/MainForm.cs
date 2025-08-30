@@ -66,7 +66,7 @@ namespace PingRequester.Client
             // create requester
             var requester = new Requester()
             {
-                RequestedAdress = txbPingTarget.Text,
+                RequestedAddress = txbPingTarget.Text,
                 Mode = cmbMode.Text,
                 RefreshRate = (int)nudRefreshRate.Value,
                 NumberOfPR = (int)nudNumberOfPR.Value,
@@ -90,11 +90,6 @@ namespace PingRequester.Client
         {
             PreferencesForm preferencesWindow = new PreferencesForm(this);
             preferencesWindow.ShowDialog();
-        }
-
-        private void lblPingingActive_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

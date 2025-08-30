@@ -642,7 +642,6 @@
             lblPingingActive.Size = new Size(120, 21);
             lblPingingActive.TabIndex = 1;
             lblPingingActive.Text = "www.seznam.cz";
-            lblPingingActive.Click += lblPingingActive_Click;
             // 
             // lblPinging
             // 
