@@ -1,5 +1,8 @@
 ﻿using PingRequester.Data.DataObjects;
 using System.Diagnostics;
+using System.Net;
+using System.Linq;
+using System.Net.Sockets;
 
 namespace PingRequester.BusinessLayer
 {
@@ -27,7 +30,7 @@ namespace PingRequester.BusinessLayer
             this.psi = new ProcessStartInfo
             {
                 FileName = "ping",
-                Arguments = $"-n 1 {requester.RequestedAdress}",
+                Arguments = $"-n 1 {requester.RequestedAddress}",
                 RedirectStandardOutput = true,
                 UseShellExecute = false,
                 CreateNoWindow = true
@@ -80,6 +83,12 @@ namespace PingRequester.BusinessLayer
                     requester.PingSent = true;
                 }
             }
+        }
+
+        public string FindIpAddress(string hostname)
+        {
+            IPAddress? address = Dns.GetHostAddresses(hostname).FirstOrDefault(a => a.AddressFamily == AddressFamily.InterNetwork);
+            return address.ToString();
         }
     }
 }
