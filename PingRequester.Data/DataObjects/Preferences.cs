@@ -26,7 +26,11 @@ namespace PingRequester.Data.DataObjects
         }
 
         [JsonPropertyName("ping target")]
-        public string PingTarget { get; set; }
+        public string PingTarget 
+        { 
+            get => pingTarget;
+            set => SetProperty(ref pingTarget, value);
+        }
 
         [JsonPropertyName("mode")]
         public string Mode

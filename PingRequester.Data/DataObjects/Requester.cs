@@ -16,12 +16,15 @@ namespace PingRequester.Data.DataObjects
         private bool infiniteLoop;
         private bool showNotification;
         private bool makeSound;
+        private int packetSize;
+        private RequestRun requestRun;
 
         /// <summary>
         /// Default constructor of Requester class.
         /// </summary>
         public Requester()
         {
+            RequestRun = new RequestRun();
         }
 
         public string RequestedAdress
@@ -76,6 +79,18 @@ namespace PingRequester.Data.DataObjects
         {
             get => makeSound;
             set => SetProperty(ref makeSound, value);
+        }
+
+        public int PacketSize
+        {
+            get => packetSize;
+            set => SetProperty(ref packetSize, value);
+        }
+
+        public RequestRun RequestRun
+        {
+            get => requestRun;
+            set => SetProperty(ref requestRun, value);
         }
     }
 }

@@ -71,7 +71,7 @@ namespace PingRequester.Client
                 RefreshRate = (int)nudRefreshRate.Value,
                 NumberOfPR = (int)nudNumberOfPR.Value,
                 Attempts = (int)nudAttempts.Value,
-                InfiniteLoop = chbInfiniteLoop.Checked
+                InfiniteLoop = chbInfiniteLoop.Checked,
             };
 
             // create request service instance
