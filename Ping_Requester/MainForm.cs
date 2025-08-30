@@ -91,5 +91,10 @@ namespace PingRequester.Client
             PreferencesForm preferencesWindow = new PreferencesForm(this);
             preferencesWindow.ShowDialog();
         }
+
+        private void lblPingingActive_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
