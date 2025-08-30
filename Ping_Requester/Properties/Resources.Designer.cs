@@ -73,69 +73,9 @@ namespace PingRequester.Client.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Ping_Requester_2 {
-            get {
-                object obj = ResourceManager.GetObject("Ping-Requester-2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap Ping_Requester_3 {
             get {
                 object obj = ResourceManager.GetObject("Ping-Requester-3", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Ping_Requester_Poster_1 {
-            get {
-                object obj = ResourceManager.GetObject("Ping-Requester-Poster-1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Ping_Requester_Poster_2 {
-            get {
-                object obj = ResourceManager.GetObject("Ping-Requester-Poster-2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Ping_Requester_Poster_3 {
-            get {
-                object obj = ResourceManager.GetObject("Ping-Requester-Poster-3", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Ping_Requester_Poster_4 {
-            get {
-                object obj = ResourceManager.GetObject("Ping-Requester-Poster-4", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Ping_Requester_Poster_5 {
-            get {
-                object obj = ResourceManager.GetObject("Ping-Requester-Poster-5", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
