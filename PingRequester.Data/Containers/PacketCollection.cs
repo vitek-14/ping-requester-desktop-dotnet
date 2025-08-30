@@ -21,6 +21,7 @@ namespace PingRequester.Data.Containers
         /// </summary>
         public PacketCollection()
         {
+            Packets
         }
 
         public Queue<Packet> Packets { get; set; }

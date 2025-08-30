@@ -17,14 +17,12 @@ namespace PingRequester.Data.DataObjects
         private bool infiniteLoop;
         private bool showNotification;
         private bool makeSound;
-        private PacketCollection pingPackages;
 
         /// <summary>
         /// Default constructor of Requester class.
         /// </summary>
         public Requester()
         {
-            PingPackages = new PacketCollection();
         }
 
         public string RequestedAdress
@@ -79,12 +77,6 @@ namespace PingRequester.Data.DataObjects
         {
             get => makeSound;
             set => SetProperty(ref makeSound, value);
-        }
-
-        public PacketCollection PingPackages
-        {
-            get => pingPackages ?? new PacketCollection();
-            set => SetProperty(ref pingPackages, value);
         }
     }
 }
