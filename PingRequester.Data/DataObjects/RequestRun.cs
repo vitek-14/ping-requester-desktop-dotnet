@@ -1,5 +1,4 @@
 ﻿using PingRequester.Data.Base;
-using PingRequester.Data.Containers;
 using System;
 using System.Collections.Generic;
 using System.Linq;

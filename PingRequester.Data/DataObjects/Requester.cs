@@ -1,5 +1,4 @@
 ﻿using PingRequester.Data.Base;
-using PingRequester.Data.Containers;
 
 namespace PingRequester.Data.DataObjects
 {
