@@ -61,6 +61,27 @@
             tbpDatabase = new TabPage();
             tbpOutput = new TabPage();
             pnlMiddle = new Panel();
+            lblPinging = new Label();
+            lblPingingActive = new Label();
+            lblIpAdressActive = new Label();
+            lblIpAdress = new Label();
+            lblPacketSizeRRActive = new Label();
+            lblPacketSizeRR = new Label();
+            grbPackets = new GroupBox();
+            lblSent = new Label();
+            lblSentActive = new Label();
+            label1 = new Label();
+            lblRecieved = new Label();
+            lblLostActive = new Label();
+            lblLost = new Label();
+            grbRoundTripTimes = new GroupBox();
+            lblAverageActive = new Label();
+            lblAverage = new Label();
+            lblMinimumActive = new Label();
+            lblMinimum = new Label();
+            lblMaximumActive = new Label();
+            lblMaximum = new Label();
+            richTextBox1 = new RichTextBox();
             pnlTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             menuStrip1.SuspendLayout();
@@ -72,7 +93,11 @@
             ((System.ComponentModel.ISupportInitialize)nudRefreshRate).BeginInit();
             pnlData.SuspendLayout();
             tbc.SuspendLayout();
+            tbpRequestRun.SuspendLayout();
+            tbpOutput.SuspendLayout();
             pnlMiddle.SuspendLayout();
+            grbPackets.SuspendLayout();
+            grbRoundTripTimes.SuspendLayout();
             SuspendLayout();
             // 
             // pnlTop
@@ -374,6 +399,14 @@
             // 
             // tbpRequestRun
             // 
+            tbpRequestRun.Controls.Add(grbRoundTripTimes);
+            tbpRequestRun.Controls.Add(grbPackets);
+            tbpRequestRun.Controls.Add(lblPacketSizeRRActive);
+            tbpRequestRun.Controls.Add(lblPacketSizeRR);
+            tbpRequestRun.Controls.Add(lblIpAdressActive);
+            tbpRequestRun.Controls.Add(lblIpAdress);
+            tbpRequestRun.Controls.Add(lblPingingActive);
+            tbpRequestRun.Controls.Add(lblPinging);
             tbpRequestRun.Location = new Point(4, 29);
             tbpRequestRun.Name = "tbpRequestRun";
             tbpRequestRun.Padding = new Padding(3);
@@ -387,17 +420,18 @@
             tbpDatabase.Location = new Point(4, 29);
             tbpDatabase.Name = "tbpDatabase";
             tbpDatabase.Padding = new Padding(3);
-            tbpDatabase.Size = new Size(456, 367);
+            tbpDatabase.Size = new Size(459, 367);
             tbpDatabase.TabIndex = 1;
             tbpDatabase.Text = "Database";
             tbpDatabase.UseVisualStyleBackColor = true;
             // 
             // tbpOutput
             // 
+            tbpOutput.Controls.Add(richTextBox1);
             tbpOutput.Location = new Point(4, 29);
             tbpOutput.Name = "tbpOutput";
             tbpOutput.Padding = new Padding(3);
-            tbpOutput.Size = new Size(456, 367);
+            tbpOutput.Size = new Size(459, 367);
             tbpOutput.TabIndex = 2;
             tbpOutput.Text = "Output";
             tbpOutput.UseVisualStyleBackColor = true;
@@ -411,6 +445,244 @@
             pnlMiddle.Name = "pnlMiddle";
             pnlMiddle.Size = new Size(814, 441);
             pnlMiddle.TabIndex = 1;
+            // 
+            // lblPinging
+            // 
+            lblPinging.AutoSize = true;
+            lblPinging.Font = new Font("Calibri", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            lblPinging.ForeColor = SystemColors.ActiveCaptionText;
+            lblPinging.Location = new Point(18, 15);
+            lblPinging.Name = "lblPinging";
+            lblPinging.Size = new Size(66, 21);
+            lblPinging.TabIndex = 0;
+            lblPinging.Text = "Pinging:";
+            // 
+            // lblPingingActive
+            // 
+            lblPingingActive.AutoSize = true;
+            lblPingingActive.Font = new Font("Calibri", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            lblPingingActive.ForeColor = SystemColors.ActiveCaptionText;
+            lblPingingActive.Location = new Point(202, 15);
+            lblPingingActive.Name = "lblPingingActive";
+            lblPingingActive.Size = new Size(120, 21);
+            lblPingingActive.TabIndex = 1;
+            lblPingingActive.Text = "www.seznam.cz";
+            // 
+            // lblIpAdressActive
+            // 
+            lblIpAdressActive.AutoSize = true;
+            lblIpAdressActive.Font = new Font("Calibri", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            lblIpAdressActive.ForeColor = SystemColors.ActiveCaptionText;
+            lblIpAdressActive.Location = new Point(202, 43);
+            lblIpAdressActive.Name = "lblIpAdressActive";
+            lblIpAdressActive.Size = new Size(81, 21);
+            lblIpAdressActive.TabIndex = 3;
+            lblIpAdressActive.Text = "xxx.xxx.xxx";
+            // 
+            // lblIpAdress
+            // 
+            lblIpAdress.AutoSize = true;
+            lblIpAdress.Font = new Font("Calibri", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            lblIpAdress.ForeColor = SystemColors.ActiveCaptionText;
+            lblIpAdress.Location = new Point(18, 43);
+            lblIpAdress.Name = "lblIpAdress";
+            lblIpAdress.Size = new Size(77, 21);
+            lblIpAdress.TabIndex = 2;
+            lblIpAdress.Text = "IP adress:";
+            // 
+            // lblPacketSizeRRActive
+            // 
+            lblPacketSizeRRActive.AutoSize = true;
+            lblPacketSizeRRActive.Font = new Font("Calibri", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            lblPacketSizeRRActive.ForeColor = SystemColors.ActiveCaptionText;
+            lblPacketSizeRRActive.Location = new Point(202, 73);
+            lblPacketSizeRRActive.Name = "lblPacketSizeRRActive";
+            lblPacketSizeRRActive.Size = new Size(28, 21);
+            lblPacketSizeRRActive.TabIndex = 5;
+            lblPacketSizeRRActive.Text = "32";
+            // 
+            // lblPacketSizeRR
+            // 
+            lblPacketSizeRR.AutoSize = true;
+            lblPacketSizeRR.Font = new Font("Calibri", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            lblPacketSizeRR.ForeColor = SystemColors.ActiveCaptionText;
+            lblPacketSizeRR.Location = new Point(18, 73);
+            lblPacketSizeRR.Name = "lblPacketSizeRR";
+            lblPacketSizeRR.Size = new Size(142, 21);
+            lblPacketSizeRR.TabIndex = 4;
+            lblPacketSizeRR.Text = "Packet size (bytes):";
+            // 
+            // grbPackets
+            // 
+            grbPackets.Controls.Add(lblLostActive);
+            grbPackets.Controls.Add(lblLost);
+            grbPackets.Controls.Add(label1);
+            grbPackets.Controls.Add(lblRecieved);
+            grbPackets.Controls.Add(lblSentActive);
+            grbPackets.Controls.Add(lblSent);
+            grbPackets.Location = new Point(18, 103);
+            grbPackets.Name = "grbPackets";
+            grbPackets.Size = new Size(417, 125);
+            grbPackets.TabIndex = 6;
+            grbPackets.TabStop = false;
+            grbPackets.Text = "Packets";
+            // 
+            // lblSent
+            // 
+            lblSent.AutoSize = true;
+            lblSent.Font = new Font("Calibri", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            lblSent.ForeColor = SystemColors.ActiveCaptionText;
+            lblSent.Location = new Point(6, 31);
+            lblSent.Name = "lblSent";
+            lblSent.Size = new Size(46, 21);
+            lblSent.TabIndex = 7;
+            lblSent.Text = "Sent:";
+            // 
+            // lblSentActive
+            // 
+            lblSentActive.AutoSize = true;
+            lblSentActive.Font = new Font("Calibri", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            lblSentActive.ForeColor = SystemColors.ActiveCaptionText;
+            lblSentActive.Location = new Point(184, 31);
+            lblSentActive.Name = "lblSentActive";
+            lblSentActive.Size = new Size(19, 21);
+            lblSentActive.TabIndex = 8;
+            lblSentActive.Text = "5";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Calibri", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            label1.ForeColor = SystemColors.ActiveCaptionText;
+            label1.Location = new Point(184, 59);
+            label1.Name = "label1";
+            label1.Size = new Size(19, 21);
+            label1.TabIndex = 10;
+            label1.Text = "5";
+            // 
+            // lblRecieved
+            // 
+            lblRecieved.AutoSize = true;
+            lblRecieved.Font = new Font("Calibri", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            lblRecieved.ForeColor = SystemColors.ActiveCaptionText;
+            lblRecieved.Location = new Point(6, 59);
+            lblRecieved.Name = "lblRecieved";
+            lblRecieved.Size = new Size(76, 21);
+            lblRecieved.TabIndex = 9;
+            lblRecieved.Text = "Recieved:";
+            // 
+            // lblLostActive
+            // 
+            lblLostActive.AutoSize = true;
+            lblLostActive.Font = new Font("Calibri", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            lblLostActive.ForeColor = SystemColors.ActiveCaptionText;
+            lblLostActive.Location = new Point(184, 88);
+            lblLostActive.Name = "lblLostActive";
+            lblLostActive.Size = new Size(19, 21);
+            lblLostActive.TabIndex = 12;
+            lblLostActive.Text = "0";
+            // 
+            // lblLost
+            // 
+            lblLost.AutoSize = true;
+            lblLost.Font = new Font("Calibri", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            lblLost.ForeColor = SystemColors.ActiveCaptionText;
+            lblLost.Location = new Point(6, 88);
+            lblLost.Name = "lblLost";
+            lblLost.Size = new Size(44, 21);
+            lblLost.TabIndex = 11;
+            lblLost.Text = "Lost:";
+            // 
+            // grbRoundTripTimes
+            // 
+            grbRoundTripTimes.Controls.Add(lblAverageActive);
+            grbRoundTripTimes.Controls.Add(lblAverage);
+            grbRoundTripTimes.Controls.Add(lblMinimumActive);
+            grbRoundTripTimes.Controls.Add(lblMinimum);
+            grbRoundTripTimes.Controls.Add(lblMaximumActive);
+            grbRoundTripTimes.Controls.Add(lblMaximum);
+            grbRoundTripTimes.Location = new Point(18, 233);
+            grbRoundTripTimes.Name = "grbRoundTripTimes";
+            grbRoundTripTimes.Size = new Size(417, 125);
+            grbRoundTripTimes.TabIndex = 13;
+            grbRoundTripTimes.TabStop = false;
+            grbRoundTripTimes.Text = "Approximate round trip times";
+            // 
+            // lblAverageActive
+            // 
+            lblAverageActive.AutoSize = true;
+            lblAverageActive.Font = new Font("Calibri", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            lblAverageActive.ForeColor = SystemColors.ActiveCaptionText;
+            lblAverageActive.Location = new Point(184, 88);
+            lblAverageActive.Name = "lblAverageActive";
+            lblAverageActive.Size = new Size(44, 21);
+            lblAverageActive.TabIndex = 12;
+            lblAverageActive.Text = "8 ms";
+            // 
+            // lblAverage
+            // 
+            lblAverage.AutoSize = true;
+            lblAverage.Font = new Font("Calibri", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            lblAverage.ForeColor = SystemColors.ActiveCaptionText;
+            lblAverage.Location = new Point(6, 88);
+            lblAverage.Name = "lblAverage";
+            lblAverage.Size = new Size(71, 21);
+            lblAverage.TabIndex = 11;
+            lblAverage.Text = "Average:";
+            // 
+            // lblMinimumActive
+            // 
+            lblMinimumActive.AutoSize = true;
+            lblMinimumActive.Font = new Font("Calibri", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            lblMinimumActive.ForeColor = SystemColors.ActiveCaptionText;
+            lblMinimumActive.Location = new Point(184, 59);
+            lblMinimumActive.Name = "lblMinimumActive";
+            lblMinimumActive.Size = new Size(44, 21);
+            lblMinimumActive.TabIndex = 10;
+            lblMinimumActive.Text = "3 ms";
+            // 
+            // lblMinimum
+            // 
+            lblMinimum.AutoSize = true;
+            lblMinimum.Font = new Font("Calibri", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            lblMinimum.ForeColor = SystemColors.ActiveCaptionText;
+            lblMinimum.Location = new Point(6, 59);
+            lblMinimum.Name = "lblMinimum";
+            lblMinimum.Size = new Size(84, 21);
+            lblMinimum.TabIndex = 9;
+            lblMinimum.Text = "Minimum:";
+            // 
+            // lblMaximumActive
+            // 
+            lblMaximumActive.AutoSize = true;
+            lblMaximumActive.Font = new Font("Calibri", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            lblMaximumActive.ForeColor = SystemColors.ActiveCaptionText;
+            lblMaximumActive.Location = new Point(184, 31);
+            lblMaximumActive.Name = "lblMaximumActive";
+            lblMaximumActive.Size = new Size(53, 21);
+            lblMaximumActive.TabIndex = 8;
+            lblMaximumActive.Text = "14 ms";
+            // 
+            // lblMaximum
+            // 
+            lblMaximum.AutoSize = true;
+            lblMaximum.Font = new Font("Calibri", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            lblMaximum.ForeColor = SystemColors.ActiveCaptionText;
+            lblMaximum.Location = new Point(6, 31);
+            lblMaximum.Name = "lblMaximum";
+            lblMaximum.Size = new Size(81, 21);
+            lblMaximum.TabIndex = 7;
+            lblMaximum.Text = "Maximum";
+            // 
+            // richTextBox1
+            // 
+            richTextBox1.BackColor = Color.Black;
+            richTextBox1.Dock = DockStyle.Fill;
+            richTextBox1.Location = new Point(3, 3);
+            richTextBox1.Name = "richTextBox1";
+            richTextBox1.Size = new Size(453, 361);
+            richTextBox1.TabIndex = 0;
+            richTextBox1.Text = "";
             // 
             // MainForm
             // 
@@ -440,7 +712,14 @@
             ((System.ComponentModel.ISupportInitialize)nudRefreshRate).EndInit();
             pnlData.ResumeLayout(false);
             tbc.ResumeLayout(false);
+            tbpRequestRun.ResumeLayout(false);
+            tbpRequestRun.PerformLayout();
+            tbpOutput.ResumeLayout(false);
             pnlMiddle.ResumeLayout(false);
+            grbPackets.ResumeLayout(false);
+            grbPackets.PerformLayout();
+            grbRoundTripTimes.ResumeLayout(false);
+            grbRoundTripTimes.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -479,6 +758,27 @@
         private TabPage tbpRequestRun;
         private TabPage tbpDatabase;
         private TabPage tbpOutput;
+        private Label lblPacketSizeRRActive;
+        private Label lblPacketSizeRR;
+        private Label lblIpAdressActive;
+        private Label lblIpAdress;
+        private Label lblPingingActive;
+        private Label lblPinging;
+        private GroupBox grbPackets;
+        private Label lblLostActive;
+        private Label lblLost;
+        private Label label1;
+        private Label lblRecieved;
+        private Label lblSentActive;
+        private Label lblSent;
+        private GroupBox grbRoundTripTimes;
+        private Label lblAverageActive;
+        private Label lblAverage;
+        private Label lblMinimumActive;
+        private Label lblMinimum;
+        private Label lblMaximumActive;
+        private Label lblMaximum;
+        private RichTextBox richTextBox1;
 
         public string PingTarget { get => txbPingTarget.Text; }
         public string Mode { get => cmbMode.Text; }
