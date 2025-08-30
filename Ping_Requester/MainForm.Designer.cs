@@ -40,6 +40,8 @@
             pnlInfo = new Panel();
             lblInfo = new Label();
             pnlControls = new Panel();
+            nudPacketSize = new NumericUpDown();
+            lblPacketSize = new Label();
             lblNumberOfPR = new Label();
             nudNumberOfPR = new NumericUpDown();
             cmbMode = new ComboBox();
@@ -54,19 +56,23 @@
             lblPingTarget = new Label();
             txbPingTarget = new TextBox();
             pnlData = new Panel();
+            tbc = new TabControl();
+            tbpRequestRun = new TabPage();
+            tbpDatabase = new TabPage();
+            tbpOutput = new TabPage();
             pnlMiddle = new Panel();
-            lblPacketSize = new Label();
-            nudPacketSize = new NumericUpDown();
             pnlTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             menuStrip1.SuspendLayout();
             pnlInfo.SuspendLayout();
             pnlControls.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)nudPacketSize).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nudNumberOfPR).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nudAttempts).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nudRefreshRate).BeginInit();
+            pnlData.SuspendLayout();
+            tbc.SuspendLayout();
             pnlMiddle.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)nudPacketSize).BeginInit();
             SuspendLayout();
             // 
             // pnlTop
@@ -79,16 +85,17 @@
             pnlTop.Dock = DockStyle.Top;
             pnlTop.Location = new Point(0, 0);
             pnlTop.Name = "pnlTop";
-            pnlTop.Size = new Size(811, 143);
+            pnlTop.Size = new Size(814, 143);
             pnlTop.TabIndex = 0;
             // 
             // pictureBox1
             // 
+            pictureBox1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             pictureBox1.BackColor = Color.Transparent;
             pictureBox1.Image = Properties.Resources.Ping_Requester_Poster_6;
             pictureBox1.Location = new Point(0, 31);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(811, 104);
+            pictureBox1.Size = new Size(814, 104);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 3;
             pictureBox1.TabStop = false;
@@ -99,7 +106,7 @@
             lblLineSeparator.BorderStyle = BorderStyle.Fixed3D;
             lblLineSeparator.Location = new Point(5, 138);
             lblLineSeparator.Name = "lblLineSeparator";
-            lblLineSeparator.Size = new Size(800, 2);
+            lblLineSeparator.Size = new Size(803, 2);
             lblLineSeparator.TabIndex = 2;
             // 
             // menuStrip1
@@ -108,7 +115,7 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, settingsToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(811, 28);
+            menuStrip1.Size = new Size(814, 28);
             menuStrip1.TabIndex = 1;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -153,7 +160,7 @@
             pnlInfo.Dock = DockStyle.Bottom;
             pnlInfo.Location = new Point(0, 552);
             pnlInfo.Name = "pnlInfo";
-            pnlInfo.Size = new Size(811, 32);
+            pnlInfo.Size = new Size(814, 32);
             pnlInfo.TabIndex = 2;
             // 
             // lblInfo
@@ -191,6 +198,25 @@
             pnlControls.Size = new Size(332, 441);
             pnlControls.TabIndex = 2;
             // 
+            // nudPacketSize
+            // 
+            nudPacketSize.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            nudPacketSize.Location = new Point(245, 256);
+            nudPacketSize.Name = "nudPacketSize";
+            nudPacketSize.Size = new Size(67, 27);
+            nudPacketSize.TabIndex = 17;
+            // 
+            // lblPacketSize
+            // 
+            lblPacketSize.AutoSize = true;
+            lblPacketSize.Font = new Font("Calibri", 10.2F);
+            lblPacketSize.ForeColor = SystemColors.ActiveCaptionText;
+            lblPacketSize.Location = new Point(12, 258);
+            lblPacketSize.Name = "lblPacketSize";
+            lblPacketSize.Size = new Size(138, 21);
+            lblPacketSize.TabIndex = 16;
+            lblPacketSize.Text = "Packet Size (bytes)";
+            // 
             // lblNumberOfPR
             // 
             lblNumberOfPR.AutoSize = true;
@@ -205,7 +231,7 @@
             // nudNumberOfPR
             // 
             nudNumberOfPR.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            nudNumberOfPR.Location = new Point(229, 181);
+            nudNumberOfPR.Location = new Point(245, 181);
             nudNumberOfPR.Name = "nudNumberOfPR";
             nudNumberOfPR.Size = new Size(67, 27);
             nudNumberOfPR.TabIndex = 3;
@@ -215,7 +241,7 @@
             cmbMode.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             cmbMode.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbMode.FormattingEnabled = true;
-            cmbMode.Location = new Point(172, 74);
+            cmbMode.Location = new Point(188, 74);
             cmbMode.Name = "cmbMode";
             cmbMode.Size = new Size(124, 28);
             cmbMode.TabIndex = 15;
@@ -235,9 +261,9 @@
             // 
             btnStop.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 238);
             btnStop.ForeColor = Color.IndianRed;
-            btnStop.Location = new Point(204, 352);
+            btnStop.Location = new Point(208, 352);
             btnStop.Name = "btnStop";
-            btnStop.Size = new Size(77, 36);
+            btnStop.Size = new Size(93, 36);
             btnStop.TabIndex = 13;
             btnStop.Text = "Stop";
             btnStop.UseVisualStyleBackColor = true;
@@ -246,9 +272,9 @@
             // 
             btnSendRequest.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 238);
             btnSendRequest.ForeColor = SystemColors.Highlight;
-            btnSendRequest.Location = new Point(28, 352);
+            btnSendRequest.Location = new Point(35, 352);
             btnSendRequest.Name = "btnSendRequest";
-            btnSendRequest.Size = new Size(130, 36);
+            btnSendRequest.Size = new Size(146, 36);
             btnSendRequest.TabIndex = 12;
             btnSendRequest.Text = "Send Request";
             btnSendRequest.UseVisualStyleBackColor = true;
@@ -281,7 +307,7 @@
             // nudAttempts
             // 
             nudAttempts.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            nudAttempts.Location = new Point(229, 218);
+            nudAttempts.Location = new Point(245, 218);
             nudAttempts.Name = "nudAttempts";
             nudAttempts.Size = new Size(67, 27);
             nudAttempts.TabIndex = 10;
@@ -289,7 +315,7 @@
             // nudRefreshRate
             // 
             nudRefreshRate.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            nudRefreshRate.Location = new Point(229, 111);
+            nudRefreshRate.Location = new Point(245, 111);
             nudRefreshRate.Name = "nudRefreshRate";
             nudRefreshRate.Size = new Size(67, 27);
             nudRefreshRate.TabIndex = 9;
@@ -321,17 +347,60 @@
             txbPingTarget.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             txbPingTarget.Location = new Point(12, 38);
             txbPingTarget.Name = "txbPingTarget";
-            txbPingTarget.Size = new Size(284, 27);
+            txbPingTarget.Size = new Size(300, 27);
             txbPingTarget.TabIndex = 1;
             // 
             // pnlData
             // 
+            pnlData.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             pnlData.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            pnlData.Dock = DockStyle.Right;
+            pnlData.Controls.Add(tbc);
             pnlData.Location = new Point(338, 0);
             pnlData.Name = "pnlData";
-            pnlData.Size = new Size(473, 441);
+            pnlData.Size = new Size(476, 441);
             pnlData.TabIndex = 3;
+            // 
+            // tbc
+            // 
+            tbc.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            tbc.Controls.Add(tbpRequestRun);
+            tbc.Controls.Add(tbpDatabase);
+            tbc.Controls.Add(tbpOutput);
+            tbc.Location = new Point(3, 3);
+            tbc.Name = "tbc";
+            tbc.SelectedIndex = 0;
+            tbc.Size = new Size(467, 400);
+            tbc.TabIndex = 0;
+            // 
+            // tbpRequestRun
+            // 
+            tbpRequestRun.Location = new Point(4, 29);
+            tbpRequestRun.Name = "tbpRequestRun";
+            tbpRequestRun.Padding = new Padding(3);
+            tbpRequestRun.Size = new Size(459, 367);
+            tbpRequestRun.TabIndex = 0;
+            tbpRequestRun.Text = "Request Run";
+            tbpRequestRun.UseVisualStyleBackColor = true;
+            // 
+            // tbpDatabase
+            // 
+            tbpDatabase.Location = new Point(4, 29);
+            tbpDatabase.Name = "tbpDatabase";
+            tbpDatabase.Padding = new Padding(3);
+            tbpDatabase.Size = new Size(456, 367);
+            tbpDatabase.TabIndex = 1;
+            tbpDatabase.Text = "Database";
+            tbpDatabase.UseVisualStyleBackColor = true;
+            // 
+            // tbpOutput
+            // 
+            tbpOutput.Location = new Point(4, 29);
+            tbpOutput.Name = "tbpOutput";
+            tbpOutput.Padding = new Padding(3);
+            tbpOutput.Size = new Size(456, 367);
+            tbpOutput.TabIndex = 2;
+            tbpOutput.Text = "Output";
+            tbpOutput.UseVisualStyleBackColor = true;
             // 
             // pnlMiddle
             // 
@@ -340,32 +409,13 @@
             pnlMiddle.Dock = DockStyle.Fill;
             pnlMiddle.Location = new Point(0, 143);
             pnlMiddle.Name = "pnlMiddle";
-            pnlMiddle.Size = new Size(811, 441);
+            pnlMiddle.Size = new Size(814, 441);
             pnlMiddle.TabIndex = 1;
-            // 
-            // lblPacketSize
-            // 
-            lblPacketSize.AutoSize = true;
-            lblPacketSize.Font = new Font("Calibri", 10.2F);
-            lblPacketSize.ForeColor = SystemColors.ActiveCaptionText;
-            lblPacketSize.Location = new Point(12, 258);
-            lblPacketSize.Name = "lblPacketSize";
-            lblPacketSize.Size = new Size(138, 21);
-            lblPacketSize.TabIndex = 16;
-            lblPacketSize.Text = "Packet Size (bytes)";
-            // 
-            // nudPacketSize
-            // 
-            nudPacketSize.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            nudPacketSize.Location = new Point(229, 256);
-            nudPacketSize.Name = "nudPacketSize";
-            nudPacketSize.Size = new Size(67, 27);
-            nudPacketSize.TabIndex = 17;
             // 
             // MainForm
             // 
             AutoScaleMode = AutoScaleMode.None;
-            ClientSize = new Size(811, 584);
+            ClientSize = new Size(814, 584);
             Controls.Add(pnlInfo);
             Controls.Add(pnlMiddle);
             Controls.Add(pnlTop);
@@ -384,11 +434,13 @@
             pnlInfo.PerformLayout();
             pnlControls.ResumeLayout(false);
             pnlControls.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)nudPacketSize).EndInit();
             ((System.ComponentModel.ISupportInitialize)nudNumberOfPR).EndInit();
             ((System.ComponentModel.ISupportInitialize)nudAttempts).EndInit();
             ((System.ComponentModel.ISupportInitialize)nudRefreshRate).EndInit();
+            pnlData.ResumeLayout(false);
+            tbc.ResumeLayout(false);
             pnlMiddle.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)nudPacketSize).EndInit();
             ResumeLayout(false);
         }
 
@@ -423,6 +475,10 @@
         private PictureBox pictureBox1;
         private NumericUpDown nudPacketSize;
         private Label lblPacketSize;
+        private TabControl tbc;
+        private TabPage tbpRequestRun;
+        private TabPage tbpDatabase;
+        private TabPage tbpOutput;
 
         public string PingTarget { get => txbPingTarget.Text; }
         public string Mode { get => cmbMode.Text; }
