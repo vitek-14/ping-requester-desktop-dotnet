@@ -44,12 +44,15 @@
             btnSave = new Button();
             btnCancel = new Button();
             panel1 = new Panel();
+            nudPacketSize = new NumericUpDown();
+            lblPacketSize = new Label();
             lblLineSeparator = new Label();
             panel2 = new Panel();
             ((System.ComponentModel.ISupportInitialize)nudNumberOfPR).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nudAttempts).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nudRefreshRate).BeginInit();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)nudPacketSize).BeginInit();
             panel2.SuspendLayout();
             SuspendLayout();
             // 
@@ -58,19 +61,18 @@
             lblPingTarget.AutoSize = true;
             lblPingTarget.Font = new Font("Calibri", 10.2F);
             lblPingTarget.ForeColor = SystemColors.ActiveCaptionText;
-            lblPingTarget.Location = new Point(16, 13);
+            lblPingTarget.Location = new Point(18, 17);
             lblPingTarget.Name = "lblPingTarget";
-            lblPingTarget.Size = new Size(71, 17);
+            lblPingTarget.Size = new Size(86, 21);
             lblPingTarget.TabIndex = 2;
             lblPingTarget.Text = "Ping target";
             // 
             // txbPingTarget
             // 
             txbPingTarget.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            txbPingTarget.Location = new Point(113, 10);
-            txbPingTarget.Margin = new Padding(3, 2, 3, 2);
+            txbPingTarget.Location = new Point(129, 13);
             txbPingTarget.Name = "txbPingTarget";
-            txbPingTarget.Size = new Size(180, 23);
+            txbPingTarget.Size = new Size(205, 27);
             txbPingTarget.TabIndex = 3;
             // 
             // cmbMode
@@ -78,10 +80,9 @@
             cmbMode.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             cmbMode.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbMode.FormattingEnabled = true;
-            cmbMode.Location = new Point(186, 37);
-            cmbMode.Margin = new Padding(3, 2, 3, 2);
+            cmbMode.Location = new Point(213, 49);
             cmbMode.Name = "cmbMode";
-            cmbMode.Size = new Size(107, 23);
+            cmbMode.Size = new Size(122, 28);
             cmbMode.TabIndex = 17;
             // 
             // lblMode
@@ -89,9 +90,9 @@
             lblMode.AutoSize = true;
             lblMode.Font = new Font("Calibri", 10.2F);
             lblMode.ForeColor = SystemColors.ActiveCaptionText;
-            lblMode.Location = new Point(16, 39);
+            lblMode.Location = new Point(18, 52);
             lblMode.Name = "lblMode";
-            lblMode.Size = new Size(41, 17);
+            lblMode.Size = new Size(51, 21);
             lblMode.TabIndex = 16;
             lblMode.Text = "Mode";
             // 
@@ -100,19 +101,18 @@
             lblNumberOfPR.AutoSize = true;
             lblNumberOfPR.Font = new Font("Calibri", 10.2F);
             lblNumberOfPR.ForeColor = SystemColors.ActiveCaptionText;
-            lblNumberOfPR.Location = new Point(16, 88);
+            lblNumberOfPR.Location = new Point(18, 122);
             lblNumberOfPR.Name = "lblNumberOfPR";
-            lblNumberOfPR.Size = new Size(146, 17);
+            lblNumberOfPR.Size = new Size(183, 21);
             lblNumberOfPR.TabIndex = 20;
             lblNumberOfPR.Text = "Number of ping requests";
             // 
             // nudNumberOfPR
             // 
             nudNumberOfPR.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            nudNumberOfPR.Location = new Point(236, 90);
-            nudNumberOfPR.Margin = new Padding(3, 2, 3, 2);
+            nudNumberOfPR.Location = new Point(270, 120);
             nudNumberOfPR.Name = "nudNumberOfPR";
-            nudNumberOfPR.Size = new Size(57, 23);
+            nudNumberOfPR.Size = new Size(65, 27);
             nudNumberOfPR.TabIndex = 19;
             // 
             // lblAttempts
@@ -120,9 +120,9 @@
             lblAttempts.AutoSize = true;
             lblAttempts.Font = new Font("Calibri", 10.2F);
             lblAttempts.ForeColor = SystemColors.ActiveCaptionText;
-            lblAttempts.Location = new Point(16, 116);
+            lblAttempts.Location = new Point(18, 155);
             lblAttempts.Name = "lblAttempts";
-            lblAttempts.Size = new Size(60, 17);
+            lblAttempts.Size = new Size(75, 21);
             lblAttempts.TabIndex = 24;
             lblAttempts.Text = "Attempts";
             // 
@@ -131,10 +131,9 @@
             chbInfiniteLoop.AutoSize = true;
             chbInfiniteLoop.Font = new Font("Calibri", 10.2F);
             chbInfiniteLoop.ForeColor = SystemColors.ActiveCaptionText;
-            chbInfiniteLoop.Location = new Point(16, 190);
-            chbInfiniteLoop.Margin = new Padding(3, 2, 3, 2);
+            chbInfiniteLoop.Location = new Point(18, 291);
             chbInfiniteLoop.Name = "chbInfiniteLoop";
-            chbInfiniteLoop.Size = new Size(94, 21);
+            chbInfiniteLoop.Size = new Size(116, 25);
             chbInfiniteLoop.TabIndex = 18;
             chbInfiniteLoop.Text = "Infinite loop";
             chbInfiniteLoop.UseVisualStyleBackColor = true;
@@ -142,19 +141,17 @@
             // nudAttempts
             // 
             nudAttempts.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            nudAttempts.Location = new Point(236, 118);
-            nudAttempts.Margin = new Padding(3, 2, 3, 2);
+            nudAttempts.Location = new Point(270, 157);
             nudAttempts.Name = "nudAttempts";
-            nudAttempts.Size = new Size(57, 23);
+            nudAttempts.Size = new Size(65, 27);
             nudAttempts.TabIndex = 23;
             // 
             // nudRefreshRate
             // 
             nudRefreshRate.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            nudRefreshRate.Location = new Point(236, 64);
-            nudRefreshRate.Margin = new Padding(3, 2, 3, 2);
+            nudRefreshRate.Location = new Point(270, 85);
             nudRefreshRate.Name = "nudRefreshRate";
-            nudRefreshRate.Size = new Size(57, 23);
+            nudRefreshRate.Size = new Size(65, 27);
             nudRefreshRate.TabIndex = 22;
             // 
             // lblRefreshRate
@@ -162,9 +159,9 @@
             lblRefreshRate.AutoSize = true;
             lblRefreshRate.Font = new Font("Calibri", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 238);
             lblRefreshRate.ForeColor = SystemColors.ActiveCaptionText;
-            lblRefreshRate.Location = new Point(16, 65);
+            lblRefreshRate.Location = new Point(18, 87);
             lblRefreshRate.Name = "lblRefreshRate";
-            lblRefreshRate.Size = new Size(94, 17);
+            lblRefreshRate.Size = new Size(115, 21);
             lblRefreshRate.TabIndex = 21;
             lblRefreshRate.Text = "Refresh rate (s)";
             // 
@@ -173,10 +170,9 @@
             chbShowNotification.AutoSize = true;
             chbShowNotification.Font = new Font("Calibri", 10.2F);
             chbShowNotification.ForeColor = SystemColors.ActiveCaptionText;
-            chbShowNotification.Location = new Point(16, 142);
-            chbShowNotification.Margin = new Padding(3, 2, 3, 2);
+            chbShowNotification.Location = new Point(18, 227);
             chbShowNotification.Name = "chbShowNotification";
-            chbShowNotification.Size = new Size(124, 21);
+            chbShowNotification.Size = new Size(152, 25);
             chbShowNotification.TabIndex = 26;
             chbShowNotification.Text = "Show notification";
             chbShowNotification.UseVisualStyleBackColor = true;
@@ -186,10 +182,9 @@
             chbMakeSound.AutoSize = true;
             chbMakeSound.Font = new Font("Calibri", 10.2F);
             chbMakeSound.ForeColor = SystemColors.ActiveCaptionText;
-            chbMakeSound.Location = new Point(16, 166);
-            chbMakeSound.Margin = new Padding(3, 2, 3, 2);
+            chbMakeSound.Location = new Point(18, 259);
             chbMakeSound.Name = "chbMakeSound";
-            chbMakeSound.Size = new Size(95, 21);
+            chbMakeSound.Size = new Size(117, 25);
             chbMakeSound.TabIndex = 25;
             chbMakeSound.Text = "Make sound";
             chbMakeSound.UseVisualStyleBackColor = true;
@@ -198,10 +193,9 @@
             // 
             btnSave.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnSave.Font = new Font("Segoe UI", 9F);
-            btnSave.Location = new Point(113, 3);
-            btnSave.Margin = new Padding(3, 2, 3, 2);
+            btnSave.Location = new Point(129, 4);
             btnSave.Name = "btnSave";
-            btnSave.Size = new Size(77, 28);
+            btnSave.Size = new Size(88, 37);
             btnSave.TabIndex = 27;
             btnSave.Text = "Save";
             btnSave.UseVisualStyleBackColor = true;
@@ -211,10 +205,9 @@
             // 
             btnCancel.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnCancel.Font = new Font("Segoe UI", 9F);
-            btnCancel.Location = new Point(216, 3);
-            btnCancel.Margin = new Padding(3, 2, 3, 2);
+            btnCancel.Location = new Point(247, 4);
             btnCancel.Name = "btnCancel";
-            btnCancel.Size = new Size(77, 28);
+            btnCancel.Size = new Size(88, 37);
             btnCancel.TabIndex = 28;
             btnCancel.Text = "Cancel";
             btnCancel.UseVisualStyleBackColor = true;
@@ -222,6 +215,8 @@
             // 
             // panel1
             // 
+            panel1.Controls.Add(nudPacketSize);
+            panel1.Controls.Add(lblPacketSize);
             panel1.Controls.Add(lblLineSeparator);
             panel1.Controls.Add(lblPingTarget);
             panel1.Controls.Add(txbPingTarget);
@@ -238,18 +233,36 @@
             panel1.Controls.Add(chbInfiniteLoop);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
-            panel1.Margin = new Padding(3, 2, 3, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(313, 223);
+            panel1.Size = new Size(358, 338);
             panel1.TabIndex = 29;
+            // 
+            // nudPacketSize
+            // 
+            nudPacketSize.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            nudPacketSize.Location = new Point(270, 193);
+            nudPacketSize.Name = "nudPacketSize";
+            nudPacketSize.Size = new Size(65, 27);
+            nudPacketSize.TabIndex = 30;
+            // 
+            // lblPacketSize
+            // 
+            lblPacketSize.AutoSize = true;
+            lblPacketSize.Font = new Font("Calibri", 10.2F);
+            lblPacketSize.ForeColor = SystemColors.ActiveCaptionText;
+            lblPacketSize.Location = new Point(18, 191);
+            lblPacketSize.Name = "lblPacketSize";
+            lblPacketSize.Size = new Size(138, 21);
+            lblPacketSize.TabIndex = 31;
+            lblPacketSize.Text = "Packet Size (bytes)";
             // 
             // lblLineSeparator
             // 
             lblLineSeparator.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             lblLineSeparator.BorderStyle = BorderStyle.Fixed3D;
-            lblLineSeparator.Location = new Point(10, 219);
+            lblLineSeparator.Location = new Point(11, 330);
             lblLineSeparator.Name = "lblLineSeparator";
-            lblLineSeparator.Size = new Size(294, 2);
+            lblLineSeparator.Size = new Size(336, 3);
             lblLineSeparator.TabIndex = 29;
             // 
             // panel2
@@ -257,21 +270,19 @@
             panel2.Controls.Add(btnSave);
             panel2.Controls.Add(btnCancel);
             panel2.Dock = DockStyle.Fill;
-            panel2.Location = new Point(0, 223);
-            panel2.Margin = new Padding(3, 2, 3, 2);
+            panel2.Location = new Point(0, 338);
             panel2.Name = "panel2";
-            panel2.Size = new Size(313, 39);
+            panel2.Size = new Size(358, 55);
             panel2.TabIndex = 30;
             // 
             // PreferencesForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(313, 262);
+            ClientSize = new Size(358, 393);
             Controls.Add(panel2);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.FixedSingle;
-            Margin = new Padding(3, 2, 3, 2);
             MaximizeBox = false;
             Name = "PreferencesForm";
             StartPosition = FormStartPosition.CenterScreen;
@@ -282,6 +293,7 @@
             ((System.ComponentModel.ISupportInitialize)nudRefreshRate).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)nudPacketSize).EndInit();
             panel2.ResumeLayout(false);
             ResumeLayout(false);
         }
@@ -306,5 +318,7 @@
         private Panel panel1;
         private Panel panel2;
         private Label lblLineSeparator;
+        private NumericUpDown nudPacketSize;
+        private Label lblPacketSize;
     }
 }

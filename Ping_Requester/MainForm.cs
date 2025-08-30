@@ -30,6 +30,7 @@ namespace PingRequester.Client
             chbInfiniteLoop.Checked = preferences.InfiniteLoop;
             nudNumberOfPR.Value = (decimal)preferences.NumberOfPR;
             nudAttempts.Value = (decimal)preferences.Attempts;
+            nudPacketSize.Value = (decimal)preferences.PacketSize;
 
             // check for infinite loop chb state
             SetAttemptsState();

@@ -38,6 +38,7 @@ namespace PingRequester.Client
             chbInfiniteLoop.Checked = _mainForm.InfiniteLoop;
             nudNumberOfPR.Value = _mainForm.NumberOfPR;
             nudAttempts.Value = _mainForm.Attempts;
+            nudPacketSize.Value = _mainForm.PacketSize;
 
             // Set components not present in the MainForm - load them from config file
             var preferences = this.jsonService.LoadFileContent();
@@ -59,6 +60,7 @@ namespace PingRequester.Client
             preferences.RefreshRate = (int)nudRefreshRate.Value;
             preferences.NumberOfPR = (int)nudNumberOfPR.Value;
             preferences.Attempts = (int)nudAttempts.Value;
+            preferences.PacketSize = (int)nudPacketSize.Value;
             preferences.ShowNotification = chbShowNotification.Checked;
             preferences.MakeSound = chbMakeSound.Checked;
             preferences.InfiniteLoop = chbInfiniteLoop.Checked;

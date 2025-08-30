@@ -430,5 +430,6 @@
         public bool InfiniteLoop { get => chbInfiniteLoop.Checked; }
         public int NumberOfPR { get => (int)nudNumberOfPR.Value; }
         public int Attempts { get => (int)nudAttempts.Value; }
+        public int PacketSize { get => (int)nudPacketSize.Value; }
     }
 }
