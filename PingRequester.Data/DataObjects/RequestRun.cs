@@ -37,7 +37,7 @@ namespace PingRequester.Data.DataObjects
             Psi = new ProcessStartInfo
             {
                 FileName = "ping",
-                Arguments = $"-n 1 {Ipv4} -l {PacketSize}",
+                Arguments = $"-n 1 {IPv4} -l {PacketSize}",
                 RedirectStandardOutput = true,
                 UseShellExecute = false,
                 CreateNoWindow = true
@@ -56,11 +56,7 @@ namespace PingRequester.Data.DataObjects
             set => SetProperty(ref hostname, value);
         }
 
-        public string Ipv4
-        {
-            get => ipv4;
-            set => SetProperty(ref ipv4, value);
-        }
+        public string IPv4 { get; set; }
 
         public int PacketsSent 
         { 
