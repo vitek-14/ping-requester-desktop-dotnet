@@ -31,11 +31,6 @@ namespace PingRequester.Client
             this.mainControls.Push(lblPacketSize);
             this.mainControls.Push(nudPacketSize);
             this.mainControls.Push(btnSendRequest);
-
-            console.LogInfo("This is info");
-            console.LogMessage("This is message");
-            console.LogWarning("This is warning");
-            console.LogError("This is error");
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -113,6 +108,8 @@ namespace PingRequester.Client
             SetLockOnControls();
 
             // create requester
+            console.LogInfo("Creating Requester.");
+
             var requester = new Requester()
             {
                 RequestedAddress = txbPingTarget.Text,
@@ -124,16 +121,32 @@ namespace PingRequester.Client
                 PacketSize = (int)nudPacketSize.Value
             };
 
-            // create RequestRun instance
-            RequestRun requestRun = new RequestRun(requester.RequestedAddress, requester.PacketSize);
-            requestRun.Init();
-            requester.RequestRun = requestRun;
-
             // create request service instance
             var service = new RequestService(requester, this.console);
 
+            // create RequestRun instance
+            console.LogInfo("Initializing Request Run.");
+
+            RequestRun requestRun = new RequestRun(requester.RequestedAddress, requester.PacketSize);
+            requestRun.Init();
+            requestRun.IPv4 = service.Hostname2Ipv4(requestRun.Hostname);
+            requester.RequestRun = requestRun;
+
             // begin sending requests
+            string message = $"Seeking for {requestRun.Hostname}";
+
+            if (!requestRun.Hostname.Equals(requestRun.IPv4))
+                message += $" (ipv4={requestRun.IPv4})";
+
+            message += $", started at: {DateTime.Now}";
+            console.LogInfo(message);
+
             await service.BeginRequestingAsync();
+
+            // requesting done
+            console.LogInfo($"Pinging finished at: {DateTime.Now}");
+            SetLockOnControls();
+            btnStop.Enabled = false;
         }
 
         private void btnStop_Click(object sender, EventArgs e)
@@ -153,6 +166,14 @@ namespace PingRequester.Client
         {
             PreferencesForm preferencesWindow = new PreferencesForm(this);
             preferencesWindow.ShowDialog();
+        }
+
+        private void txbPingTarget_TextChanged(object sender, EventArgs e)
+        {
+            if (txbPingTarget.Text == "")
+            {
+                ;
+            }
         }
     }
 }

@@ -33,7 +33,6 @@ namespace PingRequester.BusinessLayer
             this.psi = new ProcessStartInfo
             {
                 FileName = "ping",
-                Arguments = $"-n 1 {requester.RequestedAddress}",
                 RedirectStandardOutput = true,
                 UseShellExecute = false,
                 CreateNoWindow = true
@@ -50,10 +49,8 @@ namespace PingRequester.BusinessLayer
         {
             while ((this.remainingRequests > 0 && this.remainingAttempts > 0) || requester.InfiniteLoop)
             {
-                Console.WriteLine($"PR sent; {this.remainingRequests} remaining");
                 // TODO: check if interruption request was created
-                SendRequest();
-                Console.WriteLine($"Ping Sent: {requester.PingSent}");
+                await SendRequest(this.requester.RequestRun);
                 await Task.Delay(requester.RefreshRate * 1000);
             }
         }
@@ -61,27 +58,37 @@ namespace PingRequester.BusinessLayer
         /// <summary>
         /// Sends single ping request.
         /// </summary>
-        private void SendRequest()
+        private async Task SendRequest(RequestRun requestRun)
         {
-            using (var process = Process.Start(this.psi))
+            if (requestRun.IPv4 == null)
+                this.psi.Arguments = $"-n 1 -l {requestRun.PacketSize} {requestRun.Hostname}";
+            else
+                this.psi.Arguments = $"-n 1 -l {requestRun.PacketSize} {requestRun.IPv4}";
+
+            using (Process? process = await Task.Run(() => Process.Start(this.psi)))
             {
-                stdout = process.StandardOutput.ReadToEnd();
-                process.WaitForExit();
+                stdout = await process.StandardOutput.ReadToEndAsync();
+                await process.WaitForExitAsync();
 
                 if (stdout.StartsWith("Ping request could not find host"))
                 {
+                    console.LogWarning($"Ping request could not find host. Remaining attempts: {this.remainingAttempts}");
                     if (!requester.InfiniteLoop)
                     {
                         this.remainingAttempts--;
 
                         if (requester.Mode == "Precise")
+                        {
+                            console.LogInfo("Remaining requests reset, precise mode active.");
                             this.remainingRequests = requester.NumberOfPR;
+                        }
                     }
 
                     requester.PingSent = false;
                 }
                 else
                 {
+                    console.LogInfo($"Ping sent to {requestRun.Hostname} at {DateTime.Now}");
                     this.remainingRequests--;
                     requester.PingSent = true;
                 }
@@ -98,13 +105,15 @@ namespace PingRequester.BusinessLayer
             }
             catch (Exception e)
             {
-                //console.LogError($"Something went wrong while converting address to ipv4. Error message: {e}");
+                console.LogError($"Something went wrong while converting address to ipv4. Error message: {e}");
+                return null;
             }
 
             if (address != null)
                 return address.ToString();
 
-            //console.LogError($"Requested address {requestedAddress} does not corresponds with any ipv4 address.");
+            console.LogWarning($"DNS server did not return any IPv4 address for the requested hostname {requestedAddress}");
+            console.LogInfo("Using orignial address instead.");
             return null;
         }
     }
