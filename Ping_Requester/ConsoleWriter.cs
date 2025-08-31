@@ -25,6 +25,7 @@ namespace PingRequester.Client
         private void Log(string message)
         {
             this.console.AppendText($"{message}\n");
+            this.console.ScrollToCaret();
         }
 
         public void LogInfo(string message)
