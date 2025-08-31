@@ -14,7 +14,7 @@ namespace PingRequester.Client
 
         public Color InfoTextColor { get => Color.White; }
         public Color WarningTextColor { get => Color.Orange; }
-        public Color SuccessTextColor { get => Color.Green; }
+        public Color MessageTextColor { get => Color.FromArgb(78, 215, 241); }
         public Color ErrorTextColor { get => Color.Red; }
 
         public ConsoleWriter(RichTextBox console)
@@ -30,7 +30,7 @@ namespace PingRequester.Client
         public void LogInfo(string message)
         {
             this.console.SelectionColor = InfoTextColor;
-            this.console.AppendText("[TEXT]: ");
+            this.console.AppendText("[INFO]: ");
             Log(message);
         }
 
@@ -50,10 +50,10 @@ namespace PingRequester.Client
             Log(message);
         }
 
-        public void LogSuccess(string message)
+        public void LogMessage(string message)
         {
-            this.console.SelectionColor = SuccessTextColor;
-            this.console.AppendText("[SUCCESS]: ");
+            this.console.SelectionColor = MessageTextColor;
+            this.console.AppendText("[MESSAGE]: ");
             this.console.SelectionColor = InfoTextColor;
             Log(message);
         }

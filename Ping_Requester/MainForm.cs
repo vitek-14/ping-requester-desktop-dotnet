@@ -31,6 +31,11 @@ namespace PingRequester.Client
             this.mainControls.Push(lblPacketSize);
             this.mainControls.Push(nudPacketSize);
             this.mainControls.Push(btnSendRequest);
+
+            console.LogInfo("This is info");
+            console.LogMessage("This is message");
+            console.LogWarning("This is warning");
+            console.LogError("This is error");
         }
 
         private void MainForm_Load(object sender, EventArgs e)

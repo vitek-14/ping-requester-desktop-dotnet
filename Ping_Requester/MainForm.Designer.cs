@@ -689,7 +689,7 @@
             // 
             rtbConsole.BackColor = Color.Black;
             rtbConsole.Dock = DockStyle.Fill;
-            rtbConsole.Font = new Font("Consolas", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            rtbConsole.Font = new Font("Consolas", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 238);
             rtbConsole.ForeColor = Color.White;
             rtbConsole.Location = new Point(3, 3);
             rtbConsole.Name = "rtbConsole";

@@ -48,7 +48,6 @@ namespace PingRequester.BusinessLayer
         /// <returns>Task</returns>
         public async Task BeginRequestingAsync()
         {
-            console.LogInfo("Start");
             while ((this.remainingRequests > 0 && this.remainingAttempts > 0) || requester.InfiniteLoop)
             {
                 Console.WriteLine($"PR sent; {this.remainingRequests} remaining");
@@ -99,13 +98,13 @@ namespace PingRequester.BusinessLayer
             }
             catch (Exception e)
             {
-                console.LogError($"Something went wrong while converting address to ipv4. Error message: {e}");
+                //console.LogError($"Something went wrong while converting address to ipv4. Error message: {e}");
             }
 
             if (address != null)
                 return address.ToString();
 
-            console.LogError($"Requested address {requestedAddress} does not corresponds with any ipv4 address.");
+            //console.LogError($"Requested address {requestedAddress} does not corresponds with any ipv4 address.");
             return null;
         }
     }

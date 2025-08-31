@@ -11,6 +11,6 @@ namespace PingRequester.Data
         public void LogInfo(string message);
         public void LogWarning(string message);
         public void LogError(string message);
-        public void LogSuccess(string message);
+        public void LogMessage(string message);
     }
 }
