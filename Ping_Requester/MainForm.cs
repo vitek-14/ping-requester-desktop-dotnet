@@ -123,6 +123,10 @@ namespace PingRequester.Client
                 StopSignal = false
             };
 
+            // log warning if infinite loop is turned on
+            if (requester.InfiniteLoop)
+                console.LogWarning("Infinite loop is turned ON");
+
             // create request service instance
             var service = new RequestService(requester, this.console);
 

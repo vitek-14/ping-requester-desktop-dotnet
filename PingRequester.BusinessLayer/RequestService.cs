@@ -79,7 +79,11 @@ namespace PingRequester.BusinessLayer
 
                 if (stdout.StartsWith("Ping request could not find host"))
                 {
-                    console.LogWarning($"Ping request could not find host. Remaining attempts: {this.remainingAttempts}");
+                    string warning = "Ping request could not find host.";
+                    if (!requester.InfiniteLoop)
+                        warning += $" Remaining attempts: {this.remainingAttempts}";
+                    console.LogWarning(warning);
+
                     if (!requester.InfiniteLoop)
                     {
                         this.remainingAttempts--;
