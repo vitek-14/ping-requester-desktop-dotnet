@@ -1,6 +1,7 @@
 ﻿using PingRequester.Data.Base;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -12,6 +13,7 @@ namespace PingRequester.Data.DataObjects
     {
         private string hostname;
         private string ipv4;
+        private int packetSize;
         private int packetsSent;
         private int packetsRecieved;
         private int packetsLost;
@@ -21,10 +23,25 @@ namespace PingRequester.Data.DataObjects
         private int minTime;
         private float averageTime;
         private Queue<Packet> packets;
+        private ProcessStartInfo psi;
 
-        public RequestRun()
+        public RequestRun(string hostname, int packetSize)
         {
             Packets = new Queue<Packet>();
+            Hostname = hostname;
+            PacketSize = packetSize;
+        }
+
+        public void Init()
+        {
+            Psi = new ProcessStartInfo
+            {
+                FileName = "ping",
+                Arguments = $"-n 1 {Ipv4} -l {PacketSize}",
+                RedirectStandardOutput = true,
+                UseShellExecute = false,
+                CreateNoWindow = true
+            };
         }
 
         public Queue<Packet> Packets
@@ -91,6 +108,18 @@ namespace PingRequester.Data.DataObjects
         {
             get => averageTime;
             set => SetProperty(ref averageTime, value);
+        }
+
+        public int PacketSize
+        {
+            get => packetSize;
+            set => SetProperty(ref packetSize, value);
+        }
+
+        public ProcessStartInfo Psi
+        {
+            get => psi;
+            set => SetProperty(ref psi, value);
         }
     }
 }

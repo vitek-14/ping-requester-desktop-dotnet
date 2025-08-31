@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.Net;
 using System.Linq;
 using System.Net.Sockets;
+using PingRequester.Data;
 
 namespace PingRequester.BusinessLayer
 {
@@ -14,6 +15,7 @@ namespace PingRequester.BusinessLayer
         private string stdout;
         private int remainingRequests;
         private int remainingAttempts;
+        private IConsoleService console;
         private Requester requester;
         private ProcessStartInfo psi;
 
@@ -21,8 +23,9 @@ namespace PingRequester.BusinessLayer
         /// Default constructor of the class.
         /// </summary>
         /// <param name="requester"></param>
-        public RequestService(Requester requester)
+        public RequestService(Requester requester, IConsoleService console)
         {
+            this.console = console;
             this.requester = requester;
             this.remainingRequests = requester.NumberOfPR;
             this.remainingAttempts = requester.Attempts;
@@ -85,10 +88,24 @@ namespace PingRequester.BusinessLayer
             }
         }
 
-        public string FindIpAddress(string hostname)
+        public string? Hostname2Ipv4(string requestedAddress)
         {
-            IPAddress? address = Dns.GetHostAddresses(hostname).FirstOrDefault(a => a.AddressFamily == AddressFamily.InterNetwork);
-            return address.ToString();
+            IPAddress? address = null;
+
+            try
+            {
+                address = Dns.GetHostAddresses(requestedAddress).FirstOrDefault(a => a.AddressFamily == AddressFamily.InterNetwork);
+            }
+            catch (Exception e)
+            {
+                console.LogError($"Something went wrong while converting address to ipv4. Error message: {e}");
+            }
+
+            if (address != null)
+                return address.ToString();
+
+            console.LogError($"Requested address {requestedAddress} does not corresponds with any ipv4 address.");
+            return null;
         }
     }
 }

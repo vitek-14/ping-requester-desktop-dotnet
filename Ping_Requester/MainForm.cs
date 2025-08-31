@@ -6,6 +6,7 @@ namespace PingRequester.Client
 {
     public partial class MainForm : Form
     {
+        private ConsoleWriter console;
         private bool controlsLocked;
         private Stack<Control> mainControls;
 
@@ -13,6 +14,7 @@ namespace PingRequester.Client
         {
             InitializeComponent();
             this.controlsLocked = false;
+            this.console = new ConsoleWriter(rtbConsole);
             this.mainControls = new Stack<Control>();
 
             this.mainControls.Push(lblPingTarget);
@@ -113,14 +115,17 @@ namespace PingRequester.Client
                 RefreshRate = (int)nudRefreshRate.Value,
                 NumberOfPR = (int)nudNumberOfPR.Value,
                 Attempts = (int)nudAttempts.Value,
-                InfiniteLoop = chbInfiniteLoop.Checked
+                InfiniteLoop = chbInfiniteLoop.Checked,
+                PacketSize = (int)nudPacketSize.Value
             };
 
             // create RequestRun instance
-            requester.RequestRun = new RequestRun() { Hostname = requester.RequestedAddress };
+            RequestRun requestRun = new RequestRun(requester.RequestedAddress, requester.PacketSize);
+            requestRun.Init();
+            requester.RequestRun = requestRun;
 
             // create request service instance
-            var service = new RequestService(requester);
+            var service = new RequestService(requester, this.console);
 
             // begin sending requests
             await service.BeginRequestingAsync();
