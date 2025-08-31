@@ -111,9 +111,12 @@
             // 
             nudNumberOfPR.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             nudNumberOfPR.Location = new Point(270, 120);
+            nudNumberOfPR.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
+            nudNumberOfPR.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             nudNumberOfPR.Name = "nudNumberOfPR";
             nudNumberOfPR.Size = new Size(65, 27);
             nudNumberOfPR.TabIndex = 19;
+            nudNumberOfPR.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
             // lblAttempts
             // 
@@ -142,6 +145,7 @@
             // 
             nudAttempts.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             nudAttempts.Location = new Point(270, 157);
+            nudAttempts.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
             nudAttempts.Name = "nudAttempts";
             nudAttempts.Size = new Size(65, 27);
             nudAttempts.TabIndex = 23;
@@ -150,6 +154,7 @@
             // 
             nudRefreshRate.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             nudRefreshRate.Location = new Point(270, 85);
+            nudRefreshRate.Maximum = new decimal(new int[] { 600, 0, 0, 0 });
             nudRefreshRate.Name = "nudRefreshRate";
             nudRefreshRate.Size = new Size(65, 27);
             nudRefreshRate.TabIndex = 22;
@@ -241,9 +246,12 @@
             // 
             nudPacketSize.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             nudPacketSize.Location = new Point(270, 193);
+            nudPacketSize.Maximum = new decimal(new int[] { 65500, 0, 0, 0 });
+            nudPacketSize.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             nudPacketSize.Name = "nudPacketSize";
             nudPacketSize.Size = new Size(65, 27);
             nudPacketSize.TabIndex = 30;
+            nudPacketSize.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
             // lblPacketSize
             // 
