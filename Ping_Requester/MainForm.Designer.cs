@@ -111,7 +111,7 @@
             pnlTop.Dock = DockStyle.Top;
             pnlTop.Location = new Point(0, 0);
             pnlTop.Name = "pnlTop";
-            pnlTop.Size = new Size(832, 143);
+            pnlTop.Size = new Size(951, 143);
             pnlTop.TabIndex = 0;
             // 
             // pictureBox1
@@ -121,7 +121,7 @@
             pictureBox1.Image = Properties.Resources.Ping_Requester_Poster_6;
             pictureBox1.Location = new Point(0, 31);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(832, 104);
+            pictureBox1.Size = new Size(951, 104);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 3;
             pictureBox1.TabStop = false;
@@ -132,7 +132,7 @@
             lblLineSeparator.BorderStyle = BorderStyle.Fixed3D;
             lblLineSeparator.Location = new Point(5, 138);
             lblLineSeparator.Name = "lblLineSeparator";
-            lblLineSeparator.Size = new Size(821, 2);
+            lblLineSeparator.Size = new Size(940, 2);
             lblLineSeparator.TabIndex = 2;
             // 
             // menuStrip1
@@ -141,7 +141,7 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, settingsToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(832, 28);
+            menuStrip1.Size = new Size(951, 28);
             menuStrip1.TabIndex = 1;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -184,9 +184,9 @@
             pnlInfo.BorderStyle = BorderStyle.FixedSingle;
             pnlInfo.Controls.Add(lblInfo);
             pnlInfo.Dock = DockStyle.Bottom;
-            pnlInfo.Location = new Point(0, 552);
+            pnlInfo.Location = new Point(0, 593);
             pnlInfo.Name = "pnlInfo";
-            pnlInfo.Size = new Size(832, 32);
+            pnlInfo.Size = new Size(951, 32);
             pnlInfo.TabIndex = 2;
             // 
             // lblInfo
@@ -221,7 +221,7 @@
             pnlControls.Dock = DockStyle.Left;
             pnlControls.Location = new Point(0, 0);
             pnlControls.Name = "pnlControls";
-            pnlControls.Size = new Size(332, 441);
+            pnlControls.Size = new Size(332, 482);
             pnlControls.TabIndex = 2;
             // 
             // nudPacketSize
@@ -384,27 +384,28 @@
             txbPingTarget.Name = "txbPingTarget";
             txbPingTarget.Size = new Size(300, 27);
             txbPingTarget.TabIndex = 1;
+            txbPingTarget.TextChanged += txbPingTarget_TextChanged;
             // 
             // pnlData
             // 
-            pnlData.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            pnlData.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             pnlData.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             pnlData.Controls.Add(tbc);
             pnlData.Location = new Point(338, 0);
             pnlData.Name = "pnlData";
-            pnlData.Size = new Size(494, 441);
+            pnlData.Size = new Size(613, 482);
             pnlData.TabIndex = 3;
             // 
             // tbc
             // 
-            tbc.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            tbc.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             tbc.Controls.Add(tbpRequestRun);
             tbc.Controls.Add(tbpDatabase);
             tbc.Controls.Add(tbpOutput);
             tbc.Location = new Point(3, 3);
             tbc.Name = "tbc";
             tbc.SelectedIndex = 0;
-            tbc.Size = new Size(485, 400);
+            tbc.Size = new Size(604, 441);
             tbc.TabIndex = 0;
             // 
             // tbpRequestRun
@@ -680,7 +681,7 @@
             tbpOutput.Location = new Point(4, 29);
             tbpOutput.Name = "tbpOutput";
             tbpOutput.Padding = new Padding(3);
-            tbpOutput.Size = new Size(477, 367);
+            tbpOutput.Size = new Size(596, 408);
             tbpOutput.TabIndex = 2;
             tbpOutput.Text = "Output";
             tbpOutput.UseVisualStyleBackColor = true;
@@ -694,7 +695,7 @@
             rtbConsole.Location = new Point(3, 3);
             rtbConsole.Name = "rtbConsole";
             rtbConsole.ReadOnly = true;
-            rtbConsole.Size = new Size(471, 361);
+            rtbConsole.Size = new Size(590, 402);
             rtbConsole.TabIndex = 0;
             rtbConsole.Text = "";
             // 
@@ -705,13 +706,13 @@
             pnlMiddle.Dock = DockStyle.Fill;
             pnlMiddle.Location = new Point(0, 143);
             pnlMiddle.Name = "pnlMiddle";
-            pnlMiddle.Size = new Size(832, 441);
+            pnlMiddle.Size = new Size(951, 482);
             pnlMiddle.TabIndex = 1;
             // 
             // MainForm
             // 
             AutoScaleMode = AutoScaleMode.None;
-            ClientSize = new Size(832, 584);
+            ClientSize = new Size(951, 625);
             Controls.Add(pnlInfo);
             Controls.Add(pnlMiddle);
             Controls.Add(pnlTop);
