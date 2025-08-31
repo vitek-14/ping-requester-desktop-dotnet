@@ -1,4 +1,3 @@
-using PingRequester.App;
 using PingRequester.BusinessLayer;
 using PingRequester.Data;
 using PingRequester.Data.DataObjects;
@@ -38,7 +37,7 @@ namespace PingRequester.Client
 
         private void SetAttemptsState()
         {
-            bool numberOfTriesState = WidgetController.GetNumberOfTriesState(chbInfiniteLoop.Checked);
+            bool numberOfTriesState = !chbInfiniteLoop.Checked;
 
             if (numberOfTriesState)
             {
