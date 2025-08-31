@@ -17,6 +17,7 @@ namespace PingRequester.Data.DataObjects
         private bool showNotification;
         private bool makeSound;
         private int packetSize;
+        private bool stopSignal;
         private RequestRun requestRun;
 
         /// <summary>
@@ -84,6 +85,12 @@ namespace PingRequester.Data.DataObjects
         {
             get => packetSize;
             set => SetProperty(ref packetSize, value);
+        }
+
+        public bool StopSignal
+        {
+            get => stopSignal;
+            set => SetProperty(ref stopSignal, value);
         }
 
         public RequestRun RequestRun

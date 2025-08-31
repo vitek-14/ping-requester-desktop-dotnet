@@ -49,7 +49,14 @@ namespace PingRequester.BusinessLayer
         {
             while ((this.remainingRequests > 0 && this.remainingAttempts > 0) || requester.InfiniteLoop)
             {
-                // TODO: check if interruption request was created
+                // Check if interruption request was created
+                if (this.requester.StopSignal)
+                {
+                    console.LogInfo("Stop signal was detected.");
+                    break;
+                }
+
+                // Send request
                 await SendRequest(this.requester.RequestRun);
                 await Task.Delay(requester.RefreshRate * 1000);
             }

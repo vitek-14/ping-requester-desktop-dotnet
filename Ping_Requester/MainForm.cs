@@ -7,6 +7,7 @@ namespace PingRequester.Client
     public partial class MainForm : Form
     {
         private ConsoleWriter console;
+        private Requester requester;
         private bool controlsLocked;
         private Stack<Control> mainControls;
 
@@ -110,7 +111,7 @@ namespace PingRequester.Client
             // create requester
             console.LogInfo("Creating Requester.");
 
-            var requester = new Requester()
+            requester = new Requester()
             {
                 RequestedAddress = txbPingTarget.Text,
                 Mode = cmbMode.Text,
@@ -118,7 +119,8 @@ namespace PingRequester.Client
                 NumberOfPR = (int)nudNumberOfPR.Value,
                 Attempts = (int)nudAttempts.Value,
                 InfiniteLoop = chbInfiniteLoop.Checked,
-                PacketSize = (int)nudPacketSize.Value
+                PacketSize = (int)nudPacketSize.Value,
+                StopSignal = false
             };
 
             // create request service instance
@@ -151,10 +153,8 @@ namespace PingRequester.Client
 
         private void btnStop_Click(object sender, EventArgs e)
         {
-            // unset lock on controls
-            SetLockOnControls();
-
-            // further logic
+            btnStop.Enabled = false;
+            requester.StopSignal = true;
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
