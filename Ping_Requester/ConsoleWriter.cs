@@ -22,7 +22,7 @@ namespace PingRequester.Client
             this.console = console;
         }
 
-        public void Log(string message)
+        private void Log(string message)
         {
             this.console.AppendText($"{message}\n");
         }

@@ -8,7 +8,6 @@ namespace PingRequester.Data
 {
     public interface IConsoleService
     {
-        public void Log(string message);
         public void LogInfo(string message);
         public void LogWarning(string message);
         public void LogError(string message);

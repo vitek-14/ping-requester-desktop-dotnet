@@ -693,6 +693,7 @@
             rtbConsole.ForeColor = Color.White;
             rtbConsole.Location = new Point(3, 3);
             rtbConsole.Name = "rtbConsole";
+            rtbConsole.ReadOnly = true;
             rtbConsole.Size = new Size(471, 361);
             rtbConsole.TabIndex = 0;
             rtbConsole.Text = "";

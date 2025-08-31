@@ -48,6 +48,7 @@ namespace PingRequester.BusinessLayer
         /// <returns>Task</returns>
         public async Task BeginRequestingAsync()
         {
+            console.LogInfo("Start");
             while ((this.remainingRequests > 0 && this.remainingAttempts > 0) || requester.InfiniteLoop)
             {
                 Console.WriteLine($"PR sent; {this.remainingRequests} remaining");
