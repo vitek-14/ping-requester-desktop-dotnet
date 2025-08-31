@@ -421,7 +421,7 @@
             tbpRequestRun.Location = new Point(4, 29);
             tbpRequestRun.Name = "tbpRequestRun";
             tbpRequestRun.Padding = new Padding(3);
-            tbpRequestRun.Size = new Size(477, 367);
+            tbpRequestRun.Size = new Size(596, 408);
             tbpRequestRun.TabIndex = 0;
             tbpRequestRun.Text = "Request Run";
             tbpRequestRun.UseVisualStyleBackColor = true;
@@ -437,7 +437,7 @@
             grbRoundTripTimes.Controls.Add(lblMaximum);
             grbRoundTripTimes.Location = new Point(18, 233);
             grbRoundTripTimes.Name = "grbRoundTripTimes";
-            grbRoundTripTimes.Size = new Size(435, 125);
+            grbRoundTripTimes.Size = new Size(554, 125);
             grbRoundTripTimes.TabIndex = 13;
             grbRoundTripTimes.TabStop = false;
             grbRoundTripTimes.Text = "Approximate round trip times";
@@ -448,7 +448,7 @@
             lblAverageActive.AutoSize = true;
             lblAverageActive.Font = new Font("Calibri", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 238);
             lblAverageActive.ForeColor = SystemColors.ActiveCaptionText;
-            lblAverageActive.Location = new Point(202, 88);
+            lblAverageActive.Location = new Point(321, 88);
             lblAverageActive.Name = "lblAverageActive";
             lblAverageActive.Size = new Size(44, 21);
             lblAverageActive.TabIndex = 12;
@@ -471,7 +471,7 @@
             lblMinimumActive.AutoSize = true;
             lblMinimumActive.Font = new Font("Calibri", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 238);
             lblMinimumActive.ForeColor = SystemColors.ActiveCaptionText;
-            lblMinimumActive.Location = new Point(202, 59);
+            lblMinimumActive.Location = new Point(321, 59);
             lblMinimumActive.Name = "lblMinimumActive";
             lblMinimumActive.Size = new Size(44, 21);
             lblMinimumActive.TabIndex = 10;
@@ -494,7 +494,7 @@
             lblMaximumActive.AutoSize = true;
             lblMaximumActive.Font = new Font("Calibri", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 238);
             lblMaximumActive.ForeColor = SystemColors.ActiveCaptionText;
-            lblMaximumActive.Location = new Point(202, 31);
+            lblMaximumActive.Location = new Point(321, 31);
             lblMaximumActive.Name = "lblMaximumActive";
             lblMaximumActive.Size = new Size(53, 21);
             lblMaximumActive.TabIndex = 8;
@@ -522,7 +522,7 @@
             grbPackets.Controls.Add(lblSent);
             grbPackets.Location = new Point(18, 103);
             grbPackets.Name = "grbPackets";
-            grbPackets.Size = new Size(435, 125);
+            grbPackets.Size = new Size(554, 125);
             grbPackets.TabIndex = 6;
             grbPackets.TabStop = false;
             grbPackets.Text = "Packets";
@@ -533,7 +533,7 @@
             lblLostActive.AutoSize = true;
             lblLostActive.Font = new Font("Calibri", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 238);
             lblLostActive.ForeColor = SystemColors.ActiveCaptionText;
-            lblLostActive.Location = new Point(202, 88);
+            lblLostActive.Location = new Point(321, 88);
             lblLostActive.Name = "lblLostActive";
             lblLostActive.Size = new Size(19, 21);
             lblLostActive.TabIndex = 12;
@@ -556,7 +556,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Calibri", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 238);
             label1.ForeColor = SystemColors.ActiveCaptionText;
-            label1.Location = new Point(202, 59);
+            label1.Location = new Point(321, 59);
             label1.Name = "label1";
             label1.Size = new Size(19, 21);
             label1.TabIndex = 10;
@@ -579,7 +579,7 @@
             lblSentActive.AutoSize = true;
             lblSentActive.Font = new Font("Calibri", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 238);
             lblSentActive.ForeColor = SystemColors.ActiveCaptionText;
-            lblSentActive.Location = new Point(202, 31);
+            lblSentActive.Location = new Point(321, 31);
             lblSentActive.Name = "lblSentActive";
             lblSentActive.Size = new Size(19, 21);
             lblSentActive.TabIndex = 8;
@@ -602,7 +602,7 @@
             lblPacketSizeRRActive.AutoSize = true;
             lblPacketSizeRRActive.Font = new Font("Calibri", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 238);
             lblPacketSizeRRActive.ForeColor = SystemColors.ActiveCaptionText;
-            lblPacketSizeRRActive.Location = new Point(220, 75);
+            lblPacketSizeRRActive.Location = new Point(339, 75);
             lblPacketSizeRRActive.Name = "lblPacketSizeRRActive";
             lblPacketSizeRRActive.Size = new Size(28, 21);
             lblPacketSizeRRActive.TabIndex = 5;
@@ -625,7 +625,7 @@
             lblIpAdressActive.AutoSize = true;
             lblIpAdressActive.Font = new Font("Calibri", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 238);
             lblIpAdressActive.ForeColor = SystemColors.ActiveCaptionText;
-            lblIpAdressActive.Location = new Point(220, 47);
+            lblIpAdressActive.Location = new Point(339, 47);
             lblIpAdressActive.Name = "lblIpAdressActive";
             lblIpAdressActive.Size = new Size(81, 21);
             lblIpAdressActive.TabIndex = 3;
@@ -648,7 +648,7 @@
             lblPingingActive.AutoSize = true;
             lblPingingActive.Font = new Font("Calibri", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 238);
             lblPingingActive.ForeColor = SystemColors.ActiveCaptionText;
-            lblPingingActive.Location = new Point(220, 17);
+            lblPingingActive.Location = new Point(339, 17);
             lblPingingActive.Name = "lblPingingActive";
             lblPingingActive.Size = new Size(120, 21);
             lblPingingActive.TabIndex = 1;
@@ -670,7 +670,7 @@
             tbpDatabase.Location = new Point(4, 29);
             tbpDatabase.Name = "tbpDatabase";
             tbpDatabase.Padding = new Padding(3);
-            tbpDatabase.Size = new Size(477, 367);
+            tbpDatabase.Size = new Size(596, 408);
             tbpDatabase.TabIndex = 1;
             tbpDatabase.Text = "Database";
             tbpDatabase.UseVisualStyleBackColor = true;
