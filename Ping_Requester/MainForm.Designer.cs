@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             pnlTop = new Panel();
             pictureBox1 = new PictureBox();
             lblLineSeparator = new Label();
@@ -715,6 +716,7 @@
             Controls.Add(pnlTop);
             ForeColor = SystemColors.ActiveCaption;
             FormBorderStyle = FormBorderStyle.FixedSingle;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             Name = "MainForm";
             Text = "Ping Requester";
