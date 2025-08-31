@@ -292,6 +292,7 @@
             btnStop.TabIndex = 13;
             btnStop.Text = "Stop";
             btnStop.UseVisualStyleBackColor = true;
+            btnStop.Click += btnStop_Click;
             // 
             // btnSendRequest
             // 

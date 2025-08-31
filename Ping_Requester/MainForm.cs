@@ -6,9 +6,29 @@ namespace PingRequester.Client
 {
     public partial class MainForm : Form
     {
+        private bool controlsLocked;
+        private Stack<Control> mainControls;
+
         public MainForm()
         {
             InitializeComponent();
+            this.controlsLocked = false;
+            this.mainControls = new Stack<Control>();
+
+            this.mainControls.Push(lblPingTarget);
+            this.mainControls.Push(txbPingTarget);
+            this.mainControls.Push(lblMode);
+            this.mainControls.Push(cmbMode);
+            this.mainControls.Push(lblRefreshRate);
+            this.mainControls.Push(nudRefreshRate);
+            this.mainControls.Push(chbInfiniteLoop);
+            this.mainControls.Push(lblNumberOfPR);
+            this.mainControls.Push(nudNumberOfPR);
+            this.mainControls.Push(lblAttempts);
+            this.mainControls.Push(nudAttempts);
+            this.mainControls.Push(lblPacketSize);
+            this.mainControls.Push(nudPacketSize);
+            this.mainControls.Push(btnSendRequest);
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -31,11 +51,14 @@ namespace PingRequester.Client
             nudAttempts.Value = (decimal)preferences.Attempts;
             nudPacketSize.Value = (decimal)preferences.PacketSize;
 
-            // check for infinite loop chb state
-            SetAttemptsState();
+            // check for infinite loop chb state and set controls state accordingly
+            SetLockOnInfiniteLoopControls();
+
+            // set stop button state
+            btnStop.Enabled = false;
         }
 
-        private void SetAttemptsState()
+        private void SetLockOnInfiniteLoopControls()
         {
             bool numberOfTriesState = !chbInfiniteLoop.Checked;
 
@@ -55,13 +78,33 @@ namespace PingRequester.Client
             }
         }
 
+        private void SetLockOnControls()
+        {
+            if (this.controlsLocked)
+            {
+                foreach (var control in this.mainControls)
+                    control.Enabled = true;
+            }
+            else
+            {
+                foreach (var control in this.mainControls)
+                    control.Enabled = false;
+            }
+
+            btnStop.Enabled = !btnStop.Enabled;
+            this.controlsLocked = !this.controlsLocked;
+        }
+
         private void chbInfiniteLoop_Click(object sender, EventArgs e)
         {
-            SetAttemptsState();
+            SetLockOnInfiniteLoopControls();
         }
 
         private async void btnSendRequest_Click(object sender, EventArgs e)
         {
+            // Lock controls
+            SetLockOnControls();
+
             // create requester
             var requester = new Requester()
             {
@@ -70,14 +113,25 @@ namespace PingRequester.Client
                 RefreshRate = (int)nudRefreshRate.Value,
                 NumberOfPR = (int)nudNumberOfPR.Value,
                 Attempts = (int)nudAttempts.Value,
-                InfiniteLoop = chbInfiniteLoop.Checked,
+                InfiniteLoop = chbInfiniteLoop.Checked
             };
+
+            // create RequestRun instance
+            requester.RequestRun = new RequestRun() { Hostname = requester.RequestedAddress };
 
             // create request service instance
             var service = new RequestService(requester);
 
             // begin sending requests
             await service.BeginRequestingAsync();
+        }
+
+        private void btnStop_Click(object sender, EventArgs e)
+        {
+            // unset lock on controls
+            SetLockOnControls();
+
+            // further logic
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)

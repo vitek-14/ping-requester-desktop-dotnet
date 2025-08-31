@@ -24,10 +24,6 @@ namespace PingRequester.Data.DataObjects
         /// </summary>
         public Requester()
         {
-            RequestRun = new RequestRun()
-            {
-                Hostname = requestedAddress
-            };
         }
 
         public string RequestedAddress
