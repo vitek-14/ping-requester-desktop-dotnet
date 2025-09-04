@@ -9,7 +9,7 @@ using System.Text.RegularExpressions;
 namespace PingRequester.BusinessLayer
 {
     /// <summary>
-    /// Request service logic instance.
+    /// RequestService class.
     /// </summary>
     public class RequestService
     {
@@ -21,7 +21,7 @@ namespace PingRequester.BusinessLayer
         private ProcessStartInfo psi;
 
         /// <summary>
-        /// Default constructor of the class.
+        /// Default constructor of the RequestService class.
         /// </summary>
         /// <param name="requester"></param>
         public RequestService(Requester requester, IConsoleService console)
@@ -68,13 +68,16 @@ namespace PingRequester.BusinessLayer
         /// </summary>
         private async Task SendRequest(RequestRun requestRun)
         {
+            // use IPv4; if not set, use hostname instead
             if (requestRun.IPv4 == null)
                 this.psi.Arguments = $"-n 1 -l {requestRun.PacketSize} {requestRun.Hostname}";
             else
                 this.psi.Arguments = $"-n 1 -l {requestRun.PacketSize} {requestRun.IPv4}";
 
+            // send ping request
             using (Process? process = await Task.Run(() => Process.Start(this.psi)))
             {
+                // read the whole output
                 stdout = await process.StandardOutput.ReadToEndAsync();
                 await process.WaitForExitAsync();
 
@@ -84,15 +87,16 @@ namespace PingRequester.BusinessLayer
                     if (!requester.InfiniteLoop)
                         warning += $" Remaining attempts: {this.remainingAttempts}";
                     console.LogWarning(warning);
-                    LowerStatusCount();
+                    SetCounters();
                 }
                 else if (stdout.Contains("Request timed out"))
                 {
                     console.LogWarning("Request timed out.", true);
-                    LowerStatusCount();
+                    SetCounters();
                 }
                 else
                 {
+                    // if success handle UI
                     SaveDataFromPingOutput(stdout, requester.RequestRun);
                     requester.mainform.OverwriteRequestRunUI(requestRun);
 
@@ -102,7 +106,10 @@ namespace PingRequester.BusinessLayer
             }
         }
 
-        private void LowerStatusCount()
+        /// <summary>
+        /// Set or decrease counters.
+        /// </summary>
+        private void SetCounters()
         {
             if (!requester.InfiniteLoop)
             {
@@ -116,12 +123,18 @@ namespace PingRequester.BusinessLayer
             }
         }
 
+        /// <summary>
+        /// Read from output data related with a packet.
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="rr"></param>
+        /// <returns>Packet instance</returns>
         private Packet ReadPacketFromOutput(string text, RequestRun rr)
         {
             Match packetValues;
             Packet packet;
 
-            if (rr.IPv4 == "127.0.0.1")
+            if (rr.IPv4 == "127.0.0.1")     // localhost
             {
                 packetValues = Regex.Match(text, @"time.(\d+)");
                 packet = new Packet()
@@ -131,7 +144,7 @@ namespace PingRequester.BusinessLayer
                     Ttl = 0
                 };
             }
-            else
+            else    // standard format of output
             {
                 packetValues = Regex.Match(text, @"bytes=(\d+) time=(\d+)ms TTL=(\d+)");
                 packet = new Packet()
@@ -145,6 +158,11 @@ namespace PingRequester.BusinessLayer
             return packet;
         }
 
+        /// <summary>
+        /// Saves data from output to the RequestRun instance.
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="requestRun"></param>
         private void SaveDataFromPingOutput(string text, RequestRun requestRun)
         {
             /*
@@ -157,6 +175,7 @@ namespace PingRequester.BusinessLayer
                 Minimum = 32ms, Maximum = 32ms, Average = 32ms
             */
 
+            // read and capture output
             var packet = ReadPacketFromOutput(text, requestRun);
             var statistics = Regex.Match(text, @"Sent = (\d+), Received = (\d+), Lost = (\d+)");
             var times = Regex.Match(text, @"Minimum = (\d+)ms, Maximum = (\d+)");
@@ -164,12 +183,14 @@ namespace PingRequester.BusinessLayer
 
             requestRun.Packets.Enqueue(packet);
 
+            // increase counters
             if (statistics.Groups[1].Value == "1")
                 requestRun.PacketsSent++;
             if (statistics.Groups[2].Value == "1")
                 requestRun.PacketsRecieved++;
             if (statistics.Groups[3].Value == "1")
                 requestRun.PacketsLost++;
+            // set max or min
             int min = Int32.Parse(times.Groups[1].Value);
             int max = Int32.Parse(times.Groups[2].Value);
             if (min < requestRun.MinTime)
@@ -177,10 +198,16 @@ namespace PingRequester.BusinessLayer
             if (max > requestRun.MaxTime)
                 requestRun.MaxTime = max;
 
+            // calculate the average
             requestRun.TimeSum += packet.Time;
             requestRun.AverageTime = (float)requestRun.TimeSum / requestRun.Packets.Count;
         }
 
+        /// <summary>
+        /// Converts hostname to IPv4.
+        /// </summary>
+        /// <param name="requestedAddress"></param>
+        /// <returns>IPv4 as string or null</returns>
         public string? Hostname2Ipv4(string requestedAddress)
         {
             IPAddress? address = null;
