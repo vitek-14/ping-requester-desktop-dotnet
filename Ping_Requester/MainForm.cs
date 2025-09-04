@@ -146,7 +146,7 @@ namespace PingRequester.Client
 
             requester = new Requester(this)
             {
-                RequestedAddress = txbPingTarget.Text,
+                RequestedAddress = txbPingTarget.Text.ToLower(),
                 Mode = cmbMode.Text,
                 RefreshRate = (int)nudRefreshRate.Value,
                 NumberOfPR = (int)nudNumberOfPR.Value,
