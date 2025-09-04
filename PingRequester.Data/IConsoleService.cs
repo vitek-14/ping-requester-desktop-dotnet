@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace PingRequester.Data
 {
+    /// <summary>
+    /// Interface of the ConsoleService.
+    /// </summary>
     public interface IConsoleService
     {
         public void LogInfo(string message, bool logInfoLabel = false);

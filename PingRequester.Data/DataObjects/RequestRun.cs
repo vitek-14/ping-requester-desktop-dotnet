@@ -9,6 +9,10 @@ using System.Threading.Tasks;
 
 namespace PingRequester.Data.DataObjects
 {
+    /// <summary>
+    /// RequestRun class represents current request run.
+    /// This class stores settings from the UI, single packet properties and additional information.
+    /// </summary>
     public class RequestRun : DataObject
     {
         private string hostname;
@@ -26,6 +30,12 @@ namespace PingRequester.Data.DataObjects
         private Queue<Packet> packets;
         private ProcessStartInfo psi;
 
+        /// <summary>
+        /// Default constructor of the RequestRun class.
+        /// </summary>
+        /// <param name="mainform"></param>
+        /// <param name="hostname"></param>
+        /// <param name="packetSize"></param>
         public RequestRun(IRequestRunWidgetService mainform, string hostname, int packetSize)
         {
             Packets = new Queue<Packet>();
@@ -33,6 +43,9 @@ namespace PingRequester.Data.DataObjects
             PacketSize = packetSize;
         }
 
+        /// <summary>
+        /// Initializes the instance with default values and ProcessStartInfo instance.
+        /// </summary>
         public void Init()
         {
             PacketsSent = 0;

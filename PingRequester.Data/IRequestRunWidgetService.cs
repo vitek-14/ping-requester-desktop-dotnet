@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace PingRequester.Data
 {
+    /// <summary>
+    /// Interface of the RequestRunWidgetService
+    /// </summary>
     public interface IRequestRunWidgetService
     {
         public void OverwriteRequestRunUI(RequestRun requestRun);
