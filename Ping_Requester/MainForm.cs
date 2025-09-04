@@ -164,7 +164,7 @@ namespace PingRequester.Client
             var service = new RequestService(requester, this.console);
 
             // create RequestRun instance
-            console.LogInfo("Initializing Request Run.");
+            console.LogMessage("Initializing Request Run.");
 
             RequestRun requestRun = new RequestRun(this, requester.RequestedAddress, requester.PacketSize);
             requestRun.Init();
@@ -189,7 +189,7 @@ namespace PingRequester.Client
             await service.BeginRequestingAsync();
 
             // requesting done
-            console.LogInfo($"Pinging finished at: {DateTime.Now}");
+            console.LogMessage($"Pinging finished at: {DateTime.Now}");
             SetLockOnControls();
             btnStop.Enabled = false;
         }

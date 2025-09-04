@@ -219,7 +219,8 @@ namespace PingRequester.BusinessLayer
             }
             catch (Exception e)
             {
-                console.LogError($"Something went wrong while converting address to ipv4. Error message: {e}");
+                console.LogError($"Something went wrong while converting address to ipv4.\nError message: {e}");
+                console.LogWarning("Host does not exists or no internet connection.");
                 return null;
             }
 
