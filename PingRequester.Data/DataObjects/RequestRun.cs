@@ -48,6 +48,7 @@ namespace PingRequester.Data.DataObjects
         /// </summary>
         public void Init()
         {
+            // set default values
             PacketsSent = 0;
             PacketsRecieved = 0;
             PacketsLost = 0;
@@ -55,6 +56,7 @@ namespace PingRequester.Data.DataObjects
             MinTime = int.MaxValue;
             TimeSum = 0;
 
+            // create ProcessStartInfo instance with default properties
             Psi = new ProcessStartInfo
             {
                 FileName = "ping",
@@ -63,6 +65,14 @@ namespace PingRequester.Data.DataObjects
                 UseShellExecute = false,
                 CreateNoWindow = true
             };
+
+            // try to convert hostname in IPv4 format to actual HostName
+            // this code is located here and not in a business logic layer because it has low-level complexity
+            if (IPAddress.TryParse(Hostname, out IPAddress ip))
+            {
+                var entry = Dns.GetHostEntry(ip);
+                Hostname = entry.HostName;
+            }
         }
 
         public Queue<Packet> Packets

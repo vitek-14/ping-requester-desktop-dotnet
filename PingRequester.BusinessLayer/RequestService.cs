@@ -134,7 +134,8 @@ namespace PingRequester.BusinessLayer
             Match packetValues;
             Packet packet;
 
-            if (rr.IPv4 == "127.0.0.1")     // localhost
+            // localhost
+            if (rr.IPv4 == "127.0.0.1")
             {
                 packetValues = Regex.Match(text, @"time.(\d+)");
                 packet = new Packet()
@@ -228,6 +229,6 @@ namespace PingRequester.BusinessLayer
             console.LogWarning($"DNS server did not return any IPv4 address for the requested hostname {requestedAddress}");
             console.LogInfo("Using orignial address instead.");
             return null;
-        }
+        } 
     }
 }

@@ -168,7 +168,7 @@ namespace PingRequester.Client
 
             RequestRun requestRun = new RequestRun(this, requester.RequestedAddress, requester.PacketSize);
             requestRun.Init();
-            requestRun.IPv4 = service.Hostname2Ipv4(requestRun.Hostname);
+            requestRun.IPv4 = requester.RequestedAddress == "127.0.0.1" ? "127.0.0.1" : service.Hostname2Ipv4(requestRun.Hostname);
             requester.RequestRun = requestRun;
 
             // Write-in initial data into Request Run widgets
