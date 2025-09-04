@@ -39,6 +39,7 @@ namespace PingRequester.Client
             this.mainControls.Push(lblPacketSize);
             this.mainControls.Push(nudPacketSize);
             this.mainControls.Push(btnSendRequest);
+            this.mainControls.Push(chbStopWhenSuccess);
         }
 
         /// <summary>
@@ -101,6 +102,7 @@ namespace PingRequester.Client
                 lblNumberOfPR.ForeColor = System.Drawing.Color.Black;
                 nudAttempts.Enabled = true;
                 nudNumberOfPR.Enabled = true;
+                chbStopWhenSuccess.Enabled = false;
             }
             else
             {
@@ -108,6 +110,7 @@ namespace PingRequester.Client
                 lblNumberOfPR.ForeColor = System.Drawing.Color.LightGray;
                 nudAttempts.Enabled = false;
                 nudNumberOfPR.Enabled = false;
+                chbStopWhenSuccess.Enabled = true;
             }
         }
 
@@ -191,6 +194,7 @@ namespace PingRequester.Client
             // requesting done
             console.LogMessage($"Pinging finished at: {DateTime.Now}");
             SetLockOnControls();
+            SetLockOnInfiniteLoopControls();
             btnStop.Enabled = false;
         }
 

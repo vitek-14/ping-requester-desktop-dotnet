@@ -83,6 +83,7 @@
             tbpOutput = new TabPage();
             rtbConsole = new RichTextBox();
             pnlMiddle = new Panel();
+            chbStopWhenSuccess = new CheckBox();
             pnlTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             menuStrip1.SuspendLayout();
@@ -203,6 +204,7 @@
             // pnlControls
             // 
             pnlControls.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            pnlControls.Controls.Add(chbStopWhenSuccess);
             pnlControls.Controls.Add(nudPacketSize);
             pnlControls.Controls.Add(lblPacketSize);
             pnlControls.Controls.Add(lblNumberOfPR);
@@ -710,6 +712,18 @@
             pnlMiddle.Size = new Size(951, 482);
             pnlMiddle.TabIndex = 1;
             // 
+            // chbStopWhenSuccess
+            // 
+            chbStopWhenSuccess.AutoSize = true;
+            chbStopWhenSuccess.Font = new Font("Calibri", 10.2F);
+            chbStopWhenSuccess.ForeColor = SystemColors.ActiveCaptionText;
+            chbStopWhenSuccess.Location = new Point(150, 146);
+            chbStopWhenSuccess.Name = "chbStopWhenSuccess";
+            chbStopWhenSuccess.Size = new Size(162, 25);
+            chbStopWhenSuccess.TabIndex = 18;
+            chbStopWhenSuccess.Text = "Stop when success";
+            chbStopWhenSuccess.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             AutoScaleMode = AutoScaleMode.None;
@@ -806,6 +820,7 @@
         private Label lblMaximumActive;
         private Label lblMaximum;
         private RichTextBox rtbConsole;
+        private CheckBox chbStopWhenSuccess;
 
         public string PingTarget { get => txbPingTarget.Text; }
         public string Mode { get => cmbMode.Text; }
