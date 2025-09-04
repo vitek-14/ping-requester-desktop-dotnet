@@ -407,6 +407,7 @@
             tbc.SelectedIndex = 0;
             tbc.Size = new Size(604, 441);
             tbc.TabIndex = 0;
+            tbc.SelectedIndexChanged += tbc_SelectedIndexChanged;
             // 
             // tbpRequestRun
             // 

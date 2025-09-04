@@ -195,5 +195,16 @@ namespace PingRequester.Client
                 ;
             }
         }
+
+        private void tbc_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (tbc.SelectedIndex == 2)
+            {
+                rtbConsole.SelectionStart = 0;
+                rtbConsole.ScrollToCaret();
+                rtbConsole.SelectionStart = rtbConsole.TextLength;
+                rtbConsole.ScrollToCaret();
+            }
+        }
     }
 }
