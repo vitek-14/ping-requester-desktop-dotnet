@@ -69,7 +69,7 @@
             grbPackets = new GroupBox();
             lblLostActive = new Label();
             lblLost = new Label();
-            label1 = new Label();
+            lblRecievedActive = new Label();
             lblRecieved = new Label();
             lblSentActive = new Label();
             lblSent = new Label();
@@ -450,9 +450,9 @@
             lblAverageActive.ForeColor = SystemColors.ActiveCaptionText;
             lblAverageActive.Location = new Point(321, 88);
             lblAverageActive.Name = "lblAverageActive";
-            lblAverageActive.Size = new Size(44, 21);
+            lblAverageActive.Size = new Size(40, 21);
             lblAverageActive.TabIndex = 12;
-            lblAverageActive.Text = "8 ms";
+            lblAverageActive.Text = "- ms";
             // 
             // lblAverage
             // 
@@ -473,9 +473,9 @@
             lblMinimumActive.ForeColor = SystemColors.ActiveCaptionText;
             lblMinimumActive.Location = new Point(321, 59);
             lblMinimumActive.Name = "lblMinimumActive";
-            lblMinimumActive.Size = new Size(44, 21);
+            lblMinimumActive.Size = new Size(40, 21);
             lblMinimumActive.TabIndex = 10;
-            lblMinimumActive.Text = "3 ms";
+            lblMinimumActive.Text = "- ms";
             // 
             // lblMinimum
             // 
@@ -496,9 +496,9 @@
             lblMaximumActive.ForeColor = SystemColors.ActiveCaptionText;
             lblMaximumActive.Location = new Point(321, 31);
             lblMaximumActive.Name = "lblMaximumActive";
-            lblMaximumActive.Size = new Size(53, 21);
+            lblMaximumActive.Size = new Size(40, 21);
             lblMaximumActive.TabIndex = 8;
-            lblMaximumActive.Text = "14 ms";
+            lblMaximumActive.Text = "- ms";
             // 
             // lblMaximum
             // 
@@ -516,7 +516,7 @@
             grbPackets.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             grbPackets.Controls.Add(lblLostActive);
             grbPackets.Controls.Add(lblLost);
-            grbPackets.Controls.Add(label1);
+            grbPackets.Controls.Add(lblRecievedActive);
             grbPackets.Controls.Add(lblRecieved);
             grbPackets.Controls.Add(lblSentActive);
             grbPackets.Controls.Add(lblSent);
@@ -535,9 +535,9 @@
             lblLostActive.ForeColor = SystemColors.ActiveCaptionText;
             lblLostActive.Location = new Point(321, 88);
             lblLostActive.Name = "lblLostActive";
-            lblLostActive.Size = new Size(19, 21);
+            lblLostActive.Size = new Size(15, 21);
             lblLostActive.TabIndex = 12;
-            lblLostActive.Text = "0";
+            lblLostActive.Text = "-";
             // 
             // lblLost
             // 
@@ -550,17 +550,17 @@
             lblLost.TabIndex = 11;
             lblLost.Text = "Lost:";
             // 
-            // label1
+            // lblRecievedActive
             // 
-            label1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            label1.AutoSize = true;
-            label1.Font = new Font("Calibri", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 238);
-            label1.ForeColor = SystemColors.ActiveCaptionText;
-            label1.Location = new Point(321, 59);
-            label1.Name = "label1";
-            label1.Size = new Size(19, 21);
-            label1.TabIndex = 10;
-            label1.Text = "5";
+            lblRecievedActive.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            lblRecievedActive.AutoSize = true;
+            lblRecievedActive.Font = new Font("Calibri", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            lblRecievedActive.ForeColor = SystemColors.ActiveCaptionText;
+            lblRecievedActive.Location = new Point(321, 59);
+            lblRecievedActive.Name = "lblRecievedActive";
+            lblRecievedActive.Size = new Size(15, 21);
+            lblRecievedActive.TabIndex = 10;
+            lblRecievedActive.Text = "-";
             // 
             // lblRecieved
             // 
@@ -581,9 +581,9 @@
             lblSentActive.ForeColor = SystemColors.ActiveCaptionText;
             lblSentActive.Location = new Point(321, 31);
             lblSentActive.Name = "lblSentActive";
-            lblSentActive.Size = new Size(19, 21);
+            lblSentActive.Size = new Size(15, 21);
             lblSentActive.TabIndex = 8;
-            lblSentActive.Text = "5";
+            lblSentActive.Text = "-";
             // 
             // lblSent
             // 
@@ -604,9 +604,9 @@
             lblPacketSizeRRActive.ForeColor = SystemColors.ActiveCaptionText;
             lblPacketSizeRRActive.Location = new Point(339, 75);
             lblPacketSizeRRActive.Name = "lblPacketSizeRRActive";
-            lblPacketSizeRRActive.Size = new Size(28, 21);
+            lblPacketSizeRRActive.Size = new Size(15, 21);
             lblPacketSizeRRActive.TabIndex = 5;
-            lblPacketSizeRRActive.Text = "32";
+            lblPacketSizeRRActive.Text = "-";
             // 
             // lblPacketSizeRR
             // 
@@ -627,9 +627,9 @@
             lblIpAdressActive.ForeColor = SystemColors.ActiveCaptionText;
             lblIpAdressActive.Location = new Point(339, 47);
             lblIpAdressActive.Name = "lblIpAdressActive";
-            lblIpAdressActive.Size = new Size(81, 21);
+            lblIpAdressActive.Size = new Size(15, 21);
             lblIpAdressActive.TabIndex = 3;
-            lblIpAdressActive.Text = "xxx.xxx.xxx";
+            lblIpAdressActive.Text = "-";
             // 
             // lblIpAdress
             // 
@@ -650,9 +650,9 @@
             lblPingingActive.ForeColor = SystemColors.ActiveCaptionText;
             lblPingingActive.Location = new Point(339, 17);
             lblPingingActive.Name = "lblPingingActive";
-            lblPingingActive.Size = new Size(120, 21);
+            lblPingingActive.Size = new Size(15, 21);
             lblPingingActive.TabIndex = 1;
-            lblPingingActive.Text = "www.seznam.cz";
+            lblPingingActive.Text = "-";
             // 
             // lblPinging
             // 
@@ -793,7 +793,7 @@
         private GroupBox grbPackets;
         private Label lblLostActive;
         private Label lblLost;
-        private Label label1;
+        private Label lblRecievedActive;
         private Label lblRecieved;
         private Label lblSentActive;
         private Label lblSent;

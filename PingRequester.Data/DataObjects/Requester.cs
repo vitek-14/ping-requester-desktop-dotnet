@@ -18,13 +18,15 @@ namespace PingRequester.Data.DataObjects
         private bool makeSound;
         private int packetSize;
         private bool stopSignal;
+        public IRequestRunWidgetService mainform;
         private RequestRun requestRun;
 
         /// <summary>
         /// Default constructor of Requester class.
         /// </summary>
-        public Requester()
+        public Requester(IRequestRunWidgetService mainform)
         {
+            this.mainform = mainform;
         }
 
         public string RequestedAddress

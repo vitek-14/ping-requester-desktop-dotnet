@@ -5,7 +5,7 @@ namespace PingRequester.Data.DataObjects
     /// <summary>
     /// Packet class extending DataObject class.
     /// </summary>
-    public class Packet : DataObject
+    public class Packet
     {
         private int bytes;
         private int time;
@@ -18,22 +18,10 @@ namespace PingRequester.Data.DataObjects
         {
         }
 
-        public int Bytes
-        {
-            get => bytes;
-            set => SetProperty(ref bytes, value);
-        }
+        public int Bytes { get; set; }
 
-        public int Time
-        {
-            get => time;
-            set => SetProperty(ref time, value);
-        }
+        public int Time { get; set; }
 
-        public int Ttl
-        {
-            get => ttl;
-            set => SetProperty(ref ttl, value);
-        }
+        public int Ttl { get; set; }
     }
 }

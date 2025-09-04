@@ -4,7 +4,7 @@ using PingRequester.Data.DataObjects;
 
 namespace PingRequester.Client
 {
-    public partial class MainForm : Form
+    public partial class MainForm : Form, IRequestRunWidgetService
     {
         private ConsoleWriter console;
         private Requester requester;
@@ -32,6 +32,16 @@ namespace PingRequester.Client
             this.mainControls.Push(lblPacketSize);
             this.mainControls.Push(nudPacketSize);
             this.mainControls.Push(btnSendRequest);
+        }
+
+        public void OverwriteRequestRunUI(RequestRun requestRun)
+        {
+            lblSentActive.Text = requestRun.PacketsSent.ToString();
+            lblRecievedActive.Text = requestRun.PacketsRecieved.ToString();
+            lblLostActive.Text = requestRun.PacketsLost.ToString();
+            lblMaximumActive.Text = $"{requestRun.MaxTime} ms";
+            lblMinimumActive.Text = $"{requestRun.MinTime} ms";
+            lblAverageActive.Text = $"{Math.Round(requestRun.AverageTime, 2)} ms";
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -111,7 +121,7 @@ namespace PingRequester.Client
             // create requester
             console.LogInfo("Creating Requester.");
 
-            requester = new Requester()
+            requester = new Requester(this)
             {
                 RequestedAddress = txbPingTarget.Text,
                 Mode = cmbMode.Text,
@@ -133,10 +143,15 @@ namespace PingRequester.Client
             // create RequestRun instance
             console.LogInfo("Initializing Request Run.");
 
-            RequestRun requestRun = new RequestRun(requester.RequestedAddress, requester.PacketSize);
+            RequestRun requestRun = new RequestRun(this, requester.RequestedAddress, requester.PacketSize);
             requestRun.Init();
             requestRun.IPv4 = service.Hostname2Ipv4(requestRun.Hostname);
             requester.RequestRun = requestRun;
+
+            // Write-in initial data into Request Run widgets
+            lblPingingActive.Text = requestRun.Hostname;
+            lblIpAdressActive.Text = requestRun.IPv4;
+            lblPacketSizeRRActive.Text = requestRun.PacketSize.ToString();
 
             // begin sending requests
             string message = $"Seeking for {requestRun.Hostname}";
@@ -147,6 +162,7 @@ namespace PingRequester.Client
             message += $", started at: {DateTime.Now}";
             console.LogInfo(message);
 
+            // start async. algorithm
             await service.BeginRequestingAsync();
 
             // requesting done

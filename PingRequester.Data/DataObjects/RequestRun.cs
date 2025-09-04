@@ -22,10 +22,11 @@ namespace PingRequester.Data.DataObjects
         private int maxTime;
         private int minTime;
         private float averageTime;
+        private int timeSum;
         private Queue<Packet> packets;
         private ProcessStartInfo psi;
 
-        public RequestRun(string hostname, int packetSize)
+        public RequestRun(IRequestRunWidgetService mainform, string hostname, int packetSize)
         {
             Packets = new Queue<Packet>();
             Hostname = hostname;
@@ -34,6 +35,13 @@ namespace PingRequester.Data.DataObjects
 
         public void Init()
         {
+            PacketsSent = 0;
+            PacketsRecieved = 0;
+            PacketsLost = 0;
+            MaxTime = 0;
+            MinTime = int.MaxValue;
+            TimeSum = 0;
+
             Psi = new ProcessStartInfo
             {
                 FileName = "ping",
@@ -110,6 +118,12 @@ namespace PingRequester.Data.DataObjects
         {
             get => packetSize;
             set => SetProperty(ref packetSize, value);
+        }
+
+        public int TimeSum
+        {
+            get => timeSum;
+            set => SetProperty(ref timeSum, value);
         }
 
         public ProcessStartInfo Psi
