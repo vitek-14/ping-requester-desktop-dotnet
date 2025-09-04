@@ -15,7 +15,7 @@ namespace PingRequester.Client
         {
             InitializeComponent();
             this.controlsLocked = false;
-            this.console = new ConsoleWriter(rtbConsole);
+            this.console = new ConsoleWriter(rtbConsole, lblInfo);
             this.mainControls = new Stack<Control>();
 
             this.mainControls.Push(lblPingTarget);

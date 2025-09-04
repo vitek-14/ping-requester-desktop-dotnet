@@ -84,19 +84,12 @@ namespace PingRequester.BusinessLayer
                     if (!requester.InfiniteLoop)
                         warning += $" Remaining attempts: {this.remainingAttempts}";
                     console.LogWarning(warning);
-
-                    if (!requester.InfiniteLoop)
-                    {
-                        this.remainingAttempts--;
-
-                        if (requester.Mode == "Precise")
-                        {
-                            console.LogInfo("Remaining requests reset, precise mode active.");
-                            this.remainingRequests = requester.NumberOfPR;
-                        }
-                    }
-
-                    requester.PingSent = false;
+                    LowerStatusCount();
+                }
+                else if (stdout.Contains("Request timed out"))
+                {
+                    console.LogWarning("Request timed out.", true);
+                    LowerStatusCount();
                 }
                 else
                 {
@@ -105,12 +98,25 @@ namespace PingRequester.BusinessLayer
 
                     console.LogInfo($"Ping sent to {requestRun.Hostname} at {DateTime.Now}");
                     this.remainingRequests--;
-                    requester.PingSent = true;
                 }
             }
         }
 
-        private Packet ReadOutput(string text, RequestRun rr)
+        private void LowerStatusCount()
+        {
+            if (!requester.InfiniteLoop)
+            {
+                this.remainingAttempts--;
+
+                if (requester.Mode == "Precise")
+                {
+                    console.LogInfo("Remaining requests reset, precise mode active.");
+                    this.remainingRequests = requester.NumberOfPR;
+                }
+            }
+        }
+
+        private Packet ReadPacketFromOutput(string text, RequestRun rr)
         {
             Match packetValues;
             Packet packet;
@@ -151,7 +157,7 @@ namespace PingRequester.BusinessLayer
                 Minimum = 32ms, Maximum = 32ms, Average = 32ms
             */
 
-            var packet = ReadOutput(text, requestRun);
+            var packet = ReadPacketFromOutput(text, requestRun);
             var statistics = Regex.Match(text, @"Sent = (\d+), Received = (\d+), Lost = (\d+)");
             var times = Regex.Match(text, @"Minimum = (\d+)ms, Maximum = (\d+)");
 

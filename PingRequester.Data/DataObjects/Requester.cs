@@ -9,7 +9,6 @@ namespace PingRequester.Data.DataObjects
     {
         private string requestedAddress;
         private string mode;
-        private bool pingSent;
         private int refreshRate;
         private int numberOfPR;
         private int attempts;
@@ -39,12 +38,6 @@ namespace PingRequester.Data.DataObjects
         {
             get => mode;
             set => SetProperty(ref mode, value);
-        }
-
-        public bool PingSent
-        {
-            get => pingSent;
-            set => SetProperty(ref pingSent, value);
         }
 
         public int RefreshRate
