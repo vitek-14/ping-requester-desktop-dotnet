@@ -4,6 +4,9 @@ using PingRequester.Data.DataObjects;
 
 namespace PingRequester.Client
 {
+    /// <summary>
+    /// Main Form class of the app.
+    /// </summary>
     public partial class MainForm : Form, IRequestRunWidgetService
     {
         private ConsoleWriter console;
@@ -11,13 +14,17 @@ namespace PingRequester.Client
         private bool controlsLocked;
         private Stack<Control> mainControls;
 
+        /// <summary>
+        /// Default constructor of the MainForm.
+        /// </summary>
         public MainForm()
         {
             InitializeComponent();
             this.controlsLocked = false;
+            // Prepare console writer 
             this.console = new ConsoleWriter(rtbConsole, lblInfo);
+            // create queue of main controls
             this.mainControls = new Stack<Control>();
-
             this.mainControls.Push(lblPingTarget);
             this.mainControls.Push(txbPingTarget);
             this.mainControls.Push(lblMode);
@@ -34,6 +41,10 @@ namespace PingRequester.Client
             this.mainControls.Push(btnSendRequest);
         }
 
+        /// <summary>
+        /// Refreshes Request Run UI tab with data passed from RequestRun instance.
+        /// </summary>
+        /// <param name="requestRun"></param>
         public void OverwriteRequestRunUI(RequestRun requestRun)
         {
             lblSentActive.Text = requestRun.PacketsSent.ToString();
@@ -44,6 +55,11 @@ namespace PingRequester.Client
             lblAverageActive.Text = $"{Math.Round(requestRun.AverageTime, 2)} ms";
         }
 
+        /// <summary>
+        /// Called when MainForm is created.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void MainForm_Load(object sender, EventArgs e)
         {
             // Initial values
@@ -71,6 +87,10 @@ namespace PingRequester.Client
             btnStop.Enabled = false;
         }
 
+        /// <summary>
+        /// Changes Enabled property and colors text of labels.
+        /// Method operates with private bool field numberOfTriesState
+        /// </summary>
         private void SetLockOnInfiniteLoopControls()
         {
             bool numberOfTriesState = !chbInfiniteLoop.Checked;
@@ -91,6 +111,9 @@ namespace PingRequester.Client
             }
         }
 
+        /// <summary>
+        /// Changes Enabled property of all input controls on the left side of the UI.
+        /// </summary>
         private void SetLockOnControls()
         {
             if (this.controlsLocked)
@@ -115,7 +138,7 @@ namespace PingRequester.Client
 
         private async void btnSendRequest_Click(object sender, EventArgs e)
         {
-            // Lock controls
+            // lock controls
             SetLockOnControls();
 
             // create requester
@@ -198,6 +221,12 @@ namespace PingRequester.Client
 
         private void tbc_SelectedIndexChanged(object sender, EventArgs e)
         {
+            /* A workaround of the Console (richtextbox) artefact - bug.
+             * This code solves the bug when UI from Request Run tab is being displayed in the Console tab.
+             * Code bellow scrolls to the top and down again in order to get rid off the wrong pixels.
+             * Artefact was appearing only when large number of ping requests was set.
+             */
+
             if (tbc.SelectedIndex == 2)
             {
                 rtbConsole.SelectionStart = 0;

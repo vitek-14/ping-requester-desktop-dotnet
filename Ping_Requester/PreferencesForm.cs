@@ -12,11 +12,19 @@ using System.Windows.Forms;
 
 namespace PingRequester.Client
 {
+    /// <summary>
+    /// PreferencesForm class.
+    /// This class is meant to be instantiated as ShowDialog.
+    /// </summary>
     public partial class PreferencesForm : Form
     {
         private MainForm _mainForm;
         private JsonService<Preferences> jsonService;
 
+        /// <summary>
+        /// Default constructor of the PreferencesForm
+        /// </summary>
+        /// <param name="mainForm"></param>
         public PreferencesForm(MainForm mainForm)
         {
             InitializeComponent();
@@ -25,6 +33,11 @@ namespace PingRequester.Client
             this.jsonService = new JsonService<Preferences>("config/PreferencesConfig.json");
         }
 
+        /// <summary>
+        /// Called when PreferencesForm is created.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void PreferencesForm_Load(object sender, EventArgs e)
         {
             // Combo box - set items
@@ -53,8 +66,10 @@ namespace PingRequester.Client
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            // get Preferences instance from json data
             var preferences = this.jsonService.LoadFileContent();
 
+            // set new values
             preferences.PingTarget = txbPingTarget.Text;
             preferences.Mode = cmbMode.Text;
             preferences.RefreshRate = (int)nudRefreshRate.Value;
@@ -65,6 +80,7 @@ namespace PingRequester.Client
             preferences.MakeSound = chbMakeSound.Checked;
             preferences.InfiniteLoop = chbInfiniteLoop.Checked;
 
+            // serialize data from instance to a json file
             this.jsonService.WriteFileContent(preferences);
             this.Close();
         }
