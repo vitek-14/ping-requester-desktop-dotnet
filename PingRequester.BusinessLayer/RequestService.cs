@@ -62,6 +62,8 @@ namespace PingRequester.BusinessLayer
                 if (requester.StopWhenSuccess && requester.InfiniteLoop && this.pingSent)
                 {
                     console.LogMessage("Pinging interrupted on successful request (\"Stop when success\" option is enabled).");
+                    if (requester.ShowNotification)
+                        Notifications.ConnectionSuccessful(!requester.MakeSound);
                     break;
                 }
 
