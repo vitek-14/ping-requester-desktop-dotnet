@@ -19,7 +19,7 @@ namespace PingRequester.Client
     public partial class PreferencesForm : Form
     {
         private MainForm _mainForm;
-        private JsonService<Preferences> jsonService;
+        private JsonService<Data.DataObjects.Settings> jsonService;
 
         /// <summary>
         /// Default constructor of the PreferencesForm
@@ -30,7 +30,7 @@ namespace PingRequester.Client
             InitializeComponent();
 
             _mainForm = mainForm;
-            this.jsonService = new JsonService<Preferences>("config/PreferencesConfig.json");
+            this.jsonService = new JsonService<Data.DataObjects.Settings>("config/SettingsConfig.json");
         }
 
         /// <summary>

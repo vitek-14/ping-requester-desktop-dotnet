@@ -6,7 +6,7 @@ namespace PingRequester.Data.DataObjects
     /// <summary>
     /// Preferences class extending DataObject class.
     /// </summary>
-    public class Preferences : DataObject
+    public class Settings : DataObject
     {
         private string pingTarget;
         private string mode;
@@ -22,7 +22,7 @@ namespace PingRequester.Data.DataObjects
         /// <summary>
         /// Default contructor of Preferences class.
         /// </summary>
-        public Preferences()
+        public Settings()
         {
         }
 

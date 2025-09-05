@@ -16,7 +16,7 @@ namespace PingRequester.BusinessLayer
             new ToastContentBuilder()
                 .AddAudio(new Uri("ms-winsoundevent:Notification.Default"), silent: silentMode)
                 .AddText("Success")
-                .AddText("Ping request was successful")
+                .AddText("Ping request was successful!")
                 .AddAppLogoOverride(new Uri($"file:///{imagePath}"), ToastGenericAppLogoCrop.Default)
                 .Show();
         }

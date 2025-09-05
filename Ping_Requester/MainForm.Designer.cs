@@ -41,6 +41,7 @@
             pnlInfo = new Panel();
             lblInfo = new Label();
             pnlControls = new Panel();
+            chbStopWhenSuccess = new CheckBox();
             nudPacketSize = new NumericUpDown();
             lblPacketSize = new Label();
             lblNumberOfPR = new Label();
@@ -83,7 +84,7 @@
             tbpOutput = new TabPage();
             rtbConsole = new RichTextBox();
             pnlMiddle = new Panel();
-            chbStopWhenSuccess = new CheckBox();
+            settingsToolStripMenuItem1 = new ToolStripMenuItem();
             pnlTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             menuStrip1.SuspendLayout();
@@ -167,10 +168,10 @@
             // 
             // settingsToolStripMenuItem
             // 
-            settingsToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { preferencesToolStripMenuItem });
+            settingsToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { settingsToolStripMenuItem1, preferencesToolStripMenuItem });
             settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            settingsToolStripMenuItem.Size = new Size(76, 24);
-            settingsToolStripMenuItem.Text = "Settings";
+            settingsToolStripMenuItem.Size = new Size(58, 24);
+            settingsToolStripMenuItem.Text = "Tools";
             // 
             // preferencesToolStripMenuItem
             // 
@@ -225,6 +226,18 @@
             pnlControls.Name = "pnlControls";
             pnlControls.Size = new Size(332, 482);
             pnlControls.TabIndex = 2;
+            // 
+            // chbStopWhenSuccess
+            // 
+            chbStopWhenSuccess.AutoSize = true;
+            chbStopWhenSuccess.Font = new Font("Calibri", 10.2F);
+            chbStopWhenSuccess.ForeColor = SystemColors.ActiveCaptionText;
+            chbStopWhenSuccess.Location = new Point(150, 146);
+            chbStopWhenSuccess.Name = "chbStopWhenSuccess";
+            chbStopWhenSuccess.Size = new Size(162, 25);
+            chbStopWhenSuccess.TabIndex = 18;
+            chbStopWhenSuccess.Text = "Stop when success";
+            chbStopWhenSuccess.UseVisualStyleBackColor = true;
             // 
             // nudPacketSize
             // 
@@ -712,17 +725,11 @@
             pnlMiddle.Size = new Size(951, 482);
             pnlMiddle.TabIndex = 1;
             // 
-            // chbStopWhenSuccess
+            // settingsToolStripMenuItem1
             // 
-            chbStopWhenSuccess.AutoSize = true;
-            chbStopWhenSuccess.Font = new Font("Calibri", 10.2F);
-            chbStopWhenSuccess.ForeColor = SystemColors.ActiveCaptionText;
-            chbStopWhenSuccess.Location = new Point(150, 146);
-            chbStopWhenSuccess.Name = "chbStopWhenSuccess";
-            chbStopWhenSuccess.Size = new Size(162, 25);
-            chbStopWhenSuccess.TabIndex = 18;
-            chbStopWhenSuccess.Text = "Stop when success";
-            chbStopWhenSuccess.UseVisualStyleBackColor = true;
+            settingsToolStripMenuItem1.Name = "settingsToolStripMenuItem1";
+            settingsToolStripMenuItem1.Size = new Size(168, 26);
+            settingsToolStripMenuItem1.Text = "Settings";
             // 
             // MainForm
             // 
@@ -821,6 +828,7 @@
         private Label lblMaximum;
         private RichTextBox rtbConsole;
         private CheckBox chbStopWhenSuccess;
+        private ToolStripMenuItem settingsToolStripMenuItem1;
 
         public string PingTarget { get => txbPingTarget.Text; }
         public string Mode { get => cmbMode.Text; }
