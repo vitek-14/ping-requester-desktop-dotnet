@@ -49,6 +49,7 @@ namespace PingRequester.Client
             cmbMode.Text = _mainForm.Mode;
             nudRefreshRate.Value = _mainForm.RefreshRate;
             chbInfiniteLoop.Checked = _mainForm.InfiniteLoop;
+            chbStopWhenSuccess.Checked = _mainForm.StopWhenSuccess;
             nudNumberOfPR.Value = _mainForm.NumberOfPR;
             nudAttempts.Value = _mainForm.Attempts;
             nudPacketSize.Value = _mainForm.PacketSize;
@@ -79,6 +80,7 @@ namespace PingRequester.Client
             preferences.ShowNotification = chbShowNotification.Checked;
             preferences.MakeSound = chbMakeSound.Checked;
             preferences.InfiniteLoop = chbInfiniteLoop.Checked;
+            preferences.StopWhenSuccess = chbStopWhenSuccess.Checked;
 
             // serialize data from instance to a json file
             this.jsonService.WriteFileContent(preferences);

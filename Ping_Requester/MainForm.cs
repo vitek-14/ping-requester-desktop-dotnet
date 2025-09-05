@@ -77,6 +77,7 @@ namespace PingRequester.Client
             cmbMode.Text = preferences.Mode;
             nudRefreshRate.Value = (decimal)preferences.RefreshRate;
             chbInfiniteLoop.Checked = preferences.InfiniteLoop;
+            chbStopWhenSuccess.Checked = preferences.StopWhenSuccess;
             nudNumberOfPR.Value = (decimal)preferences.NumberOfPR;
             nudAttempts.Value = (decimal)preferences.Attempts;
             nudPacketSize.Value = (decimal)preferences.PacketSize;
@@ -156,6 +157,7 @@ namespace PingRequester.Client
                 Attempts = (int)nudAttempts.Value,
                 InfiniteLoop = chbInfiniteLoop.Checked,
                 PacketSize = (int)nudPacketSize.Value,
+                StopWhenSuccess = chbStopWhenSuccess.Checked,
                 StopSignal = false
             };
 

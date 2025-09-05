@@ -13,6 +13,7 @@ namespace PingRequester.Data.DataObjects
         private int numberOfPR;
         private int attempts;
         private bool infiniteLoop;
+        private bool stopWhenSuccess;
         private bool showNotification;
         private bool makeSound;
         private int packetSize;
@@ -62,6 +63,12 @@ namespace PingRequester.Data.DataObjects
         {
             get => infiniteLoop;
             set => SetProperty(ref infiniteLoop, value);
+        }
+
+        public bool StopWhenSuccess
+        {
+            get => stopWhenSuccess;
+            set => SetProperty(ref stopWhenSuccess, value);
         }
 
         public bool ShowNotification

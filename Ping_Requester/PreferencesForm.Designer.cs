@@ -44,6 +44,7 @@
             btnSave = new Button();
             btnCancel = new Button();
             panel1 = new Panel();
+            chbStopWhenSuccess = new CheckBox();
             nudPacketSize = new NumericUpDown();
             lblPacketSize = new Label();
             lblLineSeparator = new Label();
@@ -134,7 +135,7 @@
             chbInfiniteLoop.AutoSize = true;
             chbInfiniteLoop.Font = new Font("Calibri", 10.2F);
             chbInfiniteLoop.ForeColor = SystemColors.ActiveCaptionText;
-            chbInfiniteLoop.Location = new Point(18, 291);
+            chbInfiniteLoop.Location = new Point(18, 232);
             chbInfiniteLoop.Name = "chbInfiniteLoop";
             chbInfiniteLoop.Size = new Size(116, 25);
             chbInfiniteLoop.TabIndex = 18;
@@ -175,7 +176,7 @@
             chbShowNotification.AutoSize = true;
             chbShowNotification.Font = new Font("Calibri", 10.2F);
             chbShowNotification.ForeColor = SystemColors.ActiveCaptionText;
-            chbShowNotification.Location = new Point(18, 227);
+            chbShowNotification.Location = new Point(18, 265);
             chbShowNotification.Name = "chbShowNotification";
             chbShowNotification.Size = new Size(152, 25);
             chbShowNotification.TabIndex = 26;
@@ -187,7 +188,7 @@
             chbMakeSound.AutoSize = true;
             chbMakeSound.Font = new Font("Calibri", 10.2F);
             chbMakeSound.ForeColor = SystemColors.ActiveCaptionText;
-            chbMakeSound.Location = new Point(18, 259);
+            chbMakeSound.Location = new Point(18, 297);
             chbMakeSound.Name = "chbMakeSound";
             chbMakeSound.Size = new Size(117, 25);
             chbMakeSound.TabIndex = 25;
@@ -220,6 +221,7 @@
             // 
             // panel1
             // 
+            panel1.Controls.Add(chbStopWhenSuccess);
             panel1.Controls.Add(nudPacketSize);
             panel1.Controls.Add(lblPacketSize);
             panel1.Controls.Add(lblLineSeparator);
@@ -241,6 +243,18 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(358, 338);
             panel1.TabIndex = 29;
+            // 
+            // chbStopWhenSuccess
+            // 
+            chbStopWhenSuccess.AutoSize = true;
+            chbStopWhenSuccess.Font = new Font("Calibri", 10.2F);
+            chbStopWhenSuccess.ForeColor = SystemColors.ActiveCaptionText;
+            chbStopWhenSuccess.Location = new Point(172, 232);
+            chbStopWhenSuccess.Name = "chbStopWhenSuccess";
+            chbStopWhenSuccess.Size = new Size(162, 25);
+            chbStopWhenSuccess.TabIndex = 32;
+            chbStopWhenSuccess.Text = "Stop when success";
+            chbStopWhenSuccess.UseVisualStyleBackColor = true;
             // 
             // nudPacketSize
             // 
@@ -328,5 +342,6 @@
         private Label lblLineSeparator;
         private NumericUpDown nudPacketSize;
         private Label lblPacketSize;
+        private CheckBox chbStopWhenSuccess;
     }
 }

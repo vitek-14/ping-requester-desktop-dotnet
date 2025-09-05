@@ -826,6 +826,7 @@
         public string Mode { get => cmbMode.Text; }
         public int RefreshRate { get => (int)nudRefreshRate.Value; }
         public bool InfiniteLoop { get => chbInfiniteLoop.Checked; }
+        public bool StopWhenSuccess { get => chbStopWhenSuccess.Checked; }
         public int NumberOfPR { get => (int)nudNumberOfPR.Value; }
         public int Attempts { get => (int)nudAttempts.Value; }
         public int PacketSize { get => (int)nudPacketSize.Value; }

@@ -16,6 +16,7 @@ namespace PingRequester.BusinessLayer
         private string stdout;
         private int remainingRequests;
         private int remainingAttempts;
+        private bool pingSent;
         private IConsoleService console;
         private Requester requester;
         private ProcessStartInfo psi;
@@ -30,6 +31,7 @@ namespace PingRequester.BusinessLayer
             this.requester = requester;
             this.remainingRequests = requester.NumberOfPR;
             this.remainingAttempts = requester.Attempts;
+            this.pingSent = false;
             
             this.psi = new ProcessStartInfo
             {
@@ -53,7 +55,13 @@ namespace PingRequester.BusinessLayer
                 // Check if interruption request was created
                 if (this.requester.StopSignal)
                 {
-                    console.LogInfo("Stop signal was detected.");
+                    console.LogMessage("Stop signal was detected.");
+                    break;
+                }
+                // check if stop on success is active
+                if (requester.StopWhenSuccess && requester.InfiniteLoop && this.pingSent)
+                {
+                    console.LogMessage("Pinging interrupted on successful request (\"Stop when success\" option is enabled).");
                     break;
                 }
 
@@ -77,6 +85,8 @@ namespace PingRequester.BusinessLayer
             // send ping request
             using (Process? process = await Task.Run(() => Process.Start(this.psi)))
             {
+                // set ping sent to failure
+                this.pingSent = false;
                 // read the whole output
                 stdout = await process.StandardOutput.ReadToEndAsync();
                 await process.WaitForExitAsync();
@@ -96,6 +106,8 @@ namespace PingRequester.BusinessLayer
                 }
                 else
                 {
+                    this.pingSent = true;
+
                     // if success handle UI
                     SaveDataFromPingOutput(stdout, requester.RequestRun);
                     requester.mainform.OverwriteRequestRunUI(requestRun);

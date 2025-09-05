@@ -15,6 +15,7 @@ namespace PingRequester.Data.DataObjects
         private int attempts;
         private int packetSize;
         private bool infiniteLoop;
+        private bool stopWhenSuccess;
         private bool makeSound;
         private bool showNotification;
 
@@ -72,6 +73,13 @@ namespace PingRequester.Data.DataObjects
         {
             get => infiniteLoop;
             set => SetProperty(ref infiniteLoop, value);
+        }
+
+        [JsonPropertyName("stop when success")]
+        public bool StopWhenSuccess
+        {
+            get => stopWhenSuccess;
+            set => SetProperty(ref stopWhenSuccess, value);
         }
 
         [JsonPropertyName("make sound")]
