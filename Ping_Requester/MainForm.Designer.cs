@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             pnlTop = new Panel();
             pictureBox1 = new PictureBox();
@@ -85,6 +86,7 @@
             tbpOutput = new TabPage();
             rtbConsole = new RichTextBox();
             pnlMiddle = new Panel();
+            ttpMainForm = new ToolTip(components);
             pnlTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             menuStrip1.SuspendLayout();
@@ -176,14 +178,14 @@
             // settingsToolStripMenuItem1
             // 
             settingsToolStripMenuItem1.Name = "settingsToolStripMenuItem1";
-            settingsToolStripMenuItem1.Size = new Size(224, 26);
+            settingsToolStripMenuItem1.Size = new Size(168, 26);
             settingsToolStripMenuItem1.Text = "Settings";
             settingsToolStripMenuItem1.Click += settingsToolStripMenuItem1_Click;
             // 
             // preferencesToolStripMenuItem
             // 
             preferencesToolStripMenuItem.Name = "preferencesToolStripMenuItem";
-            preferencesToolStripMenuItem.Size = new Size(224, 26);
+            preferencesToolStripMenuItem.Size = new Size(168, 26);
             preferencesToolStripMenuItem.Text = "Preferences";
             preferencesToolStripMenuItem.Click += preferencesToolStripMenuItem_Click;
             // 
@@ -244,6 +246,7 @@
             chbStopWhenSuccess.Size = new Size(162, 25);
             chbStopWhenSuccess.TabIndex = 18;
             chbStopWhenSuccess.Text = "Stop when success";
+            ttpMainForm.SetToolTip(chbStopWhenSuccess, "If checked, requesting will stop.\r\nThis function is allowed only when infinite loop is enabled.");
             chbStopWhenSuccess.UseVisualStyleBackColor = true;
             // 
             // nudPacketSize
@@ -267,6 +270,7 @@
             lblPacketSize.Size = new Size(138, 21);
             lblPacketSize.TabIndex = 16;
             lblPacketSize.Text = "Packet Size (bytes)";
+            ttpMainForm.SetToolTip(lblPacketSize, "If the packet exceeds the maximum transmission unit, it will be automatically fragmented.");
             // 
             // lblNumberOfPR
             // 
@@ -310,6 +314,7 @@
             lblMode.Size = new Size(51, 21);
             lblMode.TabIndex = 14;
             lblMode.Text = "Mode";
+            ttpMainForm.SetToolTip(lblMode, "Mode determines wheter to reset attempts counter after successful connection or not.\r\nAggressive - does not reset attempts counter\r\nPrecise - does reset attempt counter");
             // 
             // btnStop
             // 
@@ -387,6 +392,7 @@
             lblRefreshRate.Size = new Size(115, 21);
             lblRefreshRate.TabIndex = 8;
             lblRefreshRate.Text = "Refresh rate (s)";
+            ttpMainForm.SetToolTip(lblRefreshRate, "Elapsed time in seconds between individual requests.");
             // 
             // lblPingTarget
             // 
@@ -398,6 +404,7 @@
             lblPingTarget.Size = new Size(86, 21);
             lblPingTarget.TabIndex = 0;
             lblPingTarget.Text = "Ping target";
+            ttpMainForm.SetToolTip(lblPingTarget, "Can be URL or IPv4 address.");
             // 
             // txbPingTarget
             // 
@@ -830,6 +837,7 @@
         private RichTextBox rtbConsole;
         private CheckBox chbStopWhenSuccess;
         private ToolStripMenuItem settingsToolStripMenuItem1;
+        private ToolTip ttpMainForm;
 
         public string PingTarget { get => txbPingTarget.Text; }
         public string Mode { get => cmbMode.Text; }
