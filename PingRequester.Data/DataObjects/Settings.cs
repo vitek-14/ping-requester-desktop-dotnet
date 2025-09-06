@@ -1,92 +1,26 @@
 ﻿using PingRequester.Data.Base;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using System.Text.Json.Serialization;
+using System.Threading.Tasks;
 
 namespace PingRequester.Data.DataObjects
 {
     /// <summary>
-    /// Preferences class extending DataObject class.
+    /// Settings class.
     /// </summary>
     public class Settings : DataObject
     {
-        private string pingTarget;
-        private string mode;
-        private int refreshRate;
-        private int numberOfPingRequests;
-        private int attempts;
-        private int packetSize;
-        private bool infiniteLoop;
-        private bool stopWhenSuccess;
-        private bool makeSound;
         private bool showNotification;
+        private bool makeSound;
 
         /// <summary>
-        /// Default contructor of Preferences class.
+        /// Default constructor of the class.
         /// </summary>
         public Settings()
         {
-        }
-
-        [JsonPropertyName("ping target")]
-        public string PingTarget 
-        { 
-            get => pingTarget;
-            set => SetProperty(ref pingTarget, value);
-        }
-
-        [JsonPropertyName("mode")]
-        public string Mode
-        {
-            get => mode;
-            set => SetProperty(ref mode, value);
-        }
-
-        [JsonPropertyName("refresh rate")]
-        public int RefreshRate
-        {
-            get => refreshRate;
-            set => SetProperty(ref refreshRate, value);
-        }
-
-        [JsonPropertyName("number of ping requests")]
-        public int NumberOfPR
-        {
-            get => numberOfPingRequests;
-            set => SetProperty(ref numberOfPingRequests, value);
-        }
-
-        [JsonPropertyName("attempts")]
-        public int Attempts
-        {
-            get => attempts;
-            set => SetProperty(ref attempts, value);
-        }
-
-        [JsonPropertyName("packet size")]
-        public int PacketSize
-        {
-            get => packetSize;
-            set => SetProperty(ref packetSize, value);
-        }
-
-        [JsonPropertyName("infinite loop")]
-        public bool InfiniteLoop
-        {
-            get => infiniteLoop;
-            set => SetProperty(ref infiniteLoop, value);
-        }
-
-        [JsonPropertyName("stop when success")]
-        public bool StopWhenSuccess
-        {
-            get => stopWhenSuccess;
-            set => SetProperty(ref stopWhenSuccess, value);
-        }
-
-        [JsonPropertyName("make sound")]
-        public bool MakeSound
-        {
-            get => makeSound;
-            set => SetProperty(ref makeSound, value);
         }
 
         [JsonPropertyName("show notification")]
@@ -94,6 +28,13 @@ namespace PingRequester.Data.DataObjects
         {
             get => showNotification;
             set => SetProperty(ref showNotification, value);
+        }
+
+        [JsonPropertyName("make sound")]
+        public bool MakeSound
+        {
+            get => makeSound;
+            set => SetProperty(ref makeSound, value);
         }
     }
 }

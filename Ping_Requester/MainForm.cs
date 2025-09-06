@@ -13,8 +13,9 @@ namespace PingRequester.Client
         private Requester requester;
         private bool controlsLocked;
         private Stack<Control> mainControls;
-        private string filename;
-        private JsonService<Settings> jsonService;
+        private JsonService<Preferences> jsonServicePreferences;
+        private Preferences preferences;
+        private JsonService<Settings> jsonServiceSettings;
         private Settings settings;
 
         /// <summary>
@@ -45,9 +46,11 @@ namespace PingRequester.Client
             this.mainControls.Push(chbStopWhenSuccess);
 
             // load data from json config
-            this.filename = "config/PreferencesConfig.json";
-            this.jsonService = new JsonService<Settings>(filename);
-            this.settings = jsonService.LoadFileContent();
+            this.jsonServicePreferences = new JsonService<Preferences>("config/PreferencesConfig.json");
+            this.preferences = jsonServicePreferences.LoadFileContent();
+
+            this.jsonServiceSettings = new JsonService<Settings>("config/SettingsConfig.json");
+            this.settings = jsonServiceSettings.LoadFileContent();
         }
 
         /// <summary>
@@ -76,14 +79,14 @@ namespace PingRequester.Client
             cmbMode.Items.Add("Precise");
 
             // set components
-            txbPingTarget.Text = settings.PingTarget;
-            cmbMode.Text = settings.Mode;
-            nudRefreshRate.Value = (decimal)settings.RefreshRate;
-            chbInfiniteLoop.Checked = settings.InfiniteLoop;
-            chbStopWhenSuccess.Checked = settings.StopWhenSuccess;
-            nudNumberOfPR.Value = (decimal)settings.NumberOfPR;
-            nudAttempts.Value = (decimal)settings.Attempts;
-            nudPacketSize.Value = (decimal)settings.PacketSize;
+            txbPingTarget.Text = preferences.PingTarget;
+            cmbMode.Text = preferences.Mode;
+            nudRefreshRate.Value = (decimal)preferences.RefreshRate;
+            chbInfiniteLoop.Checked = preferences.InfiniteLoop;
+            chbStopWhenSuccess.Checked = preferences.StopWhenSuccess;
+            nudNumberOfPR.Value = (decimal)preferences.NumberOfPR;
+            nudAttempts.Value = (decimal)preferences.Attempts;
+            nudPacketSize.Value = (decimal)preferences.PacketSize;
 
             // check for infinite loop chb state and set controls state accordingly
             SetLockOnInfiniteLoopControls();
@@ -150,6 +153,9 @@ namespace PingRequester.Client
 
             // create requester
             console.LogInfo("Creating Requester.");
+
+            // apply settings
+            settings = jsonServiceSettings.LoadFileContent();
 
             requester = new Requester(this)
             {
@@ -218,8 +224,7 @@ namespace PingRequester.Client
 
         private void preferencesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            PreferencesForm preferencesWindow = new PreferencesForm(this);
-            preferencesWindow.ShowDialog();
+            new PreferencesForm(this).ShowDialog();
         }
 
         private void txbPingTarget_TextChanged(object sender, EventArgs e)
@@ -245,6 +250,11 @@ namespace PingRequester.Client
                 rtbConsole.SelectionStart = rtbConsole.TextLength;
                 rtbConsole.ScrollToCaret();
             }
+        }
+
+        private void settingsToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            new SettingsForm().ShowDialog();
         }
     }
 }

@@ -6,7 +6,5 @@
   "attempts": 1,
   "packet size": 32,
   "infinite loop": false,
-  "stop when success": false,
-  "make sound": true,
-  "show notification" : true
+  "stop when success": false
 }

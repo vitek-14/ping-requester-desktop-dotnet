@@ -39,8 +39,6 @@
             nudAttempts = new NumericUpDown();
             nudRefreshRate = new NumericUpDown();
             lblRefreshRate = new Label();
-            chbShowNotification = new CheckBox();
-            chbMakeSound = new CheckBox();
             btnSave = new Button();
             btnCancel = new Button();
             panel1 = new Panel();
@@ -171,30 +169,6 @@
             lblRefreshRate.TabIndex = 21;
             lblRefreshRate.Text = "Refresh rate (s)";
             // 
-            // chbShowNotification
-            // 
-            chbShowNotification.AutoSize = true;
-            chbShowNotification.Font = new Font("Calibri", 10.2F);
-            chbShowNotification.ForeColor = SystemColors.ActiveCaptionText;
-            chbShowNotification.Location = new Point(18, 265);
-            chbShowNotification.Name = "chbShowNotification";
-            chbShowNotification.Size = new Size(152, 25);
-            chbShowNotification.TabIndex = 26;
-            chbShowNotification.Text = "Show notification";
-            chbShowNotification.UseVisualStyleBackColor = true;
-            // 
-            // chbMakeSound
-            // 
-            chbMakeSound.AutoSize = true;
-            chbMakeSound.Font = new Font("Calibri", 10.2F);
-            chbMakeSound.ForeColor = SystemColors.ActiveCaptionText;
-            chbMakeSound.Location = new Point(18, 297);
-            chbMakeSound.Name = "chbMakeSound";
-            chbMakeSound.Size = new Size(117, 25);
-            chbMakeSound.TabIndex = 25;
-            chbMakeSound.Text = "Make sound";
-            chbMakeSound.UseVisualStyleBackColor = true;
-            // 
             // btnSave
             // 
             btnSave.Anchor = AnchorStyles.Top | AnchorStyles.Right;
@@ -228,9 +202,7 @@
             panel1.Controls.Add(lblPingTarget);
             panel1.Controls.Add(txbPingTarget);
             panel1.Controls.Add(lblMode);
-            panel1.Controls.Add(chbShowNotification);
             panel1.Controls.Add(cmbMode);
-            panel1.Controls.Add(chbMakeSound);
             panel1.Controls.Add(lblRefreshRate);
             panel1.Controls.Add(lblNumberOfPR);
             panel1.Controls.Add(nudRefreshRate);
@@ -241,7 +213,7 @@
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(358, 338);
+            panel1.Size = new Size(358, 286);
             panel1.TabIndex = 29;
             // 
             // chbStopWhenSuccess
@@ -280,9 +252,9 @@
             // 
             // lblLineSeparator
             // 
-            lblLineSeparator.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            lblLineSeparator.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lblLineSeparator.BorderStyle = BorderStyle.Fixed3D;
-            lblLineSeparator.Location = new Point(11, 330);
+            lblLineSeparator.Location = new Point(11, 278);
             lblLineSeparator.Name = "lblLineSeparator";
             lblLineSeparator.Size = new Size(336, 3);
             lblLineSeparator.TabIndex = 29;
@@ -292,16 +264,16 @@
             panel2.Controls.Add(btnSave);
             panel2.Controls.Add(btnCancel);
             panel2.Dock = DockStyle.Fill;
-            panel2.Location = new Point(0, 338);
+            panel2.Location = new Point(0, 286);
             panel2.Name = "panel2";
-            panel2.Size = new Size(358, 55);
+            panel2.Size = new Size(358, 51);
             panel2.TabIndex = 30;
             // 
             // PreferencesForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(358, 393);
+            ClientSize = new Size(358, 337);
             Controls.Add(panel2);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.FixedSingle;
@@ -333,8 +305,6 @@
         private NumericUpDown nudAttempts;
         private NumericUpDown nudRefreshRate;
         private Label lblRefreshRate;
-        private CheckBox chbShowNotification;
-        private CheckBox chbMakeSound;
         private Button btnSave;
         private Button btnCancel;
         private Panel panel1;

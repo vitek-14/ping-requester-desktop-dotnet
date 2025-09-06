@@ -19,7 +19,7 @@ namespace PingRequester.Client
     public partial class PreferencesForm : Form
     {
         private MainForm _mainForm;
-        private JsonService<Data.DataObjects.Settings> jsonService;
+        private JsonService<Preferences> jsonService;
 
         /// <summary>
         /// Default constructor of the PreferencesForm
@@ -30,7 +30,7 @@ namespace PingRequester.Client
             InitializeComponent();
 
             _mainForm = mainForm;
-            this.jsonService = new JsonService<Data.DataObjects.Settings>("config/PreferencesConfig.json");
+            this.jsonService = new JsonService<Preferences>("config/PreferencesConfig.json");
         }
 
         /// <summary>
@@ -53,11 +53,6 @@ namespace PingRequester.Client
             nudNumberOfPR.Value = _mainForm.NumberOfPR;
             nudAttempts.Value = _mainForm.Attempts;
             nudPacketSize.Value = _mainForm.PacketSize;
-
-            // Set components not present in the MainForm - load them from config file
-            var preferences = this.jsonService.LoadFileContent();
-            chbMakeSound.Checked = preferences.MakeSound;
-            chbShowNotification.Checked = preferences.ShowNotification;
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -77,8 +72,6 @@ namespace PingRequester.Client
             preferences.NumberOfPR = (int)nudNumberOfPR.Value;
             preferences.Attempts = (int)nudAttempts.Value;
             preferences.PacketSize = (int)nudPacketSize.Value;
-            preferences.ShowNotification = chbShowNotification.Checked;
-            preferences.MakeSound = chbMakeSound.Checked;
             preferences.InfiniteLoop = chbInfiniteLoop.Checked;
             preferences.StopWhenSuccess = chbStopWhenSuccess.Checked;
 

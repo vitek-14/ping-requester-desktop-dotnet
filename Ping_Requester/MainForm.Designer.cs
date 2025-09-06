@@ -37,6 +37,7 @@
             toolStripSeparator1 = new ToolStripSeparator();
             exitToolStripMenuItem = new ToolStripMenuItem();
             settingsToolStripMenuItem = new ToolStripMenuItem();
+            settingsToolStripMenuItem1 = new ToolStripMenuItem();
             preferencesToolStripMenuItem = new ToolStripMenuItem();
             pnlInfo = new Panel();
             lblInfo = new Label();
@@ -84,7 +85,6 @@
             tbpOutput = new TabPage();
             rtbConsole = new RichTextBox();
             pnlMiddle = new Panel();
-            settingsToolStripMenuItem1 = new ToolStripMenuItem();
             pnlTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             menuStrip1.SuspendLayout();
@@ -173,10 +173,17 @@
             settingsToolStripMenuItem.Size = new Size(58, 24);
             settingsToolStripMenuItem.Text = "Tools";
             // 
+            // settingsToolStripMenuItem1
+            // 
+            settingsToolStripMenuItem1.Name = "settingsToolStripMenuItem1";
+            settingsToolStripMenuItem1.Size = new Size(224, 26);
+            settingsToolStripMenuItem1.Text = "Settings";
+            settingsToolStripMenuItem1.Click += settingsToolStripMenuItem1_Click;
+            // 
             // preferencesToolStripMenuItem
             // 
             preferencesToolStripMenuItem.Name = "preferencesToolStripMenuItem";
-            preferencesToolStripMenuItem.Size = new Size(168, 26);
+            preferencesToolStripMenuItem.Size = new Size(224, 26);
             preferencesToolStripMenuItem.Text = "Preferences";
             preferencesToolStripMenuItem.Click += preferencesToolStripMenuItem_Click;
             // 
@@ -724,12 +731,6 @@
             pnlMiddle.Name = "pnlMiddle";
             pnlMiddle.Size = new Size(951, 482);
             pnlMiddle.TabIndex = 1;
-            // 
-            // settingsToolStripMenuItem1
-            // 
-            settingsToolStripMenuItem1.Name = "settingsToolStripMenuItem1";
-            settingsToolStripMenuItem1.Size = new Size(168, 26);
-            settingsToolStripMenuItem1.Text = "Settings";
             // 
             // MainForm
             // 

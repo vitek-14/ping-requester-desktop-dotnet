@@ -14,20 +14,37 @@ namespace PingRequester.Client
 {
     public partial class SettingsForm : Form
     {
-        private string filename;
+        private JsonService<Settings> jsonService;
+
         public SettingsForm()
         {
             InitializeComponent();
-            this.filename = "config/SettingsConfig.json";
+            this.jsonService = new JsonService<Settings>("config/SettingsConfig.json");
         }
 
         private void Settings_Load(object sender, EventArgs e)
         {
-            JsonService<Settings> service = new JsonService<Settings>(this.filename);
-            Settings settings = service.LoadFileContent();
+            Settings settings = jsonService.LoadFileContent();
 
-            chbMakeSound.Enabled = settings.MakeSound;
-            chbShowNotification.Enabled = settings.ShowNotification;
+            chbShowNotification.Checked = settings.ShowNotification;
+            chbMakeSound.Checked = settings.MakeSound;
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            Settings settings = new Settings
+            {
+                ShowNotification = chbShowNotification.Checked,
+                MakeSound = chbMakeSound.Checked
+            };
+
+            jsonService.WriteFileContent(settings);
+            this.Close();
         }
     }
 }
