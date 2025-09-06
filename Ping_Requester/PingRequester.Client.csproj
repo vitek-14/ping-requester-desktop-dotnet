@@ -44,7 +44,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="config\SettingsConfig.json">
+    <None Update="config\PreferencesConfig.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="Properties\Settings.settings">

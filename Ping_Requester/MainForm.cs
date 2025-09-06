@@ -45,7 +45,7 @@ namespace PingRequester.Client
             this.mainControls.Push(chbStopWhenSuccess);
 
             // load data from json config
-            this.filename = "config/SettingsConfig.json";
+            this.filename = "config/PreferencesConfig.json";
             this.jsonService = new JsonService<Settings>(filename);
             this.settings = jsonService.LoadFileContent();
         }

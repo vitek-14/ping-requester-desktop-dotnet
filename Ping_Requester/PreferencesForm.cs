@@ -30,7 +30,7 @@ namespace PingRequester.Client
             InitializeComponent();
 
             _mainForm = mainForm;
-            this.jsonService = new JsonService<Data.DataObjects.Settings>("config/SettingsConfig.json");
+            this.jsonService = new JsonService<Data.DataObjects.Settings>("config/PreferencesConfig.json");
         }
 
         /// <summary>
