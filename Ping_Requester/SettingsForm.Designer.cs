@@ -39,6 +39,7 @@
             pnlActions = new Panel();
             btnSave = new Button();
             btnCancel = new Button();
+            chbAskToSaveLogBeforeClosing = new CheckBox();
             pnlSettingsControls.SuspendLayout();
             tbc.SuspendLayout();
             tbpGeneral.SuspendLayout();
@@ -70,6 +71,7 @@
             // tbpGeneral
             // 
             tbpGeneral.BackColor = Color.Transparent;
+            tbpGeneral.Controls.Add(chbAskToSaveLogBeforeClosing);
             tbpGeneral.Controls.Add(grbNotification);
             tbpGeneral.Location = new Point(4, 29);
             tbpGeneral.Name = "tbpGeneral";
@@ -167,6 +169,18 @@
             btnCancel.UseVisualStyleBackColor = true;
             btnCancel.Click += btnCancel_Click;
             // 
+            // chbAskToSaveLogBeforeClosing
+            // 
+            chbAskToSaveLogBeforeClosing.AutoSize = true;
+            chbAskToSaveLogBeforeClosing.Font = new Font("Calibri", 10.2F);
+            chbAskToSaveLogBeforeClosing.ForeColor = SystemColors.ActiveCaptionText;
+            chbAskToSaveLogBeforeClosing.Location = new Point(15, 116);
+            chbAskToSaveLogBeforeClosing.Name = "chbAskToSaveLogBeforeClosing";
+            chbAskToSaveLogBeforeClosing.Size = new Size(237, 25);
+            chbAskToSaveLogBeforeClosing.TabIndex = 29;
+            chbAskToSaveLogBeforeClosing.Text = "Ask to save log before closing";
+            chbAskToSaveLogBeforeClosing.UseVisualStyleBackColor = true;
+            // 
             // SettingsForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -180,6 +194,7 @@
             pnlSettingsControls.ResumeLayout(false);
             tbc.ResumeLayout(false);
             tbpGeneral.ResumeLayout(false);
+            tbpGeneral.PerformLayout();
             grbNotification.ResumeLayout(false);
             grbNotification.PerformLayout();
             pnlActions.ResumeLayout(false);
@@ -199,5 +214,6 @@
         private TabControl tbc;
         private TabPage tbpGeneral;
         private TabPage tabPage2;
+        private CheckBox chbAskToSaveLogBeforeClosing;
     }
 }
