@@ -694,6 +694,7 @@
             lblPinging.Size = new Size(66, 21);
             lblPinging.TabIndex = 0;
             lblPinging.Text = "Pinging:";
+            ttpMainForm.SetToolTip(lblPinging, "Hostname returned by DNS server.");
             // 
             // tbpDatabase
             // 
