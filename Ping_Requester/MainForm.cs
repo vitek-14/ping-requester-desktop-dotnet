@@ -189,7 +189,7 @@ namespace PingRequester.Client
 
             // Write-in initial data into Request Run widgets
             lblPingingActive.Text = requestRun.Hostname;
-            lblIpAdressActive.Text = requestRun.IPv4;
+            lblIpAddressActive.Text = requestRun.IPv4;
             lblPacketSizeRRActive.Text = requestRun.PacketSize.ToString();
 
             // begin sending requests
@@ -255,6 +255,16 @@ namespace PingRequester.Client
         private void settingsToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             new SettingsForm().ShowDialog();
+        }
+
+        private void btnCopyPinging_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText(lblPingingActive.Text);
+        }
+
+        private void btnCopyIPAddress_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText(lblIpAddressActive.Text);
         }
     }
 }

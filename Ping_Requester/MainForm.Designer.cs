@@ -62,6 +62,8 @@
             pnlData = new Panel();
             tbc = new TabControl();
             tbpRequestRun = new TabPage();
+            btnCopyIPAddress = new Button();
+            btnCopyPinging = new Button();
             grbRoundTripTimes = new GroupBox();
             lblAverageActive = new Label();
             lblAverage = new Label();
@@ -78,8 +80,8 @@
             lblSent = new Label();
             lblPacketSizeRRActive = new Label();
             lblPacketSizeRR = new Label();
-            lblIpAdressActive = new Label();
-            lblIpAdress = new Label();
+            lblIpAddressActive = new Label();
+            lblIpAddress = new Label();
             lblPingingActive = new Label();
             lblPinging = new Label();
             tbpDatabase = new TabPage();
@@ -440,12 +442,14 @@
             // 
             // tbpRequestRun
             // 
+            tbpRequestRun.Controls.Add(btnCopyIPAddress);
+            tbpRequestRun.Controls.Add(btnCopyPinging);
             tbpRequestRun.Controls.Add(grbRoundTripTimes);
             tbpRequestRun.Controls.Add(grbPackets);
             tbpRequestRun.Controls.Add(lblPacketSizeRRActive);
             tbpRequestRun.Controls.Add(lblPacketSizeRR);
-            tbpRequestRun.Controls.Add(lblIpAdressActive);
-            tbpRequestRun.Controls.Add(lblIpAdress);
+            tbpRequestRun.Controls.Add(lblIpAddressActive);
+            tbpRequestRun.Controls.Add(lblIpAddress);
             tbpRequestRun.Controls.Add(lblPingingActive);
             tbpRequestRun.Controls.Add(lblPinging);
             tbpRequestRun.Location = new Point(4, 29);
@@ -455,6 +459,38 @@
             tbpRequestRun.TabIndex = 0;
             tbpRequestRun.Text = "Request Run";
             tbpRequestRun.UseVisualStyleBackColor = true;
+            // 
+            // btnCopyIPAddress
+            // 
+            btnCopyIPAddress.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnCopyIPAddress.BackgroundImage = Properties.Resources.copy_to_clipboard;
+            btnCopyIPAddress.BackgroundImageLayout = ImageLayout.Zoom;
+            btnCopyIPAddress.FlatAppearance.BorderSize = 0;
+            btnCopyIPAddress.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            btnCopyIPAddress.FlatStyle = FlatStyle.Flat;
+            btnCopyIPAddress.Location = new Point(535, 43);
+            btnCopyIPAddress.Name = "btnCopyIPAddress";
+            btnCopyIPAddress.Size = new Size(37, 28);
+            btnCopyIPAddress.TabIndex = 15;
+            ttpMainForm.SetToolTip(btnCopyIPAddress, "Copy");
+            btnCopyIPAddress.UseVisualStyleBackColor = true;
+            btnCopyIPAddress.Click += btnCopyIPAddress_Click;
+            // 
+            // btnCopyPinging
+            // 
+            btnCopyPinging.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnCopyPinging.BackgroundImage = Properties.Resources.copy_to_clipboard;
+            btnCopyPinging.BackgroundImageLayout = ImageLayout.Zoom;
+            btnCopyPinging.FlatAppearance.BorderSize = 0;
+            btnCopyPinging.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            btnCopyPinging.FlatStyle = FlatStyle.Flat;
+            btnCopyPinging.Location = new Point(535, 15);
+            btnCopyPinging.Name = "btnCopyPinging";
+            btnCopyPinging.Size = new Size(37, 28);
+            btnCopyPinging.TabIndex = 14;
+            ttpMainForm.SetToolTip(btnCopyPinging, "Copy");
+            btnCopyPinging.UseVisualStyleBackColor = true;
+            btnCopyPinging.Click += btnCopyPinging_Click;
             // 
             // grbRoundTripTimes
             // 
@@ -651,26 +687,26 @@
             // 
             // lblIpAdressActive
             // 
-            lblIpAdressActive.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            lblIpAdressActive.AutoSize = true;
-            lblIpAdressActive.Font = new Font("Calibri", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 238);
-            lblIpAdressActive.ForeColor = SystemColors.ActiveCaptionText;
-            lblIpAdressActive.Location = new Point(339, 47);
-            lblIpAdressActive.Name = "lblIpAdressActive";
-            lblIpAdressActive.Size = new Size(15, 21);
-            lblIpAdressActive.TabIndex = 3;
-            lblIpAdressActive.Text = "-";
+            lblIpAddressActive.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            lblIpAddressActive.AutoSize = true;
+            lblIpAddressActive.Font = new Font("Calibri", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            lblIpAddressActive.ForeColor = SystemColors.ActiveCaptionText;
+            lblIpAddressActive.Location = new Point(339, 47);
+            lblIpAddressActive.Name = "lblIpAdressActive";
+            lblIpAddressActive.Size = new Size(15, 21);
+            lblIpAddressActive.TabIndex = 3;
+            lblIpAddressActive.Text = "-";
             // 
             // lblIpAdress
             // 
-            lblIpAdress.AutoSize = true;
-            lblIpAdress.Font = new Font("Calibri", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 238);
-            lblIpAdress.ForeColor = SystemColors.ActiveCaptionText;
-            lblIpAdress.Location = new Point(18, 45);
-            lblIpAdress.Name = "lblIpAdress";
-            lblIpAdress.Size = new Size(77, 21);
-            lblIpAdress.TabIndex = 2;
-            lblIpAdress.Text = "IP adress:";
+            lblIpAddress.AutoSize = true;
+            lblIpAddress.Font = new Font("Calibri", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            lblIpAddress.ForeColor = SystemColors.ActiveCaptionText;
+            lblIpAddress.Location = new Point(18, 45);
+            lblIpAddress.Name = "lblIpAdress";
+            lblIpAddress.Size = new Size(86, 21);
+            lblIpAddress.TabIndex = 2;
+            lblIpAddress.Text = "IP address:";
             // 
             // lblPingingActive
             // 
@@ -817,8 +853,8 @@
         private TabPage tbpOutput;
         private Label lblPacketSizeRRActive;
         private Label lblPacketSizeRR;
-        private Label lblIpAdressActive;
-        private Label lblIpAdress;
+        private Label lblIpAddressActive;
+        private Label lblIpAddress;
         private Label lblPingingActive;
         private Label lblPinging;
         private GroupBox grbPackets;
@@ -839,6 +875,8 @@
         private CheckBox chbStopWhenSuccess;
         private ToolStripMenuItem settingsToolStripMenuItem1;
         private ToolTip ttpMainForm;
+        private Button btnCopyPinging;
+        private Button btnCopyIPAddress;
 
         public string PingTarget { get => txbPingTarget.Text; }
         public string Mode { get => cmbMode.Text; }

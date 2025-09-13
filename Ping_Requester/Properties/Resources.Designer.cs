@@ -63,6 +63,16 @@ namespace PingRequester.Client.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap copy_to_clipboard {
+            get {
+                object obj = ResourceManager.GetObject("copy_to_clipboard", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Ping_Requester {
             get {
                 object obj = ResourceManager.GetObject("Ping-Requester", resourceCulture);
