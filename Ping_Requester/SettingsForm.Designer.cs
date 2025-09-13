@@ -31,7 +31,9 @@
             pnlSettingsControls = new Panel();
             tbc = new TabControl();
             tbpGeneral = new TabPage();
+            chbAskToSaveLogBeforeClosing = new CheckBox();
             grbNotification = new GroupBox();
+            chbAlertOnPingCompletion = new CheckBox();
             chbShowNotification = new CheckBox();
             chbMakeSound = new CheckBox();
             tabPage2 = new TabPage();
@@ -39,7 +41,6 @@
             pnlActions = new Panel();
             btnSave = new Button();
             btnCancel = new Button();
-            chbAskToSaveLogBeforeClosing = new CheckBox();
             pnlSettingsControls.SuspendLayout();
             tbc.SuspendLayout();
             tbpGeneral.SuspendLayout();
@@ -80,9 +81,22 @@
             tbpGeneral.TabIndex = 0;
             tbpGeneral.Text = "General";
             // 
+            // chbAskToSaveLogBeforeClosing
+            // 
+            chbAskToSaveLogBeforeClosing.AutoSize = true;
+            chbAskToSaveLogBeforeClosing.Font = new Font("Calibri", 10.2F);
+            chbAskToSaveLogBeforeClosing.ForeColor = SystemColors.ActiveCaptionText;
+            chbAskToSaveLogBeforeClosing.Location = new Point(15, 116);
+            chbAskToSaveLogBeforeClosing.Name = "chbAskToSaveLogBeforeClosing";
+            chbAskToSaveLogBeforeClosing.Size = new Size(237, 25);
+            chbAskToSaveLogBeforeClosing.TabIndex = 29;
+            chbAskToSaveLogBeforeClosing.Text = "Ask to save log before closing";
+            chbAskToSaveLogBeforeClosing.UseVisualStyleBackColor = true;
+            // 
             // grbNotification
             // 
             grbNotification.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            grbNotification.Controls.Add(chbAlertOnPingCompletion);
             grbNotification.Controls.Add(chbShowNotification);
             grbNotification.Controls.Add(chbMakeSound);
             grbNotification.Location = new Point(8, 9);
@@ -91,6 +105,19 @@
             grbNotification.TabIndex = 31;
             grbNotification.TabStop = false;
             grbNotification.Text = "Windows Notification";
+            // 
+            // chbAlertOnPingCompletion
+            // 
+            chbAlertOnPingCompletion.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            chbAlertOnPingCompletion.AutoSize = true;
+            chbAlertOnPingCompletion.Font = new Font("Calibri", 10.2F);
+            chbAlertOnPingCompletion.ForeColor = SystemColors.ActiveCaptionText;
+            chbAlertOnPingCompletion.Location = new Point(214, 26);
+            chbAlertOnPingCompletion.Name = "chbAlertOnPingCompletion";
+            chbAlertOnPingCompletion.Size = new Size(204, 25);
+            chbAlertOnPingCompletion.TabIndex = 29;
+            chbAlertOnPingCompletion.Text = "Alert on ping completion";
+            chbAlertOnPingCompletion.UseVisualStyleBackColor = true;
             // 
             // chbShowNotification
             // 
@@ -169,18 +196,6 @@
             btnCancel.UseVisualStyleBackColor = true;
             btnCancel.Click += btnCancel_Click;
             // 
-            // chbAskToSaveLogBeforeClosing
-            // 
-            chbAskToSaveLogBeforeClosing.AutoSize = true;
-            chbAskToSaveLogBeforeClosing.Font = new Font("Calibri", 10.2F);
-            chbAskToSaveLogBeforeClosing.ForeColor = SystemColors.ActiveCaptionText;
-            chbAskToSaveLogBeforeClosing.Location = new Point(15, 116);
-            chbAskToSaveLogBeforeClosing.Name = "chbAskToSaveLogBeforeClosing";
-            chbAskToSaveLogBeforeClosing.Size = new Size(237, 25);
-            chbAskToSaveLogBeforeClosing.TabIndex = 29;
-            chbAskToSaveLogBeforeClosing.Text = "Ask to save log before closing";
-            chbAskToSaveLogBeforeClosing.UseVisualStyleBackColor = true;
-            // 
             // SettingsForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -215,5 +230,6 @@
         private TabPage tbpGeneral;
         private TabPage tabPage2;
         private CheckBox chbAskToSaveLogBeforeClosing;
+        private CheckBox chbAlertOnPingCompletion;
     }
 }

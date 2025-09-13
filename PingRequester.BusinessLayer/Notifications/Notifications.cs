@@ -9,15 +9,29 @@ namespace PingRequester.BusinessLayer
 {
     public static class Notifications
     {
-        public static void ConnectionSuccessful(bool silentMode)
+        private static ToastContentBuilder GetToastTemplate(bool silentMode)
         {
             string imagePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "Ping-Requester.png");
-            Console.WriteLine(imagePath);
-            new ToastContentBuilder()
+
+            return new ToastContentBuilder()
                 .AddAudio(new Uri("ms-winsoundevent:Notification.Default"), silent: silentMode)
-                .AddText("Success")
+                .AddAppLogoOverride(new Uri($"file:///{imagePath}"), ToastGenericAppLogoCrop.Default);
+        }
+
+        public static void ConnectionSuccessful(bool silentMode)
+        {
+            var toast = GetToastTemplate(silentMode);
+
+            toast.AddText("Success")
                 .AddText("Ping request was successful!")
-                .AddAppLogoOverride(new Uri($"file:///{imagePath}"), ToastGenericAppLogoCrop.Default)
+                .Show();
+        }
+
+        public static void PingingFinished(bool silentMode)
+        {
+            var toast = GetToastTemplate(silentMode);
+
+            toast.AddText("Ping requesting finished")
                 .Show();
         }
     }

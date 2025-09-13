@@ -168,8 +168,8 @@ namespace PingRequester.Client
                 PacketSize = (int)nudPacketSize.Value,
                 StopWhenSuccess = chbStopWhenSuccess.Checked,
                 StopSignal = false,
-                MakeSound = settings.MakeSound,
-                ShowNotification = settings.ShowNotification
+                Settings = settings
+
             };
 
             // log warning if infinite loop is turned on
@@ -209,6 +209,8 @@ namespace PingRequester.Client
             SetLockOnControls();
             SetLockOnInfiniteLoopControls();
             btnStop.Enabled = false;
+            if (requester.Settings.AlertOnPingCompletion)
+                Notifications.PingingFinished(!requester.Settings.MakeSound);
         }
 
         private void btnStop_Click(object sender, EventArgs e)

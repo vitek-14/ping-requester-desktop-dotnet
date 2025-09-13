@@ -1,4 +1,5 @@
 {
   "show notification": true,
-  "make sound": true
+  "make sound": true,
+  "alert on ping completion": true
 }

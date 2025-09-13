@@ -28,6 +28,7 @@ namespace PingRequester.Client
 
             chbShowNotification.Checked = settings.ShowNotification;
             chbMakeSound.Checked = settings.MakeSound;
+            chbAlertOnPingCompletion.Checked = settings.AlertOnPingCompletion;
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -40,7 +41,8 @@ namespace PingRequester.Client
             Settings settings = new Settings
             {
                 ShowNotification = chbShowNotification.Checked,
-                MakeSound = chbMakeSound.Checked
+                MakeSound = chbMakeSound.Checked,
+                AlertOnPingCompletion = chbAlertOnPingCompletion.Checked
             };
 
             jsonService.WriteFileContent(settings);

@@ -14,8 +14,7 @@ namespace PingRequester.Data.DataObjects
         private int attempts;
         private bool infiniteLoop;
         private bool stopWhenSuccess;
-        private bool showNotification;
-        private bool makeSound;
+        private Settings settings;
         private int packetSize;
         private bool stopSignal;
         public IRequestRunWidgetService mainform;
@@ -71,16 +70,10 @@ namespace PingRequester.Data.DataObjects
             set => SetProperty(ref stopWhenSuccess, value);
         }
 
-        public bool ShowNotification
+        public Settings Settings
         {
-            get => showNotification;
-            set => SetProperty(ref showNotification, value);
-        }
-
-        public bool MakeSound
-        {
-            get => makeSound;
-            set => SetProperty(ref makeSound, value);
+            get => settings;
+            set => SetProperty(ref settings, value);
         }
 
         public int PacketSize

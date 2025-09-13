@@ -15,6 +15,7 @@ namespace PingRequester.Data.DataObjects
     {
         private bool showNotification;
         private bool makeSound;
+        private bool alertOnPingCompletion;
 
         /// <summary>
         /// Default constructor of the class.
@@ -35,6 +36,13 @@ namespace PingRequester.Data.DataObjects
         {
             get => makeSound;
             set => SetProperty(ref makeSound, value);
+        }
+
+        [JsonPropertyName("alert on ping completion")]
+        public bool AlertOnPingCompletion
+        {
+            get => alertOnPingCompletion;
+            set => SetProperty(ref alertOnPingCompletion, value);
         }
     }
 }
