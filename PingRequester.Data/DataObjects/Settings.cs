@@ -13,7 +13,7 @@ namespace PingRequester.Data.DataObjects
     /// </summary>
     public class Settings : DataObject
     {
-        private bool showNotification;
+        private bool alertOnSuccess;
         private bool makeSound;
         private bool alertOnPingCompletion;
 
@@ -25,10 +25,10 @@ namespace PingRequester.Data.DataObjects
         }
 
         [JsonPropertyName("show notification")]
-        public bool ShowNotification
+        public bool AlertOnSuccess
         {
-            get => showNotification;
-            set => SetProperty(ref showNotification, value);
+            get => alertOnSuccess;
+            set => SetProperty(ref alertOnSuccess, value);
         }
 
         [JsonPropertyName("make sound")]

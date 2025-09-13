@@ -34,7 +34,7 @@
             chbAskToSaveLogBeforeClosing = new CheckBox();
             grbNotification = new GroupBox();
             chbAlertOnPingCompletion = new CheckBox();
-            chbShowNotification = new CheckBox();
+            chbAlertOnSuccess = new CheckBox();
             chbMakeSound = new CheckBox();
             tabPage2 = new TabPage();
             lblLineSeparator = new Label();
@@ -97,7 +97,7 @@
             // 
             grbNotification.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             grbNotification.Controls.Add(chbAlertOnPingCompletion);
-            grbNotification.Controls.Add(chbShowNotification);
+            grbNotification.Controls.Add(chbAlertOnSuccess);
             grbNotification.Controls.Add(chbMakeSound);
             grbNotification.Location = new Point(8, 9);
             grbNotification.Name = "grbNotification";
@@ -119,17 +119,17 @@
             chbAlertOnPingCompletion.Text = "Alert on ping completion";
             chbAlertOnPingCompletion.UseVisualStyleBackColor = true;
             // 
-            // chbShowNotification
+            // chbAlertOnSuccess
             // 
-            chbShowNotification.AutoSize = true;
-            chbShowNotification.Font = new Font("Calibri", 10.2F);
-            chbShowNotification.ForeColor = SystemColors.ActiveCaptionText;
-            chbShowNotification.Location = new Point(7, 26);
-            chbShowNotification.Name = "chbShowNotification";
-            chbShowNotification.Size = new Size(152, 25);
-            chbShowNotification.TabIndex = 28;
-            chbShowNotification.Text = "Show notification";
-            chbShowNotification.UseVisualStyleBackColor = true;
+            chbAlertOnSuccess.AutoSize = true;
+            chbAlertOnSuccess.Font = new Font("Calibri", 10.2F);
+            chbAlertOnSuccess.ForeColor = SystemColors.ActiveCaptionText;
+            chbAlertOnSuccess.Location = new Point(7, 26);
+            chbAlertOnSuccess.Name = "chbAlertOnSuccess";
+            chbAlertOnSuccess.Size = new Size(144, 25);
+            chbAlertOnSuccess.TabIndex = 28;
+            chbAlertOnSuccess.Text = "Alert on success";
+            chbAlertOnSuccess.UseVisualStyleBackColor = true;
             // 
             // chbMakeSound
             // 
@@ -204,6 +204,7 @@
             Controls.Add(pnlActions);
             Controls.Add(pnlSettingsControls);
             Name = "SettingsForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Settings";
             Load += Settings_Load;
             pnlSettingsControls.ResumeLayout(false);
@@ -219,7 +220,7 @@
         #endregion
 
         private Panel pnlSettingsControls;
-        private CheckBox chbShowNotification;
+        private CheckBox chbAlertOnSuccess;
         private CheckBox chbMakeSound;
         private Panel pnlActions;
         private Button btnSave;

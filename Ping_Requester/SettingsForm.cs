@@ -26,7 +26,7 @@ namespace PingRequester.Client
         {
             Settings settings = jsonService.LoadFileContent();
 
-            chbShowNotification.Checked = settings.ShowNotification;
+            chbAlertOnSuccess.Checked = settings.AlertOnSuccess;
             chbMakeSound.Checked = settings.MakeSound;
             chbAlertOnPingCompletion.Checked = settings.AlertOnPingCompletion;
         }
@@ -40,7 +40,7 @@ namespace PingRequester.Client
         {
             Settings settings = new Settings
             {
-                ShowNotification = chbShowNotification.Checked,
+                AlertOnSuccess = chbAlertOnSuccess.Checked,
                 MakeSound = chbMakeSound.Checked,
                 AlertOnPingCompletion = chbAlertOnPingCompletion.Checked
             };
