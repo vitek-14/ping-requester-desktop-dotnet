@@ -260,11 +260,13 @@ namespace PingRequester.Client
         private void btnCopyPinging_Click(object sender, EventArgs e)
         {
             Clipboard.SetText(lblPingingActive.Text);
+            console.LogInfo("Pinging target copied to clipboard.", true);
         }
 
         private void btnCopyIPAddress_Click(object sender, EventArgs e)
         {
             Clipboard.SetText(lblIpAddressActive.Text);
+            console.LogInfo("IPv4 address copied to clipboard.", true);
         }
     }
 }
