@@ -202,7 +202,12 @@ namespace PingRequester.Client
             console.LogInfo(message);
 
             // start async. algorithm
+            requestRun.Start = DateTime.Now;
             await service.BeginRequestingAsync();
+            requestRun.End = DateTime.Now;
+
+            // TODO: save data from requester & request run to the database
+            // ...
 
             // requesting done
             console.LogMessage($"Pinging finished at: {DateTime.Now}");
