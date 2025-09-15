@@ -55,7 +55,7 @@ namespace PingRequester.BusinessLayer
                 // Check if interruption request was created
                 if (this.requester.StopSignal)
                 {
-                    console.LogMessage("Stop signal was detected.");
+                    console.LogWarning("Stop signal was detected.");
                     break;
                 }
                 // check if stop on success is active
