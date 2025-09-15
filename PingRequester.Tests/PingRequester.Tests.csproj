@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0-windows10.0.17763.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="xunit" Version="2.9.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\PingRequester.BusinessLayer\PingRequester.BusinessLayer.csproj" />
+    <ProjectReference Include="..\PingRequester.Data\PingRequester.Data.csproj" />
+    <ProjectReference Include="..\Ping_Requester\PingRequester.Client.csproj" />
+  </ItemGroup>
+
+</Project>
