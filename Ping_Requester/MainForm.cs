@@ -67,6 +67,19 @@ namespace PingRequester.Client
             lblAverageActive.Text = $"{Math.Round(requestRun.AverageTime, 2)} ms";
         }
 
+        private void SetInitialLabelText()
+        {
+            lblPingingActive.Text = "-";
+            lblIpAddressActive.Text = "-";
+            lblPacketSizeRRActive.Text = "-";
+            lblSentActive.Text = "-";
+            lblRecievedActive.Text = "-";
+            lblLostActive.Text = "-";
+            lblMaximumActive.Text = "- ms";
+            lblMinimumActive.Text = "- ms";
+            lblAverageActive.Text = "- ms";
+        }
+
         /// <summary>
         /// Called when MainForm is created.
         /// </summary>
@@ -148,6 +161,9 @@ namespace PingRequester.Client
 
         private async void btnSendRequest_Click(object sender, EventArgs e)
         {
+            // reset initial label text values
+            SetInitialLabelText();
+
             // lock controls
             SetLockOnControls();
 
