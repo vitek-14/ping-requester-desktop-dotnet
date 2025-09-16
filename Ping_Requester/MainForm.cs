@@ -291,5 +291,10 @@ namespace PingRequester.Client
             Clipboard.SetText(lblIpAddressActive.Text);
             console.LogInfo("IPv4 address copied to clipboard.", true);
         }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            rtbConsole.Clear();
+        }
     }
 }

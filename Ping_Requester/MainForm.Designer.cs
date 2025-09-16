@@ -89,6 +89,7 @@
             rtbConsole = new RichTextBox();
             pnlMiddle = new Panel();
             ttpMainForm = new ToolTip(components);
+            btnClear = new Button();
             pnlTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             menuStrip1.SuspendLayout();
@@ -685,25 +686,25 @@
             lblPacketSizeRR.TabIndex = 4;
             lblPacketSizeRR.Text = "Packet size (bytes):";
             // 
-            // lblIpAdressActive
+            // lblIpAddressActive
             // 
             lblIpAddressActive.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             lblIpAddressActive.AutoSize = true;
             lblIpAddressActive.Font = new Font("Calibri", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 238);
             lblIpAddressActive.ForeColor = SystemColors.ActiveCaptionText;
             lblIpAddressActive.Location = new Point(339, 47);
-            lblIpAddressActive.Name = "lblIpAdressActive";
+            lblIpAddressActive.Name = "lblIpAddressActive";
             lblIpAddressActive.Size = new Size(15, 21);
             lblIpAddressActive.TabIndex = 3;
             lblIpAddressActive.Text = "-";
             // 
-            // lblIpAdress
+            // lblIpAddress
             // 
             lblIpAddress.AutoSize = true;
             lblIpAddress.Font = new Font("Calibri", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 238);
             lblIpAddress.ForeColor = SystemColors.ActiveCaptionText;
             lblIpAddress.Location = new Point(18, 45);
-            lblIpAddress.Name = "lblIpAdress";
+            lblIpAddress.Name = "lblIpAddress";
             lblIpAddress.Size = new Size(86, 21);
             lblIpAddress.TabIndex = 2;
             lblIpAddress.Text = "IP address:";
@@ -744,6 +745,7 @@
             // 
             // tbpOutput
             // 
+            tbpOutput.Controls.Add(btnClear);
             tbpOutput.Controls.Add(rtbConsole);
             tbpOutput.Location = new Point(4, 29);
             tbpOutput.Name = "tbpOutput";
@@ -756,13 +758,13 @@
             // rtbConsole
             // 
             rtbConsole.BackColor = Color.Black;
-            rtbConsole.Dock = DockStyle.Fill;
+            rtbConsole.Dock = DockStyle.Top;
             rtbConsole.Font = new Font("Consolas", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 238);
             rtbConsole.ForeColor = Color.White;
             rtbConsole.Location = new Point(3, 3);
             rtbConsole.Name = "rtbConsole";
             rtbConsole.ReadOnly = true;
-            rtbConsole.Size = new Size(590, 402);
+            rtbConsole.Size = new Size(590, 365);
             rtbConsole.TabIndex = 0;
             rtbConsole.Text = "";
             // 
@@ -775,6 +777,18 @@
             pnlMiddle.Name = "pnlMiddle";
             pnlMiddle.Size = new Size(951, 482);
             pnlMiddle.TabIndex = 1;
+            // 
+            // btnClear
+            // 
+            btnClear.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            btnClear.ForeColor = Color.Black;
+            btnClear.Location = new Point(483, 374);
+            btnClear.Name = "btnClear";
+            btnClear.Size = new Size(107, 28);
+            btnClear.TabIndex = 19;
+            btnClear.Text = "Clear";
+            btnClear.UseVisualStyleBackColor = true;
+            btnClear.Click += btnClear_Click;
             // 
             // MainForm
             // 
@@ -877,6 +891,7 @@
         private ToolTip ttpMainForm;
         private Button btnCopyPinging;
         private Button btnCopyIPAddress;
+        private Button btnClear;
 
         public string PingTarget { get => txbPingTarget.Text; }
         public string Mode { get => cmbMode.Text; }
