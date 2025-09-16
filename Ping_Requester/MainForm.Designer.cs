@@ -86,10 +86,11 @@
             lblPinging = new Label();
             tbpDatabase = new TabPage();
             tbpOutput = new TabPage();
+            btnClear = new Button();
             rtbConsole = new RichTextBox();
             pnlMiddle = new Panel();
             ttpMainForm = new ToolTip(components);
-            btnClear = new Button();
+            btnSaveLog = new Button();
             pnlTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             menuStrip1.SuspendLayout();
@@ -745,6 +746,7 @@
             // 
             // tbpOutput
             // 
+            tbpOutput.Controls.Add(btnSaveLog);
             tbpOutput.Controls.Add(btnClear);
             tbpOutput.Controls.Add(rtbConsole);
             tbpOutput.Location = new Point(4, 29);
@@ -754,6 +756,18 @@
             tbpOutput.TabIndex = 2;
             tbpOutput.Text = "Output";
             tbpOutput.UseVisualStyleBackColor = true;
+            // 
+            // btnClear
+            // 
+            btnClear.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            btnClear.ForeColor = Color.Black;
+            btnClear.Location = new Point(483, 374);
+            btnClear.Name = "btnClear";
+            btnClear.Size = new Size(107, 28);
+            btnClear.TabIndex = 19;
+            btnClear.Text = "Clear";
+            btnClear.UseVisualStyleBackColor = true;
+            btnClear.Click += btnClear_Click;
             // 
             // rtbConsole
             // 
@@ -778,17 +792,16 @@
             pnlMiddle.Size = new Size(951, 482);
             pnlMiddle.TabIndex = 1;
             // 
-            // btnClear
+            // btnSaveLog
             // 
-            btnClear.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 238);
-            btnClear.ForeColor = Color.Black;
-            btnClear.Location = new Point(483, 374);
-            btnClear.Name = "btnClear";
-            btnClear.Size = new Size(107, 28);
-            btnClear.TabIndex = 19;
-            btnClear.Text = "Clear";
-            btnClear.UseVisualStyleBackColor = true;
-            btnClear.Click += btnClear_Click;
+            btnSaveLog.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            btnSaveLog.ForeColor = Color.Black;
+            btnSaveLog.Location = new Point(360, 374);
+            btnSaveLog.Name = "btnSaveLog";
+            btnSaveLog.Size = new Size(107, 28);
+            btnSaveLog.TabIndex = 20;
+            btnSaveLog.Text = "Save log";
+            btnSaveLog.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
@@ -892,6 +905,7 @@
         private Button btnCopyPinging;
         private Button btnCopyIPAddress;
         private Button btnClear;
+        private Button btnSaveLog;
 
         public string PingTarget { get => txbPingTarget.Text; }
         public string Mode { get => cmbMode.Text; }
