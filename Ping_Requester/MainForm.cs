@@ -17,7 +17,7 @@ namespace PingRequester.Client
         private Preferences preferences;
         private JsonService<Settings> jsonServiceSettings;
         private Settings settings;
-        private string logPath;
+        private LogFilesService logFilesService;
 
         /// <summary>
         /// Default constructor of the MainForm.
@@ -46,12 +46,15 @@ namespace PingRequester.Client
             this.mainControls.Push(btnSendRequest);
             this.mainControls.Push(chbStopWhenSuccess);
 
-            // load data from json config
+            // load data from configs
             this.jsonServicePreferences = new JsonService<Preferences>("config/PreferencesConfig.json");
             this.preferences = jsonServicePreferences.LoadFileContent();
 
             this.jsonServiceSettings = new JsonService<Settings>("config/SettingsConfig.json");
             this.settings = jsonServiceSettings.LoadFileContent();
+
+            // Create services for logging data
+            this.logFilesService = new LogFilesService(this.settings.PathToLogFiles);
         }
 
         /// <summary>
@@ -300,7 +303,7 @@ namespace PingRequester.Client
 
         private void btnSaveLog_Click(object sender, EventArgs e)
         {
-            
+            this.logFilesService.Write(rtbConsole.Text);
         }
     }
 }
