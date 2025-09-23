@@ -110,6 +110,7 @@ namespace PingRequester.BusinessLayer
             }
 
             // append text to the log file
+            // TODO: decide when append and when write
             File.AppendAllText(latest.Path, content);
         }
     }

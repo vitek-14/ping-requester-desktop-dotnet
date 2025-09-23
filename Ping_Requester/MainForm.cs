@@ -304,6 +304,7 @@ namespace PingRequester.Client
         private void btnSaveLog_Click(object sender, EventArgs e)
         {
             this.logFilesService.Write(rtbConsole.Text);
+            // TODO: notify user that log was saved
         }
     }
 }
