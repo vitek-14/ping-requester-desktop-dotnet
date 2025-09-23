@@ -16,6 +16,7 @@ namespace PingRequester.Data.DataObjects
         private bool alertOnSuccess;
         private bool makeSound;
         private bool alertOnPingCompletion;
+        private string pathToLogFiles;
 
         /// <summary>
         /// Default constructor of the class.
@@ -43,6 +44,13 @@ namespace PingRequester.Data.DataObjects
         {
             get => alertOnPingCompletion;
             set => SetProperty(ref alertOnPingCompletion, value);
+        }
+
+        [JsonPropertyName("log files path")]
+        public string PathToLogFiles
+        {
+            get => pathToLogFiles;
+            set => SetProperty(ref pathToLogFiles, value);
         }
     }
 }

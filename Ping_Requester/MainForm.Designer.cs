@@ -802,6 +802,7 @@
             btnSaveLog.TabIndex = 20;
             btnSaveLog.Text = "Save log";
             btnSaveLog.UseVisualStyleBackColor = true;
+            btnSaveLog.Click += btnSaveLog_Click;
             // 
             // MainForm
             // 

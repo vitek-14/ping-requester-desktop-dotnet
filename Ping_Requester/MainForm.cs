@@ -17,6 +17,7 @@ namespace PingRequester.Client
         private Preferences preferences;
         private JsonService<Settings> jsonServiceSettings;
         private Settings settings;
+        private string logPath;
 
         /// <summary>
         /// Default constructor of the MainForm.
@@ -295,6 +296,11 @@ namespace PingRequester.Client
         private void btnClear_Click(object sender, EventArgs e)
         {
             rtbConsole.Clear();
+        }
+
+        private void btnSaveLog_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }
