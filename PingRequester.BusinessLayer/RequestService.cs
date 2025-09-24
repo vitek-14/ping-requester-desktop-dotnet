@@ -97,7 +97,7 @@ namespace PingRequester.BusinessLayer
                 {
                     string warning = "Ping request could not find host.";
                     if (!requester.InfiniteLoop)
-                        warning += $" Remaining attempts: {this.remainingAttempts}";
+                        warning += $"\nRemaining attempts: {this.remainingAttempts - 1}";
                     console.LogWarning(warning);
                     SetCounters();
                 }
@@ -114,7 +114,8 @@ namespace PingRequester.BusinessLayer
                     SaveDataFromPingOutput(stdout, requester.RequestRun);
                     requester.mainform.OverwriteRequestRunUI(requestRun);
 
-                    console.LogInfo($"Ping sent to {requestRun.Hostname} at {DateTime.Now}");
+                    console.LogInfo($"Ping sent to {requestRun.Hostname} at {DateTime.Now}" +
+                        $"\nRemaining requests: {this.remainingRequests - 1}");
                     this.remainingRequests--;
                 }
             }
