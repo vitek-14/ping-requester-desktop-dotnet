@@ -12,23 +12,16 @@ namespace PingRequester.BusinessLayer
         private string pathToLogFiles;
         private string[] fullFileNames;
         private List<LogFile> logFiles;
-        private ServiceState state;
 
         public LogFilesService(string path)
         {
-            this.state = ServiceState.Empty;
-
             if (!Directory.Exists(path))
             {
-                this.state = ServiceState.NotWorking;
                 throw new DirectoryNotFoundException($"Specified directory '{path}' does not exists");
             }
 
             this.pathToLogFiles = path;
-            this.state = ServiceState.Active;
         }
-
-        public ServiceState State { get => state; }
 
         private bool AnyLogFile()
         {
@@ -106,11 +99,9 @@ namespace PingRequester.BusinessLayer
                 {
                     latest = CreateLogFile();
                 }
-                
             }
 
             // append text to the log file
-            // TODO: decide when append and when write
             File.AppendAllText(latest.Path, content);
         }
     }

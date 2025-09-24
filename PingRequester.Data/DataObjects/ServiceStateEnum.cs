@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PingRequester.Data.DataObjects
 {
-    public enum ServiceState
+    public enum ServiceStateEnum
     {
         Empty,
         Active,
