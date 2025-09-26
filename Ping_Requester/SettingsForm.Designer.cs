@@ -93,6 +93,8 @@
             btnFolderBrowserDialog.BackgroundImage = Properties.Resources.folder;
             btnFolderBrowserDialog.BackgroundImageLayout = ImageLayout.Zoom;
             btnFolderBrowserDialog.FlatAppearance.BorderSize = 0;
+            btnFolderBrowserDialog.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            btnFolderBrowserDialog.FlatAppearance.MouseOverBackColor = Color.Transparent;
             btnFolderBrowserDialog.FlatStyle = FlatStyle.Flat;
             btnFolderBrowserDialog.Location = new Point(398, 114);
             btnFolderBrowserDialog.Name = "btnFolderBrowserDialog";
