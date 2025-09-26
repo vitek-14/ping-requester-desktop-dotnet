@@ -31,6 +31,9 @@
             pnlSettingsControls = new Panel();
             tbc = new TabControl();
             tbpGeneral = new TabPage();
+            btnFolderBrowserDialog = new Button();
+            txbLogFilesPath = new TextBox();
+            lblLogFilesPath = new Label();
             chbAskToSaveLogBeforeClosing = new CheckBox();
             grbNotification = new GroupBox();
             chbAlertOnPingCompletion = new CheckBox();
@@ -41,6 +44,7 @@
             pnlActions = new Panel();
             btnSave = new Button();
             btnCancel = new Button();
+            folderBrowserDialog1 = new FolderBrowserDialog();
             pnlSettingsControls.SuspendLayout();
             tbc.SuspendLayout();
             tbpGeneral.SuspendLayout();
@@ -72,6 +76,9 @@
             // tbpGeneral
             // 
             tbpGeneral.BackColor = Color.Transparent;
+            tbpGeneral.Controls.Add(btnFolderBrowserDialog);
+            tbpGeneral.Controls.Add(txbLogFilesPath);
+            tbpGeneral.Controls.Add(lblLogFilesPath);
             tbpGeneral.Controls.Add(chbAskToSaveLogBeforeClosing);
             tbpGeneral.Controls.Add(grbNotification);
             tbpGeneral.Location = new Point(4, 29);
@@ -81,12 +88,41 @@
             tbpGeneral.TabIndex = 0;
             tbpGeneral.Text = "General";
             // 
+            // btnFolderBrowserDialog
+            // 
+            btnFolderBrowserDialog.BackgroundImage = Properties.Resources.folder;
+            btnFolderBrowserDialog.BackgroundImageLayout = ImageLayout.Zoom;
+            btnFolderBrowserDialog.FlatAppearance.BorderSize = 0;
+            btnFolderBrowserDialog.FlatStyle = FlatStyle.Flat;
+            btnFolderBrowserDialog.Location = new Point(398, 114);
+            btnFolderBrowserDialog.Name = "btnFolderBrowserDialog";
+            btnFolderBrowserDialog.Size = new Size(40, 29);
+            btnFolderBrowserDialog.TabIndex = 34;
+            btnFolderBrowserDialog.UseVisualStyleBackColor = true;
+            btnFolderBrowserDialog.Click += btnFolderBrowserDialog_Click;
+            // 
+            // txbLogFilesPath
+            // 
+            txbLogFilesPath.Location = new Point(123, 114);
+            txbLogFilesPath.Name = "txbLogFilesPath";
+            txbLogFilesPath.Size = new Size(270, 27);
+            txbLogFilesPath.TabIndex = 33;
+            // 
+            // lblLogFilesPath
+            // 
+            lblLogFilesPath.AutoSize = true;
+            lblLogFilesPath.Location = new Point(15, 117);
+            lblLogFilesPath.Name = "lblLogFilesPath";
+            lblLogFilesPath.Size = new Size(102, 20);
+            lblLogFilesPath.TabIndex = 32;
+            lblLogFilesPath.Text = "Log files path:";
+            // 
             // chbAskToSaveLogBeforeClosing
             // 
             chbAskToSaveLogBeforeClosing.AutoSize = true;
             chbAskToSaveLogBeforeClosing.Font = new Font("Calibri", 10.2F);
             chbAskToSaveLogBeforeClosing.ForeColor = SystemColors.ActiveCaptionText;
-            chbAskToSaveLogBeforeClosing.Location = new Point(15, 116);
+            chbAskToSaveLogBeforeClosing.Location = new Point(15, 149);
             chbAskToSaveLogBeforeClosing.Name = "chbAskToSaveLogBeforeClosing";
             chbAskToSaveLogBeforeClosing.Size = new Size(237, 25);
             chbAskToSaveLogBeforeClosing.TabIndex = 29;
@@ -232,5 +268,9 @@
         private TabPage tabPage2;
         private CheckBox chbAskToSaveLogBeforeClosing;
         private CheckBox chbAlertOnPingCompletion;
+        private TextBox txbLogFilesPath;
+        private Label lblLogFilesPath;
+        private Button btnFolderBrowserDialog;
+        private FolderBrowserDialog folderBrowserDialog1;
     }
 }

@@ -1,6 +1,7 @@
 {
+  "log files path": "logs\\",
   "show notification": true,
   "make sound": true,
   "alert on ping completion": true,
-  "log files path": "logs\\"
+  "ask to save log": true
 }
