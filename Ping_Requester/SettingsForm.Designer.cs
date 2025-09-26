@@ -111,7 +111,7 @@
             // lblLogFilesPath
             // 
             lblLogFilesPath.AutoSize = true;
-            lblLogFilesPath.Location = new Point(15, 117);
+            lblLogFilesPath.Location = new Point(12, 118);
             lblLogFilesPath.Name = "lblLogFilesPath";
             lblLogFilesPath.Size = new Size(102, 20);
             lblLogFilesPath.TabIndex = 32;
@@ -122,7 +122,7 @@
             chbAskToSaveLogBeforeClosing.AutoSize = true;
             chbAskToSaveLogBeforeClosing.Font = new Font("Calibri", 10.2F);
             chbAskToSaveLogBeforeClosing.ForeColor = SystemColors.ActiveCaptionText;
-            chbAskToSaveLogBeforeClosing.Location = new Point(15, 149);
+            chbAskToSaveLogBeforeClosing.Location = new Point(15, 147);
             chbAskToSaveLogBeforeClosing.Name = "chbAskToSaveLogBeforeClosing";
             chbAskToSaveLogBeforeClosing.Size = new Size(237, 25);
             chbAskToSaveLogBeforeClosing.TabIndex = 29;
