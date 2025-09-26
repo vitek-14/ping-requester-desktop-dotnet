@@ -7,11 +7,17 @@ using System.Threading.Tasks;
 
 namespace PingRequester.Data.DataObjects
 {
+    /// <summary>
+    /// LogFile class stores metadata of the log file.
+    /// </summary>
     public class LogFile : DataObject
     {
         private string path;
         private DateTime lastChange;
 
+        /// <summary>
+        /// Default constructor of the class.
+        /// </summary>
         public LogFile()
         {
         }
