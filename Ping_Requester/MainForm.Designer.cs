@@ -41,6 +41,7 @@
             settingsToolStripMenuItem1 = new ToolStripMenuItem();
             preferencesToolStripMenuItem = new ToolStripMenuItem();
             pnlInfo = new Panel();
+            label1 = new Label();
             lblInfo = new Label();
             pnlControls = new Panel();
             chbStopWhenSuccess = new CheckBox();
@@ -86,11 +87,11 @@
             lblPinging = new Label();
             tbpDatabase = new TabPage();
             tbpOutput = new TabPage();
+            btnSaveLog = new Button();
             btnClear = new Button();
             rtbConsole = new RichTextBox();
             pnlMiddle = new Panel();
             ttpMainForm = new ToolTip(components);
-            btnSaveLog = new Button();
             pnlTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             menuStrip1.SuspendLayout();
@@ -196,20 +197,29 @@
             // pnlInfo
             // 
             pnlInfo.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            pnlInfo.BorderStyle = BorderStyle.FixedSingle;
+            pnlInfo.Controls.Add(label1);
             pnlInfo.Controls.Add(lblInfo);
             pnlInfo.Dock = DockStyle.Bottom;
-            pnlInfo.Location = new Point(0, 593);
+            pnlInfo.Location = new Point(0, 589);
             pnlInfo.Name = "pnlInfo";
-            pnlInfo.Size = new Size(951, 32);
+            pnlInfo.Size = new Size(951, 36);
             pnlInfo.TabIndex = 2;
+            // 
+            // label1
+            // 
+            label1.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            label1.BorderStyle = BorderStyle.Fixed3D;
+            label1.Location = new Point(5, 4);
+            label1.Name = "label1";
+            label1.Size = new Size(942, 3);
+            label1.TabIndex = 31;
             // 
             // lblInfo
             // 
             lblInfo.AutoSize = true;
             lblInfo.Font = new Font("Consolas", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 238);
             lblInfo.ForeColor = SystemColors.InfoText;
-            lblInfo.Location = new Point(10, 3);
+            lblInfo.Location = new Point(10, 9);
             lblInfo.Name = "lblInfo";
             lblInfo.Size = new Size(70, 22);
             lblInfo.TabIndex = 0;
@@ -757,6 +767,18 @@
             tbpOutput.Text = "Output";
             tbpOutput.UseVisualStyleBackColor = true;
             // 
+            // btnSaveLog
+            // 
+            btnSaveLog.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            btnSaveLog.ForeColor = Color.Black;
+            btnSaveLog.Location = new Point(360, 374);
+            btnSaveLog.Name = "btnSaveLog";
+            btnSaveLog.Size = new Size(107, 28);
+            btnSaveLog.TabIndex = 20;
+            btnSaveLog.Text = "Save log";
+            btnSaveLog.UseVisualStyleBackColor = true;
+            btnSaveLog.Click += btnSaveLog_Click;
+            // 
             // btnClear
             // 
             btnClear.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 238);
@@ -791,18 +813,6 @@
             pnlMiddle.Name = "pnlMiddle";
             pnlMiddle.Size = new Size(951, 482);
             pnlMiddle.TabIndex = 1;
-            // 
-            // btnSaveLog
-            // 
-            btnSaveLog.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 238);
-            btnSaveLog.ForeColor = Color.Black;
-            btnSaveLog.Location = new Point(360, 374);
-            btnSaveLog.Name = "btnSaveLog";
-            btnSaveLog.Size = new Size(107, 28);
-            btnSaveLog.TabIndex = 20;
-            btnSaveLog.Text = "Save log";
-            btnSaveLog.UseVisualStyleBackColor = true;
-            btnSaveLog.Click += btnSaveLog_Click;
             // 
             // MainForm
             // 
@@ -907,6 +917,7 @@
         private Button btnCopyIPAddress;
         private Button btnClear;
         private Button btnSaveLog;
+        private Label label1;
 
         public string PingTarget { get => txbPingTarget.Text; }
         public string Mode { get => cmbMode.Text; }
