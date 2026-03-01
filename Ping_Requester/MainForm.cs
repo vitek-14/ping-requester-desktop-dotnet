@@ -54,7 +54,7 @@ namespace PingRequester.Client
             this.settings = jsonServiceSettings.LoadFileContent();
 
             // Create services for logging data
-            this.logFilesService = new LogFilesService(this.settings.PathToLogFiles);
+            this.logFilesService = new LogFilesService(settings.PathToLogFiles, settings.TimeStampTemplate);
         }
 
         /// <summary>
@@ -266,7 +266,7 @@ namespace PingRequester.Client
         {
             /* A workaround of the Console (richtextbox) artefact - bug.
              * This code solves the bug when UI from Request Run tab is being displayed in the Console tab.
-             * Code bellow scrolls to the top and down again in order to get rid off the wrong pixels.
+             * Code bellow scrolls to the top and down again in order to get rid of the wrong pixels.
              * Artefact was appearing only when large number of ping requests was set.
              */
 
@@ -304,6 +304,7 @@ namespace PingRequester.Client
         private void btnSaveLog_Click(object sender, EventArgs e)
         {
             this.logFilesService.Write(rtbConsole.Text);
+            console.LogInfo("Log saved.");
             // TODO: notify user that log was saved
         }
     }

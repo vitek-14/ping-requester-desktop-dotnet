@@ -50,7 +50,8 @@ namespace PingRequester.Client
                 MakeSound = chbMakeSound.Checked,
                 AlertOnPingCompletion = chbAlertOnPingCompletion.Checked,
                 AskToSaveLog = chbAskToSaveLogBeforeClosing.Checked,
-                PathToLogFiles = txbLogFilesPath.Text
+                PathToLogFiles = txbLogFilesPath.Text,
+                TimeStampTemplate = "dd-MM-yyyy-HH-mm"      // temp solution
             };
 
             // save to json

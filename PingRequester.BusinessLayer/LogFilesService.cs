@@ -15,13 +15,14 @@ namespace PingRequester.BusinessLayer
         private string pathToLogFiles;
         private string[] fullFileNames;
         private List<LogFile> logFiles;
+        private string template;
 
         /// <summary>
         /// Default constructor of the class.
         /// </summary>
         /// <param name="path"></param>
         /// <exception cref="DirectoryNotFoundException"></exception>
-        public LogFilesService(string path)
+        public LogFilesService(string path, string timeStampTemplate)
         {
             if (!Directory.Exists(path))
             {
@@ -29,16 +30,17 @@ namespace PingRequester.BusinessLayer
             }
 
             this.pathToLogFiles = path;
+            this.template = timeStampTemplate;
         }
         
         /// <summary>
         /// Checks if any log file exists in the target folder path.
         /// </summary>
         /// <returns>Bool depending on the result.</returns>
-        private bool AnyLogFile()
+        private void LoadFullFileNames()
         {
-            this.fullFileNames = Directory.GetFiles(this.pathToLogFiles);
-            return fullFileNames.Length > 0;
+            this.fullFileNames = Directory.GetFiles(this.pathToLogFiles)
+                .Where(f => Path.GetFileName(f).StartsWith("log_") && f.EndsWith(".log")).ToArray();
         }
 
         /// <summary>
@@ -48,31 +50,14 @@ namespace PingRequester.BusinessLayer
         {
             foreach (string fullFileName in this.fullFileNames)
             {
-                DateTime lastChange = File.GetLastWriteTime(fullFileName);
+                var timeStamp = fullFileName.ToDateTime(this.template);
                 LogFile file = new LogFile
                 {
                     Path = fullFileName,
-                    LastChange = lastChange
+                    TimeStamp = timeStamp
                 };
                 this.logFiles.Add(file);
             }
-        }
-
-        /// <summary>
-        /// Finds LogFile with the latest date of change.
-        /// </summary>
-        /// <returns>LogFile instance</returns>
-        private LogFile GetLatestLogFile()
-        {
-            LogFile latest = logFiles[0];
-
-            foreach (var file in logFiles)
-            {
-                if (file.LastChange > latest.LastChange)
-                    latest = file;
-            }
-
-            return latest;
         }
 
         /// <summary>
@@ -83,17 +68,38 @@ namespace PingRequester.BusinessLayer
         {
             LogFile file;
 
-            string fileName = $"log_{DateTime.Now.ToString("dd-MM-yyyy_HH-mm")}.log";
+            var timeStamp = DateTime.Now;
+            string fileName = $"log_{timeStamp.ToTimeStampFormat(this.template)}.log";
             string fullPath = Path.Combine(this.pathToLogFiles, fileName);
-            File.WriteAllText(fullPath, "");
+            File.WriteAllText(fullPath, "");    // creates empty log file
             
             file = new LogFile
             {
                 Path = fullPath,
-                LastChange = DateTime.Now
+                TimeStamp = timeStamp
             };
 
             return file;
+        }
+
+        private static bool HasTodaysDate(LogFile logFile)
+        {
+            return Equals(DateTime.Today.Date, logFile.TimeStamp.Date);
+        }
+
+        private LogFile GetTodaysLogFile()
+        {
+            LogFile todaysLogFile = null;
+
+            foreach (var logFile in this.logFiles)
+            {
+                if (HasTodaysDate(logFile))
+                {
+                    todaysLogFile = logFile;
+                }
+            }
+
+            return todaysLogFile;
         }
 
         /// <summary>
@@ -114,26 +120,27 @@ namespace PingRequester.BusinessLayer
         {
             Reset();
 
-            LogFile latest;
+            LogFile workingLogFile;
 
-            if (!AnyLogFile())
+            LoadFullFileNames();
+
+            if (fullFileNames.Length == 0)
             {
-                latest = CreateLogFile();
+                workingLogFile = CreateLogFile();
             }
             else
             {
                 LoadLogFiles();
-                latest = GetLatestLogFile();
-                long sizeInBytes = new FileInfo(latest.Path).Length;
+                workingLogFile = GetTodaysLogFile();
 
-                if (sizeInBytes > 524288)   // 0.5 MB
+                if (workingLogFile == null)
                 {
-                    latest = CreateLogFile();
+                    workingLogFile = CreateLogFile();
                 }
             }
 
             // append text to the log file
-            File.AppendAllText(latest.Path, content);
+            File.AppendAllText(workingLogFile.Path, content);
         }
     }
 }

@@ -13,7 +13,7 @@ namespace PingRequester.Data.DataObjects
     public class LogFile : DataObject
     {
         private string path;
-        private DateTime lastChange;
+        private DateTime timeStamp;
 
         /// <summary>
         /// Default constructor of the class.
@@ -28,10 +28,10 @@ namespace PingRequester.Data.DataObjects
             set => SetProperty(ref path, value);
         }
 
-        public DateTime LastChange
+        public DateTime TimeStamp
         {
-            get => lastChange;
-            set => SetProperty(ref lastChange, value);
+            get => timeStamp;
+            set => SetProperty(ref timeStamp, value);
         }
     }
 }

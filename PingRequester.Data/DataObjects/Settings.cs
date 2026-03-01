@@ -18,6 +18,7 @@ namespace PingRequester.Data.DataObjects
         private bool alertOnPingCompletion;
         private string pathToLogFiles;
         private bool askToSaveLog;
+        private string timeStampTemplate;
 
         /// <summary>
         /// Default constructor of the class.
@@ -59,6 +60,13 @@ namespace PingRequester.Data.DataObjects
         {
             get => askToSaveLog;
             set => SetProperty(ref askToSaveLog, value);
+        }
+
+        [JsonPropertyName("time stamp template")]
+        public string TimeStampTemplate
+        {
+            get => timeStampTemplate;
+            set => SetProperty(ref timeStampTemplate, value);
         }
     }
 }
