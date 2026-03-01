@@ -18,6 +18,7 @@ namespace PingRequester.Client
         private JsonService<Settings> jsonServiceSettings;
         private Settings settings;
         private LogFilesService logFilesService;
+        private bool logSaved = false;
 
         /// <summary>
         /// Default constructor of the MainForm.
@@ -179,6 +180,9 @@ namespace PingRequester.Client
             if (settings.ClearConsole)
                 rtbConsole.Text = "";
 
+            // mark logs as unsaved
+            this.logSaved = false;
+
             // create requester
             console.LogInfo("Creating Requester.");
 
@@ -299,6 +303,7 @@ namespace PingRequester.Client
 
         private void btnSaveLog_Click(object sender, EventArgs e)
         {
+            this.logSaved = true;
             this.logFilesService.Write(rtbConsole.Text);
             console.LogInfo("Log saved.");
         }
@@ -308,7 +313,8 @@ namespace PingRequester.Client
             // reload current settings
             this.settings = jsonServiceSettings.LoadFileContent();
 
-            if (settings.AskToSaveLog && rtbConsole.Text.Trim() != "")
+            // condition
+            if (settings.AskToSaveLog && rtbConsole.Text.Trim() != "" && !this.logSaved)
             {
                 var dialog = new MessageBoxSaveLog(e).ShowDialog();
 
