@@ -31,10 +31,11 @@
             pnlSettingsControls = new Panel();
             tbc = new TabControl();
             tbpGeneral = new TabPage();
-            btnFolderBrowserDialog = new Button();
-            txbLogFilesPath = new TextBox();
+            grbLogs = new GroupBox();
             lblLogFilesPath = new Label();
+            btnFolderBrowserDialog = new Button();
             chbAskToSaveLogBeforeClosing = new CheckBox();
+            txbLogFilesPath = new TextBox();
             grbNotification = new GroupBox();
             chbAlertOnPingCompletion = new CheckBox();
             chbAlertOnSuccess = new CheckBox();
@@ -48,6 +49,7 @@
             pnlSettingsControls.SuspendLayout();
             tbc.SuspendLayout();
             tbpGeneral.SuspendLayout();
+            grbLogs.SuspendLayout();
             grbNotification.SuspendLayout();
             pnlActions.SuspendLayout();
             SuspendLayout();
@@ -64,7 +66,7 @@
             // 
             // tbc
             // 
-            tbc.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            tbc.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             tbc.Controls.Add(tbpGeneral);
             tbc.Controls.Add(tabPage2);
             tbc.Location = new Point(0, 0);
@@ -76,10 +78,7 @@
             // tbpGeneral
             // 
             tbpGeneral.BackColor = Color.Transparent;
-            tbpGeneral.Controls.Add(btnFolderBrowserDialog);
-            tbpGeneral.Controls.Add(txbLogFilesPath);
-            tbpGeneral.Controls.Add(lblLogFilesPath);
-            tbpGeneral.Controls.Add(chbAskToSaveLogBeforeClosing);
+            tbpGeneral.Controls.Add(grbLogs);
             tbpGeneral.Controls.Add(grbNotification);
             tbpGeneral.Location = new Point(4, 29);
             tbpGeneral.Name = "tbpGeneral";
@@ -88,48 +87,64 @@
             tbpGeneral.TabIndex = 0;
             tbpGeneral.Text = "General";
             // 
+            // grbLogs
+            // 
+            grbLogs.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            grbLogs.Controls.Add(lblLogFilesPath);
+            grbLogs.Controls.Add(btnFolderBrowserDialog);
+            grbLogs.Controls.Add(chbAskToSaveLogBeforeClosing);
+            grbLogs.Controls.Add(txbLogFilesPath);
+            grbLogs.Location = new Point(8, 112);
+            grbLogs.Name = "grbLogs";
+            grbLogs.Size = new Size(434, 103);
+            grbLogs.TabIndex = 35;
+            grbLogs.TabStop = false;
+            grbLogs.Text = "Logs";
+            // 
+            // lblLogFilesPath
+            // 
+            lblLogFilesPath.AutoSize = true;
+            lblLogFilesPath.Location = new Point(7, 33);
+            lblLogFilesPath.Name = "lblLogFilesPath";
+            lblLogFilesPath.Size = new Size(102, 20);
+            lblLogFilesPath.TabIndex = 32;
+            lblLogFilesPath.Text = "Log files path:";
+            // 
             // btnFolderBrowserDialog
             // 
+            btnFolderBrowserDialog.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnFolderBrowserDialog.BackgroundImage = Properties.Resources.folder;
             btnFolderBrowserDialog.BackgroundImageLayout = ImageLayout.Zoom;
             btnFolderBrowserDialog.FlatAppearance.BorderSize = 0;
             btnFolderBrowserDialog.FlatAppearance.MouseDownBackColor = Color.Transparent;
             btnFolderBrowserDialog.FlatAppearance.MouseOverBackColor = Color.Transparent;
             btnFolderBrowserDialog.FlatStyle = FlatStyle.Flat;
-            btnFolderBrowserDialog.Location = new Point(398, 114);
+            btnFolderBrowserDialog.Location = new Point(388, 29);
             btnFolderBrowserDialog.Name = "btnFolderBrowserDialog";
             btnFolderBrowserDialog.Size = new Size(40, 29);
             btnFolderBrowserDialog.TabIndex = 34;
             btnFolderBrowserDialog.UseVisualStyleBackColor = true;
             btnFolderBrowserDialog.Click += btnFolderBrowserDialog_Click;
             // 
-            // txbLogFilesPath
-            // 
-            txbLogFilesPath.Location = new Point(123, 114);
-            txbLogFilesPath.Name = "txbLogFilesPath";
-            txbLogFilesPath.Size = new Size(270, 27);
-            txbLogFilesPath.TabIndex = 33;
-            // 
-            // lblLogFilesPath
-            // 
-            lblLogFilesPath.AutoSize = true;
-            lblLogFilesPath.Location = new Point(12, 118);
-            lblLogFilesPath.Name = "lblLogFilesPath";
-            lblLogFilesPath.Size = new Size(102, 20);
-            lblLogFilesPath.TabIndex = 32;
-            lblLogFilesPath.Text = "Log files path:";
-            // 
             // chbAskToSaveLogBeforeClosing
             // 
             chbAskToSaveLogBeforeClosing.AutoSize = true;
             chbAskToSaveLogBeforeClosing.Font = new Font("Calibri", 10.2F);
             chbAskToSaveLogBeforeClosing.ForeColor = SystemColors.ActiveCaptionText;
-            chbAskToSaveLogBeforeClosing.Location = new Point(15, 147);
+            chbAskToSaveLogBeforeClosing.Location = new Point(10, 62);
             chbAskToSaveLogBeforeClosing.Name = "chbAskToSaveLogBeforeClosing";
             chbAskToSaveLogBeforeClosing.Size = new Size(237, 25);
             chbAskToSaveLogBeforeClosing.TabIndex = 29;
             chbAskToSaveLogBeforeClosing.Text = "Ask to save log before closing";
             chbAskToSaveLogBeforeClosing.UseVisualStyleBackColor = true;
+            // 
+            // txbLogFilesPath
+            // 
+            txbLogFilesPath.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            txbLogFilesPath.Location = new Point(118, 29);
+            txbLogFilesPath.Name = "txbLogFilesPath";
+            txbLogFilesPath.Size = new Size(269, 27);
+            txbLogFilesPath.TabIndex = 33;
             // 
             // grbNotification
             // 
@@ -241,6 +256,7 @@
             ClientSize = new Size(458, 418);
             Controls.Add(pnlActions);
             Controls.Add(pnlSettingsControls);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "SettingsForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Settings";
@@ -248,7 +264,8 @@
             pnlSettingsControls.ResumeLayout(false);
             tbc.ResumeLayout(false);
             tbpGeneral.ResumeLayout(false);
-            tbpGeneral.PerformLayout();
+            grbLogs.ResumeLayout(false);
+            grbLogs.PerformLayout();
             grbNotification.ResumeLayout(false);
             grbNotification.PerformLayout();
             pnlActions.ResumeLayout(false);
@@ -274,5 +291,6 @@
         private Label lblLogFilesPath;
         private Button btnFolderBrowserDialog;
         private FolderBrowserDialog folderBrowserDialog1;
+        private GroupBox grbLogs;
     }
 }
