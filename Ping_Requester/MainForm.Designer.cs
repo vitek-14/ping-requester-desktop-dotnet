@@ -826,6 +826,7 @@
             MaximizeBox = false;
             Name = "MainForm";
             Text = "Ping Requester";
+            FormClosing += MainForm_FormClosing;
             Load += MainForm_Load;
             pnlTop.ResumeLayout(false);
             pnlTop.PerformLayout();

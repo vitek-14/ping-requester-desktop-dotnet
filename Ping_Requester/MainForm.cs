@@ -297,7 +297,14 @@ namespace PingRequester.Client
         {
             this.logFilesService.Write(rtbConsole.Text);
             console.LogInfo("Log saved.");
-            // TODO: notify user that log was saved
+        }
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (settings.AskToSaveLog && rtbConsole.Text.Trim() != "")
+            {
+                ;
+            }
         }
     }
 }
