@@ -124,6 +124,7 @@
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "MessageBoxSaveLog";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Warning";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();

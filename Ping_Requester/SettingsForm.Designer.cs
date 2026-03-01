@@ -250,9 +250,9 @@
             // 
             btnSave.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnSave.Font = new Font("Segoe UI", 9F);
-            btnSave.Location = new Point(201, 8);
+            btnSave.Location = new Point(220, 11);
             btnSave.Name = "btnSave";
-            btnSave.Size = new Size(103, 37);
+            btnSave.Size = new Size(103, 33);
             btnSave.TabIndex = 29;
             btnSave.Text = "Save";
             btnSave.UseVisualStyleBackColor = true;
@@ -262,9 +262,9 @@
             // 
             btnCancel.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnCancel.Font = new Font("Segoe UI", 9F);
-            btnCancel.Location = new Point(327, 8);
+            btnCancel.Location = new Point(345, 11);
             btnCancel.Name = "btnCancel";
-            btnCancel.Size = new Size(103, 37);
+            btnCancel.Size = new Size(103, 33);
             btnCancel.TabIndex = 30;
             btnCancel.Text = "Cancel";
             btnCancel.UseVisualStyleBackColor = true;

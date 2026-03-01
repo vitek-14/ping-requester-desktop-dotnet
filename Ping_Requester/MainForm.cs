@@ -301,6 +301,8 @@ namespace PingRequester.Client
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
+            this.settings = jsonServiceSettings.LoadFileContent();
+
             if (settings.AskToSaveLog && rtbConsole.Text.Trim() != "")
             {
                 var dialog = new MessageBoxSaveLog(e).ShowDialog();
