@@ -89,6 +89,7 @@
             btnSaveAndClose.TabIndex = 1;
             btnSaveAndClose.Text = "Save and close";
             btnSaveAndClose.UseVisualStyleBackColor = true;
+            btnSaveAndClose.Click += btnSaveAndClose_Click;
             // 
             // btnCancel
             // 
@@ -98,15 +99,17 @@
             btnCancel.TabIndex = 2;
             btnCancel.Text = "Cancel";
             btnCancel.UseVisualStyleBackColor = true;
+            btnCancel.Click += btnCancel_Click;
             // 
             // btnClose
             // 
-            btnClose.Location = new Point(236, 138);
+            btnClose.Location = new Point(233, 138);
             btnClose.Name = "btnClose";
             btnClose.Size = new Size(90, 34);
             btnClose.TabIndex = 3;
             btnClose.Text = "Close";
             btnClose.UseVisualStyleBackColor = true;
+            btnClose.Click += btnClose_Click;
             // 
             // MessageBoxSaveLog
             // 

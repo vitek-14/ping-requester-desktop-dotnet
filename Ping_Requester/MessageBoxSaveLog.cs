@@ -1,22 +1,31 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace PingRequester.Client
+﻿namespace PingRequester.Client
 {
     public partial class MessageBoxSaveLog : Form
     {
-        public MessageBoxSaveLog()
+        FormClosingEventArgs closingEvent;
+
+        public MessageBoxSaveLog(FormClosingEventArgs e)
         {
             InitializeComponent();
-
+            this.closingEvent = e;
             pcbWarningIcon.Image = SystemIcons.Warning.ToBitmap();
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            closingEvent.Cancel = true;
+            this.Close();
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnSaveAndClose_Click(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.OK;
+            this.Close();
         }
     }
 }

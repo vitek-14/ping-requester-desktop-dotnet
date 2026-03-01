@@ -303,7 +303,12 @@ namespace PingRequester.Client
         {
             if (settings.AskToSaveLog && rtbConsole.Text.Trim() != "")
             {
-                ;
+                var dialog = new MessageBoxSaveLog(e).ShowDialog();
+
+                if (dialog == DialogResult.OK)
+                {
+                    btnSaveLog_Click(this, EventArgs.Empty);
+                }
             }
         }
     }
