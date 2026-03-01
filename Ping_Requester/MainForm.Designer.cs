@@ -427,7 +427,6 @@
             txbPingTarget.Name = "txbPingTarget";
             txbPingTarget.Size = new Size(300, 27);
             txbPingTarget.TabIndex = 1;
-            txbPingTarget.TextChanged += txbPingTarget_TextChanged;
             // 
             // pnlData
             // 

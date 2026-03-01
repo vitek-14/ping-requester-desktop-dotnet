@@ -254,14 +254,6 @@ namespace PingRequester.Client
             new PreferencesForm(this).ShowDialog();
         }
 
-        private void txbPingTarget_TextChanged(object sender, EventArgs e)
-        {
-            if (txbPingTarget.Text == "")
-            {
-                ;
-            }
-        }
-
         private void tbc_SelectedIndexChanged(object sender, EventArgs e)
         {
             /* A workaround of the Console (richtextbox) artefact - bug.
