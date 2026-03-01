@@ -82,6 +82,7 @@ namespace PingRequester.Client
             lblMaximumActive.Text = "- ms";
             lblMinimumActive.Text = "- ms";
             lblAverageActive.Text = "- ms";
+            lblInfo.Text = "Info:";
         }
 
         /// <summary>
@@ -193,7 +194,6 @@ namespace PingRequester.Client
                 StopWhenSuccess = chbStopWhenSuccess.Checked,
                 StopSignal = false,
                 Settings = settings
-
             };
 
             // log warning if infinite loop is turned on
@@ -305,6 +305,7 @@ namespace PingRequester.Client
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
+            // reload current settings
             this.settings = jsonServiceSettings.LoadFileContent();
 
             if (settings.AskToSaveLog && rtbConsole.Text.Trim() != "")
