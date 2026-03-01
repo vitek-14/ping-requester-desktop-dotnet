@@ -165,17 +165,21 @@ namespace PingRequester.Client
 
         private async void btnSendRequest_Click(object sender, EventArgs e)
         {
+            // get/reload new settings
+            this.settings = jsonServiceSettings.LoadFileContent();
+
             // reset initial label text values
             SetInitialLabelText();
 
             // lock controls
             SetLockOnControls();
 
+            // clear console if enabled
+            if (settings.ClearConsole)
+                rtbConsole.Text = "";
+
             // create requester
             console.LogInfo("Creating Requester.");
-
-            // apply settings
-            settings = jsonServiceSettings.LoadFileContent();
 
             requester = new Requester(this)
             {

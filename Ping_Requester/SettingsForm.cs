@@ -24,6 +24,7 @@ namespace PingRequester.Client
             chbAskToSaveLogBeforeClosing.Checked = settings.AskToSaveLog;
             txbLogFilesPath.Text = settings.PathToLogFiles;
             txbDateTimeTemplate.Text = settings.TimeStampTemplate;
+            chbClearConsole.Checked = settings.ClearConsole;
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -63,7 +64,8 @@ namespace PingRequester.Client
                 AlertOnPingCompletion = chbAlertOnPingCompletion.Checked,
                 AskToSaveLog = chbAskToSaveLogBeforeClosing.Checked,
                 PathToLogFiles = txbLogFilesPath.Text,
-                TimeStampTemplate = txbDateTimeTemplate.Text
+                TimeStampTemplate = txbDateTimeTemplate.Text,
+                ClearConsole = chbClearConsole.Checked
             };
 
             // save to json

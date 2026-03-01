@@ -4,5 +4,6 @@
   "show notification": true,
   "make sound": true,
   "alert on ping completion": true,
-  "ask to save log": true
+  "ask to save log": true,
+  "clear console before pr" : false
 }

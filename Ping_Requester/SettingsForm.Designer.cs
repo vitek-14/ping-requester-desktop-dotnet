@@ -43,6 +43,7 @@
             chbAlertOnSuccess = new CheckBox();
             chbMakeSound = new CheckBox();
             tabPage2 = new TabPage();
+            chbClearConsole = new CheckBox();
             lblLineSeparator = new Label();
             pnlActions = new Panel();
             btnSave = new Button();
@@ -53,6 +54,7 @@
             tbpGeneral.SuspendLayout();
             grbLogs.SuspendLayout();
             grbNotification.SuspendLayout();
+            tabPage2.SuspendLayout();
             pnlActions.SuspendLayout();
             SuspendLayout();
             // 
@@ -220,12 +222,23 @@
             // tabPage2
             // 
             tabPage2.BackColor = Color.Transparent;
+            tabPage2.Controls.Add(chbClearConsole);
             tabPage2.Location = new Point(4, 29);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(3);
             tabPage2.Size = new Size(450, 302);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Console";
+            // 
+            // chbClearConsole
+            // 
+            chbClearConsole.AutoSize = true;
+            chbClearConsole.Location = new Point(8, 11);
+            chbClearConsole.Name = "chbClearConsole";
+            chbClearConsole.Size = new Size(380, 24);
+            chbClearConsole.TabIndex = 0;
+            chbClearConsole.Text = "Clear console when ping request session is initialized\r\n";
+            chbClearConsole.UseVisualStyleBackColor = true;
             // 
             // lblLineSeparator
             // 
@@ -289,6 +302,8 @@
             grbLogs.PerformLayout();
             grbNotification.ResumeLayout(false);
             grbNotification.PerformLayout();
+            tabPage2.ResumeLayout(false);
+            tabPage2.PerformLayout();
             pnlActions.ResumeLayout(false);
             ResumeLayout(false);
         }
@@ -315,5 +330,6 @@
         private GroupBox grbLogs;
         private Label lblTemplate;
         private TextBox txbDateTimeTemplate;
+        private CheckBox chbClearConsole;
     }
 }

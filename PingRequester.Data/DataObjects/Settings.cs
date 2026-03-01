@@ -19,6 +19,7 @@ namespace PingRequester.Data.DataObjects
         private string pathToLogFiles;
         private bool askToSaveLog;
         private string timeStampTemplate;
+        private bool clearConsole;
 
         /// <summary>
         /// Default constructor of the class.
@@ -67,6 +68,13 @@ namespace PingRequester.Data.DataObjects
         {
             get => timeStampTemplate;
             set => SetProperty(ref timeStampTemplate, value);
+        }
+
+        [JsonPropertyName("clear console before pr")]
+        public bool ClearConsole
+        {
+            get => clearConsole;
+            set => SetProperty(ref clearConsole, value);
         }
     }
 }
