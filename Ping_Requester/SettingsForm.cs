@@ -23,6 +23,7 @@ namespace PingRequester.Client
             chbAlertOnPingCompletion.Checked = settings.AlertOnPingCompletion;
             chbAskToSaveLogBeforeClosing.Checked = settings.AskToSaveLog;
             txbLogFilesPath.Text = settings.PathToLogFiles;
+            txbDateTimeTemplate.Text = settings.TimeStampTemplate;
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -43,6 +44,17 @@ namespace PingRequester.Client
                 return;
             }
 
+            // verify txb Template is not empty
+            if (txbDateTimeTemplate.Text.Trim() == "")
+            {
+                MessageBox.Show("DateTime template cannot be empty",
+                    "Warning",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+                return;
+            }
+
             // creates Settigns instance to be written into the json
             Settings settings = new Settings
             {
@@ -51,7 +63,7 @@ namespace PingRequester.Client
                 AlertOnPingCompletion = chbAlertOnPingCompletion.Checked,
                 AskToSaveLog = chbAskToSaveLogBeforeClosing.Checked,
                 PathToLogFiles = txbLogFilesPath.Text,
-                TimeStampTemplate = "dd-MM-yyyy-HH-mm"      // temp solution
+                TimeStampTemplate = txbDateTimeTemplate.Text
             };
 
             // save to json

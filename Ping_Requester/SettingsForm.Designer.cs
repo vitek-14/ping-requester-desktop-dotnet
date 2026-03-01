@@ -32,6 +32,8 @@
             tbc = new TabControl();
             tbpGeneral = new TabPage();
             grbLogs = new GroupBox();
+            txbDateTimeTemplate = new TextBox();
+            lblTemplate = new Label();
             lblLogFilesPath = new Label();
             btnFolderBrowserDialog = new Button();
             chbAskToSaveLogBeforeClosing = new CheckBox();
@@ -90,16 +92,35 @@
             // grbLogs
             // 
             grbLogs.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            grbLogs.Controls.Add(txbDateTimeTemplate);
+            grbLogs.Controls.Add(lblTemplate);
             grbLogs.Controls.Add(lblLogFilesPath);
             grbLogs.Controls.Add(btnFolderBrowserDialog);
             grbLogs.Controls.Add(chbAskToSaveLogBeforeClosing);
             grbLogs.Controls.Add(txbLogFilesPath);
             grbLogs.Location = new Point(8, 112);
             grbLogs.Name = "grbLogs";
-            grbLogs.Size = new Size(434, 103);
+            grbLogs.Size = new Size(434, 142);
             grbLogs.TabIndex = 35;
             grbLogs.TabStop = false;
             grbLogs.Text = "Logs";
+            // 
+            // txbDateTimeTemplate
+            // 
+            txbDateTimeTemplate.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            txbDateTimeTemplate.Location = new Point(154, 67);
+            txbDateTimeTemplate.Name = "txbDateTimeTemplate";
+            txbDateTimeTemplate.Size = new Size(233, 27);
+            txbDateTimeTemplate.TabIndex = 36;
+            // 
+            // lblTemplate
+            // 
+            lblTemplate.AutoSize = true;
+            lblTemplate.Location = new Point(7, 70);
+            lblTemplate.Name = "lblTemplate";
+            lblTemplate.Size = new Size(141, 20);
+            lblTemplate.TabIndex = 35;
+            lblTemplate.Text = "DateTime template:";
             // 
             // lblLogFilesPath
             // 
@@ -131,7 +152,7 @@
             chbAskToSaveLogBeforeClosing.AutoSize = true;
             chbAskToSaveLogBeforeClosing.Font = new Font("Calibri", 10.2F);
             chbAskToSaveLogBeforeClosing.ForeColor = SystemColors.ActiveCaptionText;
-            chbAskToSaveLogBeforeClosing.Location = new Point(10, 62);
+            chbAskToSaveLogBeforeClosing.Location = new Point(10, 102);
             chbAskToSaveLogBeforeClosing.Name = "chbAskToSaveLogBeforeClosing";
             chbAskToSaveLogBeforeClosing.Size = new Size(237, 25);
             chbAskToSaveLogBeforeClosing.TabIndex = 29;
@@ -292,5 +313,7 @@
         private Button btnFolderBrowserDialog;
         private FolderBrowserDialog folderBrowserDialog1;
         private GroupBox grbLogs;
+        private Label lblTemplate;
+        private TextBox txbDateTimeTemplate;
     }
 }
