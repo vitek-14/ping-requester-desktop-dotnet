@@ -53,9 +53,10 @@
             // 
             // pcbWarningIcon
             // 
-            pcbWarningIcon.Location = new Point(12, 35);
+            pcbWarningIcon.Location = new Point(24, 35);
             pcbWarningIcon.Name = "pcbWarningIcon";
             pcbWarningIcon.Size = new Size(63, 62);
+            pcbWarningIcon.SizeMode = PictureBoxSizeMode.CenterImage;
             pcbWarningIcon.TabIndex = 2;
             pcbWarningIcon.TabStop = false;
             // 
@@ -64,7 +65,7 @@
             lblSecondaryMessage.AutoSize = true;
             lblSecondaryMessage.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 238);
             lblSecondaryMessage.ForeColor = Color.DimGray;
-            lblSecondaryMessage.Location = new Point(79, 67);
+            lblSecondaryMessage.Location = new Point(93, 67);
             lblSecondaryMessage.Name = "lblSecondaryMessage";
             lblSecondaryMessage.Size = new Size(309, 20);
             lblSecondaryMessage.TabIndex = 1;
@@ -74,7 +75,7 @@
             // 
             lblMessage.AutoSize = true;
             lblMessage.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 238);
-            lblMessage.Location = new Point(79, 44);
+            lblMessage.Location = new Point(93, 44);
             lblMessage.Name = "lblMessage";
             lblMessage.Size = new Size(220, 23);
             lblMessage.TabIndex = 0;
@@ -82,9 +83,9 @@
             // 
             // btnSaveAndClose
             // 
-            btnSaveAndClose.Location = new Point(96, 138);
+            btnSaveAndClose.Location = new Point(86, 138);
             btnSaveAndClose.Name = "btnSaveAndClose";
-            btnSaveAndClose.Size = new Size(134, 34);
+            btnSaveAndClose.Size = new Size(141, 34);
             btnSaveAndClose.TabIndex = 1;
             btnSaveAndClose.Text = "Save and close";
             btnSaveAndClose.UseVisualStyleBackColor = true;
