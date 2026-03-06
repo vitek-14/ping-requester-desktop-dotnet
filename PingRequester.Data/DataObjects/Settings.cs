@@ -20,6 +20,7 @@ namespace PingRequester.Data.DataObjects
         private bool askToSaveLog;
         private string timeStampTemplate;
         private bool clearConsole;
+        private string consoleColorTheme;
 
         /// <summary>
         /// Default constructor of the class.
@@ -28,53 +29,60 @@ namespace PingRequester.Data.DataObjects
         {
         }
 
-        [JsonPropertyName("show notification")]
+        [JsonPropertyName("show_notification")]
         public bool AlertOnSuccess
         {
             get => alertOnSuccess;
             set => SetProperty(ref alertOnSuccess, value);
         }
 
-        [JsonPropertyName("make sound")]
+        [JsonPropertyName("make_sound")]
         public bool MakeSound
         {
             get => makeSound;
             set => SetProperty(ref makeSound, value);
         }
 
-        [JsonPropertyName("alert on ping completion")]
+        [JsonPropertyName("alert_on_ping_completion")]
         public bool AlertOnPingCompletion
         {
             get => alertOnPingCompletion;
             set => SetProperty(ref alertOnPingCompletion, value);
         }
 
-        [JsonPropertyName("log files path")]
+        [JsonPropertyName("log_files_path")]
         public string PathToLogFiles
         {
             get => pathToLogFiles;
             set => SetProperty(ref pathToLogFiles, value);
         }
 
-        [JsonPropertyName("ask to save log")]
+        [JsonPropertyName("ask_to_save_log")]
         public bool AskToSaveLog
         {
             get => askToSaveLog;
             set => SetProperty(ref askToSaveLog, value);
         }
 
-        [JsonPropertyName("time stamp template")]
+        [JsonPropertyName("time_stamp_template")]
         public string TimeStampTemplate
         {
             get => timeStampTemplate;
             set => SetProperty(ref timeStampTemplate, value);
         }
 
-        [JsonPropertyName("clear console before pr")]
+        [JsonPropertyName("clear_console_before_pr")]
         public bool ClearConsole
         {
             get => clearConsole;
             set => SetProperty(ref clearConsole, value);
+        }
+
+        [JsonPropertyName("console_color_theme")]
+        public string ConsoleColorTheme
+        {
+            get => consoleColorTheme;
+            set => SetProperty(ref consoleColorTheme, value);
         }
     }
 }

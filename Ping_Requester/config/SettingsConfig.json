@@ -1,9 +1,10 @@
 {
-  "log files path": "logs\\",
-  "time stamp template": "dd-MM-yyyy-HH-mm",
-  "show notification": true,
-  "make sound": true,
-  "alert on ping completion": true,
-  "ask to save log": true,
-  "clear console before pr" : false
+  "log_files_path": "C:\\temp",
+  "time_stamp_template": "dd-MM-yyyy-HH-mm",
+  "show_notification": true,
+  "make_sound": true,
+  "alert_on_ping_completion": true,
+  "ask_to_save_log": true,
+  "clear_console_before_pr": false,
+  "console_color_theme": "Dark"
 }

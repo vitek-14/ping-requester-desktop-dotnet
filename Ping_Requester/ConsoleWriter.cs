@@ -11,22 +11,29 @@ namespace PingRequester.Client
     /// <summary>
     /// ConsoleWriter class handles console output and styling.
     /// </summary>
-    public class ConsoleWriter : IConsoleService
+    internal class ConsoleWriter : IConsoleService
     {
         private RichTextBox console;
         private Label lblInfo;
+        private Color? infoTextColor;
 
-        public Color InfoTextColor { get => Color.White; }
-        public Color WarningTextColor { get => Color.Orange; }
-        public Color MessageTextColor { get => Color.FromArgb(78, 215, 241); }
-        public Color ErrorTextColor { get => Color.Red; }
+        internal readonly Color defaultInfoTextColor = Color.Gray;
+
+        internal Color InfoTextColor 
+        { 
+            get => infoTextColor ?? defaultInfoTextColor; 
+            set => infoTextColor = value; 
+        }
+        internal Color WarningTextColor { get => Color.Orange; }
+        internal Color MessageTextColor { get => Color.FromArgb(78, 215, 241); }
+        internal Color ErrorTextColor { get => Color.Red; }
 
         /// <summary>
         /// Default constructor of the ConsoleWriter class.
         /// </summary>
         /// <param name="console"></param>
         /// <param name="info"></param>
-        public ConsoleWriter(RichTextBox console, Label info)
+        internal ConsoleWriter(RichTextBox console, Label info)
         {
             this.console = console;
             this.lblInfo = info;
@@ -95,6 +102,26 @@ namespace PingRequester.Client
             this.console.AppendText("[MESSAGE]: ");
             this.console.SelectionColor = InfoTextColor;
             Log(message, logInfoLabel);
+        }
+
+        
+        public void SetColorTheme(string colorTheme)
+        {
+            if (colorTheme == "Light")
+            {
+                this.InfoTextColor = Color.Black;
+                console.BackColor = Color.White;
+                return;
+            }
+            if (colorTheme == "Dark")
+            {
+                this.InfoTextColor = Color.White;
+                console.BackColor = Color.Black;
+                return;
+            }
+
+            // in case unsupported theme is passed
+            this.infoTextColor = null;
         }
     }
 }

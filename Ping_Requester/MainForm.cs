@@ -27,8 +27,7 @@ namespace PingRequester.Client
         {
             InitializeComponent();
             this.controlsLocked = false;
-            // Prepare console writer 
-            this.console = new ConsoleWriter(rtbConsole, lblInfo);
+            
             // create queue of main controls
             this.mainControls = new Stack<Control>();
             this.mainControls.Push(lblPingTarget);
@@ -56,6 +55,10 @@ namespace PingRequester.Client
 
             // Create services for logging data
             this.logFilesService = new LogFilesService(settings.PathToLogFiles, settings.TimeStampTemplate);
+
+            // Prepare console writer
+            this.console = new ConsoleWriter(rtbConsole, lblInfo);
+            this.console.SetColorTheme(this.settings.ConsoleColorTheme);
         }
 
         /// <summary>
@@ -264,7 +267,7 @@ namespace PingRequester.Client
 
         private void tbc_SelectedIndexChanged(object sender, EventArgs e)
         {
-            /* A workaround of the Console (richtextbox) artefact - bug.
+            /* A workaround for the Console (richtextbox) artefact - bug.
              * This code solves the bug when UI from Request Run tab is being displayed in the Console tab.
              * Code bellow scrolls to the top and down again in order to get rid of the wrong pixels.
              * Artefact was appearing only when large number of ping requests was set.
@@ -305,7 +308,7 @@ namespace PingRequester.Client
         {
             this.logSaved = true;
             this.logFilesService.Write(rtbConsole.Text);
-            console.LogInfo("Log saved.");
+            console.LogInfo("Log saved.", true);
         }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
