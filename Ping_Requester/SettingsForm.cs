@@ -52,7 +52,19 @@ namespace PingRequester.Client
             // verify txb Template is not empty
             if (txbDateTimeTemplate.Text.Trim() == "")
             {
-                MessageBox.Show("DateTime template cannot be empty",
+                MessageBox.Show("DateTime template cannot be empty.",
+                    "Warning",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+                return;
+            }
+
+            // verify correct date template is used
+            if (!txbDateTimeTemplate.Text.TryParseToDateTime())
+            {
+                MessageBox.Show(
+                    "DateTime template is not recognized.",
                     "Warning",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning

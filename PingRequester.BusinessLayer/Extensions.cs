@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace PingRequester.BusinessLayer
@@ -42,6 +43,34 @@ namespace PingRequester.BusinessLayer
             }
 
             throw new Exception("Could not parse timeStamp string format to the DateTime format. Possible issue: Unknown template");
+        }
+
+        /// <summary>
+        /// Checks if template used for parsing string to the DateTime type is valid or not.
+        /// </summary>
+        /// <param name="template"></param>
+        public static bool TryParseToDateTime(this string template)
+        {
+            string allowedPattern = @"^[yMdHmsfFzKtghHk.:\-_ /\\,\[\]]+$";
+            string functionalPattern = @"[yMdHmsfFzK]";
+
+            // check if template does not contain any unsupported characters
+            if (!Regex.IsMatch(template, allowedPattern))
+                return false;
+            // check if template contains at least one of the functinoal characters
+            if (!Regex.IsMatch(template, functionalPattern))
+                return false;
+
+            try
+            {
+                var x = DateTime.Now.ToString(template);
+            }
+            catch (FormatException)
+            {
+                return false;
+            }
+
+            return true;
         }
     }
 }
