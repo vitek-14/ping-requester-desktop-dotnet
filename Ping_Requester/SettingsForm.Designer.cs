@@ -43,6 +43,8 @@
             chbAlertOnSuccess = new CheckBox();
             chbMakeSound = new CheckBox();
             tabPage2 = new TabPage();
+            cmbColorTheme = new ComboBox();
+            lblColorTheme = new Label();
             chbClearConsole = new CheckBox();
             lblLineSeparator = new Label();
             pnlActions = new Panel();
@@ -222,6 +224,8 @@
             // tabPage2
             // 
             tabPage2.BackColor = Color.Transparent;
+            tabPage2.Controls.Add(cmbColorTheme);
+            tabPage2.Controls.Add(lblColorTheme);
             tabPage2.Controls.Add(chbClearConsole);
             tabPage2.Location = new Point(4, 29);
             tabPage2.Name = "tabPage2";
@@ -229,6 +233,24 @@
             tabPage2.Size = new Size(450, 302);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Console";
+            // 
+            // cmbColorTheme
+            // 
+            cmbColorTheme.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbColorTheme.FormattingEnabled = true;
+            cmbColorTheme.Location = new Point(8, 72);
+            cmbColorTheme.Name = "cmbColorTheme";
+            cmbColorTheme.Size = new Size(153, 28);
+            cmbColorTheme.TabIndex = 2;
+            // 
+            // lblColorTheme
+            // 
+            lblColorTheme.AutoSize = true;
+            lblColorTheme.Location = new Point(8, 49);
+            lblColorTheme.Name = "lblColorTheme";
+            lblColorTheme.Size = new Size(91, 20);
+            lblColorTheme.TabIndex = 1;
+            lblColorTheme.Text = "Color theme";
             // 
             // chbClearConsole
             // 
@@ -331,5 +353,7 @@
         private Label lblTemplate;
         private TextBox txbDateTimeTemplate;
         private CheckBox chbClearConsole;
+        private Label lblColorTheme;
+        private ComboBox cmbColorTheme;
     }
 }

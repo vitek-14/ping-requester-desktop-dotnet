@@ -16,6 +16,9 @@ namespace PingRequester.Client
 
         private void Settings_Load(object sender, EventArgs e)
         {
+            cmbColorTheme.Items.Add("Light");
+            cmbColorTheme.Items.Add("Dark");
+
             Settings settings = jsonService.LoadFileContent();
 
             chbAlertOnSuccess.Checked = settings.AlertOnSuccess;
@@ -25,6 +28,7 @@ namespace PingRequester.Client
             txbLogFilesPath.Text = settings.PathToLogFiles;
             txbDateTimeTemplate.Text = settings.TimeStampTemplate;
             chbClearConsole.Checked = settings.ClearConsole;
+            cmbColorTheme.Text = settings.ConsoleColorTheme;
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -56,8 +60,10 @@ namespace PingRequester.Client
                 return;
             }
 
+            Settings oldSettings = jsonService.LoadFileContent();
+
             // creates Settigns instance to be written into the json
-            Settings settings = new Settings
+            Settings newSettings = new Settings
             {
                 AlertOnSuccess = chbAlertOnSuccess.Checked,
                 MakeSound = chbMakeSound.Checked,
@@ -65,11 +71,23 @@ namespace PingRequester.Client
                 AskToSaveLog = chbAskToSaveLogBeforeClosing.Checked,
                 PathToLogFiles = txbLogFilesPath.Text,
                 TimeStampTemplate = txbDateTimeTemplate.Text,
-                ClearConsole = chbClearConsole.Checked
+                ClearConsole = chbClearConsole.Checked,
+                ConsoleColorTheme = cmbColorTheme.Text
             };
 
             // save to json
-            jsonService.WriteFileContent(settings);
+            jsonService.WriteFileContent(newSettings);
+
+            if (oldSettings.ConsoleColorTheme != newSettings.ConsoleColorTheme)
+            {
+                var dialog = new MessageBoxChangesAfterRestart().ShowDialog();
+
+                if (dialog == DialogResult.Yes)
+                {
+                    Application.Restart();
+                }
+            }
+
             this.Close();
         }
 
