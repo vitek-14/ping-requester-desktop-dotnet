@@ -96,7 +96,7 @@ namespace PingRequester.Client
 
                 if (dialog == DialogResult.Yes)
                 {
-                    Application.Restart();
+                    this.DialogResult = DialogResult.Yes;
                 }
             }
 

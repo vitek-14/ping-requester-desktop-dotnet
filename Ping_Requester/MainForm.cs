@@ -284,7 +284,16 @@ namespace PingRequester.Client
 
         private void settingsToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            new SettingsForm().ShowDialog();
+            var dialogRestartNeeded = new SettingsForm().ShowDialog();
+
+            if (dialogRestartNeeded == DialogResult.Yes)
+            {
+                // forced restart:
+                // Application.Restart() cannot be called due to possibility of unexpected error 
+                // in case there is unsaved log in the console.
+                System.Diagnostics.Process.Start(Application.ExecutablePath);
+                Environment.Exit(0);
+            }
         }
 
         private void btnCopyPinging_Click(object sender, EventArgs e)
