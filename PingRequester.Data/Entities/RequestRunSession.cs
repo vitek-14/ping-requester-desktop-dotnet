@@ -9,6 +9,18 @@ namespace PingRequester.Data.Entities
 {
     public class RequestRunSession : Entity
     {
-        // TODO: complete props
+        public DateTime ExecutionDate { get; set; }
+        public string PingTarget { get; set; }
+        public string Ipv4 { get; set; }
+        public int PacketSize { get; set; }
+        public int Sent { get; set; }
+        public int Received { get; set; }
+        public int Lost { get; set; }
+        public int MaxResponseTimeMs { get; set; }
+        public int MinResponseTimeMs { get; set; }
+        public float AverageResponseTimeMs { get; set; }
+
+        public int UserPreferencesId { get; set; }
+        public UserPreferences UserPreferences { get; set; }
     }
 }
