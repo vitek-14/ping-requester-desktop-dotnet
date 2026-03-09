@@ -9,7 +9,8 @@ namespace PingRequester.Data.Entities
 {
     public class RequestRunSession : Entity
     {
-        public DateTime ExecutionDate { get; set; }
+        public DateTime Start { get; set; }
+        public DateTime End { get; set; }
         public string PingTarget { get; set; }
         public string Ipv4 { get; set; }
         public int PacketSize { get; set; }
