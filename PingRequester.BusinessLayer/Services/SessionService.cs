@@ -4,7 +4,7 @@ using PingRequester.Data.Entities;
 
 namespace PingRequester.BusinessLayer.Services
 {
-    public class SessionService : IEntityService
+    public class SessionService : IEntityService<RequestRunSession>
     {
         private readonly MyDbContext _context;
 
@@ -13,17 +13,17 @@ namespace PingRequester.BusinessLayer.Services
             _context = context;
         }
 
-        public Entity? GetById(int id)
+        public RequestRunSession? GetById(int id)
         {
             return _context.Sessions.FirstOrDefault(s => s.Id == id);
         }
 
-        public IEnumerable<Entity> GetAll()
+        public IEnumerable<RequestRunSession> GetAll()
         {
             return _context.Sessions.ToList();
         }
 
-        public bool Add(Entity entity)
+        public bool Add(RequestRunSession entity)
         {
             if (entity == null)
             {
@@ -32,7 +32,7 @@ namespace PingRequester.BusinessLayer.Services
 
             try
             {
-                _context.Sessions.Add((RequestRunSession)entity);
+                _context.Sessions.Add(entity);
                 _context.SaveChanges();
             }
             catch (Exception ex)
@@ -44,7 +44,7 @@ namespace PingRequester.BusinessLayer.Services
             return true;
         }
 
-        public bool Update(Entity entity)
+        public bool Update(RequestRunSession entity)
         {
             if (entity == null)
             {
@@ -53,7 +53,7 @@ namespace PingRequester.BusinessLayer.Services
 
             try
             {
-                _context.Sessions.Update((RequestRunSession)entity);
+                _context.Sessions.Update(entity);
                 _context.SaveChanges();
             }
             catch (Exception ex)
@@ -65,7 +65,7 @@ namespace PingRequester.BusinessLayer.Services
             return true;
         }
 
-        public bool Delete(Entity entity)
+        public bool Delete(RequestRunSession entity)
         {
             if (entity == null)
             {
@@ -74,7 +74,7 @@ namespace PingRequester.BusinessLayer.Services
 
             try
             {
-                _context.Sessions.Remove((RequestRunSession)entity);
+                _context.Sessions.Remove(entity);
                 _context.SaveChanges();
             }
             catch (Exception ex)

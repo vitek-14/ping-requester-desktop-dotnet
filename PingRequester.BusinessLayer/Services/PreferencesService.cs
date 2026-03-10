@@ -4,7 +4,7 @@ using PingRequester.Data.Entities;
 
 namespace PingRequester.BusinessLayer.Services
 {
-    public class PreferencesService : IEntityService
+    public class PreferencesService : IEntityService<UserPreferences>
     {
         private readonly MyDbContext _context;
 
@@ -13,16 +13,16 @@ namespace PingRequester.BusinessLayer.Services
             _context = context;
         }
 
-        public Entity? GetById(int id)
+        public UserPreferences? GetById(int id)
         {
             return _context.Preferences.FirstOrDefault(p => p.Id == id);
         }
-        public IEnumerable<Entity> GetAll()
+        public IEnumerable<UserPreferences> GetAll()
         {
             return _context.Preferences.ToList();
         }
 
-        public bool Add(Entity entity)
+        public bool Add(UserPreferences entity)
         {
             if (entity == null)
             {
@@ -31,7 +31,7 @@ namespace PingRequester.BusinessLayer.Services
 
             try
             {
-                _context.Preferences.Add((UserPreferences)entity);
+                _context.Preferences.Add(entity);
                 _context.SaveChanges();
             }
             catch (Exception ex)
@@ -43,7 +43,7 @@ namespace PingRequester.BusinessLayer.Services
             return true;
         }
 
-        public bool Update(Entity entity)
+        public bool Update(UserPreferences entity)
         {
             if (entity == null)
             {
@@ -52,7 +52,7 @@ namespace PingRequester.BusinessLayer.Services
 
             try
             {
-                _context.Preferences.Update((UserPreferences)entity);
+                _context.Preferences.Update(entity);
                 _context.SaveChanges();
             }
             catch (Exception ex)
@@ -64,7 +64,7 @@ namespace PingRequester.BusinessLayer.Services
             return true;
         }
 
-        public bool Delete(Entity entity)
+        public bool Delete(UserPreferences entity)
         {
             if (entity == null)
             {
@@ -73,7 +73,7 @@ namespace PingRequester.BusinessLayer.Services
 
             try
             {
-                _context.Preferences.Update((UserPreferences)entity);
+                _context.Preferences.Update(entity);
                 _context.SaveChanges();
             }
             catch (Exception ex)

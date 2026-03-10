@@ -8,12 +8,12 @@ using System.Threading.Tasks;
 
 namespace PingRequester.BusinessLayer.Services
 {
-    internal interface IEntityService
+    internal interface IEntityService<TEntity> where TEntity : Entity
     {
-        public Entity? GetById(int id);
-        public IEnumerable<Entity> GetAll();
-        public bool Add(Entity entity);
-        public bool Update(Entity entity);
-        public bool Delete(Entity entity);
+        public TEntity? GetById(int id);
+        public IEnumerable<TEntity> GetAll();
+        public bool Add(TEntity entity);
+        public bool Update(TEntity entity);
+        public bool Delete(TEntity entity);
     }
 }
