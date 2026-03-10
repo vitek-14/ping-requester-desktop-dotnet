@@ -1,10 +1,6 @@
 ﻿using PingRequester.Data;
 using PingRequester.Data.Base;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using PingRequester.Data.Entities;
 
 namespace PingRequester.BusinessLayer
 {
@@ -39,6 +35,11 @@ namespace PingRequester.BusinessLayer
         public bool Delete(Entity entity)
         {
             throw new NotImplementedException();
+        }
+
+        public IEnumerable<RequestRunSession> GetAllSessions(UserPreferences userPreference)
+        {
+            return _context.Sessions.Where(s => s.UserPreferencesId == userPreference.Id).ToList();
         }
     }
 }

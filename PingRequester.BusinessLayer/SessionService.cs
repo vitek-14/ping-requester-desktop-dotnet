@@ -75,5 +75,10 @@ namespace PingRequester.BusinessLayer
                 return false;
             }
         }
+
+        public UserPreferences GetPreferences(RequestRunSession session)
+        {
+            return _context.Sessions.FirstOrDefault(s => s.Id == session.Id).UserPreferences;
+        }
     }
 }
