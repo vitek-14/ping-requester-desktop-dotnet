@@ -17,6 +17,7 @@ namespace PingRequester.BusinessLayer
         {
             return _context.Sessions.FirstOrDefault(s => s.Id == id);
         }
+
         public IEnumerable<Entity> GetAll()
         {
             return _context.Sessions.ToList();
@@ -41,6 +42,7 @@ namespace PingRequester.BusinessLayer
                 return false;
             }
         }
+
         public bool Update(Entity entity)
         {
             if (entity == null)
