@@ -33,13 +33,14 @@ namespace PingRequester.BusinessLayer
             {
                 _context.Preferences.Add((UserPreferences)entity);
                 _context.SaveChanges();
-                return true;
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Error occured while adding entity to the database. Error type: {ex}; message: {ex.Message}");
                 return false;
             }
+
+            return true;
         }
 
         public bool Update(Entity entity)
@@ -49,8 +50,16 @@ namespace PingRequester.BusinessLayer
                 return false;
             }
 
-            _context.Preferences.Update((UserPreferences)entity);
-            _context.SaveChanges();
+            try
+            {
+                _context.Preferences.Update((UserPreferences)entity);
+                _context.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error occured while saving entity to the database. Error type: {ex}; message: {ex.Message}");
+                return false;
+            }
 
             return true;
         }
@@ -64,15 +73,16 @@ namespace PingRequester.BusinessLayer
 
             try
             {
-                _context.Preferences.Remove((UserPreferences)entity);
+                _context.Preferences.Update((UserPreferences)entity);
                 _context.SaveChanges();
-                return true;
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error occured while deleting entity from the database. Error type: {ex}; message: {ex.Message}");
+                Console.WriteLine($"Error occured while saving entity to the database. Error type: {ex}; message: {ex.Message}");
                 return false;
             }
+
+            return true;
         }
 
         public IEnumerable<RequestRunSession> GetAllSessions(UserPreferences userPreference)
