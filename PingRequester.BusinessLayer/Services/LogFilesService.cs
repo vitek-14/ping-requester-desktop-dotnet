@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using PingRequester.Data.DataObjects;
 
-namespace PingRequester.BusinessLayer
+namespace PingRequester.BusinessLayer.Services
 {
     /// <summary>
     /// LogFileService class handles logging console output to the log files.

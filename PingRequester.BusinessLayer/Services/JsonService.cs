@@ -1,7 +1,7 @@
 ﻿using PingRequester.Data.Base;
 using System.Text.Json;
 
-namespace PingRequester.BusinessLayer
+namespace PingRequester.BusinessLayer.Services
 {
     /// <summary>
     /// Json service logic instance.

@@ -1,5 +1,5 @@
 ﻿using Xunit;
-using PingRequester.BusinessLayer;
+using PingRequester.BusinessLayer.Services;
 
 using PingRequester.Data.DataObjects;
 

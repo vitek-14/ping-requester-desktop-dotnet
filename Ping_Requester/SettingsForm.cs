@@ -1,5 +1,6 @@
 ﻿using Microsoft.WindowsAPICodePack.Dialogs;
 using PingRequester.BusinessLayer;
+using PingRequester.BusinessLayer.Services;
 using PingRequester.Data.DataObjects;
 
 namespace PingRequester.Client

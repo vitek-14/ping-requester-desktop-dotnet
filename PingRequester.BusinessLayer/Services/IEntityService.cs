@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PingRequester.BusinessLayer
+namespace PingRequester.BusinessLayer.Services
 {
     internal interface IEntityService
     {

@@ -6,7 +6,7 @@ using System.Net.Sockets;
 using PingRequester.Data;
 using System.Text.RegularExpressions;
 
-namespace PingRequester.BusinessLayer
+namespace PingRequester.BusinessLayer.Services
 {
     /// <summary>
     /// RequestService class.

@@ -2,25 +2,24 @@
 using PingRequester.Data.Base;
 using PingRequester.Data.Entities;
 
-namespace PingRequester.BusinessLayer
+namespace PingRequester.BusinessLayer.Services
 {
-    public class SessionService : IEntityService
+    public class PreferencesService : IEntityService
     {
         private readonly MyDbContext _context;
 
-        public SessionService(MyDbContext context)
+        public PreferencesService(MyDbContext context)
         {
             _context = context;
         }
 
         public Entity? GetById(int id)
         {
-            return _context.Sessions.FirstOrDefault(s => s.Id == id);
+            return _context.Preferences.FirstOrDefault(p => p.Id == id);
         }
-
         public IEnumerable<Entity> GetAll()
         {
-            return _context.Sessions.ToList();
+            return _context.Preferences.ToList();
         }
 
         public bool Add(Entity entity)
@@ -32,7 +31,7 @@ namespace PingRequester.BusinessLayer
 
             try
             {
-                _context.Sessions.Add((RequestRunSession)entity);
+                _context.Preferences.Add((UserPreferences)entity);
                 _context.SaveChanges();
             }
             catch (Exception ex)
@@ -53,7 +52,7 @@ namespace PingRequester.BusinessLayer
 
             try
             {
-                _context.Sessions.Update((RequestRunSession)entity);
+                _context.Preferences.Update((UserPreferences)entity);
                 _context.SaveChanges();
             }
             catch (Exception ex)
@@ -74,21 +73,21 @@ namespace PingRequester.BusinessLayer
 
             try
             {
-                _context.Sessions.Remove((RequestRunSession)entity);
+                _context.Preferences.Update((UserPreferences)entity);
                 _context.SaveChanges();
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error occured while deleting entity from the database. Error type: {ex}; message: {ex.Message}");
+                Console.WriteLine($"Error occured while saving entity to the database. Error type: {ex}; message: {ex.Message}");
                 return false;
             }
 
             return true;
         }
 
-        public UserPreferences GetPreferences(RequestRunSession session)
+        public IEnumerable<RequestRunSession> GetAllSessions(UserPreferences userPreference)
         {
-            return _context.Sessions.FirstOrDefault(s => s.Id == session.Id).UserPreferences;
+            return _context.Sessions.Where(s => s.UserPreferencesId == userPreference.Id).ToList();
         }
     }
 }
