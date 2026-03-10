@@ -24,17 +24,55 @@ namespace PingRequester.BusinessLayer
 
         public bool Add(Entity entity)
         {
-            throw new NotImplementedException();
+            if (entity == null)
+            {
+                return false;
+            }
+
+            try
+            {
+                _context.Preferences.Add((UserPreferences)entity);
+                _context.SaveChanges();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error occured while adding entity to the database. Error type: {ex}; message: {ex.Message}");
+                return false;
+            }
         }
 
         public bool Update(Entity entity)
         {
-            throw new NotImplementedException();
+            if (entity == null)
+            {
+                return false;
+            }
+
+            _context.Preferences.Update((UserPreferences)entity);
+            _context.SaveChanges();
+
+            return true;
         }
 
         public bool Delete(Entity entity)
         {
-            throw new NotImplementedException();
+            if (entity == null)
+            {
+                return false;
+            }
+
+            try
+            {
+                _context.Preferences.Remove((UserPreferences)entity);
+                _context.SaveChanges();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error occured while deleting entity from the database. Error type: {ex}; message: {ex.Message}");
+                return false;
+            }
         }
 
         public IEnumerable<RequestRunSession> GetAllSessions(UserPreferences userPreference)
