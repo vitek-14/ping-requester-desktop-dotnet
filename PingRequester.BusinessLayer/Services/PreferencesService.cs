@@ -1,25 +1,31 @@
 ﻿using PingRequester.Data;
-using PingRequester.Data.Base;
 using PingRequester.Data.Entities;
 
 namespace PingRequester.BusinessLayer.Services
 {
     public class PreferencesService : IEntityService<UserPreferences>
     {
-        private readonly MyDbContext _context;
+        private readonly Func<MyDbContext> _contextFactory;
 
-        public PreferencesService(MyDbContext context)
+        public PreferencesService(Func<MyDbContext> contextFactory)
         {
-            _context = context;
+            _contextFactory = contextFactory;
         }
 
         public UserPreferences? GetById(int id)
         {
-            return _context.Preferences.FirstOrDefault(p => p.Id == id);
+            using (var context = _contextFactory())
+            {
+                return context.Preferences.FirstOrDefault(p => p.Id == id);
+            }
         }
+
         public IEnumerable<UserPreferences> GetAll()
         {
-            return _context.Preferences.ToList();
+            using (var context = _contextFactory())
+            {
+                return context.Preferences.ToList();
+            }
         }
 
         public bool Add(UserPreferences entity)
@@ -31,8 +37,11 @@ namespace PingRequester.BusinessLayer.Services
 
             try
             {
-                _context.Preferences.Add(entity);
-                _context.SaveChanges();
+                using (var context = _contextFactory())
+                {
+                    context.Preferences.Add(entity);
+                    context.SaveChanges();
+                }
             }
             catch (Exception ex)
             {
@@ -52,8 +61,11 @@ namespace PingRequester.BusinessLayer.Services
 
             try
             {
-                _context.Preferences.Update(entity);
-                _context.SaveChanges();
+                using (var context = _contextFactory())
+                {
+                    context.Preferences.Update(entity);
+                    context.SaveChanges();
+                }
             }
             catch (Exception ex)
             {
@@ -73,8 +85,11 @@ namespace PingRequester.BusinessLayer.Services
 
             try
             {
-                _context.Preferences.Update(entity);
-                _context.SaveChanges();
+                using (var context = _contextFactory())
+                {
+                    context.Preferences.Update(entity);
+                    context.SaveChanges();
+                }
             }
             catch (Exception ex)
             {
@@ -87,7 +102,10 @@ namespace PingRequester.BusinessLayer.Services
 
         public IEnumerable<RequestRunSession> GetAllSessions(UserPreferences userPreference)
         {
-            return _context.Sessions.Where(s => s.UserPreferencesId == userPreference.Id).ToList();
+            using (var context = _contextFactory())
+            {
+                return context.Sessions.Where(s => s.UserPreferencesId == userPreference.Id).ToList();
+            }
         }
     }
 }

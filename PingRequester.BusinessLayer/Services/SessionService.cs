@@ -1,26 +1,31 @@
 ﻿using PingRequester.Data;
-using PingRequester.Data.Base;
 using PingRequester.Data.Entities;
 
 namespace PingRequester.BusinessLayer.Services
 {
     public class SessionService : IEntityService<RequestRunSession>
     {
-        private readonly MyDbContext _context;
+        private readonly Func<MyDbContext> _contextFactory;
 
-        public SessionService(MyDbContext context)
+        public SessionService(Func<MyDbContext> contextFactory)
         {
-            _context = context;
+            _contextFactory = contextFactory;
         }
 
         public RequestRunSession? GetById(int id)
         {
-            return _context.Sessions.FirstOrDefault(s => s.Id == id);
+            using (var context = _contextFactory())
+            {
+                return context.Sessions.FirstOrDefault(s => s.Id == id);
+            }
         }
 
         public IEnumerable<RequestRunSession> GetAll()
         {
-            return _context.Sessions.ToList();
+            using (var context = _contextFactory())
+            {
+                return context.Sessions.ToList();
+            }
         }
 
         public bool Add(RequestRunSession entity)
@@ -32,8 +37,11 @@ namespace PingRequester.BusinessLayer.Services
 
             try
             {
-                _context.Sessions.Add(entity);
-                _context.SaveChanges();
+                using (var context = _contextFactory())
+                {
+                    context.Sessions.Add(entity);
+                    context.SaveChanges();
+                }
             }
             catch (Exception ex)
             {
@@ -53,8 +61,11 @@ namespace PingRequester.BusinessLayer.Services
 
             try
             {
-                _context.Sessions.Update(entity);
-                _context.SaveChanges();
+                using (var context = _contextFactory())
+                {
+                    context.Sessions.Update(entity);
+                    context.SaveChanges();
+                }
             }
             catch (Exception ex)
             {
@@ -74,8 +85,11 @@ namespace PingRequester.BusinessLayer.Services
 
             try
             {
-                _context.Sessions.Remove(entity);
-                _context.SaveChanges();
+                using (var context = _contextFactory())
+                {
+                    context.Sessions.Remove(entity);
+                    context.SaveChanges();
+                }
             }
             catch (Exception ex)
             {
@@ -88,7 +102,10 @@ namespace PingRequester.BusinessLayer.Services
 
         public UserPreferences GetPreferences(RequestRunSession session)
         {
-            return _context.Sessions.FirstOrDefault(s => s.Id == session.Id).UserPreferences;
+            using (var context = _contextFactory())
+            {
+                return context.Sessions.FirstOrDefault(s => s.Id == session.Id).UserPreferences;
+            }
         }
     }
 }
