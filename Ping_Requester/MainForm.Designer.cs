@@ -105,6 +105,7 @@
             rtbConsole = new RichTextBox();
             pnlMiddle = new Panel();
             ttpMainForm = new ToolTip(components);
+            btnSaveSession = new Button();
             pnlTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             menuStrip1.SuspendLayout();
@@ -470,6 +471,7 @@
             // 
             // tbpRequestRun
             // 
+            tbpRequestRun.Controls.Add(btnSaveSession);
             tbpRequestRun.Controls.Add(btnCopyIPAddress);
             tbpRequestRun.Controls.Add(btnCopyPinging);
             tbpRequestRun.Controls.Add(grbRoundTripTimes);
@@ -981,6 +983,16 @@
             pnlMiddle.Size = new Size(951, 482);
             pnlMiddle.TabIndex = 1;
             // 
+            // btnSaveSession
+            // 
+            btnSaveSession.ForeColor = SystemColors.ActiveCaptionText;
+            btnSaveSession.Location = new Point(434, 365);
+            btnSaveSession.Name = "btnSaveSession";
+            btnSaveSession.Size = new Size(138, 37);
+            btnSaveSession.TabIndex = 16;
+            btnSaveSession.Text = "Save Session";
+            btnSaveSession.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             AutoScaleMode = AutoScaleMode.None;
@@ -1105,6 +1117,7 @@
         private Button btnTimeStampSort;
         private Panel panel1;
         private Button btnDelete;
+        private Button btnSaveSession;
 
         public string PingTarget { get => txbPingTarget.Text; }
         public string Mode { get => cmbMode.Text; }
