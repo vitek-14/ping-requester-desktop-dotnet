@@ -86,13 +86,17 @@
             lblPingingActive = new Label();
             lblPinging = new Label();
             tbpDatabase = new TabPage();
+            flpSessions = new FlowLayoutPanel();
+            pnlFilter = new Panel();
+            lblSeparator = new Label();
+            btnFilter = new Button();
+            lblTargetEntry = new Label();
+            txbTarget = new TextBox();
             tlpTableLabels = new TableLayoutPanel();
             lblTarget = new Label();
             lblSRL = new Label();
             lblTimeStamp = new Label();
             lblPreferencesButton = new Label();
-            flpSessions = new FlowLayoutPanel();
-            pnlFilter = new Panel();
             tbpOutput = new TabPage();
             btnSaveLog = new Button();
             btnClear = new Button();
@@ -114,6 +118,7 @@
             grbRoundTripTimes.SuspendLayout();
             grbPackets.SuspendLayout();
             tbpDatabase.SuspendLayout();
+            pnlFilter.SuspendLayout();
             tlpTableLabels.SuspendLayout();
             tbpOutput.SuspendLayout();
             pnlMiddle.SuspendLayout();
@@ -754,7 +759,6 @@
             // 
             // tbpDatabase
             // 
-            tbpDatabase.Controls.Add(tlpTableLabels);
             tbpDatabase.Controls.Add(flpSessions);
             tbpDatabase.Controls.Add(pnlFilter);
             tbpDatabase.Location = new Point(4, 29);
@@ -765,8 +769,71 @@
             tbpDatabase.Text = "Database";
             tbpDatabase.UseVisualStyleBackColor = true;
             // 
+            // flpSessions
+            // 
+            flpSessions.AutoScroll = true;
+            flpSessions.Dock = DockStyle.Fill;
+            flpSessions.FlowDirection = FlowDirection.TopDown;
+            flpSessions.Location = new Point(3, 79);
+            flpSessions.Name = "flpSessions";
+            flpSessions.Size = new Size(590, 326);
+            flpSessions.TabIndex = 1;
+            // 
+            // pnlFilter
+            // 
+            pnlFilter.Controls.Add(lblSeparator);
+            pnlFilter.Controls.Add(btnFilter);
+            pnlFilter.Controls.Add(lblTargetEntry);
+            pnlFilter.Controls.Add(txbTarget);
+            pnlFilter.Controls.Add(tlpTableLabels);
+            pnlFilter.Dock = DockStyle.Top;
+            pnlFilter.Location = new Point(3, 3);
+            pnlFilter.Name = "pnlFilter";
+            pnlFilter.Size = new Size(590, 76);
+            pnlFilter.TabIndex = 0;
+            // 
+            // lblSeparator
+            // 
+            lblSeparator.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            lblSeparator.BorderStyle = BorderStyle.Fixed3D;
+            lblSeparator.Location = new Point(3, 74);
+            lblSeparator.Name = "lblSeparator";
+            lblSeparator.Size = new Size(590, 2);
+            lblSeparator.TabIndex = 4;
+            // 
+            // btnFilter
+            // 
+            btnFilter.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btnFilter.ForeColor = SystemColors.ActiveCaptionText;
+            btnFilter.Location = new Point(489, 11);
+            btnFilter.Name = "btnFilter";
+            btnFilter.Size = new Size(86, 29);
+            btnFilter.TabIndex = 3;
+            btnFilter.Text = "Filter";
+            btnFilter.UseVisualStyleBackColor = true;
+            // 
+            // lblTargetEntry
+            // 
+            lblTargetEntry.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            lblTargetEntry.AutoSize = true;
+            lblTargetEntry.ForeColor = SystemColors.ActiveCaptionText;
+            lblTargetEntry.Location = new Point(3, 15);
+            lblTargetEntry.Name = "lblTargetEntry";
+            lblTargetEntry.Size = new Size(50, 20);
+            lblTargetEntry.TabIndex = 2;
+            lblTargetEntry.Text = "Target";
+            // 
+            // txbTarget
+            // 
+            txbTarget.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            txbTarget.Location = new Point(59, 12);
+            txbTarget.Name = "txbTarget";
+            txbTarget.Size = new Size(407, 27);
+            txbTarget.TabIndex = 1;
+            // 
             // tlpTableLabels
             // 
+            tlpTableLabels.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             tlpTableLabels.ColumnCount = 4;
             tlpTableLabels.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 30.91F));
             tlpTableLabels.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 17.25F));
@@ -776,7 +843,7 @@
             tlpTableLabels.Controls.Add(lblSRL, 1, 0);
             tlpTableLabels.Controls.Add(lblTimeStamp, 2, 0);
             tlpTableLabels.Controls.Add(lblPreferencesButton, 3, 0);
-            tlpTableLabels.Location = new Point(3, 91);
+            tlpTableLabels.Location = new Point(0, 44);
             tlpTableLabels.Name = "tlpTableLabels";
             tlpTableLabels.RowCount = 1;
             tlpTableLabels.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
@@ -826,24 +893,6 @@
             lblPreferencesButton.TabIndex = 3;
             lblPreferencesButton.Text = "Preferences";
             lblPreferencesButton.TextAlign = ContentAlignment.BottomCenter;
-            // 
-            // flpSessions
-            // 
-            flpSessions.AutoScroll = true;
-            flpSessions.Dock = DockStyle.Fill;
-            flpSessions.FlowDirection = FlowDirection.TopDown;
-            flpSessions.Location = new Point(3, 116);
-            flpSessions.Name = "flpSessions";
-            flpSessions.Size = new Size(590, 289);
-            flpSessions.TabIndex = 1;
-            // 
-            // pnlFilter
-            // 
-            pnlFilter.Dock = DockStyle.Top;
-            pnlFilter.Location = new Point(3, 3);
-            pnlFilter.Name = "pnlFilter";
-            pnlFilter.Size = new Size(590, 113);
-            pnlFilter.TabIndex = 0;
             // 
             // tbpOutput
             // 
@@ -942,6 +991,8 @@
             grbPackets.ResumeLayout(false);
             grbPackets.PerformLayout();
             tbpDatabase.ResumeLayout(false);
+            pnlFilter.ResumeLayout(false);
+            pnlFilter.PerformLayout();
             tlpTableLabels.ResumeLayout(false);
             tlpTableLabels.PerformLayout();
             tbpOutput.ResumeLayout(false);
@@ -1020,6 +1071,10 @@
         private Label lblSRL;
         private Label lblTimeStamp;
         private Label lblPreferencesButton;
+        private Label lblTargetEntry;
+        private TextBox txbTarget;
+        private Button btnFilter;
+        private Label lblSeparator;
 
         public string PingTarget { get => txbPingTarget.Text; }
         public string Mode { get => cmbMode.Text; }
