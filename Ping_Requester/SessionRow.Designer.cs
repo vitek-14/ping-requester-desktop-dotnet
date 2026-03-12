@@ -86,7 +86,7 @@
             lblTimeStamp.Size = new Size(147, 46);
             lblTimeStamp.TabIndex = 2;
             lblTimeStamp.Text = "14:21 11. 02. 2025";
-            lblTimeStamp.TextAlign = ContentAlignment.MiddleCenter;
+            lblTimeStamp.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // btnPreferences
             // 

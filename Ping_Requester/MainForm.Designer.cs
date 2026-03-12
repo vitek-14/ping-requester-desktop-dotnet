@@ -88,7 +88,6 @@
             tbpDatabase = new TabPage();
             flpSessions = new FlowLayoutPanel();
             pnlFilter = new Panel();
-            lblSeparator = new Label();
             btnFilter = new Button();
             lblTargetEntry = new Label();
             txbTarget = new TextBox();
@@ -97,6 +96,7 @@
             lblSRL = new Label();
             lblTimeStamp = new Label();
             lblPreferencesButton = new Label();
+            btnTimeStampSort = new Button();
             tbpOutput = new TabPage();
             btnSaveLog = new Button();
             btnClear = new Button();
@@ -781,7 +781,6 @@
             // 
             // pnlFilter
             // 
-            pnlFilter.Controls.Add(lblSeparator);
             pnlFilter.Controls.Add(btnFilter);
             pnlFilter.Controls.Add(lblTargetEntry);
             pnlFilter.Controls.Add(txbTarget);
@@ -791,15 +790,6 @@
             pnlFilter.Name = "pnlFilter";
             pnlFilter.Size = new Size(590, 76);
             pnlFilter.TabIndex = 0;
-            // 
-            // lblSeparator
-            // 
-            lblSeparator.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            lblSeparator.BorderStyle = BorderStyle.Fixed3D;
-            lblSeparator.Location = new Point(3, 74);
-            lblSeparator.Name = "lblSeparator";
-            lblSeparator.Size = new Size(590, 2);
-            lblSeparator.TabIndex = 4;
             // 
             // btnFilter
             // 
@@ -834,20 +824,22 @@
             // tlpTableLabels
             // 
             tlpTableLabels.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            tlpTableLabels.ColumnCount = 4;
-            tlpTableLabels.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 30.91F));
-            tlpTableLabels.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 17.25F));
-            tlpTableLabels.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 26.08F));
-            tlpTableLabels.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25.76F));
+            tlpTableLabels.ColumnCount = 5;
+            tlpTableLabels.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 30.6551075F));
+            tlpTableLabels.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 17.107748F));
+            tlpTableLabels.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25.8649311F));
+            tlpTableLabels.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5.96886873F));
+            tlpTableLabels.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20.4033413F));
             tlpTableLabels.Controls.Add(lblTarget, 0, 0);
             tlpTableLabels.Controls.Add(lblSRL, 1, 0);
             tlpTableLabels.Controls.Add(lblTimeStamp, 2, 0);
-            tlpTableLabels.Controls.Add(lblPreferencesButton, 3, 0);
-            tlpTableLabels.Location = new Point(0, 44);
+            tlpTableLabels.Controls.Add(lblPreferencesButton, 4, 0);
+            tlpTableLabels.Controls.Add(btnTimeStampSort, 3, 0);
+            tlpTableLabels.Location = new Point(3, 42);
             tlpTableLabels.Name = "tlpTableLabels";
             tlpTableLabels.RowCount = 1;
             tlpTableLabels.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tlpTableLabels.Size = new Size(590, 25);
+            tlpTableLabels.Size = new Size(587, 31);
             tlpTableLabels.TabIndex = 0;
             // 
             // lblTarget
@@ -856,7 +848,7 @@
             lblTarget.Dock = DockStyle.Fill;
             lblTarget.Location = new Point(3, 0);
             lblTarget.Name = "lblTarget";
-            lblTarget.Size = new Size(176, 25);
+            lblTarget.Size = new Size(173, 31);
             lblTarget.TabIndex = 0;
             lblTarget.Text = "Target";
             lblTarget.TextAlign = ContentAlignment.BottomLeft;
@@ -865,9 +857,9 @@
             // 
             lblSRL.AutoSize = true;
             lblSRL.Dock = DockStyle.Fill;
-            lblSRL.Location = new Point(185, 0);
+            lblSRL.Location = new Point(182, 0);
             lblSRL.Name = "lblSRL";
-            lblSRL.Size = new Size(95, 25);
+            lblSRL.Size = new Size(94, 31);
             lblSRL.TabIndex = 1;
             lblSRL.Text = "S/R/L";
             lblSRL.TextAlign = ContentAlignment.BottomCenter;
@@ -876,23 +868,35 @@
             // 
             lblTimeStamp.AutoSize = true;
             lblTimeStamp.Dock = DockStyle.Fill;
-            lblTimeStamp.Location = new Point(286, 0);
+            lblTimeStamp.Location = new Point(282, 0);
             lblTimeStamp.Name = "lblTimeStamp";
-            lblTimeStamp.Size = new Size(147, 25);
+            lblTimeStamp.Size = new Size(145, 31);
             lblTimeStamp.TabIndex = 2;
             lblTimeStamp.Text = "Time Stamp";
-            lblTimeStamp.TextAlign = ContentAlignment.BottomCenter;
+            lblTimeStamp.TextAlign = ContentAlignment.BottomLeft;
             // 
             // lblPreferencesButton
             // 
             lblPreferencesButton.AutoSize = true;
             lblPreferencesButton.Dock = DockStyle.Fill;
-            lblPreferencesButton.Location = new Point(439, 0);
+            lblPreferencesButton.Location = new Point(468, 0);
             lblPreferencesButton.Name = "lblPreferencesButton";
-            lblPreferencesButton.Size = new Size(148, 25);
+            lblPreferencesButton.Size = new Size(116, 31);
             lblPreferencesButton.TabIndex = 3;
             lblPreferencesButton.Text = "Preferences";
             lblPreferencesButton.TextAlign = ContentAlignment.BottomCenter;
+            // 
+            // btnTimeStampSort
+            // 
+            btnTimeStampSort.Dock = DockStyle.Fill;
+            btnTimeStampSort.FlatAppearance.BorderSize = 0;
+            btnTimeStampSort.FlatStyle = FlatStyle.Flat;
+            btnTimeStampSort.Location = new Point(433, 3);
+            btnTimeStampSort.Name = "btnTimeStampSort";
+            btnTimeStampSort.Size = new Size(29, 25);
+            btnTimeStampSort.TabIndex = 4;
+            btnTimeStampSort.Text = "˅";
+            btnTimeStampSort.UseVisualStyleBackColor = true;
             // 
             // tbpOutput
             // 
@@ -1074,7 +1078,7 @@
         private Label lblTargetEntry;
         private TextBox txbTarget;
         private Button btnFilter;
-        private Label lblSeparator;
+        private Button btnTimeStampSort;
 
         public string PingTarget { get => txbPingTarget.Text; }
         public string Mode { get => cmbMode.Text; }
