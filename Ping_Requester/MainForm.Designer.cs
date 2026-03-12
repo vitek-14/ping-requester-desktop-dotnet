@@ -63,6 +63,7 @@
             pnlData = new Panel();
             tbc = new TabControl();
             tbpRequestRun = new TabPage();
+            btnSaveSession = new Button();
             btnCopyIPAddress = new Button();
             btnCopyPinging = new Button();
             grbRoundTripTimes = new GroupBox();
@@ -105,7 +106,6 @@
             rtbConsole = new RichTextBox();
             pnlMiddle = new Panel();
             ttpMainForm = new ToolTip(components);
-            btnSaveSession = new Button();
             pnlTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             menuStrip1.SuspendLayout();
@@ -489,6 +489,17 @@
             tbpRequestRun.TabIndex = 0;
             tbpRequestRun.Text = "Request Run";
             tbpRequestRun.UseVisualStyleBackColor = true;
+            // 
+            // btnSaveSession
+            // 
+            btnSaveSession.ForeColor = SystemColors.ActiveCaptionText;
+            btnSaveSession.Location = new Point(434, 365);
+            btnSaveSession.Name = "btnSaveSession";
+            btnSaveSession.Size = new Size(138, 37);
+            btnSaveSession.TabIndex = 16;
+            btnSaveSession.Text = "Save Session";
+            btnSaveSession.UseVisualStyleBackColor = true;
+            btnSaveSession.Click += btnSaveSession_Click;
             // 
             // btnCopyIPAddress
             // 
@@ -982,16 +993,6 @@
             pnlMiddle.Name = "pnlMiddle";
             pnlMiddle.Size = new Size(951, 482);
             pnlMiddle.TabIndex = 1;
-            // 
-            // btnSaveSession
-            // 
-            btnSaveSession.ForeColor = SystemColors.ActiveCaptionText;
-            btnSaveSession.Location = new Point(434, 365);
-            btnSaveSession.Name = "btnSaveSession";
-            btnSaveSession.Size = new Size(138, 37);
-            btnSaveSession.TabIndex = 16;
-            btnSaveSession.Text = "Save Session";
-            btnSaveSession.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
