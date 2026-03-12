@@ -86,6 +86,13 @@
             lblPingingActive = new Label();
             lblPinging = new Label();
             tbpDatabase = new TabPage();
+            tlpTableLabels = new TableLayoutPanel();
+            lblTarget = new Label();
+            lblSRL = new Label();
+            lblTimeStamp = new Label();
+            lblPreferencesButton = new Label();
+            flpSessions = new FlowLayoutPanel();
+            pnlFilter = new Panel();
             tbpOutput = new TabPage();
             btnSaveLog = new Button();
             btnClear = new Button();
@@ -106,6 +113,8 @@
             tbpRequestRun.SuspendLayout();
             grbRoundTripTimes.SuspendLayout();
             grbPackets.SuspendLayout();
+            tbpDatabase.SuspendLayout();
+            tlpTableLabels.SuspendLayout();
             tbpOutput.SuspendLayout();
             pnlMiddle.SuspendLayout();
             SuspendLayout();
@@ -745,6 +754,9 @@
             // 
             // tbpDatabase
             // 
+            tbpDatabase.Controls.Add(tlpTableLabels);
+            tbpDatabase.Controls.Add(flpSessions);
+            tbpDatabase.Controls.Add(pnlFilter);
             tbpDatabase.Location = new Point(4, 29);
             tbpDatabase.Name = "tbpDatabase";
             tbpDatabase.Padding = new Padding(3);
@@ -752,6 +764,86 @@
             tbpDatabase.TabIndex = 1;
             tbpDatabase.Text = "Database";
             tbpDatabase.UseVisualStyleBackColor = true;
+            // 
+            // tlpTableLabels
+            // 
+            tlpTableLabels.ColumnCount = 4;
+            tlpTableLabels.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 30.91F));
+            tlpTableLabels.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 17.25F));
+            tlpTableLabels.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 26.08F));
+            tlpTableLabels.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25.76F));
+            tlpTableLabels.Controls.Add(lblTarget, 0, 0);
+            tlpTableLabels.Controls.Add(lblSRL, 1, 0);
+            tlpTableLabels.Controls.Add(lblTimeStamp, 2, 0);
+            tlpTableLabels.Controls.Add(lblPreferencesButton, 3, 0);
+            tlpTableLabels.Location = new Point(3, 91);
+            tlpTableLabels.Name = "tlpTableLabels";
+            tlpTableLabels.RowCount = 1;
+            tlpTableLabels.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tlpTableLabels.Size = new Size(590, 25);
+            tlpTableLabels.TabIndex = 0;
+            // 
+            // lblTarget
+            // 
+            lblTarget.AutoSize = true;
+            lblTarget.Dock = DockStyle.Fill;
+            lblTarget.Location = new Point(3, 0);
+            lblTarget.Name = "lblTarget";
+            lblTarget.Size = new Size(176, 25);
+            lblTarget.TabIndex = 0;
+            lblTarget.Text = "Target";
+            lblTarget.TextAlign = ContentAlignment.BottomLeft;
+            // 
+            // lblSRL
+            // 
+            lblSRL.AutoSize = true;
+            lblSRL.Dock = DockStyle.Fill;
+            lblSRL.Location = new Point(185, 0);
+            lblSRL.Name = "lblSRL";
+            lblSRL.Size = new Size(95, 25);
+            lblSRL.TabIndex = 1;
+            lblSRL.Text = "S/R/L";
+            lblSRL.TextAlign = ContentAlignment.BottomCenter;
+            // 
+            // lblTimeStamp
+            // 
+            lblTimeStamp.AutoSize = true;
+            lblTimeStamp.Dock = DockStyle.Fill;
+            lblTimeStamp.Location = new Point(286, 0);
+            lblTimeStamp.Name = "lblTimeStamp";
+            lblTimeStamp.Size = new Size(147, 25);
+            lblTimeStamp.TabIndex = 2;
+            lblTimeStamp.Text = "Time Stamp";
+            lblTimeStamp.TextAlign = ContentAlignment.BottomCenter;
+            // 
+            // lblPreferencesButton
+            // 
+            lblPreferencesButton.AutoSize = true;
+            lblPreferencesButton.Dock = DockStyle.Fill;
+            lblPreferencesButton.Location = new Point(439, 0);
+            lblPreferencesButton.Name = "lblPreferencesButton";
+            lblPreferencesButton.Size = new Size(148, 25);
+            lblPreferencesButton.TabIndex = 3;
+            lblPreferencesButton.Text = "Preferences";
+            lblPreferencesButton.TextAlign = ContentAlignment.BottomCenter;
+            // 
+            // flpSessions
+            // 
+            flpSessions.AutoScroll = true;
+            flpSessions.Dock = DockStyle.Fill;
+            flpSessions.FlowDirection = FlowDirection.TopDown;
+            flpSessions.Location = new Point(3, 116);
+            flpSessions.Name = "flpSessions";
+            flpSessions.Size = new Size(590, 289);
+            flpSessions.TabIndex = 1;
+            // 
+            // pnlFilter
+            // 
+            pnlFilter.Dock = DockStyle.Top;
+            pnlFilter.Location = new Point(3, 3);
+            pnlFilter.Name = "pnlFilter";
+            pnlFilter.Size = new Size(590, 113);
+            pnlFilter.TabIndex = 0;
             // 
             // tbpOutput
             // 
@@ -849,6 +941,9 @@
             grbRoundTripTimes.PerformLayout();
             grbPackets.ResumeLayout(false);
             grbPackets.PerformLayout();
+            tbpDatabase.ResumeLayout(false);
+            tlpTableLabels.ResumeLayout(false);
+            tlpTableLabels.PerformLayout();
             tbpOutput.ResumeLayout(false);
             pnlMiddle.ResumeLayout(false);
             ResumeLayout(false);
@@ -918,6 +1013,13 @@
         private Button btnClear;
         private Button btnSaveLog;
         private Label label1;
+        private Panel pnlFilter;
+        private FlowLayoutPanel flpSessions;
+        private TableLayoutPanel tlpTableLabels;
+        private Label lblTarget;
+        private Label lblSRL;
+        private Label lblTimeStamp;
+        private Label lblPreferencesButton;
 
         public string PingTarget { get => txbPingTarget.Text; }
         public string Mode { get => cmbMode.Text; }
