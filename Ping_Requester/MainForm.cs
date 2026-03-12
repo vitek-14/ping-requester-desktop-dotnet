@@ -2,6 +2,7 @@ using PingRequester.BusinessLayer;
 using PingRequester.BusinessLayer.Services;
 using PingRequester.Data;
 using PingRequester.Data.DataObjects;
+using PingRequester.Data.Entities;
 
 namespace PingRequester.Client
 {
@@ -28,7 +29,7 @@ namespace PingRequester.Client
         {
             InitializeComponent();
             this.controlsLocked = false;
-            
+
             // create queue of main controls
             this.mainControls = new Stack<Control>();
             this.mainControls.Push(lblPingTarget);
@@ -336,6 +337,39 @@ namespace PingRequester.Client
                     btnSaveLog_Click(this, EventArgs.Empty);
                 }
             }
+        }
+
+        private void btnSaveSession_Click(object sender, EventArgs e)
+        {
+            var preferences = new UserPreferences
+            {
+                PingTarget = txbPingTarget.Text,
+                Mode = cmbMode.Text,
+                RefreshRate = (int)nudRefreshRate.Value,
+                InfiniteLoop = chbInfiniteLoop.Checked,
+                StopWhenSuccess = chbStopWhenSuccess.Checked,
+                PingRequestCount = (int)nudNumberOfPR.Value,
+                Attempts = (int)nudAttempts.Value,
+                PacketSize = (int)nudPacketSize.Value
+            };
+
+            var session = new RequestRunSession
+            {
+                Start = requester.RequestRun.Start,
+                End = requester.RequestRun.End,
+                PingTarget = requester.RequestRun.Hostname,
+                Ipv4 = requester.RequestRun.IPv4,
+                PacketSize = requester.PacketSize,
+                Sent = requester.RequestRun.PacketsSent,
+                Received = requester.RequestRun.PacketsRecieved,
+                Lost = requester.RequestRun.PacketsLost,
+                MaxResponseTimeMs = requester.RequestRun.MaxTime,
+                MinResponseTimeMs = requester.RequestRun.MinTime,
+                AverageResponseTimeMs = requester.RequestRun.AverageTime,
+                UserPreferences = preferences
+            };
+
+
         }
     }
 }
