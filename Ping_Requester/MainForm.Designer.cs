@@ -86,6 +86,8 @@
             lblPingingActive = new Label();
             lblPinging = new Label();
             tbpDatabase = new TabPage();
+            panel1 = new Panel();
+            btnDelete = new Button();
             flpSessions = new FlowLayoutPanel();
             pnlFilter = new Panel();
             btnFilter = new Button();
@@ -118,6 +120,7 @@
             grbRoundTripTimes.SuspendLayout();
             grbPackets.SuspendLayout();
             tbpDatabase.SuspendLayout();
+            panel1.SuspendLayout();
             pnlFilter.SuspendLayout();
             tlpTableLabels.SuspendLayout();
             tbpOutput.SuspendLayout();
@@ -759,6 +762,7 @@
             // 
             // tbpDatabase
             // 
+            tbpDatabase.Controls.Add(panel1);
             tbpDatabase.Controls.Add(flpSessions);
             tbpDatabase.Controls.Add(pnlFilter);
             tbpDatabase.Location = new Point(4, 29);
@@ -768,6 +772,25 @@
             tbpDatabase.TabIndex = 1;
             tbpDatabase.Text = "Database";
             tbpDatabase.UseVisualStyleBackColor = true;
+            // 
+            // panel1
+            // 
+            panel1.Controls.Add(btnDelete);
+            panel1.Dock = DockStyle.Bottom;
+            panel1.Location = new Point(3, 366);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(590, 39);
+            panel1.TabIndex = 2;
+            // 
+            // btnDelete
+            // 
+            btnDelete.ForeColor = SystemColors.ActiveCaptionText;
+            btnDelete.Location = new Point(471, 4);
+            btnDelete.Name = "btnDelete";
+            btnDelete.Size = new Size(104, 30);
+            btnDelete.TabIndex = 0;
+            btnDelete.Text = "Delete";
+            btnDelete.UseVisualStyleBackColor = true;
             // 
             // flpSessions
             // 
@@ -995,6 +1018,7 @@
             grbPackets.ResumeLayout(false);
             grbPackets.PerformLayout();
             tbpDatabase.ResumeLayout(false);
+            panel1.ResumeLayout(false);
             pnlFilter.ResumeLayout(false);
             pnlFilter.PerformLayout();
             tlpTableLabels.ResumeLayout(false);
@@ -1079,6 +1103,8 @@
         private TextBox txbTarget;
         private Button btnFilter;
         private Button btnTimeStampSort;
+        private Panel panel1;
+        private Button btnDelete;
 
         public string PingTarget { get => txbPingTarget.Text; }
         public string Mode { get => cmbMode.Text; }
