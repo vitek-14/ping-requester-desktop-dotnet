@@ -107,5 +107,13 @@ namespace PingRequester.BusinessLayer.Services
                 return context.Sessions.Where(s => s.UserPreferencesId == userPreference.Id).ToList();
             }
         }
+
+        public UserPreferences? FindMatching(UserPreferences preferences)
+        {
+            using (var context = _contextFactory())
+            {
+                return context.Preferences.FirstOrDefault(p => p.Equals(preferences));
+            }
+        }
     }
 }

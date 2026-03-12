@@ -21,6 +21,7 @@ namespace PingRequester.Client
         private Settings settings;
         private LogFilesService logFilesService;
         private bool logSaved = false;
+        private PingRequestData _data;
 
         /// <summary>
         /// Default constructor of the MainForm.
@@ -47,6 +48,9 @@ namespace PingRequester.Client
             this.mainControls.Push(nudPacketSize);
             this.mainControls.Push(btnSendRequest);
             this.mainControls.Push(chbStopWhenSuccess);
+
+            // Initialize DbService
+            this._data = new PingRequestData();
 
             // load data from configs
             this.jsonServicePreferences = new JsonService<Preferences>("config/PreferencesConfig.json");
@@ -353,6 +357,17 @@ namespace PingRequester.Client
                 PacketSize = (int)nudPacketSize.Value
             };
 
+            var matchingPreference = _data.Preferences.FindMatching(preferences); 
+
+            if (matchingPreference == null)
+            {
+                _data.Preferences.Add(preferences);
+            }
+            else
+            {
+                preferences = matchingPreference;
+            }
+
             var session = new RequestRunSession
             {
                 Start = requester.RequestRun.Start,
@@ -366,10 +381,11 @@ namespace PingRequester.Client
                 MaxResponseTimeMs = requester.RequestRun.MaxTime,
                 MinResponseTimeMs = requester.RequestRun.MinTime,
                 AverageResponseTimeMs = requester.RequestRun.AverageTime,
-                UserPreferences = preferences
+                UserPreferences = preferences,
+                UserPreferencesId = preferences.Id
             };
 
-
+            _data.Sessions.Add(session);
         }
     }
 }

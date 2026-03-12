@@ -19,5 +19,22 @@ namespace PingRequester.Data.Entities
         public int PacketSize { get; set; }
 
         public List<RequestRunSession> Sessions { get; set; } = new();
+
+        public override bool Equals(object? obj)
+        {
+            if (obj is not UserPreferences other)
+            {
+                return false;
+            }
+
+            return this.StopWhenSuccess == other.StopWhenSuccess
+                && this.InfiniteLoop == other.InfiniteLoop
+                && this.PacketSize == other.PacketSize
+                && this.Attempts == other.Attempts
+                && this.Mode == other.Mode
+                && this.PingRequestCount == other.PingRequestCount
+                && this.PingTarget == other.PingTarget
+                && this.RefreshRate == other.RefreshRate;
+        }
     }
 }

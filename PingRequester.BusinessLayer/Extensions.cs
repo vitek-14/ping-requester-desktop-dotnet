@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
+﻿using System.Text.RegularExpressions;
 
 namespace PingRequester.BusinessLayer
 {
@@ -33,10 +28,10 @@ namespace PingRequester.BusinessLayer
             string timeStamp = fileName.Substring(start, end - start);
 
             if (DateTime.TryParseExact(
-                timeStamp, 
-                template, 
-                null, 
-                System.Globalization.DateTimeStyles.None, 
+                timeStamp,
+                template,
+                null,
+                System.Globalization.DateTimeStyles.None,
                 out DateTime dateTime))
             {
                 return dateTime;
