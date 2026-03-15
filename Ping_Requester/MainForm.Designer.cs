@@ -138,7 +138,7 @@
             pnlTop.Dock = DockStyle.Top;
             pnlTop.Location = new Point(0, 0);
             pnlTop.Name = "pnlTop";
-            pnlTop.Size = new Size(951, 143);
+            pnlTop.Size = new Size(977, 143);
             pnlTop.TabIndex = 0;
             // 
             // pictureBox1
@@ -148,7 +148,7 @@
             pictureBox1.Image = Properties.Resources.Ping_Requester_Poster_6;
             pictureBox1.Location = new Point(0, 31);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(951, 104);
+            pictureBox1.Size = new Size(977, 104);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 3;
             pictureBox1.TabStop = false;
@@ -159,7 +159,7 @@
             lblLineSeparator.BorderStyle = BorderStyle.Fixed3D;
             lblLineSeparator.Location = new Point(5, 138);
             lblLineSeparator.Name = "lblLineSeparator";
-            lblLineSeparator.Size = new Size(940, 2);
+            lblLineSeparator.Size = new Size(966, 2);
             lblLineSeparator.TabIndex = 2;
             // 
             // menuStrip1
@@ -168,7 +168,7 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, settingsToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(951, 28);
+            menuStrip1.Size = new Size(977, 28);
             menuStrip1.TabIndex = 1;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -220,7 +220,7 @@
             pnlInfo.Dock = DockStyle.Bottom;
             pnlInfo.Location = new Point(0, 589);
             pnlInfo.Name = "pnlInfo";
-            pnlInfo.Size = new Size(951, 36);
+            pnlInfo.Size = new Size(977, 36);
             pnlInfo.TabIndex = 2;
             // 
             // label1
@@ -229,7 +229,7 @@
             label1.BorderStyle = BorderStyle.Fixed3D;
             label1.Location = new Point(5, 4);
             label1.Name = "label1";
-            label1.Size = new Size(942, 3);
+            label1.Size = new Size(968, 3);
             label1.TabIndex = 31;
             // 
             // lblInfo
@@ -453,7 +453,7 @@
             pnlData.Controls.Add(tbc);
             pnlData.Location = new Point(338, 0);
             pnlData.Name = "pnlData";
-            pnlData.Size = new Size(613, 482);
+            pnlData.Size = new Size(639, 482);
             pnlData.TabIndex = 3;
             // 
             // tbc
@@ -465,7 +465,7 @@
             tbc.Location = new Point(3, 3);
             tbc.Name = "tbc";
             tbc.SelectedIndex = 0;
-            tbc.Size = new Size(604, 441);
+            tbc.Size = new Size(630, 441);
             tbc.TabIndex = 0;
             tbc.SelectedIndexChanged += tbc_SelectedIndexChanged;
             // 
@@ -485,15 +485,16 @@
             tbpRequestRun.Location = new Point(4, 29);
             tbpRequestRun.Name = "tbpRequestRun";
             tbpRequestRun.Padding = new Padding(3);
-            tbpRequestRun.Size = new Size(596, 408);
+            tbpRequestRun.Size = new Size(622, 408);
             tbpRequestRun.TabIndex = 0;
             tbpRequestRun.Text = "Request Run";
             tbpRequestRun.UseVisualStyleBackColor = true;
             // 
             // btnSaveSession
             // 
+            btnSaveSession.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnSaveSession.ForeColor = SystemColors.ActiveCaptionText;
-            btnSaveSession.Location = new Point(434, 365);
+            btnSaveSession.Location = new Point(460, 365);
             btnSaveSession.Name = "btnSaveSession";
             btnSaveSession.Size = new Size(138, 37);
             btnSaveSession.TabIndex = 16;
@@ -509,7 +510,7 @@
             btnCopyIPAddress.FlatAppearance.BorderSize = 0;
             btnCopyIPAddress.FlatAppearance.MouseOverBackColor = Color.Transparent;
             btnCopyIPAddress.FlatStyle = FlatStyle.Flat;
-            btnCopyIPAddress.Location = new Point(535, 43);
+            btnCopyIPAddress.Location = new Point(561, 43);
             btnCopyIPAddress.Name = "btnCopyIPAddress";
             btnCopyIPAddress.Size = new Size(37, 28);
             btnCopyIPAddress.TabIndex = 15;
@@ -525,7 +526,7 @@
             btnCopyPinging.FlatAppearance.BorderSize = 0;
             btnCopyPinging.FlatAppearance.MouseOverBackColor = Color.Transparent;
             btnCopyPinging.FlatStyle = FlatStyle.Flat;
-            btnCopyPinging.Location = new Point(535, 15);
+            btnCopyPinging.Location = new Point(561, 15);
             btnCopyPinging.Name = "btnCopyPinging";
             btnCopyPinging.Size = new Size(37, 28);
             btnCopyPinging.TabIndex = 14;
@@ -544,7 +545,7 @@
             grbRoundTripTimes.Controls.Add(lblMaximum);
             grbRoundTripTimes.Location = new Point(18, 233);
             grbRoundTripTimes.Name = "grbRoundTripTimes";
-            grbRoundTripTimes.Size = new Size(554, 125);
+            grbRoundTripTimes.Size = new Size(580, 125);
             grbRoundTripTimes.TabIndex = 13;
             grbRoundTripTimes.TabStop = false;
             grbRoundTripTimes.Text = "Approximate round trip times";
@@ -555,7 +556,7 @@
             lblAverageActive.AutoSize = true;
             lblAverageActive.Font = new Font("Calibri", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 238);
             lblAverageActive.ForeColor = SystemColors.ActiveCaptionText;
-            lblAverageActive.Location = new Point(321, 88);
+            lblAverageActive.Location = new Point(347, 88);
             lblAverageActive.Name = "lblAverageActive";
             lblAverageActive.Size = new Size(40, 21);
             lblAverageActive.TabIndex = 12;
@@ -578,7 +579,7 @@
             lblMinimumActive.AutoSize = true;
             lblMinimumActive.Font = new Font("Calibri", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 238);
             lblMinimumActive.ForeColor = SystemColors.ActiveCaptionText;
-            lblMinimumActive.Location = new Point(321, 59);
+            lblMinimumActive.Location = new Point(347, 59);
             lblMinimumActive.Name = "lblMinimumActive";
             lblMinimumActive.Size = new Size(40, 21);
             lblMinimumActive.TabIndex = 10;
@@ -601,7 +602,7 @@
             lblMaximumActive.AutoSize = true;
             lblMaximumActive.Font = new Font("Calibri", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 238);
             lblMaximumActive.ForeColor = SystemColors.ActiveCaptionText;
-            lblMaximumActive.Location = new Point(321, 31);
+            lblMaximumActive.Location = new Point(347, 31);
             lblMaximumActive.Name = "lblMaximumActive";
             lblMaximumActive.Size = new Size(40, 21);
             lblMaximumActive.TabIndex = 8;
@@ -629,7 +630,7 @@
             grbPackets.Controls.Add(lblSent);
             grbPackets.Location = new Point(18, 103);
             grbPackets.Name = "grbPackets";
-            grbPackets.Size = new Size(554, 125);
+            grbPackets.Size = new Size(580, 125);
             grbPackets.TabIndex = 6;
             grbPackets.TabStop = false;
             grbPackets.Text = "Packets";
@@ -640,7 +641,7 @@
             lblLostActive.AutoSize = true;
             lblLostActive.Font = new Font("Calibri", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 238);
             lblLostActive.ForeColor = SystemColors.ActiveCaptionText;
-            lblLostActive.Location = new Point(321, 88);
+            lblLostActive.Location = new Point(347, 88);
             lblLostActive.Name = "lblLostActive";
             lblLostActive.Size = new Size(15, 21);
             lblLostActive.TabIndex = 12;
@@ -663,7 +664,7 @@
             lblRecievedActive.AutoSize = true;
             lblRecievedActive.Font = new Font("Calibri", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 238);
             lblRecievedActive.ForeColor = SystemColors.ActiveCaptionText;
-            lblRecievedActive.Location = new Point(321, 59);
+            lblRecievedActive.Location = new Point(347, 59);
             lblRecievedActive.Name = "lblRecievedActive";
             lblRecievedActive.Size = new Size(15, 21);
             lblRecievedActive.TabIndex = 10;
@@ -686,7 +687,7 @@
             lblSentActive.AutoSize = true;
             lblSentActive.Font = new Font("Calibri", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 238);
             lblSentActive.ForeColor = SystemColors.ActiveCaptionText;
-            lblSentActive.Location = new Point(321, 31);
+            lblSentActive.Location = new Point(347, 31);
             lblSentActive.Name = "lblSentActive";
             lblSentActive.Size = new Size(15, 21);
             lblSentActive.TabIndex = 8;
@@ -709,7 +710,7 @@
             lblPacketSizeRRActive.AutoSize = true;
             lblPacketSizeRRActive.Font = new Font("Calibri", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 238);
             lblPacketSizeRRActive.ForeColor = SystemColors.ActiveCaptionText;
-            lblPacketSizeRRActive.Location = new Point(339, 75);
+            lblPacketSizeRRActive.Location = new Point(365, 75);
             lblPacketSizeRRActive.Name = "lblPacketSizeRRActive";
             lblPacketSizeRRActive.Size = new Size(15, 21);
             lblPacketSizeRRActive.TabIndex = 5;
@@ -732,7 +733,7 @@
             lblIpAddressActive.AutoSize = true;
             lblIpAddressActive.Font = new Font("Calibri", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 238);
             lblIpAddressActive.ForeColor = SystemColors.ActiveCaptionText;
-            lblIpAddressActive.Location = new Point(339, 47);
+            lblIpAddressActive.Location = new Point(365, 47);
             lblIpAddressActive.Name = "lblIpAddressActive";
             lblIpAddressActive.Size = new Size(15, 21);
             lblIpAddressActive.TabIndex = 3;
@@ -755,7 +756,7 @@
             lblPingingActive.AutoSize = true;
             lblPingingActive.Font = new Font("Calibri", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 238);
             lblPingingActive.ForeColor = SystemColors.ActiveCaptionText;
-            lblPingingActive.Location = new Point(339, 17);
+            lblPingingActive.Location = new Point(365, 17);
             lblPingingActive.Name = "lblPingingActive";
             lblPingingActive.Size = new Size(15, 21);
             lblPingingActive.TabIndex = 1;
@@ -781,7 +782,7 @@
             tbpDatabase.Location = new Point(4, 29);
             tbpDatabase.Name = "tbpDatabase";
             tbpDatabase.Padding = new Padding(3);
-            tbpDatabase.Size = new Size(596, 408);
+            tbpDatabase.Size = new Size(622, 408);
             tbpDatabase.TabIndex = 1;
             tbpDatabase.Text = "Database";
             tbpDatabase.UseVisualStyleBackColor = true;
@@ -792,13 +793,13 @@
             panel1.Dock = DockStyle.Bottom;
             panel1.Location = new Point(3, 366);
             panel1.Name = "panel1";
-            panel1.Size = new Size(590, 39);
+            panel1.Size = new Size(616, 39);
             panel1.TabIndex = 2;
             // 
             // btnDelete
             // 
             btnDelete.ForeColor = SystemColors.ActiveCaptionText;
-            btnDelete.Location = new Point(471, 4);
+            btnDelete.Location = new Point(509, 5);
             btnDelete.Name = "btnDelete";
             btnDelete.Size = new Size(104, 30);
             btnDelete.TabIndex = 0;
@@ -812,8 +813,9 @@
             flpSessions.FlowDirection = FlowDirection.TopDown;
             flpSessions.Location = new Point(3, 79);
             flpSessions.Name = "flpSessions";
-            flpSessions.Size = new Size(590, 326);
+            flpSessions.Size = new Size(616, 326);
             flpSessions.TabIndex = 1;
+            flpSessions.WrapContents = false;
             // 
             // pnlFilter
             // 
@@ -824,7 +826,7 @@
             pnlFilter.Dock = DockStyle.Top;
             pnlFilter.Location = new Point(3, 3);
             pnlFilter.Name = "pnlFilter";
-            pnlFilter.Size = new Size(590, 76);
+            pnlFilter.Size = new Size(616, 76);
             pnlFilter.TabIndex = 0;
             // 
             // btnFilter
@@ -859,7 +861,7 @@
             // 
             // tlpTableLabels
             // 
-            tlpTableLabels.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            tlpTableLabels.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             tlpTableLabels.ColumnCount = 5;
             tlpTableLabels.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 30.6551075F));
             tlpTableLabels.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 17.107748F));
@@ -875,7 +877,7 @@
             tlpTableLabels.Name = "tlpTableLabels";
             tlpTableLabels.RowCount = 1;
             tlpTableLabels.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tlpTableLabels.Size = new Size(587, 31);
+            tlpTableLabels.Size = new Size(590, 31);
             tlpTableLabels.TabIndex = 0;
             // 
             // lblTarget
@@ -884,7 +886,7 @@
             lblTarget.Dock = DockStyle.Fill;
             lblTarget.Location = new Point(3, 0);
             lblTarget.Name = "lblTarget";
-            lblTarget.Size = new Size(173, 31);
+            lblTarget.Size = new Size(174, 31);
             lblTarget.TabIndex = 0;
             lblTarget.Text = "Target";
             lblTarget.TextAlign = ContentAlignment.BottomLeft;
@@ -893,7 +895,7 @@
             // 
             lblSRL.AutoSize = true;
             lblSRL.Dock = DockStyle.Fill;
-            lblSRL.Location = new Point(182, 0);
+            lblSRL.Location = new Point(183, 0);
             lblSRL.Name = "lblSRL";
             lblSRL.Size = new Size(94, 31);
             lblSRL.TabIndex = 1;
@@ -904,9 +906,9 @@
             // 
             lblTimeStamp.AutoSize = true;
             lblTimeStamp.Dock = DockStyle.Fill;
-            lblTimeStamp.Location = new Point(282, 0);
+            lblTimeStamp.Location = new Point(283, 0);
             lblTimeStamp.Name = "lblTimeStamp";
-            lblTimeStamp.Size = new Size(145, 31);
+            lblTimeStamp.Size = new Size(146, 31);
             lblTimeStamp.TabIndex = 2;
             lblTimeStamp.Text = "Time Stamp";
             lblTimeStamp.TextAlign = ContentAlignment.BottomLeft;
@@ -915,9 +917,9 @@
             // 
             lblPreferencesButton.AutoSize = true;
             lblPreferencesButton.Dock = DockStyle.Fill;
-            lblPreferencesButton.Location = new Point(468, 0);
+            lblPreferencesButton.Location = new Point(470, 0);
             lblPreferencesButton.Name = "lblPreferencesButton";
-            lblPreferencesButton.Size = new Size(116, 31);
+            lblPreferencesButton.Size = new Size(117, 31);
             lblPreferencesButton.TabIndex = 3;
             lblPreferencesButton.Text = "Preferences";
             lblPreferencesButton.TextAlign = ContentAlignment.BottomCenter;
@@ -927,7 +929,7 @@
             btnTimeStampSort.Dock = DockStyle.Fill;
             btnTimeStampSort.FlatAppearance.BorderSize = 0;
             btnTimeStampSort.FlatStyle = FlatStyle.Flat;
-            btnTimeStampSort.Location = new Point(433, 3);
+            btnTimeStampSort.Location = new Point(435, 3);
             btnTimeStampSort.Name = "btnTimeStampSort";
             btnTimeStampSort.Size = new Size(29, 25);
             btnTimeStampSort.TabIndex = 4;
@@ -942,16 +944,17 @@
             tbpOutput.Location = new Point(4, 29);
             tbpOutput.Name = "tbpOutput";
             tbpOutput.Padding = new Padding(3);
-            tbpOutput.Size = new Size(596, 408);
+            tbpOutput.Size = new Size(622, 408);
             tbpOutput.TabIndex = 2;
             tbpOutput.Text = "Output";
             tbpOutput.UseVisualStyleBackColor = true;
             // 
             // btnSaveLog
             // 
+            btnSaveLog.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnSaveLog.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 238);
             btnSaveLog.ForeColor = Color.Black;
-            btnSaveLog.Location = new Point(360, 374);
+            btnSaveLog.Location = new Point(386, 374);
             btnSaveLog.Name = "btnSaveLog";
             btnSaveLog.Size = new Size(107, 28);
             btnSaveLog.TabIndex = 20;
@@ -961,9 +964,10 @@
             // 
             // btnClear
             // 
+            btnClear.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnClear.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 238);
             btnClear.ForeColor = Color.Black;
-            btnClear.Location = new Point(483, 374);
+            btnClear.Location = new Point(509, 374);
             btnClear.Name = "btnClear";
             btnClear.Size = new Size(107, 28);
             btnClear.TabIndex = 19;
@@ -980,7 +984,7 @@
             rtbConsole.Location = new Point(3, 3);
             rtbConsole.Name = "rtbConsole";
             rtbConsole.ReadOnly = true;
-            rtbConsole.Size = new Size(590, 365);
+            rtbConsole.Size = new Size(616, 365);
             rtbConsole.TabIndex = 0;
             rtbConsole.Text = "";
             // 
@@ -991,13 +995,13 @@
             pnlMiddle.Dock = DockStyle.Fill;
             pnlMiddle.Location = new Point(0, 143);
             pnlMiddle.Name = "pnlMiddle";
-            pnlMiddle.Size = new Size(951, 482);
+            pnlMiddle.Size = new Size(977, 482);
             pnlMiddle.TabIndex = 1;
             // 
             // MainForm
             // 
             AutoScaleMode = AutoScaleMode.None;
-            ClientSize = new Size(951, 625);
+            ClientSize = new Size(977, 625);
             Controls.Add(pnlInfo);
             Controls.Add(pnlMiddle);
             Controls.Add(pnlTop);

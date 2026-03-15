@@ -1,4 +1,6 @@
-﻿namespace PingRequester.Client
+﻿using PingRequester.Client.controlls;
+
+namespace PingRequester.Client
 {
     partial class SessionRow
     {
@@ -29,24 +31,25 @@
         private void InitializeComponent()
         {
             tlpSession = new TableLayoutPanel();
-            lblTarget = new Label();
+            lblTarget = new OneLineLabel();
             lblSRL = new Label();
             lblTimeStamp = new Label();
-            btnPreferences = new Button();
+            btnDetails = new Button();
             tlpSession.SuspendLayout();
             SuspendLayout();
             // 
             // tlpSession
             // 
-            tlpSession.ColumnCount = 4;
-            tlpSession.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 30.9086189F));
-            tlpSession.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 17.2520885F));
-            tlpSession.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 26.0821F));
-            tlpSession.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25.75719F));
-            tlpSession.Controls.Add(lblTarget, 0, 0);
+            tlpSession.ColumnCount = 5;
+            tlpSession.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 30.6599979F));
+            tlpSession.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 17.1099987F));
+            tlpSession.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25.8599987F));
+            tlpSession.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5.96999931F));
+            tlpSession.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20.3999977F));
             tlpSession.Controls.Add(lblSRL, 1, 0);
             tlpSession.Controls.Add(lblTimeStamp, 2, 0);
-            tlpSession.Controls.Add(btnPreferences, 3, 0);
+            tlpSession.Controls.Add(btnDetails, 4, 0);
+            tlpSession.Controls.Add(lblTarget, 0, 0);
             tlpSession.Dock = DockStyle.Fill;
             tlpSession.Location = new Point(0, 0);
             tlpSession.Name = "tlpSession";
@@ -59,9 +62,11 @@
             // 
             lblTarget.AutoEllipsis = true;
             lblTarget.Dock = DockStyle.Fill;
+            lblTarget.FlatStyle = FlatStyle.Flat;
+            lblTarget.ForeColor = Color.Black;
             lblTarget.Location = new Point(3, 0);
             lblTarget.Name = "lblTarget";
-            lblTarget.Size = new Size(176, 46);
+            lblTarget.Size = new Size(174, 46);
             lblTarget.TabIndex = 0;
             lblTarget.Text = "www.seznam.cz";
             lblTarget.TextAlign = ContentAlignment.MiddleLeft;
@@ -70,9 +75,10 @@
             // 
             lblSRL.AutoSize = true;
             lblSRL.Dock = DockStyle.Fill;
-            lblSRL.Location = new Point(185, 0);
+            lblSRL.ForeColor = Color.Black;
+            lblSRL.Location = new Point(183, 0);
             lblSRL.Name = "lblSRL";
-            lblSRL.Size = new Size(95, 46);
+            lblSRL.Size = new Size(94, 46);
             lblSRL.TabIndex = 1;
             lblSRL.Text = "200/200/0";
             lblSRL.TextAlign = ContentAlignment.MiddleCenter;
@@ -81,22 +87,30 @@
             // 
             lblTimeStamp.AutoSize = true;
             lblTimeStamp.Dock = DockStyle.Fill;
-            lblTimeStamp.Location = new Point(286, 0);
+            lblTimeStamp.ForeColor = Color.Black;
+            lblTimeStamp.Location = new Point(283, 0);
             lblTimeStamp.Name = "lblTimeStamp";
-            lblTimeStamp.Size = new Size(147, 46);
+            lblTimeStamp.Size = new Size(146, 46);
             lblTimeStamp.TabIndex = 2;
             lblTimeStamp.Text = "14:21 11. 02. 2025";
             lblTimeStamp.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // btnPreferences
+            // btnDetails
             // 
-            btnPreferences.Dock = DockStyle.Fill;
-            btnPreferences.Location = new Point(439, 3);
-            btnPreferences.Name = "btnPreferences";
-            btnPreferences.Size = new Size(148, 40);
-            btnPreferences.TabIndex = 3;
-            btnPreferences.Text = "Preferences";
-            btnPreferences.UseVisualStyleBackColor = true;
+            btnDetails.BackColor = Color.Transparent;
+            btnDetails.Dock = DockStyle.Fill;
+            btnDetails.FlatAppearance.BorderSize = 0;
+            btnDetails.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            btnDetails.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            btnDetails.FlatStyle = FlatStyle.Flat;
+            btnDetails.ForeColor = Color.Black;
+            btnDetails.Location = new Point(470, 3);
+            btnDetails.Name = "btnDetails";
+            btnDetails.Size = new Size(117, 40);
+            btnDetails.TabIndex = 3;
+            btnDetails.Text = "Show details";
+            btnDetails.UseVisualStyleBackColor = false;
+            btnDetails.Click += btnPreferences_Click;
             // 
             // SessionRow
             // 
@@ -116,6 +130,6 @@
         private Label lblTarget;
         private Label lblSRL;
         private Label lblTimeStamp;
-        private Button btnPreferences;
+        private Button btnDetails;
     }
 }

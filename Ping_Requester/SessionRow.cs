@@ -12,9 +12,21 @@ namespace PingRequester.Client
 {
     public partial class SessionRow : UserControl
     {
-        public SessionRow()
+        private int preferencesId;
+
+        public SessionRow(string target, string srl, string timeStamp, int preferencesId)
         {
             InitializeComponent();
+
+            this.preferencesId = preferencesId;
+            lblTarget.Text = target;
+            lblSRL.Text = srl;
+            lblTimeStamp.Text = timeStamp;
+        }
+
+        private void btnPreferences_Click(object sender, EventArgs e)
+        {
+            ;
         }
     }
 }
