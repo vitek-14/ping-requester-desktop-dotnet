@@ -278,7 +278,7 @@ namespace PingRequester.Client
             {
                 flpSessions.Controls.Clear();
 
-                var sessions = _data.Sessions.GetAll();
+                var sessions = _data.Sessions.GetAll().OrderBy(s => s.Start);
 
                 foreach (var session in sessions)
                 {
