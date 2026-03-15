@@ -112,7 +112,7 @@ namespace PingRequester.BusinessLayer.Services
         {
             using (var context = _contextFactory())
             {
-                return context.Preferences.FirstOrDefault(p => p.Equals(preferences));
+                return context.Preferences.AsEnumerable().FirstOrDefault(p => p.Equals(preferences));
             }
         }
     }

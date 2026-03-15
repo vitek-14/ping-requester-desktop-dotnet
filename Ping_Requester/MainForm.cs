@@ -381,7 +381,6 @@ namespace PingRequester.Client
                 MaxResponseTimeMs = requester.RequestRun.MaxTime,
                 MinResponseTimeMs = requester.RequestRun.MinTime,
                 AverageResponseTimeMs = requester.RequestRun.AverageTime,
-                UserPreferences = preferences,
                 UserPreferencesId = preferences.Id
             };
 

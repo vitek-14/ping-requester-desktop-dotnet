@@ -36,5 +36,19 @@ namespace PingRequester.Data.Entities
                 && this.PingTarget == other.PingTarget
                 && this.RefreshRate == other.RefreshRate;
         }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(
+                StopWhenSuccess,
+                InfiniteLoop,
+                PacketSize,
+                Attempts,
+                Mode,
+                PingRequestCount,
+                PingTarget,
+                RefreshRate
+            );
+        }
     }
 }
