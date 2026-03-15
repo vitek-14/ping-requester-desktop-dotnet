@@ -1,5 +1,6 @@
 ﻿using PingRequester.BusinessLayer.Services;
 using PingRequester.Data;
+using PingRequester.Data.Entities;
 
 namespace PingRequester.BusinessLayer
 {
@@ -18,5 +19,23 @@ namespace PingRequester.BusinessLayer
         public PreferencesService Preferences { get => preferences; }
 
         private MyDbContext CreateContext() => new MyDbContext();
+
+        public void AddPingRequestRun(UserPreferences preferences, RequestRunSession session)
+        {
+            var matchingPreference = this.Preferences.FindMatching(preferences);
+
+            if (matchingPreference == null)
+            {
+                this.Preferences.Add(preferences);
+            }
+            else
+            {
+                preferences = matchingPreference;
+            }
+
+            session.UserPreferencesId = preferences.Id;
+
+            this.Sessions.Add(session);
+        }
     }
 }

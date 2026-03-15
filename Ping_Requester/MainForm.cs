@@ -244,7 +244,7 @@ namespace PingRequester.Client
             requestRun.End = DateTime.Now;
 
             // TODO: save data from requester & request run to the database
-            // ...
+            //btnSaveSession_Click(null, EventArgs.Empty);
 
             // requesting done
             console.LogMessage($"Pinging finished at: {DateTime.Now}");
@@ -273,12 +273,36 @@ namespace PingRequester.Client
 
         private void tbc_SelectedIndexChanged(object sender, EventArgs e)
         {
+            // Database tab
+            if (tbc.SelectedIndex == 1)
+            {
+                flpSessions.Controls.Clear();
+
+                var sessions = _data.Sessions.GetAll();
+
+                foreach (var session in sessions)
+                {
+                    string target = $"{session.PingTarget} ({session.Ipv4})";
+                    string srl = $"{session.Sent}/{session.Received}/{session.Lost}";
+                    string timeStamp = session.Start.ToString();
+                    var sessionRow = new SessionRow(target, srl, timeStamp, session.UserPreferencesId);
+
+                    int controlsCount = flpSessions.Controls.Count;
+
+                    if (controlsCount % 2 == 1)
+                        sessionRow.BackColor = Color.FromArgb(230, 230, 230);
+
+                    flpSessions.Controls.Add(sessionRow);
+                }
+            }
+
             /* A workaround for the Console (richtextbox) artefact - bug.
              * This code solves the bug when UI from Request Run tab is being displayed in the Console tab.
              * Code bellow scrolls to the top and down again in order to get rid of the wrong pixels.
              * Artefact was appearing only when large number of ping requests was set.
              */
 
+            // Console tab
             if (tbc.SelectedIndex == 2)
             {
                 rtbConsole.SelectionStart = 0;
@@ -343,7 +367,7 @@ namespace PingRequester.Client
             }
         }
 
-        private void btnSaveSession_Click(object sender, EventArgs e)
+        private void btnSaveSession_Click(object? sender, EventArgs e)
         {
             var preferences = new UserPreferences
             {
@@ -357,17 +381,6 @@ namespace PingRequester.Client
                 PacketSize = (int)nudPacketSize.Value
             };
 
-            var matchingPreference = _data.Preferences.FindMatching(preferences); 
-
-            if (matchingPreference == null)
-            {
-                _data.Preferences.Add(preferences);
-            }
-            else
-            {
-                preferences = matchingPreference;
-            }
-
             var session = new RequestRunSession
             {
                 Start = requester.RequestRun.Start,
@@ -380,11 +393,10 @@ namespace PingRequester.Client
                 Lost = requester.RequestRun.PacketsLost,
                 MaxResponseTimeMs = requester.RequestRun.MaxTime,
                 MinResponseTimeMs = requester.RequestRun.MinTime,
-                AverageResponseTimeMs = requester.RequestRun.AverageTime,
-                UserPreferencesId = preferences.Id
+                AverageResponseTimeMs = requester.RequestRun.AverageTime
             };
 
-            _data.Sessions.Add(session);
+            _data.AddPingRequestRun(preferences, session);
         }
     }
 }
