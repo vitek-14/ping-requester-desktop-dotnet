@@ -16,11 +16,12 @@ namespace PingRequester.Client
     public partial class SessionRow : UserControl
     {
         private RequestRunSession session;
-        private int preferencesId;
         private Color backColor;
         private PingRequestData _data;
+        private int preferencesId;
 
         public event EventHandler SessionDeleted;
+        public event EventHandler UsePreferences;
 
         public SessionRow(RequestRunSession session, Color bgColor)
         {
@@ -38,6 +39,8 @@ namespace PingRequester.Client
 
             tlpSession.BackColor = backColor;
         }
+
+        public int PreferencesId { get => preferencesId; }
 
         private string TargetParser()
         {
@@ -70,7 +73,7 @@ namespace PingRequester.Client
             // action for use preferences
             if (dialogResult == DialogResult.Yes)
             {
-                ;
+                UsePreferences.Invoke(this, EventArgs.Empty);
             }
         }
 

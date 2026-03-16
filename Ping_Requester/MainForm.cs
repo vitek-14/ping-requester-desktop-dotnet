@@ -107,6 +107,9 @@ namespace PingRequester.Client
         /// <param name="e"></param>
         private void MainForm_Load(object sender, EventArgs e)
         {
+            // Reset cmb
+            cmbMode.Items.Clear();
+
             // Combo Box - items
             cmbMode.Items.Add("Aggressive");
             cmbMode.Items.Add("Precise");
@@ -431,6 +434,7 @@ namespace PingRequester.Client
                 var sessionRow = new SessionRow(session, defaultBgColor);
 
                 sessionRow.SessionDeleted += (s, args) => { RefreshUIAfterDelete(); };
+                sessionRow.UsePreferences += (s, args) => { ReloadPreferences(s); };
 
                 flpSessions.Controls.Add(sessionRow);
                 storedSessions.Add(session);
@@ -445,6 +449,16 @@ namespace PingRequester.Client
             ResetSessionRows();
             var sessions = _data.Sessions.GetAll();
             LoadSessionRows(sessions);
+        }
+
+        private void ReloadPreferences(object s)
+        {
+            var session = (SessionRow)s;
+            var userPreferences = _data.Preferences.GetById(session.PreferencesId);
+            this.preferences = userPreferences.MapToPreferences();
+
+            // reload preferences
+            MainForm_Load(this, EventArgs.Empty);
         }
 
         private void btnTimeStampSort_Click(object sender, EventArgs e)

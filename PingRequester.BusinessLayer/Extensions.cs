@@ -1,4 +1,6 @@
-﻿using System.Text.RegularExpressions;
+﻿using PingRequester.Data.DataObjects;
+using PingRequester.Data.Entities;
+using System.Text.RegularExpressions;
 
 namespace PingRequester.BusinessLayer
 {
@@ -66,6 +68,21 @@ namespace PingRequester.BusinessLayer
             }
 
             return true;
+        }
+
+        public static Preferences MapToPreferences(this UserPreferences userPreferences)
+        {
+            var p = new Preferences();
+            p.PingTarget = userPreferences.PingTarget;
+            p.Mode = userPreferences.Mode;
+            p.RefreshRate = userPreferences.RefreshRate;
+            p.InfiniteLoop = userPreferences.InfiniteLoop;
+            p.StopWhenSuccess = userPreferences.StopWhenSuccess;
+            p.NumberOfPR = userPreferences.PingRequestCount;
+            p.Attempts = userPreferences.Attempts;
+            p.PacketSize = userPreferences.PacketSize;
+
+            return p;
         }
     }
 }

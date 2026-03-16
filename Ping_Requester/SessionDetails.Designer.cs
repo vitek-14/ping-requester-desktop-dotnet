@@ -71,6 +71,7 @@
             lblSession = new Label();
             btnUsePreferences = new Button();
             btnDelete = new Button();
+            btnClose = new Button();
             pnlInfos.SuspendLayout();
             pnlPreferences.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
@@ -606,8 +607,9 @@
             // 
             // btnUsePreferences
             // 
+            btnUsePreferences.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnUsePreferences.BackColor = Color.White;
-            btnUsePreferences.Location = new Point(437, 339);
+            btnUsePreferences.Location = new Point(474, 342);
             btnUsePreferences.Name = "btnUsePreferences";
             btnUsePreferences.Size = new Size(146, 34);
             btnUsePreferences.TabIndex = 1;
@@ -617,9 +619,10 @@
             // 
             // btnDelete
             // 
+            btnDelete.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnDelete.BackColor = Color.White;
             btnDelete.ForeColor = Color.Firebrick;
-            btnDelete.Location = new Point(606, 339);
+            btnDelete.Location = new Point(357, 342);
             btnDelete.Name = "btnDelete";
             btnDelete.Size = new Size(111, 34);
             btnDelete.TabIndex = 2;
@@ -627,11 +630,24 @@
             btnDelete.UseVisualStyleBackColor = false;
             btnDelete.Click += btnDelete_Click;
             // 
+            // btnClose
+            // 
+            btnClose.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnClose.BackColor = Color.White;
+            btnClose.Location = new Point(626, 342);
+            btnClose.Name = "btnClose";
+            btnClose.Size = new Size(91, 34);
+            btnClose.TabIndex = 3;
+            btnClose.Text = "Close";
+            btnClose.UseVisualStyleBackColor = false;
+            btnClose.Click += btnClose_Click;
+            // 
             // SessionDetails
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(732, 379);
+            ClientSize = new Size(732, 382);
+            Controls.Add(btnClose);
             Controls.Add(btnDelete);
             Controls.Add(btnUsePreferences);
             Controls.Add(pnlInfos);
@@ -698,5 +714,6 @@
         private Label lblPingTarget;
         private Button btnUsePreferences;
         private Button btnDelete;
+        private Button btnClose;
     }
 }
