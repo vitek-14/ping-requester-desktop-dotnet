@@ -613,6 +613,7 @@
             btnUsePreferences.TabIndex = 1;
             btnUsePreferences.Text = "Use preferences";
             btnUsePreferences.UseVisualStyleBackColor = false;
+            btnUsePreferences.Click += btnUsePreferences_Click;
             // 
             // btnDelete
             // 
@@ -624,6 +625,7 @@
             btnDelete.TabIndex = 2;
             btnDelete.Text = "Delete";
             btnDelete.UseVisualStyleBackColor = false;
+            btnDelete.Click += btnDelete_Click;
             // 
             // SessionDetails
             // 

@@ -1,4 +1,7 @@
-﻿using System;
+﻿using PingRequester.BusinessLayer;
+using PingRequester.Data;
+using PingRequester.Data.Entities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,20 +15,58 @@ namespace PingRequester.Client
 {
     public partial class SessionRow : UserControl
     {
+        private RequestRunSession session;
         private int preferencesId;
         private Color backColor;
+        private PingRequestData _data;
 
-        public SessionRow(string target, string srl, string timeStamp, int preferencesId, Color bgColor)
+        public event EventHandler SessionDeleted;
+
+        public SessionRow(RequestRunSession session, Color bgColor)
         {
             InitializeComponent();
 
-            this.preferencesId = preferencesId;
-            lblTarget.Text = target;
-            lblSRL.Text = srl;
-            lblTimeStamp.Text = timeStamp;
+            _data = new PingRequestData();
+
+            this.session = session;
+
+            this.preferencesId = this.session.UserPreferencesId;
+            lblTarget.Text = TargetParser(this.session);
+            lblSRL.Text = SrlParser(this.session);
+            lblTimeStamp.Text = TimeStampParser(this.session);
             backColor = bgColor;
 
             tlpSession.BackColor = backColor;
+        }
+
+        private string TargetParser(RequestRunSession session)
+        {
+            return $"{session.PingTarget} ({session.Ipv4})";
+        }
+
+        private string SrlParser(RequestRunSession session)
+        {
+            return $"{session.Sent}/{session.Received}/{session.Lost}";
+        }
+
+        private string TimeStampParser(RequestRunSession session)
+        {
+            return session.Start.ToString();
+        }
+
+        private void btnDetails_Click(object sender, EventArgs e)
+        {
+            var dialogResult = new SessionDetails().ShowDialog();
+
+            // action for delete
+            if (dialogResult == DialogResult.No)
+            {
+                _data.Sessions.Delete(this.session);
+
+                SessionDeleted.Invoke(this, EventArgs.Empty);
+            }
+
+            // action for use preferences
         }
 
         private void OnMouseEnter()
@@ -36,11 +77,6 @@ namespace PingRequester.Client
         private void OnMouseLeave()
         {
             tlpSession.BackColor = backColor;
-        }
-
-        private void btnDetails_Click(object sender, EventArgs e)
-        {
-            ;
         }
 
         private void lblTarget_MouseEnter(object sender, EventArgs e)

@@ -16,5 +16,17 @@ namespace PingRequester.Client
         {
             InitializeComponent();
         }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.No;
+            this.Close();
+        }
+
+        private void btnUsePreferences_Click(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.Yes;
+            this.Close();
+        }
     }
 }

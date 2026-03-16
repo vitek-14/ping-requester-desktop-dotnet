@@ -420,9 +420,6 @@ namespace PingRequester.Client
                 if (this.storedSessions.Any(s => s.Id == session.Id))
                     continue;
 
-                string target = $"{session.PingTarget} ({session.Ipv4})";
-                string srl = $"{session.Sent}/{session.Received}/{session.Lost}";
-                string timeStamp = session.Start.ToString();
                 Color defaultBgColor;
                 int controlsCount = flpSessions.Controls.Count;
 
@@ -431,7 +428,9 @@ namespace PingRequester.Client
                 else
                     defaultBgColor = Color.WhiteSmoke;
 
-                var sessionRow = new SessionRow(target, srl, timeStamp, session.UserPreferencesId, defaultBgColor);
+                var sessionRow = new SessionRow(session, defaultBgColor);
+
+                sessionRow.SessionDeleted += (s, args) => { RefreshUIAfterDelete(); };
 
                 flpSessions.Controls.Add(sessionRow);
                 storedSessions.Add(session);
@@ -439,6 +438,13 @@ namespace PingRequester.Client
 
             // spacer to add extra spcae under the last row
             flpSessions.Controls.Add(new Panel { Name = "pnlSpacer", Height = 15, BackColor = Color.Transparent });
+        }
+
+        private void RefreshUIAfterDelete()
+        {
+            ResetSessionRows();
+            var sessions = _data.Sessions.GetAll();
+            LoadSessionRows(sessions);
         }
 
         private void btnTimeStampSort_Click(object sender, EventArgs e)
