@@ -87,8 +87,8 @@
             lblPingingActive = new Label();
             lblPinging = new Label();
             tbpDatabase = new TabPage();
-            panel1 = new Panel();
-            btnDelete = new Button();
+            pnl1 = new Panel();
+            btnDeleteAll = new Button();
             flpSessions = new FlowLayoutPanel();
             pnlFilter = new Panel();
             btnFilter = new Button();
@@ -121,7 +121,7 @@
             grbRoundTripTimes.SuspendLayout();
             grbPackets.SuspendLayout();
             tbpDatabase.SuspendLayout();
-            panel1.SuspendLayout();
+            pnl1.SuspendLayout();
             pnlFilter.SuspendLayout();
             tlpTableLabels.SuspendLayout();
             tbpOutput.SuspendLayout();
@@ -776,7 +776,7 @@
             // 
             // tbpDatabase
             // 
-            tbpDatabase.Controls.Add(panel1);
+            tbpDatabase.Controls.Add(pnl1);
             tbpDatabase.Controls.Add(flpSessions);
             tbpDatabase.Controls.Add(pnlFilter);
             tbpDatabase.Location = new Point(4, 29);
@@ -787,24 +787,25 @@
             tbpDatabase.Text = "Database";
             tbpDatabase.UseVisualStyleBackColor = true;
             // 
-            // panel1
+            // pnl1
             // 
-            panel1.Controls.Add(btnDelete);
-            panel1.Dock = DockStyle.Bottom;
-            panel1.Location = new Point(3, 366);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(616, 39);
-            panel1.TabIndex = 2;
+            pnl1.Controls.Add(btnDeleteAll);
+            pnl1.Dock = DockStyle.Bottom;
+            pnl1.Location = new Point(3, 366);
+            pnl1.Name = "pnl1";
+            pnl1.Size = new Size(616, 39);
+            pnl1.TabIndex = 2;
             // 
-            // btnDelete
+            // btnDeleteAll
             // 
-            btnDelete.ForeColor = SystemColors.ActiveCaptionText;
-            btnDelete.Location = new Point(509, 5);
-            btnDelete.Name = "btnDelete";
-            btnDelete.Size = new Size(104, 30);
-            btnDelete.TabIndex = 0;
-            btnDelete.Text = "Delete";
-            btnDelete.UseVisualStyleBackColor = true;
+            btnDeleteAll.ForeColor = SystemColors.ActiveCaptionText;
+            btnDeleteAll.Location = new Point(489, 5);
+            btnDeleteAll.Name = "btnDeleteAll";
+            btnDeleteAll.Size = new Size(124, 30);
+            btnDeleteAll.TabIndex = 0;
+            btnDeleteAll.Text = "Delete All";
+            btnDeleteAll.UseVisualStyleBackColor = true;
+            btnDeleteAll.Click += btnDeleteAll_Click;
             // 
             // flpSessions
             // 
@@ -1037,7 +1038,7 @@
             grbPackets.ResumeLayout(false);
             grbPackets.PerformLayout();
             tbpDatabase.ResumeLayout(false);
-            panel1.ResumeLayout(false);
+            pnl1.ResumeLayout(false);
             pnlFilter.ResumeLayout(false);
             pnlFilter.PerformLayout();
             tlpTableLabels.ResumeLayout(false);
@@ -1122,8 +1123,8 @@
         private TextBox txbTarget;
         private Button btnFilter;
         private Button btnTimeStampSort;
-        private Panel panel1;
-        private Button btnDelete;
+        private Panel pnl1;
+        private Button btnDeleteAll;
         private Button btnSaveSession;
 
         public string PingTarget { get => txbPingTarget.Text; }

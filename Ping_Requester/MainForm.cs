@@ -473,5 +473,10 @@ namespace PingRequester.Client
 
             LoadSessionRows(sessions);
         }
+
+        private void btnDeleteAll_Click(object sender, EventArgs e)
+        {
+            ;
+        }
     }
 }
