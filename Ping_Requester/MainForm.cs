@@ -439,7 +439,19 @@ namespace PingRequester.Client
                 btnTimeStampSort.Text = "\u02C5";
             }
 
-            LoadSessionRows(sessions);   
+            LoadSessionRows(sessions);
+        }
+
+        private void btnFilter_Click(object sender, EventArgs e)
+        {
+            ResetSessionRows();
+
+            string filterTarget = txbTarget.Text.Trim();
+            var sessions = _data.Sessions
+                            .GetAll()
+                            .Where(s => s.PingTarget.Contains(filterTarget) || s.Ipv4.Contains(filterTarget));
+
+            LoadSessionRows(sessions);
         }
     }
 }

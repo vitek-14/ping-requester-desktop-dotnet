@@ -839,6 +839,7 @@
             btnFilter.TabIndex = 3;
             btnFilter.Text = "Filter";
             btnFilter.UseVisualStyleBackColor = true;
+            btnFilter.Click += btnFilter_Click;
             // 
             // lblTargetEntry
             // 
