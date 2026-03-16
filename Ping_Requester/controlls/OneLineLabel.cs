@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace PingRequester.Client.controlls
 {
-    internal class OneLineLabel : Label
+    public class OneLineLabel : Label
     {
         private ToolTip _toolTip = new ToolTip();
         private bool _isTextTruncated = false;
 
-        internal OneLineLabel()
+        public OneLineLabel()
         {
             this.AutoSize = false;
         }

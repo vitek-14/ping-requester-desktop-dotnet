@@ -405,12 +405,15 @@ namespace PingRequester.Client
                 string target = $"{session.PingTarget} ({session.Ipv4})";
                 string srl = $"{session.Sent}/{session.Received}/{session.Lost}";
                 string timeStamp = session.Start.ToString();
-                var sessionRow = new SessionRow(target, srl, timeStamp, session.UserPreferencesId);
-
+                Color defaultBgColor;
                 int controlsCount = flpSessions.Controls.Count;
 
                 if (controlsCount % 2 == 1)
-                    sessionRow.BackColor = Color.FromArgb(230, 230, 230);
+                    defaultBgColor = Color.FromArgb(230, 230, 230);
+                else
+                    defaultBgColor = Color.WhiteSmoke;
+
+                var sessionRow = new SessionRow(target, srl, timeStamp, session.UserPreferencesId, defaultBgColor);
 
                 flpSessions.Controls.Add(sessionRow);
                 storedSessions.Add(session);
@@ -427,7 +430,7 @@ namespace PingRequester.Client
             {
                 sessionRowsOrderedByNewest = false;
                 sessions = _data.Sessions.GetAll().OrderByDescending(s => s.Start);
-                btnTimeStampSort.Text = "˄";
+                btnTimeStampSort.Text = "\u02C4";
             }
             else
             {
