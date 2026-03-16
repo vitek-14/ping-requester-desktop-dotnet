@@ -397,6 +397,24 @@ namespace PingRequester.Client
 
         private void LoadSessionRows(IEnumerable<RequestRunSession> sessions)
         {
+            // in case no sessions were found
+            if (sessions.Count() == 0)
+            {
+                var label = new Label
+                {
+                    Name = "lblFLPInfoLabel",
+                    Text = "No records to show.",
+                    Width = flpSessions.Width,
+                    TextAlign = ContentAlignment.MiddleCenter,
+                    ForeColor = Color.Black,
+                    Margin = new Padding(0, 20, 0, 0)
+                };
+
+                flpSessions.Controls.Add(label);
+                return;
+            }
+
+            // add sessions to the flowLayoutPanel
             foreach (var session in sessions)
             {
                 if (this.storedSessions.Any(s => s.Id == session.Id))
@@ -418,24 +436,26 @@ namespace PingRequester.Client
                 flpSessions.Controls.Add(sessionRow);
                 storedSessions.Add(session);
             }
+
+            // spacer to add extra spcae under the last row
+            flpSessions.Controls.Add(new Panel { Name = "pnlSpacer", Height = 15, BackColor = Color.Transparent });
         }
 
         private void btnTimeStampSort_Click(object sender, EventArgs e)
         {
+            var sessions = storedSessions.ToList();
             ResetSessionRows();
-
-            IOrderedEnumerable<RequestRunSession> sessions;
 
             if (sessionRowsOrderedByNewest)
             {
                 sessionRowsOrderedByNewest = false;
-                sessions = _data.Sessions.GetAll().OrderByDescending(s => s.Start);
+                sessions = sessions.OrderByDescending(s => s.Start).ToList();
                 btnTimeStampSort.Text = "\u02C4";
             }
             else
             {
                 sessionRowsOrderedByNewest = true;
-                sessions = _data.Sessions.GetAll().OrderBy(s => s.Start);
+                sessions = sessions.OrderBy(s => s.Start).ToList();
                 btnTimeStampSort.Text = "\u02C5";
             }
 
