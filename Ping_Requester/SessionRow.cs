@@ -38,7 +38,7 @@ namespace PingRequester.Client
             tlpSession.BackColor = backColor;
         }
 
-        private void btnPreferences_Click(object sender, EventArgs e)
+        private void btnDetails_Click(object sender, EventArgs e)
         {
             ;
         }

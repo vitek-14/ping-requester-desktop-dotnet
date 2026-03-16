@@ -35,6 +35,7 @@ namespace PingRequester.Client
             lblSRL = new Label();
             lblTimeStamp = new Label();
             btnDetails = new Button();
+            lblTarget = new OneLineLabel();
             tlpSession.SuspendLayout();
             SuspendLayout();
             // 
@@ -112,16 +113,31 @@ namespace PingRequester.Client
             btnDetails.FlatAppearance.MouseDownBackColor = Color.Transparent;
             btnDetails.FlatAppearance.MouseOverBackColor = Color.Transparent;
             btnDetails.FlatStyle = FlatStyle.Flat;
-            btnDetails.ForeColor = Color.Black;
+            btnDetails.ForeColor = Color.DodgerBlue;
             btnDetails.Location = new Point(470, 3);
             btnDetails.Name = "btnDetails";
             btnDetails.Size = new Size(117, 40);
             btnDetails.TabIndex = 3;
             btnDetails.Text = "Show details";
             btnDetails.UseVisualStyleBackColor = false;
-            btnDetails.Click += btnPreferences_Click;
+            btnDetails.Click += btnDetails_Click;
             btnDetails.MouseEnter += btnDetails_MouseEnter;
             btnDetails.MouseLeave += btnDetails_MouseLeave;
+            // 
+            // lblTarget
+            // 
+            lblTarget.AutoEllipsis = true;
+            lblTarget.Dock = DockStyle.Fill;
+            lblTarget.FlatStyle = FlatStyle.Flat;
+            lblTarget.ForeColor = Color.Black;
+            lblTarget.Location = new Point(3, 0);
+            lblTarget.Name = "lblTarget";
+            lblTarget.Size = new Size(174, 46);
+            lblTarget.TabIndex = 0;
+            lblTarget.Text = "www.seznam.cz";
+            lblTarget.TextAlign = ContentAlignment.MiddleLeft;
+            lblTarget.MouseEnter += lblTarget_MouseEnter;
+            lblTarget.MouseLeave += lblTarget_MouseLeave;
             // 
             // SessionRow
             // 
