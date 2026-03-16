@@ -639,6 +639,7 @@
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "SessionDetails";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Session Details";
             pnlInfos.ResumeLayout(false);
             pnlPreferences.ResumeLayout(false);

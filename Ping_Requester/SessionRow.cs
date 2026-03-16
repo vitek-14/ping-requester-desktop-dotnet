@@ -31,42 +31,47 @@ namespace PingRequester.Client
             this.session = session;
 
             this.preferencesId = this.session.UserPreferencesId;
-            lblTarget.Text = TargetParser(this.session);
-            lblSRL.Text = SrlParser(this.session);
-            lblTimeStamp.Text = TimeStampParser(this.session);
+            lblTarget.Text = TargetParser();
+            lblSRL.Text = SrlParser();
+            lblTimeStamp.Text = TimeStampParser();
             backColor = bgColor;
 
             tlpSession.BackColor = backColor;
         }
 
-        private string TargetParser(RequestRunSession session)
+        private string TargetParser()
         {
-            return $"{session.PingTarget} ({session.Ipv4})";
+            return $"{this.session.PingTarget} ({this.session.Ipv4})";
         }
 
-        private string SrlParser(RequestRunSession session)
+        private string SrlParser()
         {
-            return $"{session.Sent}/{session.Received}/{session.Lost}";
+            return $"{this.session.Sent}/{this.session.Received}/{this.session.Lost}";
         }
 
-        private string TimeStampParser(RequestRunSession session)
+        private string TimeStampParser()
         {
-            return session.Start.ToString();
+            return this.session.Start.ToString();
         }
 
         private void btnDetails_Click(object sender, EventArgs e)
         {
-            var dialogResult = new SessionDetails().ShowDialog();
+            var preferences = _data.Preferences.GetById(this.session.UserPreferencesId);
+            var dialogResult = new SessionDetails(this.session, preferences).ShowDialog();
 
             // action for delete
             if (dialogResult == DialogResult.No)
             {
                 _data.Sessions.Delete(this.session);
-
                 SessionDeleted.Invoke(this, EventArgs.Empty);
+                return;
             }
 
             // action for use preferences
+            if (dialogResult == DialogResult.Yes)
+            {
+                ;
+            }
         }
 
         private void OnMouseEnter()
