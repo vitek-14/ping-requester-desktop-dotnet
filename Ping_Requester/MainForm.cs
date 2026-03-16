@@ -1,4 +1,4 @@
-using PingRequester.BusinessLayer;
+﻿using PingRequester.BusinessLayer;
 using PingRequester.BusinessLayer.Services;
 using PingRequester.Data;
 using PingRequester.Data.DataObjects;
@@ -22,6 +22,8 @@ namespace PingRequester.Client
         private LogFilesService logFilesService;
         private bool logSaved = false;
         private PingRequestData _data;
+        private List<RequestRunSession> storedSessions;
+        private bool sessionRowsOrderedByNewest = true;
 
         /// <summary>
         /// Default constructor of the MainForm.
@@ -51,6 +53,9 @@ namespace PingRequester.Client
 
             // Initialize DbService
             this._data = new PingRequestData();
+
+            // init storedSessions
+            this.storedSessions = new List<RequestRunSession>();
 
             // load data from configs
             this.jsonServicePreferences = new JsonService<Preferences>("config/PreferencesConfig.json");
@@ -276,24 +281,9 @@ namespace PingRequester.Client
             // Database tab
             if (tbc.SelectedIndex == 1)
             {
-                flpSessions.Controls.Clear();
+                var actualSessions = _data.Sessions.GetAll().OrderBy(s => s.Start);
 
-                var sessions = _data.Sessions.GetAll().OrderBy(s => s.Start);
-
-                foreach (var session in sessions)
-                {
-                    string target = $"{session.PingTarget} ({session.Ipv4})";
-                    string srl = $"{session.Sent}/{session.Received}/{session.Lost}";
-                    string timeStamp = session.Start.ToString();
-                    var sessionRow = new SessionRow(target, srl, timeStamp, session.UserPreferencesId);
-
-                    int controlsCount = flpSessions.Controls.Count;
-
-                    if (controlsCount % 2 == 1)
-                        sessionRow.BackColor = Color.FromArgb(230, 230, 230);
-
-                    flpSessions.Controls.Add(sessionRow);
-                }
+                LoadSessionRows(actualSessions);
             }
 
             /* A workaround for the Console (richtextbox) artefact - bug.
@@ -397,6 +387,56 @@ namespace PingRequester.Client
             };
 
             _data.AddPingRequestRun(preferences, session);
+        }
+
+        private void ResetSessionRows()
+        {
+            flpSessions.Controls.Clear();
+            this.storedSessions.Clear();
+        }
+
+        private void LoadSessionRows(IEnumerable<RequestRunSession> sessions)
+        {
+            foreach (var session in sessions)
+            {
+                if (this.storedSessions.Any(s => s.Id == session.Id))
+                    continue;
+
+                string target = $"{session.PingTarget} ({session.Ipv4})";
+                string srl = $"{session.Sent}/{session.Received}/{session.Lost}";
+                string timeStamp = session.Start.ToString();
+                var sessionRow = new SessionRow(target, srl, timeStamp, session.UserPreferencesId);
+
+                int controlsCount = flpSessions.Controls.Count;
+
+                if (controlsCount % 2 == 1)
+                    sessionRow.BackColor = Color.FromArgb(230, 230, 230);
+
+                flpSessions.Controls.Add(sessionRow);
+                storedSessions.Add(session);
+            }
+        }
+
+        private void btnTimeStampSort_Click(object sender, EventArgs e)
+        {
+            ResetSessionRows();
+
+            IOrderedEnumerable<RequestRunSession> sessions;
+
+            if (sessionRowsOrderedByNewest)
+            {
+                sessionRowsOrderedByNewest = false;
+                sessions = _data.Sessions.GetAll().OrderByDescending(s => s.Start);
+                btnTimeStampSort.Text = "˄";
+            }
+            else
+            {
+                sessionRowsOrderedByNewest = true;
+                sessions = _data.Sessions.GetAll().OrderBy(s => s.Start);
+                btnTimeStampSort.Text = "\u02C5";
+            }
+
+            LoadSessionRows(sessions);   
         }
     }
 }

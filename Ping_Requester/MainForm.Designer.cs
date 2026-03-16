@@ -935,6 +935,7 @@
             btnTimeStampSort.TabIndex = 4;
             btnTimeStampSort.Text = "˅";
             btnTimeStampSort.UseVisualStyleBackColor = true;
+            btnTimeStampSort.Click += btnTimeStampSort_Click;
             // 
             // tbpOutput
             // 
