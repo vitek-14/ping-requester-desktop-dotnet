@@ -37,5 +37,22 @@ namespace PingRequester.BusinessLayer
 
             this.Sessions.Add(session);
         }
+
+        public void PurgeDatabase()
+        {
+            var sessions = Sessions.GetAll();
+
+            foreach (var session in sessions)
+            {
+                Sessions.Delete(session);
+            }
+
+            var preferences = Preferences.GetAll();
+
+            foreach (var preference in preferences)
+            {
+                Preferences.Delete(preference);
+            }
+        }
     }
 }

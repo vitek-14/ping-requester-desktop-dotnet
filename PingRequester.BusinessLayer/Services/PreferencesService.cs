@@ -87,7 +87,7 @@ namespace PingRequester.BusinessLayer.Services
             {
                 using (var context = _contextFactory())
                 {
-                    context.Preferences.Update(entity);
+                    context.Preferences.Remove(entity);
                     context.SaveChanges();
                 }
             }

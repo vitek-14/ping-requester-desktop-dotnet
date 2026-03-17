@@ -286,7 +286,7 @@ namespace PingRequester.Client
             {
                 var actualSessions = _data.Sessions.GetAll().OrderBy(s => s.Start);
 
-                LoadSessionRows(actualSessions);
+                RefreshSessionRowsUI();
             }
 
             /* A workaround for the Console (richtextbox) artefact - bug.
@@ -433,7 +433,7 @@ namespace PingRequester.Client
 
                 var sessionRow = new SessionRow(session, defaultBgColor);
 
-                sessionRow.SessionDeleted += (s, args) => { RefreshUIAfterDelete(); };
+                sessionRow.SessionDeleted += (s, args) => { RefreshSessionRowsUI(); };
                 sessionRow.UsePreferences += (s, args) => { ReloadPreferences(s); };
 
                 flpSessions.Controls.Add(sessionRow);
@@ -444,7 +444,7 @@ namespace PingRequester.Client
             flpSessions.Controls.Add(new Panel { Name = "pnlSpacer", Height = 15, BackColor = Color.Transparent });
         }
 
-        private void RefreshUIAfterDelete()
+        private void RefreshSessionRowsUI()
         {
             ResetSessionRows();
             var sessions = _data.Sessions.GetAll();
@@ -496,7 +496,20 @@ namespace PingRequester.Client
 
         private void btnDeleteAll_Click(object sender, EventArgs e)
         {
-            ;
+            var result = MessageBox.Show("This action is irreversible!\n" +
+                "Are you sure you want to delete all records?",
+                "Warning",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning
+            );
+
+            // purge database
+            if (result == DialogResult.Yes)
+            {
+                _data.PurgeDatabase();
+
+                RefreshSessionRowsUI();
+            }
         }
     }
 }
