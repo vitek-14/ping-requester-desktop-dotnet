@@ -184,7 +184,7 @@ namespace PingRequester.BusinessLayer.Services
         private void SaveDataFromPingOutput(string text, RequestRun requestRun)
         {
             /*
-            Ring command raw output:
+            Ping command raw output:
             
             Reply from 46.8.8.200: bytes=32 time=32ms TTL=49
             Ping statistics for 46.8.8.200:

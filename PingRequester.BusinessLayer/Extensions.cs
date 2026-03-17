@@ -70,6 +70,10 @@ namespace PingRequester.BusinessLayer
             return true;
         }
 
+        /// <summary>
+        /// Converts a UserPreferences instance to a Preferences object.
+        /// </summary>
+        /// <param name="userPreferences"></param>
         public static Preferences MapToPreferences(this UserPreferences userPreferences)
         {
             var p = new Preferences();

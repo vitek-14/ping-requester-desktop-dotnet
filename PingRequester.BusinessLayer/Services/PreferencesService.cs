@@ -3,10 +3,17 @@ using PingRequester.Data.Entities;
 
 namespace PingRequester.BusinessLayer.Services
 {
+    /// <summary>
+    /// Provides a business logic layer for managing user preferences, including CRUD operations and session filtering.
+    /// </summary>
     public class PreferencesService : IEntityService<UserPreferences>
     {
         private readonly Func<MyDbContext> _contextFactory;
 
+        /// <summary>
+        /// Default constructor for the class.
+        /// </summary>
+        /// <param name="contextFactory"></param>
         public PreferencesService(Func<MyDbContext> contextFactory)
         {
             _contextFactory = contextFactory;
@@ -100,6 +107,10 @@ namespace PingRequester.BusinessLayer.Services
             return true;
         }
 
+        /// <summary>
+        /// Retrieves all sessions which used this preference.
+        /// </summary>
+        /// <param name="userPreference"></param>
         public IEnumerable<RequestRunSession> GetAllSessions(UserPreferences userPreference)
         {
             using (var context = _contextFactory())
@@ -108,6 +119,11 @@ namespace PingRequester.BusinessLayer.Services
             }
         }
 
+        /// <summary>
+        /// Searches for a user preference in the database that matches the specified preferences.
+        /// </summary>
+        /// <param name="preferences">The user preferences to match against existing records.</param>
+        /// <returns>The matching UserPreferences object if found; otherwise, null.</returns>
         public UserPreferences? FindMatching(UserPreferences preferences)
         {
             using (var context = _contextFactory())

@@ -4,11 +4,17 @@ using PingRequester.Data.Entities;
 
 namespace PingRequester.BusinessLayer
 {
+    /// <summary>
+    /// Entry point (facade) for database operations.
+    /// </summary>
     public class PingRequestData
     {
         private SessionService session;
         private PreferencesService preferences;
 
+        /// <summary>
+        /// Default cosntructor of the class.
+        /// </summary>
         public PingRequestData()
         {
             session = new SessionService(CreateContext);
@@ -20,6 +26,11 @@ namespace PingRequester.BusinessLayer
 
         private MyDbContext CreateContext() => new MyDbContext();
 
+        /// <summary>
+        /// Adds ping request run to the databse including user preference.
+        /// </summary>
+        /// <param name="preferences"></param>
+        /// <param name="session"></param>
         public void AddPingRequestRun(UserPreferences preferences, RequestRunSession session)
         {
             var matchingPreference = this.Preferences.FindMatching(preferences);
@@ -38,6 +49,9 @@ namespace PingRequester.BusinessLayer
             this.Sessions.Add(session);
         }
 
+        /// <summary>
+        /// Deletes all records from the database.
+        /// </summary>
         public void PurgeDatabase()
         {
             var sessions = Sessions.GetAll();

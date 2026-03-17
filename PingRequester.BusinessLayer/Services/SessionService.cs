@@ -3,10 +3,17 @@ using PingRequester.Data.Entities;
 
 namespace PingRequester.BusinessLayer.Services
 {
+    /// <summary>
+    /// Provides a business logic layer for managing sessions, including CRUD operations.
+    /// </summary>
     public class SessionService : IEntityService<RequestRunSession>
     {
         private readonly Func<MyDbContext> _contextFactory;
 
+        /// <summary>
+        /// Default constructor of the class.
+        /// </summary>
+        /// <param name="contextFactory"></param>
         public SessionService(Func<MyDbContext> contextFactory)
         {
             _contextFactory = contextFactory;
@@ -100,6 +107,10 @@ namespace PingRequester.BusinessLayer.Services
             return true;
         }
 
+        /// <summary>
+        /// Retrieves user preference used by the session.
+        /// </summary>
+        /// <param name="session"></param>
         public UserPreferences GetPreferences(RequestRunSession session)
         {
             using (var context = _contextFactory())

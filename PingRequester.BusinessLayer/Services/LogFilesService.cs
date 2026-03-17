@@ -82,11 +82,19 @@ namespace PingRequester.BusinessLayer.Services
             return file;
         }
 
+        /// <summary>
+        /// Checks if passed logFile has Today's date.
+        /// </summary>
+        /// <param name="logFile"></param>
         private static bool HasTodaysDate(LogFile logFile)
         {
             return Equals(DateTime.Today.Date, logFile.TimeStamp.Date);
         }
 
+        /// <summary>
+        /// Retrieves the log file corresponding to today's date from the collection.
+        /// </summary>
+        /// <returns>The log file for today if found; otherwise, null.</returns>
         private LogFile GetTodaysLogFile()
         {
             LogFile todaysLogFile = null;
