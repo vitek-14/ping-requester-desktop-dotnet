@@ -59,8 +59,8 @@ namespace PingRequester.Client
             tlpSession.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             tlpSession.Size = new Size(590, 46);
             tlpSession.TabIndex = 0;
-            tlpSession.MouseEnter += tlpSession_MouseEnter;
-            tlpSession.MouseLeave += tlpSession_MouseLeave;
+            tlpSession.MouseEnter += OnMouseEnter;
+            tlpSession.MouseLeave += OnMouseLeave;
             // 
             // lblTarget
             // 
@@ -74,8 +74,8 @@ namespace PingRequester.Client
             lblTarget.TabIndex = 0;
             lblTarget.Text = "www.seznam.cz";
             lblTarget.TextAlign = ContentAlignment.MiddleLeft;
-            lblTarget.MouseEnter += lblTarget_MouseEnter;
-            lblTarget.MouseLeave += lblTarget_MouseLeave;
+            lblTarget.MouseEnter += OnMouseEnter;
+            lblTarget.MouseLeave += OnMouseLeave;
             // 
             // lblSRL
             // 
@@ -88,8 +88,8 @@ namespace PingRequester.Client
             lblSRL.TabIndex = 1;
             lblSRL.Text = "200/200/0";
             lblSRL.TextAlign = ContentAlignment.MiddleCenter;
-            lblSRL.MouseEnter += lblSRL_MouseEnter;
-            lblSRL.MouseLeave += lblSRL_MouseLeave;
+            lblSRL.MouseEnter += OnMouseEnter;
+            lblSRL.MouseLeave += OnMouseLeave;
             // 
             // lblTimeStamp
             // 
@@ -102,8 +102,8 @@ namespace PingRequester.Client
             lblTimeStamp.TabIndex = 2;
             lblTimeStamp.Text = "14:21 11. 02. 2025";
             lblTimeStamp.TextAlign = ContentAlignment.MiddleLeft;
-            lblTimeStamp.MouseEnter += lblTimeStamp_MouseEnter;
-            lblTimeStamp.MouseLeave += lblTimeStamp_MouseLeave;
+            lblTimeStamp.MouseEnter += OnMouseEnter;
+            lblTimeStamp.MouseLeave += OnMouseLeave;
             // 
             // btnDetails
             // 
@@ -121,8 +121,8 @@ namespace PingRequester.Client
             btnDetails.Text = "Show details";
             btnDetails.UseVisualStyleBackColor = false;
             btnDetails.Click += btnDetails_Click;
-            btnDetails.MouseEnter += btnDetails_MouseEnter;
-            btnDetails.MouseLeave += btnDetails_MouseLeave;
+            btnDetails.MouseEnter += OnMouseEnter;
+            btnDetails.MouseLeave += OnMouseLeave;
             // 
             // lblTarget
             // 
@@ -136,8 +136,8 @@ namespace PingRequester.Client
             lblTarget.TabIndex = 0;
             lblTarget.Text = "www.seznam.cz";
             lblTarget.TextAlign = ContentAlignment.MiddleLeft;
-            lblTarget.MouseEnter += lblTarget_MouseEnter;
-            lblTarget.MouseLeave += lblTarget_MouseLeave;
+            lblTarget.MouseEnter += OnMouseEnter;
+            lblTarget.MouseLeave += OnMouseLeave;
             // 
             // SessionRow
             // 
@@ -149,16 +149,6 @@ namespace PingRequester.Client
             tlpSession.ResumeLayout(false);
             tlpSession.PerformLayout();
             ResumeLayout(false);
-        }
-
-        private void LblTarget_MouseLeave(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
-        private void LblTarget_MouseEnter(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
         }
 
         #endregion

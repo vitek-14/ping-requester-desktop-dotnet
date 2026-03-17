@@ -77,64 +77,14 @@ namespace PingRequester.Client
             }
         }
 
-        private void OnMouseEnter()
+        private void OnMouseEnter(object sender, EventArgs e)
         {
             tlpSession.BackColor = Color.LightBlue;
         }
 
-        private void OnMouseLeave()
+        private void OnMouseLeave(object sender, EventArgs e)
         {
             tlpSession.BackColor = backColor;
-        }
-
-        private void lblTarget_MouseEnter(object sender, EventArgs e)
-        {
-            OnMouseEnter();
-        }
-
-        private void lblTarget_MouseLeave(object sender, EventArgs e)
-        {
-            OnMouseLeave();
-        }
-
-        private void lblSRL_MouseEnter(object sender, EventArgs e)
-        {
-            OnMouseEnter();
-        }
-
-        private void lblSRL_MouseLeave(object sender, EventArgs e)
-        {
-            OnMouseLeave();
-        }
-
-        private void lblTimeStamp_MouseEnter(object sender, EventArgs e)
-        {
-            OnMouseEnter();
-        }
-
-        private void lblTimeStamp_MouseLeave(object sender, EventArgs e)
-        {
-            OnMouseLeave();
-        }
-
-        private void btnDetails_MouseEnter(object sender, EventArgs e)
-        {
-            OnMouseEnter();
-        }
-
-        private void btnDetails_MouseLeave(object sender, EventArgs e)
-        {
-            OnMouseLeave();
-        }
-
-        private void tlpSession_MouseEnter(object sender, EventArgs e)
-        {
-            OnMouseEnter();
-        }
-
-        private void tlpSession_MouseLeave(object sender, EventArgs e)
-        {
-            OnMouseLeave();
         }
     }
 }
