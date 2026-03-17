@@ -114,8 +114,10 @@ namespace PingRequester.BusinessLayer.Services
                     SaveDataFromPingOutput(stdout, requester.RequestRun);
                     requester.mainform.OverwriteRequestRunUI(requestRun);
 
-                    console.LogInfo($"Ping sent to {requestRun.Hostname} at {DateTime.Now}" +
-                        $"\nRemaining requests: {this.remainingRequests - 1}");
+                    string logMessage = $"Ping sent to {requestRun.Hostname} at {DateTime.Now}";
+                    if (!requester.InfiniteLoop)
+                        logMessage += $"\nRemaining requests: {this.remainingRequests - 1}";
+                    console.LogInfo(logMessage);
                     this.remainingRequests--;
                 }
             }
