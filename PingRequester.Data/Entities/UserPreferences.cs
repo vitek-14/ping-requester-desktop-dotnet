@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace PingRequester.Data.Entities
 {
+    /// <summary>
+    /// User preferences entity used in the EF's logic.
+    /// </summary>
     public class UserPreferences : Entity
     {
         public string PingTarget { get; set; }

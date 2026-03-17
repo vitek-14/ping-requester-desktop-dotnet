@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace PingRequester.Data.Entities
 {
+    /// <summary>
+    /// Request run session entity used in the EF's logic.
+    /// </summary>
     public class RequestRunSession : Entity
     {
         public DateTime Start { get; set; }
