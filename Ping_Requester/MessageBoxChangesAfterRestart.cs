@@ -10,6 +10,9 @@ using System.Windows.Forms;
 
 namespace PingRequester.Client
 {
+    /// <summary>
+    /// Informative window that displays after saving settings with changed console color theme.
+    /// </summary>
     public partial class MessageBoxChangesAfterRestart : Form
     {
         public MessageBoxChangesAfterRestart()

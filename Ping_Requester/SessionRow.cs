@@ -13,6 +13,9 @@ using System.Windows.Forms;
 
 namespace PingRequester.Client
 {
+    /// <summary>
+    /// User control used as a session's visual for the table in the MainForm.
+    /// </summary>
     public partial class SessionRow : UserControl
     {
         private RequestRunSession session;
@@ -23,6 +26,11 @@ namespace PingRequester.Client
         public event EventHandler SessionDeleted;
         public event EventHandler UsePreferences;
 
+        /// <summary>
+        /// Default constructor of the class.
+        /// </summary>
+        /// <param name="session"></param>
+        /// <param name="bgColor"></param>
         public SessionRow(RequestRunSession session, Color bgColor)
         {
             InitializeComponent();
@@ -42,16 +50,25 @@ namespace PingRequester.Client
 
         public int PreferencesId { get => preferencesId; }
 
+        /// <summary>
+        /// Parses target (both ip and domain).
+        /// </summary>
         private string TargetParser()
         {
             return $"{this.session.PingTarget} ({this.session.Ipv4})";
         }
 
+        /// <summary>
+        /// Parses number of: sent, recieved and lost packets into a string.
+        /// </summary>
         private string SrlParser()
         {
             return $"{this.session.Sent}/{this.session.Received}/{this.session.Lost}";
         }
 
+        /// <summary>
+        /// Parses DateTime into the string.
+        /// </summary>
         private string TimeStampParser()
         {
             return this.session.Start.ToString();
@@ -77,11 +94,21 @@ namespace PingRequester.Client
             }
         }
 
+        /// <summary>
+        /// Handles the mouse enter event by changing the background color.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OnMouseEnter(object sender, EventArgs e)
         {
             tlpSession.BackColor = Color.LightBlue;
         }
 
+        /// <summary>
+        /// Resets the background color of tlpSession when the mouse leaves the control.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OnMouseLeave(object sender, EventArgs e)
         {
             tlpSession.BackColor = backColor;

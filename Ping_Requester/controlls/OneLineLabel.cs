@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace PingRequester.Client.controlls
 {
+    /// <summary>
+    /// Represents a custom label in which text draws on one verticaly centered line.
+    /// </summary>
     public class OneLineLabel : Label
     {
         private ToolTip _toolTip = new ToolTip();

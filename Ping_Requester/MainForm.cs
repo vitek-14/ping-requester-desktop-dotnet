@@ -88,6 +88,9 @@ namespace PingRequester.Client
             lblAverageActive.Text = $"{Math.Round(requestRun.AverageTime, 2)} ms";
         }
 
+        /// <summary>
+        /// Sets initial text to labels.
+        /// </summary>
         private void SetInitialLabelText()
         {
             lblPingingActive.Text = "-";
@@ -293,10 +296,10 @@ namespace PingRequester.Client
                 RefreshSessionRowsUI();
             }
 
-            /* A workaround for the Console (richtextbox) artefact - bug.
+            /* A workaround for the Console (richtextbox) bug.
              * This code solves the bug when UI from Request Run tab is being displayed in the Console tab.
              * Code bellow scrolls to the top and down again in order to get rid of the wrong pixels.
-             * Artefact was appearing only when large number of ping requests was set.
+             * The bug was appearing only when large number of ping requests was set.
              */
 
             // Console tab
@@ -396,15 +399,22 @@ namespace PingRequester.Client
             _data.AddPingRequestRun(preferences, session);
         }
 
+        /// <summary>
+        /// Clears UI Control where session records are displayed and clears storedSessions variable.
+        /// </summary>
         private void ResetSessionRows()
         {
             flpSessions.Controls.Clear();
             this.storedSessions.Clear();
         }
 
+        /// <summary>
+        /// Loads stored sessions into the UI control for displaying sessions.
+        /// </summary>
+        /// <param name="sessions"></param>
         private void LoadSessionRows(IEnumerable<RequestRunSession> sessions)
         {
-            // in case no sessions were found
+            // in case no sessions were found display label
             if (sessions.Count() == 0)
             {
                 var label = new Label
@@ -437,6 +447,7 @@ namespace PingRequester.Client
 
                 var sessionRow = new SessionRow(session, defaultBgColor);
 
+                // add event handlers
                 sessionRow.SessionDeleted += (s, args) => { RefreshSessionRowsUI(); };
                 sessionRow.UsePreferences += (s, args) => { ReloadPreferences(s); };
 
@@ -448,6 +459,9 @@ namespace PingRequester.Client
             flpSessions.Controls.Add(new Panel { Name = "pnlSpacer", Height = 15, BackColor = Color.Transparent });
         }
 
+        /// <summary>
+        /// Refreshes sessions rows UI with current data
+        /// </summary>
         private void RefreshSessionRowsUI()
         {
             ResetSessionRows();
@@ -455,6 +469,10 @@ namespace PingRequester.Client
             LoadSessionRows(sessions);
         }
 
+        /// <summary>
+        /// Loads user preferences from session record to the UI.
+        /// </summary>
+        /// <param name="s"></param>
         private void ReloadPreferences(object s)
         {
             var session = (SessionRow)s;
@@ -465,6 +483,11 @@ namespace PingRequester.Client
             MainForm_Load(this, EventArgs.Empty);
         }
 
+        /// <summary>
+        /// Sorts sessions by their's time stamp.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnTimeStampSort_Click(object sender, EventArgs e)
         {
             var sessions = storedSessions.ToList();

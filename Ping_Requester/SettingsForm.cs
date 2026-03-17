@@ -5,10 +5,16 @@ using PingRequester.Data.DataObjects;
 
 namespace PingRequester.Client
 {
+    /// <summary>
+    /// Represents a Windows Form for configuring application settings.
+    /// </summary>
     public partial class SettingsForm : Form
     {
         private JsonService<Settings> jsonService;
 
+        /// <summary>
+        /// Default constructor of the class.
+        /// </summary>
         public SettingsForm()
         {
             InitializeComponent();

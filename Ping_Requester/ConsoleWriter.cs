@@ -104,7 +104,10 @@ namespace PingRequester.Client
             Log(message, logInfoLabel);
         }
 
-        
+        /// <summary>
+        /// Sets the color theme for the console and info text based on the specified theme name.
+        /// </summary>
+        /// <param name="colorTheme">Supported values: 'Dark' and 'Light'</param>
         public void SetColorTheme(string colorTheme)
         {
             if (colorTheme == "Light")

@@ -1,5 +1,8 @@
 ﻿namespace PingRequester.Client
 {
+    /// <summary>
+    /// MessageBox warning about unsaved log in the console.
+    /// </summary>
     public partial class MessageBoxSaveLog : Form
     {
         FormClosingEventArgs closingEvent;

@@ -11,11 +11,19 @@ using System.Windows.Forms;
 
 namespace PingRequester.Client
 {
+    /// <summary>
+    /// Displays session's all available data including user preferences used in the session.
+    /// </summary>
     public partial class SessionDetails : Form
     {
         private RequestRunSession session;
         private UserPreferences preferences;
 
+        /// <summary>
+        /// Default constructor of the class.
+        /// </summary>
+        /// <param name="session"></param>
+        /// <param name="preferences"></param>
         public SessionDetails(RequestRunSession session, UserPreferences preferences)
         {
             InitializeComponent();
@@ -26,6 +34,9 @@ namespace PingRequester.Client
             ParseData();
         }
 
+        /// <summary>
+        /// Parses data from the session and user preferences to the UI.
+        /// </summary>
         private void ParseData()
         {
             // session
