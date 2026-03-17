@@ -32,6 +32,7 @@ namespace PingRequester.Client
         {
             InitializeComponent();
             this.controlsLocked = false;
+            btnSaveSession.Enabled = false;
 
             // create queue of main controls
             this.mainControls = new Stack<Control>();
@@ -50,6 +51,7 @@ namespace PingRequester.Client
             this.mainControls.Push(nudPacketSize);
             this.mainControls.Push(btnSendRequest);
             this.mainControls.Push(chbStopWhenSuccess);
+            this.mainControls.Push(btnSaveSession);
 
             // Initialize DbService
             this._data = new PingRequestData();
@@ -286,6 +288,8 @@ namespace PingRequester.Client
             {
                 var actualSessions = _data.Sessions.GetAll().OrderBy(s => s.Start);
 
+                btnDeleteAll.Enabled = actualSessions.Count() != 0;
+
                 RefreshSessionRowsUI();
             }
 
@@ -507,6 +511,8 @@ namespace PingRequester.Client
             if (result == DialogResult.Yes)
             {
                 _data.PurgeDatabase();
+                
+                btnDeleteAll.Enabled = false;
 
                 RefreshSessionRowsUI();
             }
