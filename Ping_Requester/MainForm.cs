@@ -397,6 +397,8 @@ namespace PingRequester.Client
             };
 
             _data.AddPingRequestRun(preferences, session);
+
+            this.console.LogInfo("Session saved.", true);
         }
 
         /// <summary>
@@ -539,6 +541,8 @@ namespace PingRequester.Client
 
                 RefreshSessionRowsUI();
             }
+
+            this.console.LogInfo("All records from the database were deleted.", true);
         }
     }
 }
