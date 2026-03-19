@@ -16,6 +16,7 @@ namespace PingRequester.Data.DataObjects
         private int packetSize;
         private bool infiniteLoop;
         private bool stopWhenSuccess;
+        private bool autoSave;
 
         /// <summary>
         /// Default contructor of Preferences class.
@@ -78,6 +79,13 @@ namespace PingRequester.Data.DataObjects
         {
             get => stopWhenSuccess;
             set => SetProperty(ref stopWhenSuccess, value);
+        }
+
+        [JsonPropertyName("auto_save")]
+        public bool AutoSave
+        {
+            get => autoSave;
+            set => SetProperty(ref autoSave, value);
         }
     }
 }

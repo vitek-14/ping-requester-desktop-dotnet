@@ -52,6 +52,7 @@ namespace PingRequester.Client
             this.mainControls.Push(btnSendRequest);
             this.mainControls.Push(chbStopWhenSuccess);
             this.mainControls.Push(btnSaveSession);
+            this.mainControls.Push(chbAutoSave);
 
             // Initialize DbService
             this._data = new PingRequestData();
@@ -128,6 +129,7 @@ namespace PingRequester.Client
             nudNumberOfPR.Value = (decimal)preferences.NumberOfPR;
             nudAttempts.Value = (decimal)preferences.Attempts;
             nudPacketSize.Value = (decimal)preferences.PacketSize;
+            chbAutoSave.Checked = preferences.AutoSave;
 
             // check for infinite loop chb state and set controls state accordingly
             SetLockOnInfiniteLoopControls();
@@ -171,6 +173,8 @@ namespace PingRequester.Client
             {
                 foreach (var control in this.mainControls)
                     control.Enabled = true;
+
+                btnSaveSession.Enabled = !chbAutoSave.Checked;
             }
             else
             {
@@ -256,8 +260,9 @@ namespace PingRequester.Client
             await service.BeginRequestingAsync();
             requestRun.End = DateTime.Now;
 
-            // TODO: save data from requester & request run to the database
-            //btnSaveSession_Click(null, EventArgs.Empty);
+            // if session auto-save enabled
+            if (chbAutoSave.Checked)
+                btnSaveSession_Click(this, EventArgs.Empty);
 
             // requesting done
             console.LogMessage($"Pinging finished at: {DateTime.Now}");
@@ -536,13 +541,18 @@ namespace PingRequester.Client
             if (result == DialogResult.Yes)
             {
                 _data.PurgeDatabase();
-                
+
                 btnDeleteAll.Enabled = false;
 
                 RefreshSessionRowsUI();
             }
 
             this.console.LogInfo("All records from the database were deleted.", true);
+        }
+
+        private void chbAutoSave_CheckedChanged(object sender, EventArgs e)
+        {
+            btnSaveSession.Enabled = !chbAutoSave.Checked;
         }
     }
 }

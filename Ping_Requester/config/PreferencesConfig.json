@@ -6,5 +6,6 @@
   "attempts": 1,
   "packet size": 32,
   "infinite loop": false,
-  "stop when success": false
+  "stop when success": false,
+  "auto_save": false
 }

@@ -53,6 +53,7 @@ namespace PingRequester.Client
             nudNumberOfPR.Value = _mainForm.NumberOfPR;
             nudAttempts.Value = _mainForm.Attempts;
             nudPacketSize.Value = _mainForm.PacketSize;
+            chbAutoSave.Checked = _mainForm.AutoSave;
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -74,6 +75,7 @@ namespace PingRequester.Client
             preferences.PacketSize = (int)nudPacketSize.Value;
             preferences.InfiniteLoop = chbInfiniteLoop.Checked;
             preferences.StopWhenSuccess = chbStopWhenSuccess.Checked;
+            preferences.AutoSave = chbAutoSave.Checked;
 
             // serialize data from instance to a json file
             this.jsonService.WriteFileContent(preferences);

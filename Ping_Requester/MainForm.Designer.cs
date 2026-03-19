@@ -63,6 +63,7 @@
             pnlData = new Panel();
             tbc = new TabControl();
             tbpRequestRun = new TabPage();
+            chbAutoSave = new CheckBox();
             btnSaveSession = new Button();
             btnCopyIPAddress = new Button();
             btnCopyPinging = new Button();
@@ -471,6 +472,7 @@
             // 
             // tbpRequestRun
             // 
+            tbpRequestRun.Controls.Add(chbAutoSave);
             tbpRequestRun.Controls.Add(btnSaveSession);
             tbpRequestRun.Controls.Add(btnCopyIPAddress);
             tbpRequestRun.Controls.Add(btnCopyPinging);
@@ -489,6 +491,18 @@
             tbpRequestRun.TabIndex = 0;
             tbpRequestRun.Text = "Request Run";
             tbpRequestRun.UseVisualStyleBackColor = true;
+            // 
+            // chbAutoSave
+            // 
+            chbAutoSave.AutoSize = true;
+            chbAutoSave.ForeColor = SystemColors.ActiveCaptionText;
+            chbAutoSave.Location = new Point(347, 372);
+            chbAutoSave.Name = "chbAutoSave";
+            chbAutoSave.Size = new Size(96, 24);
+            chbAutoSave.TabIndex = 17;
+            chbAutoSave.Text = "Auto save";
+            chbAutoSave.UseVisualStyleBackColor = true;
+            chbAutoSave.CheckedChanged += chbAutoSave_CheckedChanged;
             // 
             // btnSaveSession
             // 
@@ -1126,6 +1140,7 @@
         private Panel pnl1;
         private Button btnDeleteAll;
         private Button btnSaveSession;
+        private CheckBox chbAutoSave;
 
         public string PingTarget { get => txbPingTarget.Text; }
         public string Mode { get => cmbMode.Text; }
@@ -1135,5 +1150,6 @@
         public int NumberOfPR { get => (int)nudNumberOfPR.Value; }
         public int Attempts { get => (int)nudAttempts.Value; }
         public int PacketSize { get => (int)nudPacketSize.Value; }
+        public bool AutoSave { get => chbAutoSave.Checked; }
     }
 }

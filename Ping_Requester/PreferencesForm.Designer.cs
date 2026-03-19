@@ -47,6 +47,7 @@
             lblPacketSize = new Label();
             lblLineSeparator = new Label();
             panel2 = new Panel();
+            chbAutoSave = new CheckBox();
             ((System.ComponentModel.ISupportInitialize)nudNumberOfPR).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nudAttempts).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nudRefreshRate).BeginInit();
@@ -195,6 +196,7 @@
             // 
             // panel1
             // 
+            panel1.Controls.Add(chbAutoSave);
             panel1.Controls.Add(chbStopWhenSuccess);
             panel1.Controls.Add(nudPacketSize);
             panel1.Controls.Add(lblPacketSize);
@@ -213,7 +215,7 @@
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(358, 286);
+            panel1.Size = new Size(358, 315);
             panel1.TabIndex = 29;
             // 
             // chbStopWhenSuccess
@@ -254,7 +256,7 @@
             // 
             lblLineSeparator.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lblLineSeparator.BorderStyle = BorderStyle.Fixed3D;
-            lblLineSeparator.Location = new Point(11, 278);
+            lblLineSeparator.Location = new Point(11, 307);
             lblLineSeparator.Name = "lblLineSeparator";
             lblLineSeparator.Size = new Size(336, 3);
             lblLineSeparator.TabIndex = 29;
@@ -264,16 +266,28 @@
             panel2.Controls.Add(btnSave);
             panel2.Controls.Add(btnCancel);
             panel2.Dock = DockStyle.Fill;
-            panel2.Location = new Point(0, 286);
+            panel2.Location = new Point(0, 315);
             panel2.Name = "panel2";
-            panel2.Size = new Size(358, 51);
+            panel2.Size = new Size(358, 54);
             panel2.TabIndex = 30;
+            // 
+            // chbAutoSave
+            // 
+            chbAutoSave.AutoSize = true;
+            chbAutoSave.Font = new Font("Calibri", 10.2F);
+            chbAutoSave.ForeColor = SystemColors.ActiveCaptionText;
+            chbAutoSave.Location = new Point(18, 270);
+            chbAutoSave.Name = "chbAutoSave";
+            chbAutoSave.Size = new Size(156, 25);
+            chbAutoSave.TabIndex = 33;
+            chbAutoSave.Text = "Session auto-save";
+            chbAutoSave.UseVisualStyleBackColor = true;
             // 
             // PreferencesForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(358, 337);
+            ClientSize = new Size(358, 369);
             Controls.Add(panel2);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.FixedSingle;
@@ -313,5 +327,6 @@
         private NumericUpDown nudPacketSize;
         private Label lblPacketSize;
         private CheckBox chbStopWhenSuccess;
+        private CheckBox chbAutoSave;
     }
 }
