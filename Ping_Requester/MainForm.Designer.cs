@@ -501,6 +501,7 @@
             chbAutoSave.Size = new Size(96, 24);
             chbAutoSave.TabIndex = 17;
             chbAutoSave.Text = "Auto save";
+            ttpMainForm.SetToolTip(chbAutoSave, "Automatically save session after request run");
             chbAutoSave.UseVisualStyleBackColor = true;
             chbAutoSave.CheckedChanged += chbAutoSave_CheckedChanged;
             // 
@@ -917,6 +918,7 @@
             lblSRL.TabIndex = 1;
             lblSRL.Text = "S/R/L";
             lblSRL.TextAlign = ContentAlignment.BottomCenter;
+            ttpMainForm.SetToolTip(lblSRL, "Sent/Returned/Lost");
             // 
             // lblTimeStamp
             // 
@@ -950,6 +952,7 @@
             btnTimeStampSort.Size = new Size(29, 25);
             btnTimeStampSort.TabIndex = 4;
             btnTimeStampSort.Text = "˅";
+            ttpMainForm.SetToolTip(btnTimeStampSort, "Sort by Time Stamp");
             btnTimeStampSort.UseVisualStyleBackColor = true;
             btnTimeStampSort.Click += btnTimeStampSort_Click;
             // 
