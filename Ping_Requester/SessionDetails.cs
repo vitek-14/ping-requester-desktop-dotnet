@@ -44,11 +44,11 @@ namespace PingRequester.Client
             lblIpv4Active.Text = session.Ipv4;
             lblStartActive.Text = session.Start.ToString();
             lblEndActive.Text = session.End.ToString();
-            lblPacketSizeActive.Text = session.PacketSize.ToString();
+            lblPacketSizeActive.Text = $"{session.PacketSize} bytes";
             lblSRLActive.Text = $"{session.Sent}/{session.Received}/{session.Lost}";
-            lblMaxRespTimeActive.Text = session.MaxResponseTimeMs.ToString();
-            lblMinRespTimeActive.Text = session.MinResponseTimeMs.ToString();
-            lblAverageRespTimeActive.Text = session.AverageResponseTimeMs.ToString();
+            lblMaxRespTimeActive.Text = $"{session.MaxResponseTimeMs} ms";
+            lblMinRespTimeActive.Text = $"{session.MinResponseTimeMs} ms";
+            lblAverageRespTimeActive.Text = $"{MathF.Round(session.AverageResponseTimeMs, 3)} ms";
 
             // preferences
             lblPingTargetActive.Text = preferences.PingTarget;
