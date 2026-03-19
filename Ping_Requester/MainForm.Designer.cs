@@ -99,7 +99,7 @@
             lblTarget = new Label();
             lblSRL = new Label();
             lblTimeStamp = new Label();
-            lblPreferencesButton = new Label();
+            lblSessionDetails = new Label();
             btnTimeStampSort = new Button();
             tbpOutput = new TabPage();
             btnSaveLog = new Button();
@@ -887,7 +887,7 @@
             tlpTableLabels.Controls.Add(lblTarget, 0, 0);
             tlpTableLabels.Controls.Add(lblSRL, 1, 0);
             tlpTableLabels.Controls.Add(lblTimeStamp, 2, 0);
-            tlpTableLabels.Controls.Add(lblPreferencesButton, 4, 0);
+            tlpTableLabels.Controls.Add(lblSessionDetails, 4, 0);
             tlpTableLabels.Controls.Add(btnTimeStampSort, 3, 0);
             tlpTableLabels.Location = new Point(3, 42);
             tlpTableLabels.Name = "tlpTableLabels";
@@ -929,16 +929,16 @@
             lblTimeStamp.Text = "Time Stamp";
             lblTimeStamp.TextAlign = ContentAlignment.BottomLeft;
             // 
-            // lblPreferencesButton
+            // lblSessionDetails
             // 
-            lblPreferencesButton.AutoSize = true;
-            lblPreferencesButton.Dock = DockStyle.Fill;
-            lblPreferencesButton.Location = new Point(470, 0);
-            lblPreferencesButton.Name = "lblPreferencesButton";
-            lblPreferencesButton.Size = new Size(117, 31);
-            lblPreferencesButton.TabIndex = 3;
-            lblPreferencesButton.Text = "Preferences";
-            lblPreferencesButton.TextAlign = ContentAlignment.BottomCenter;
+            lblSessionDetails.AutoSize = true;
+            lblSessionDetails.Dock = DockStyle.Fill;
+            lblSessionDetails.Location = new Point(470, 0);
+            lblSessionDetails.Name = "lblSessionDetails";
+            lblSessionDetails.Size = new Size(117, 31);
+            lblSessionDetails.TabIndex = 3;
+            lblSessionDetails.Text = "Details";
+            lblSessionDetails.TextAlign = ContentAlignment.BottomCenter;
             // 
             // btnTimeStampSort
             // 
@@ -1132,7 +1132,7 @@
         private Label lblTarget;
         private Label lblSRL;
         private Label lblTimeStamp;
-        private Label lblPreferencesButton;
+        private Label lblSessionDetails;
         private Label lblTargetEntry;
         private TextBox txbTarget;
         private Button btnFilter;

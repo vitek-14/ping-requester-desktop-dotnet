@@ -99,7 +99,7 @@ namespace PingRequester.Client
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void OnMouseEnter(object sender, EventArgs e)
+        private void MouseEnter(object sender, EventArgs e)
         {
             tlpSession.BackColor = Color.LightBlue;
         }
@@ -109,9 +109,25 @@ namespace PingRequester.Client
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void OnMouseLeave(object sender, EventArgs e)
+        private void MouseLeave(object sender, EventArgs e)
         {
             tlpSession.BackColor = backColor;
+        }
+
+        private void btnDetails_MouseEnter(object sender, EventArgs e)
+        {
+            MouseEnter(null, EventArgs.Empty);
+
+            btnDetails.Font = new Font(btnDetails.Font, FontStyle.Underline);
+            btnDetails.ForeColor = Color.DarkSlateBlue;
+        }
+
+        private void btnDetails_MouseLeave(object sender, EventArgs e)
+        {
+            MouseLeave(null, EventArgs.Empty);
+
+            btnDetails.Font = new Font(btnDetails.Font, FontStyle.Regular);
+            btnDetails.ForeColor = Color.DodgerBlue;
         }
     }
 }
