@@ -569,7 +569,7 @@
             lblSRL.Name = "lblSRL";
             lblSRL.Size = new Size(172, 31);
             lblSRL.TabIndex = 6;
-            lblSRL.Text = "Send/Reiceved/Lost:";
+            lblSRL.Text = "Sent/Reiceved/Lost:";
             lblSRL.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // lblPacketSize

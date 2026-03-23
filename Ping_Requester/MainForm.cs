@@ -545,9 +545,10 @@ namespace PingRequester.Client
                 btnDeleteAll.Enabled = false;
 
                 RefreshSessionRowsUI();
+                
+                this.console.LogInfo("All records from the database were deleted.", true);
             }
 
-            this.console.LogInfo("All records from the database were deleted.", true);
         }
 
         private void chbAutoSave_CheckedChanged(object sender, EventArgs e)
