@@ -1,10 +1,5 @@
 ﻿using PingRequester.Data.DataObjects;
 using PingRequester.Data.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PingRequester.Tests.business.DataFactory
 {
@@ -17,7 +12,7 @@ namespace PingRequester.Tests.business.DataFactory
 
         protected string PathPreferences { get; private set; }
         protected string PathSettings { get; private set; }
-        protected string PathSampleJsonData { get; private set; }
+        protected string PathSampleData { get; private set; }
         protected Preferences PreferenceSampleData { get; private set; }
         protected UserPreferences UserPreferenceSampleData { get; private set; }
 
@@ -32,7 +27,7 @@ namespace PingRequester.Tests.business.DataFactory
             pathUnitTests = AppDomain.CurrentDomain.BaseDirectory;
             PathPreferences = "config/PreferencesConfig.json";
             PathSettings = "config/SettingsConfig.json";
-            PathSampleJsonData = Path.Combine(
+            PathSampleData = Path.Combine(
                 pathUnitTests,
                 "business",
                 "DataFactory");
@@ -46,7 +41,7 @@ namespace PingRequester.Tests.business.DataFactory
 
         private void DeleteCreatedJsonFiles()
         {
-            var files = Directory.GetFiles(PathSampleJsonData);
+            var files = Directory.GetFiles(PathSampleData);
 
             foreach (var fileName in files)
             {

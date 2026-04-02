@@ -1,10 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using PingRequester.Data.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PingRequester.Data
 {
@@ -13,10 +8,17 @@ namespace PingRequester.Data
         public DbSet<RequestRunSession> Sessions { get; set; }
         public DbSet<UserPreferences> Preferences { get; set; }
 
+        public MyDbContext() { }
+
+        public MyDbContext(DbContextOptions<MyDbContext> options) : base(options) { }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            string dbPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "ping_requester.db");
-            optionsBuilder.UseSqlite($"Data Source={dbPath}");
+            if (!optionsBuilder.IsConfigured)
+            {
+                string dbPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "ping_requester.db");
+                optionsBuilder.UseSqlite($"Data Source={dbPath}");
+            }
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

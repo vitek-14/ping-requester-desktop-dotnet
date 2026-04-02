@@ -13,7 +13,16 @@ namespace PingRequester.BusinessLayer
         private PreferencesService preferences;
 
         /// <summary>
-        /// Default cosntructor of the class.
+        /// Specifies different context factory method.
+        /// </summary>
+        public PingRequestData(Func<MyDbContext> contextFactory)
+        {
+            session = new SessionService(contextFactory);
+            preferences = new PreferencesService(contextFactory);
+        }
+
+        /// <summary>
+        /// Default constructor of the class. Uses prod database.
         /// </summary>
         public PingRequestData()
         {

@@ -45,7 +45,7 @@ namespace PingRequester.Tests.business
         public void LoadFileContentTest()
         {
             // Arrange
-            string path = Path.Combine(PathSampleJsonData, "SampleJsonData.json");
+            string path = Path.Combine(PathSampleData, "SampleJsonData.json");
 
             var jsonService = new JsonService<Preferences>(path);
 
@@ -71,7 +71,7 @@ namespace PingRequester.Tests.business
         {
             // Arrange
             var preferences = PreferenceSampleData;
-            var filePath = Path.Combine(PathSampleJsonData, "WriteFileContentTest_Preferences.json");
+            var filePath = Path.Combine(PathSampleData, "WriteFileContentTest_Preferences.json");
 
             if (!Path.Exists(filePath))
             {
