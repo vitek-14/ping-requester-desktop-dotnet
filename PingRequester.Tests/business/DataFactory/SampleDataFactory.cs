@@ -18,7 +18,6 @@ namespace PingRequester.Tests.business.DataFactory
             var userPreferences = GetUserPreferences();
             var requestRunSessions = GetRequestRunSessions();
 
-            _context.AddRange(userPreferences);
             _context.AddRange(requestRunSessions);
 
             _context.SaveChanges();
