@@ -1,4 +1,5 @@
 ﻿using PingRequester.Data.DataObjects;
+using PingRequester.Data.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +19,7 @@ namespace PingRequester.Tests.business.DataFactory
         protected string PathSettings { get; private set; }
         protected string PathSampleJsonData { get; private set; }
         protected Preferences PreferenceSampleData { get; private set; }
+        protected UserPreferences UserPreferenceSampleData { get; private set; }
 
         public BusinessLayerTestBase()
         {
@@ -39,6 +41,7 @@ namespace PingRequester.Tests.business.DataFactory
         private void GenerateSampleData()
         {
             PreferenceSampleData = SampleDataFactory.GetPreferencesSampleData();
+            UserPreferenceSampleData = SampleDataFactory.GetUserPreferencesSampleData();
         }
 
         private void DeleteCreatedJsonFiles()

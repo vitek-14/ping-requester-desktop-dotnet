@@ -1,4 +1,5 @@
 ﻿using PingRequester.Data.DataObjects;
+using PingRequester.Data.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,6 +23,21 @@ namespace PingRequester.Tests.business.DataFactory
                 InfiniteLoop = false,
                 StopWhenSuccess = false,
                 AutoSave = true
+            };
+        }
+
+        internal static UserPreferences GetUserPreferencesSampleData()
+        {
+            return new UserPreferences
+            {
+                PingTarget = "8.8.8.8",
+                Mode = "Precise",
+                RefreshRate = 500,
+                InfiniteLoop = true,
+                StopWhenSuccess = false,
+                PingRequestCount = 10,
+                Attempts = 2,
+                PacketSize = 64
             };
         }
     }
