@@ -22,6 +22,8 @@ namespace PingRequester.Tests.business.DataFactory
             PreferencesService = new PreferencesService(GetContext);
             SessionService = new SessionService(GetContext);
             PingRequestFacade = new PingRequestData(GetContext);
+
+            PopulateDatabase();
         }
 
         private MyDbContext GetContext()
