@@ -36,6 +36,14 @@ namespace PingRequester.Tests.business.DataFactory
             return context;
         }
 
+        private void PopulateDatabase()
+        {
+            var context = GetContext();
+            var sampleFactory = new SampleDataFactory(context);
+            sampleFactory.TestDatabaseInit();
+            context.Dispose();
+        }
+
         public void Dispose()
         {
             SqliteConnection.ClearAllPools();
