@@ -4,15 +4,25 @@ using PingRequester.Data.Entities;
 
 namespace PingRequester.Tests.business.DataFactory
 {
+    /// <summary>
+    /// Provides methods for generating and initializing sample data for testing purposes.
+    /// </summary>
     internal class SampleDataFactory
     {
         private readonly MyDbContext _context;
 
+        /// <summary>
+        /// Default constructor of the class.
+        /// </summary>
+        /// <param name="context"></param>
         internal SampleDataFactory(MyDbContext context)
         {
             _context = context;
         }
 
+        /// <summary>
+        /// Initializes the test database with user preferences and request run sessions.
+        /// </summary>
         internal void TestDatabaseInit()
         {
             var userPreferences = GetUserPreferences();
@@ -107,6 +117,10 @@ namespace PingRequester.Tests.business.DataFactory
             };
         }
 
+        /// <summary>
+        /// Returns a sample Preferences object populated with values.
+        /// </summary>
+        /// <returns>A Preferences instance with preset sample data.</returns>
         internal static Preferences GetPreferencesSampleData()
         {
             return new Preferences
@@ -123,6 +137,10 @@ namespace PingRequester.Tests.business.DataFactory
             };
         }
 
+        /// <summary>
+        /// Returns a sample UserPreferences object populated with values.
+        /// </summary>
+        /// <returns>A UserPreferences instance populated with sample data.</returns>
         internal static UserPreferences GetUserPreferencesSampleData()
         {
             return new UserPreferences

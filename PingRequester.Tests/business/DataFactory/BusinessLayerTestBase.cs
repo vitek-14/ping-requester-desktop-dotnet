@@ -16,6 +16,9 @@ namespace PingRequester.Tests.business.DataFactory
         protected Preferences PreferenceSampleData { get; private set; }
         protected UserPreferences UserPreferenceSampleData { get; private set; }
 
+        /// <summary>
+        /// Default constructor of the class. Sets up path variables and generates sample data.
+        /// </summary>
         public BusinessLayerTestBase()
         {
             SetPaths();
@@ -39,12 +42,16 @@ namespace PingRequester.Tests.business.DataFactory
             UserPreferenceSampleData = SampleDataFactory.GetUserPreferencesSampleData();
         }
 
+        /// <summary>
+        /// Deletes all sample json files.
+        /// </summary>
         private void DeleteCreatedJsonFiles()
         {
             var files = Directory.GetFiles(PathSampleData);
 
             foreach (var fileName in files)
             {
+                // the only exception
                 if (Path.GetFileName(fileName) == "SampleJsonData.json")
                     continue;
 
