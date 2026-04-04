@@ -12,7 +12,7 @@ namespace PingRequester.Tests.business
         }
 
         [Fact]
-        public void CanInstantiateForPreferencesTest()
+        public void Constructor_PreferencesPath_ShouldInitializeSuccessfully()
         {
             // Act
             var jsonService = new JsonService<Preferences>(PathPreferences);
@@ -22,7 +22,7 @@ namespace PingRequester.Tests.business
         }
 
         [Fact]
-        public void CanInstantiateForSettingsTest()
+        public void Constructor_SettingsPath_ShouldInitializeSuccessfully()
         {
             // Act
             var jsonService = new JsonService<Preferences>(PathSettings);
@@ -32,7 +32,7 @@ namespace PingRequester.Tests.business
         }
 
         [Fact]
-        public void TryInstantiateWithWrongPathTest()
+        public void Constructor_InvalidPath_ShouldThrowFileNotFoundException()
         {
             // Arrange
             string wrongPath = "worng/path/to/file.json";
@@ -42,7 +42,7 @@ namespace PingRequester.Tests.business
         }
 
         [Fact]
-        public void LoadFileContentTest()
+        public void LoadFileContent_ValidJsonFile_ReturnsCorrectMappedObject()
         {
             // Arrange
             string path = Path.Combine(PathSampleData, "SampleJsonData.json");
@@ -67,7 +67,7 @@ namespace PingRequester.Tests.business
         }
 
         [Fact]
-        public void WriteFileContentTest()
+        public void WriteFileContent_ValidObject_SavesCorrectJsonMarkupToFile()
         {
             // Arrange
             var preferences = PreferenceSampleData;
