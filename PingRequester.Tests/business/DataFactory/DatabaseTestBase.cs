@@ -10,6 +10,7 @@ namespace PingRequester.Tests.business.DataFactory
     {
         protected readonly string databasePath;
         protected readonly Func<MyDbContext> ContextFactory;
+        protected readonly MyDbContext context;
 
         protected PreferencesService PreferencesService { get; private set; }
         protected SessionService SessionService { get; private set; }
@@ -18,6 +19,8 @@ namespace PingRequester.Tests.business.DataFactory
         public DatabaseTestBase() : base()
         {
             databasePath = Path.Combine(PathSampleData, $"TestDb_{Guid.NewGuid():N}.sqlite");
+
+            this.context = GetContext();
 
             PreferencesService = new PreferencesService(GetContext);
             SessionService = new SessionService(GetContext);
@@ -40,14 +43,14 @@ namespace PingRequester.Tests.business.DataFactory
 
         private void PopulateDatabase()
         {
-            var context = GetContext();
-            var sampleFactory = new SampleDataFactory(context);
+            var sampleFactory = new SampleDataFactory(this.context);
             sampleFactory.TestDatabaseInit();
-            context.Dispose();
         }
 
         public void Dispose()
         {
+            this.context.Dispose();
+
             SqliteConnection.ClearAllPools();
 
             if (File.Exists(databasePath))
