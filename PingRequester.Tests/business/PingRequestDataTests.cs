@@ -48,7 +48,6 @@ namespace PingRequester.Tests.business
             int prefCountBefore = context.Preferences.Count();
             int sessionCountBefore = context.Sessions.Count();
 
-            // Vytvoříme kopii existující preference (shodné vlastnosti)
             var duplicatePref = new UserPreferences
             {
                 PingTarget = existingPref.PingTarget,
@@ -72,22 +71,14 @@ namespace PingRequester.Tests.business
             PingRequestFacade.AddPingRequestRun(duplicatePref, newSession);
 
             // Assert
-            // Počet preferencí se nesmí zvýšit!
             Assert.Equal(prefCountBefore, context.Preferences.Count());
-            // Počet session se zvýší
             Assert.Equal(sessionCountBefore + 1, context.Sessions.Count());
-            // Session musí být nalinkovaná na tu původní ID
             Assert.Equal(existingPref.Id, newSession.UserPreferencesId);
         }
 
         [Fact]
         public void PurgeDatabase_WhenCalled_RemovesAllRecords()
         {
-            // Arrange
-            // Ujistíme se, že v DB něco je (díky PopulateDatabase už víme, že ano)
-            Assert.True(context.Preferences.Any());
-            Assert.True(context.Sessions.Any());
-
             // Act
             PingRequestFacade.PurgeDatabase();
 
