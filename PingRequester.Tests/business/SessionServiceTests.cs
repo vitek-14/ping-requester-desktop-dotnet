@@ -4,7 +4,7 @@ using Xunit;
 
 namespace PingRequester.Tests.business
 {
-    public class SessionServiceTests : DatabaseTestBase
+    public class SessionServiceTests : DatabaseTestBase, IClassFixture<DatabaseTestBase>
     {
         public SessionServiceTests() : base()
         {
