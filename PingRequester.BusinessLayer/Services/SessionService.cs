@@ -1,4 +1,5 @@
-﻿using PingRequester.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using PingRequester.Data;
 using PingRequester.Data.Entities;
 
 namespace PingRequester.BusinessLayer.Services
@@ -115,7 +116,11 @@ namespace PingRequester.BusinessLayer.Services
         {
             using (var context = _contextFactory())
             {
-                return context.Sessions.FirstOrDefault(s => s.Id == session.Id).UserPreferences;
+                var sessionWithPrefs = context.Sessions
+                    .Include(s => s.UserPreferences)
+                    .FirstOrDefault(s => s.Id == session.Id);
+
+                return sessionWithPrefs?.UserPreferences;
             }
         }
     }
