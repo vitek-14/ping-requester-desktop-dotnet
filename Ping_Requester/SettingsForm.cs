@@ -18,7 +18,7 @@ namespace PingRequester.Client
         public SettingsForm()
         {
             InitializeComponent();
-            this.jsonService = new JsonService<Settings>("config/SettingsConfig.json");
+            this.jsonService = new JsonService<Settings>(PathProvider.GetWritablePath("config/SettingsConfig.json"));
         }
 
         private void Settings_Load(object sender, EventArgs e)

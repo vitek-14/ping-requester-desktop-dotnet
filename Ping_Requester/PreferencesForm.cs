@@ -1,4 +1,5 @@
-﻿using PingRequester.BusinessLayer.Services;
+﻿using PingRequester.BusinessLayer;
+using PingRequester.BusinessLayer.Services;
 using PingRequester.Data.DataObjects;
 using System;
 using System.Collections.Generic;
@@ -30,7 +31,7 @@ namespace PingRequester.Client
             InitializeComponent();
 
             _mainForm = mainForm;
-            this.jsonService = new JsonService<Preferences>("config/PreferencesConfig.json");
+            this.jsonService = new JsonService<Preferences>(PathProvider.GetWritablePath("config/PreferencesConfig.json"));
         }
 
         /// <summary>

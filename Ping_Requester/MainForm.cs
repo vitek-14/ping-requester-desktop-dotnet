@@ -61,10 +61,10 @@ namespace PingRequester.Client
             this.storedSessions = new List<RequestRunSession>();
 
             // load data from configs
-            this.jsonServicePreferences = new JsonService<Preferences>("config/PreferencesConfig.json");
+            this.jsonServicePreferences = new JsonService<Preferences>(PathProvider.GetWritablePath("config/PreferencesConfig.json"));
             this.preferences = jsonServicePreferences.LoadFileContent();
 
-            this.jsonServiceSettings = new JsonService<Settings>("config/SettingsConfig.json");
+            this.jsonServiceSettings = new JsonService<Settings>(PathProvider.GetWritablePath("config/SettingsConfig.json"));
             this.settings = jsonServiceSettings.LoadFileContent();
 
             // Create services for logging data
