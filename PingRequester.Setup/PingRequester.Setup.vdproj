@@ -15,6 +15,12 @@
     {
         "Entry"
         {
+        "MsmKey" = "8:_2152D3D466EB4A3DB3A226EEDF9E73E1"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_8848DE4AA49947D9ACCA09CDCE53337A"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -90,6 +96,26 @@
         }
         "File"
         {
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_2152D3D466EB4A3DB3A226EEDF9E73E1"
+            {
+            "SourcePath" = "8:..\\Ping_Requester\\bin\\Release\\net8.0-windows10.0.17763.0\\runtimes\\win-x64\\native\\e_sqlite3.dll"
+            "TargetName" = "8:e_sqlite3.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_C92434A61F134911BA2C0347C444F29A"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_E7D8D6C97EDB40CFB4D89B12FE01D5B8"
             {
             "SourcePath" = "8:..\\Ping_Requester\\Resources\\Ping-Requester (128).ico"
@@ -165,9 +191,9 @@
         "Product"
         {
         "Name" = "8:Microsoft Visual Studio"
-        "ProductName" = "8:PingRequester.Setup"
+        "ProductName" = "8:PingRequester"
         "ProductCode" = "8:{31FD6218-E03D-4445-BE67-539B91289BFE}"
-        "PackageCode" = "8:{085E9642-2240-41B6-AC82-7389FD82A572}"
+        "PackageCode" = "8:{63B38817-361A-4CBB-B822-151C3DC96C45}"
         "UpgradeCode" = "8:{C464FAD4-4D3C-4794-9701-098931F00AB4}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
@@ -178,7 +204,7 @@
         "Manufacturer" = "8:vitsil"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
-        "Title" = "8:PingRequester.Setup"
+        "Title" = "8:PingRequester"
         "Subject" = "8:"
         "ARPCONTACT" = "8:Vit Silhavy"
         "Keywords" = "8:"
