@@ -8,18 +8,7 @@ namespace PingRequester.Data
         public DbSet<RequestRunSession> Sessions { get; set; }
         public DbSet<UserPreferences> Preferences { get; set; }
 
-        public MyDbContext() { }
-
         public MyDbContext(DbContextOptions<MyDbContext> options) : base(options) { }
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            if (!optionsBuilder.IsConfigured)
-            {
-                string dbPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "ping_requester.db");
-                optionsBuilder.UseSqlite($"Data Source={dbPath}");
-            }
-        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

@@ -1,4 +1,5 @@
-﻿using PingRequester.BusinessLayer.Services;
+﻿using Microsoft.EntityFrameworkCore;
+using PingRequester.BusinessLayer.Services;
 using PingRequester.Data;
 using PingRequester.Data.Entities;
 
@@ -17,6 +18,11 @@ namespace PingRequester.BusinessLayer
         /// </summary>
         public PingRequestData(Func<MyDbContext> contextFactory)
         {
+            using (var context = contextFactory())
+            {
+                context.Database.EnsureCreated();
+            }
+
             session = new SessionService(contextFactory);
             preferences = new PreferencesService(contextFactory);
         }
@@ -26,6 +32,11 @@ namespace PingRequester.BusinessLayer
         /// </summary>
         public PingRequestData()
         {
+            using (var context = CreateContext())
+            {
+                context.Database.EnsureCreated();
+            }
+
             session = new SessionService(CreateContext);
             preferences = new PreferencesService(CreateContext);
         }
@@ -33,7 +44,14 @@ namespace PingRequester.BusinessLayer
         public SessionService Sessions { get => session; }
         public PreferencesService Preferences { get => preferences; }
 
-        private MyDbContext CreateContext() => new MyDbContext();
+        private MyDbContext CreateContext()
+        {
+            var optionsBuilder = new DbContextOptionsBuilder<MyDbContext>();
+            string dbPath = PathProvider.GetDatabasePath();
+            optionsBuilder.UseSqlite($"Data Source={dbPath}");
+
+            return new MyDbContext(optionsBuilder.Options);
+        }
 
         /// <summary>
         /// Adds ping request run to the databse including user preference.
