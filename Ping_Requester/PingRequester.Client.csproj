@@ -9,10 +9,38 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="config\PreferencesConfig.json" />
+    <None Remove="config\SettingsConfig.json" />
+    <None Remove="Resources\copy_to_clipboard.png" />
+    <None Remove="Resources\folder.png" />
+    <None Remove="Resources\Ping-Requester %28128%29.ico" />
+    <None Remove="Resources\Ping-Requester-3.png" />
+    <None Remove="Resources\Ping-Requester-Poster-6.png" />
     <None Remove="Resources\Ping-Requester.png" />
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="config\PreferencesConfig.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="config\SettingsConfig.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\copy_to_clipboard.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\folder.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Ping-Requester (128).ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Ping-Requester-3.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Ping-Requester-Poster-6.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Resources\Ping-Requester.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -44,12 +72,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="config\PreferencesConfig.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="config\SettingsConfig.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
     <None Update="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
