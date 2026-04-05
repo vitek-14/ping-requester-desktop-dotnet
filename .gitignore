@@ -6,3 +6,6 @@ obj/
 # ignore files
 *.user
 *.suo
+*.msi
+*.msm
+*.mst
