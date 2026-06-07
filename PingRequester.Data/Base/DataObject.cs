@@ -25,11 +25,8 @@ namespace PingRequester.Data.Base
         /// <param name="property"></param>
         /// <param name="value"></param>
         /// <returns>Bool describing success of the operation.</returns>
-        /// <exception cref="ArgumentNullException"></exception>
         protected bool SetProperty<T>(ref T property, T value)
         {
-            if (value == null)
-                throw new ArgumentNullException($"Error: {typeof(T).Name} cannot be null.");
             if (EqualityComparer<T>.Default.Equals(property, value))
                 return false;
 

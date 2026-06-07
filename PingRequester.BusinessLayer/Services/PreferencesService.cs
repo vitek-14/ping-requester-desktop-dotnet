@@ -128,7 +128,15 @@ namespace PingRequester.BusinessLayer.Services
         {
             using (var context = _contextFactory())
             {
-                return context.Preferences.AsEnumerable().FirstOrDefault(p => p.Equals(preferences));
+                return context.Preferences.FirstOrDefault(p =>
+                    p.StopWhenSuccess == preferences.StopWhenSuccess
+                    && p.InfiniteLoop == preferences.InfiniteLoop
+                    && p.PacketSize == preferences.PacketSize
+                    && p.Attempts == preferences.Attempts
+                    && p.Mode == preferences.Mode
+                    && p.PingRequestCount == preferences.PingRequestCount
+                    && p.PingTarget == preferences.PingTarget
+                    && p.RefreshRate == preferences.RefreshRate);
             }
         }
     }

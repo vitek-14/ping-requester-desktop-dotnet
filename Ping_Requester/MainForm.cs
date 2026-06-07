@@ -9,7 +9,7 @@ namespace PingRequester.Client
     /// <summary>
     /// Main Form class of the app.
     /// </summary>
-    public partial class MainForm : Form, IRequestRunWidgetService
+    public partial class MainForm : Form
     {
         private ConsoleWriter console;
         private Requester requester;
@@ -212,7 +212,7 @@ namespace PingRequester.Client
             // create requester
             console.LogInfo("Creating Requester.");
 
-            requester = new Requester(this)
+            requester = new Requester()
             {
                 RequestedAddress = txbPingTarget.Text.ToLower(),
                 Mode = cmbMode.Text,
@@ -225,6 +225,7 @@ namespace PingRequester.Client
                 StopSignal = false,
                 Settings = settings
             };
+            requester.RequestRunUpdated += OverwriteRequestRunUI;
 
             // log warning if infinite loop is turned on
             if (requester.InfiniteLoop)
@@ -236,7 +237,7 @@ namespace PingRequester.Client
             // create RequestRun instance
             console.LogMessage("Initializing Request Run.");
 
-            RequestRun requestRun = new RequestRun(this, requester.RequestedAddress, requester.PacketSize);
+            RequestRun requestRun = new RequestRun(requester.RequestedAddress, requester.PacketSize);
             requestRun.Init();
             requestRun.IPv4 = requester.RequestedAddress == "127.0.0.1" ? "127.0.0.1" : service.Hostname2Ipv4(requestRun.Hostname);
             requester.RequestRun = requestRun;

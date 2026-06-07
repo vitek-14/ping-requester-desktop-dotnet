@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Net;
+using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -33,10 +34,9 @@ namespace PingRequester.Data.DataObjects
         /// <summary>
         /// Default constructor of the RequestRun class.
         /// </summary>
-        /// <param name="mainform"></param>
         /// <param name="hostname"></param>
         /// <param name="packetSize"></param>
-        public RequestRun(IRequestRunWidgetService mainform, string hostname, int packetSize)
+        public RequestRun(string hostname, int packetSize)
         {
             Packets = new Queue<Packet>();
             Hostname = hostname;
@@ -70,8 +70,15 @@ namespace PingRequester.Data.DataObjects
             // this code is located here and not in a business logic layer because it has low-level complexity
             if (IPAddress.TryParse(Hostname, out IPAddress ip))
             {
-                var entry = Dns.GetHostEntry(ip);
-                Hostname = entry.HostName;
+                try
+                {
+                    var entry = Dns.GetHostEntry(ip);
+                    Hostname = entry.HostName;
+                }
+                catch (SocketException)
+                {
+                    // Keep the original IP address when reverse DNS lookup fails.
+                }
             }
         }
 

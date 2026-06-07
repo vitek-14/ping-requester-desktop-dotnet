@@ -112,7 +112,7 @@ namespace PingRequester.BusinessLayer.Services
 
                     // if success handle UI
                     SaveDataFromPingOutput(stdout, requester.RequestRun);
-                    requester.mainform.OverwriteRequestRunUI(requestRun);
+                    requester.OnRequestRunUpdated(requestRun);
 
                     string logMessage = $"Ping sent to {requestRun.Hostname} at {DateTime.Now}";
                     if (!requester.InfiniteLoop)

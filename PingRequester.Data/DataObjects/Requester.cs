@@ -7,6 +7,8 @@ namespace PingRequester.Data.DataObjects
     /// </summary>
     public class Requester : DataObject
     {
+        public event Action<RequestRun>? RequestRunUpdated;
+
         private string requestedAddress;
         private string mode;
         private int refreshRate;
@@ -17,15 +19,18 @@ namespace PingRequester.Data.DataObjects
         private Settings settings;
         private int packetSize;
         private bool stopSignal;
-        public IRequestRunWidgetService mainform;
         private RequestRun requestRun;
 
         /// <summary>
         /// Default constructor of Requester class.
         /// </summary>
-        public Requester(IRequestRunWidgetService mainform)
+        public Requester()
         {
-            this.mainform = mainform;
+        }
+
+        public void OnRequestRunUpdated(RequestRun requestRun)
+        {
+            RequestRunUpdated?.Invoke(requestRun);
         }
 
         public string RequestedAddress
